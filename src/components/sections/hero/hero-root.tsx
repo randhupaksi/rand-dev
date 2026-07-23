@@ -106,7 +106,7 @@ export function HeroRoot({ content }: HeroRootProps) {
       >
         <div className="order-2 flex max-w-[39rem] flex-col gap-4 sm:gap-5 lg:order-1 lg:gap-8">
           <div data-hero-reveal className="content-stack-sm lg:content-stack-md">
-            <div className="hidden w-fit items-center rounded-full border border-[rgb(211_196_255/0.16)] bg-white/4 px-4 py-2 text-xs font-semibold uppercase tracking-[0.18em] text-[var(--brand-soft)] lg:inline-flex">
+            <div className="ds-badge type-overline hidden lg:inline-flex">
               Creative Web Developer
             </div>
 
@@ -118,7 +118,7 @@ export function HeroRoot({ content }: HeroRootProps) {
               description={content.description}
               mobileVisual={<HeroVisual />}
               mobileBadge={
-                <div className="inline-flex w-fit items-center rounded-full border border-[rgb(211_196_255/0.16)] bg-white/4 px-4 py-2 text-xs font-semibold uppercase tracking-[0.18em] text-[var(--brand-soft)]">
+                <div className="ds-badge type-overline">
                   Creative Web Developer
                 </div>
               }

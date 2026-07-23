@@ -1,7 +1,7 @@
 import { ArrowUpRight, MessageCircle } from "lucide-react";
 import { Link } from "react-router-dom";
 
-import { buttonVariants } from "@/components/ui/button";
+import { buttonVariants } from "@/components/ui/button-variants";
 import { cn } from "@/lib/utils";
 
 type HeroCtaProps = {
@@ -15,8 +15,8 @@ export function HeroCta({ primaryLabel, secondaryLabel }: HeroCtaProps) {
       <Link
         to="/projects"
         className={cn(
-          buttonVariants({ size: "lg" }),
-          "group h-[3.25rem] w-full rounded-full border border-[rgb(211_196_255/0.18)] bg-[linear-gradient(135deg,#8f63ff_0%,#7c5cfa_60%,#6b49ef_100%)] px-6 text-primary-foreground transition-all duration-300 hover:-translate-y-0.5 hover:scale-[1.01] sm:h-[var(--button-height-lg)] sm:w-auto",
+          buttonVariants({ variant: "primary", size: "lg" }),
+          "group w-full sm:w-auto",
         )}
       >
         <ArrowUpRight className="size-4 transition-transform duration-300 group-hover:-translate-y-0.5 group-hover:scale-105" />
@@ -27,7 +27,7 @@ export function HeroCta({ primaryLabel, secondaryLabel }: HeroCtaProps) {
         to="/contact"
         className={cn(
           buttonVariants({ variant: "outline", size: "lg" }),
-          "group h-[3.25rem] w-full rounded-full border-white/10 bg-white/3 px-6 text-foreground transition-all duration-300 hover:-translate-y-0.5 hover:border-white/18 hover:bg-white/6 sm:h-[var(--button-height-lg)] sm:w-auto",
+          "group w-full sm:w-auto",
         )}
       >
         <MessageCircle className="size-4 transition-transform duration-300 group-hover:scale-110" />

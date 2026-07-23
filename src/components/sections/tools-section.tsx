@@ -20,24 +20,24 @@ export function ToolsSection() {
           </div>
           <h2
             data-reveal
-            className="section-title max-w-[40rem] text-[clamp(2.2rem,4.4vw,3.6rem)]"
+            className="type-h2 max-w-2xl"
           >
             Teknologi yang paling mewakili workflow saya.
           </h2>
         </div>
 
         {/* Ticker dua arah */}
-        <div data-reveal className="content-stack-sm border-y border-white/6 py-6">
+        <div data-reveal className="ds-divider content-stack-sm border-y py-6">
           <Marquee
             items={firstHalf}
             duration={30}
-            itemClassName="text-[clamp(1.3rem,2.6vw,2rem)] font-semibold tracking-tight text-foreground"
+            itemClassName="type-h3"
           />
           <Marquee
             items={secondHalf}
             reverse
             duration={34}
-            itemClassName="text-ghost text-[clamp(1.3rem,2.6vw,2rem)] font-semibold tracking-tight"
+            itemClassName="text-ghost type-h3"
           />
         </div>
 
@@ -46,16 +46,16 @@ export function ToolsSection() {
           {toolGroups.map((group) => (
             <div
               key={group.title}
-              className="grid gap-2 border-t border-white/8 py-5 transition-colors duration-300 last:border-b hover:border-[rgb(211_196_255/0.25)] sm:grid-cols-[11rem_1fr] sm:items-baseline sm:gap-6"
+              className="ds-divider grid gap-2 border-t py-5 transition-colors duration-300 last:border-b hover:border-border-strong sm:grid-cols-[11rem_1fr] sm:items-baseline sm:gap-6"
             >
-              <h3 className="font-mono text-[0.68rem] font-semibold uppercase tracking-[0.24em] text-[var(--brand-muted)]">
+              <h3 className="type-overline">
                 {group.title}
               </h3>
-              <p className="flex flex-wrap items-baseline gap-x-3 gap-y-1 text-sm text-[var(--brand-soft)]">
+              <p className="type-body-sm flex flex-wrap items-baseline gap-x-3 gap-y-1 text-brand-soft">
                 {group.items.map((item, index) => (
                   <span key={item} className="flex items-baseline gap-3">
                     {index > 0 ? (
-                      <span aria-hidden="true" className="text-[var(--brand-muted)]">
+                      <span aria-hidden="true" className="text-brand-muted">
                         ·
                       </span>
                     ) : null}

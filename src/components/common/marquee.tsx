@@ -28,7 +28,7 @@ function MarqueeContent({
       {items.map((item, index) => (
         <span key={index} className="flex items-center gap-10">
           <span className={cn("whitespace-nowrap", itemClassName)}>{item}</span>
-          <span aria-hidden="true" className="text-sm text-[var(--accent)]">
+          <span aria-hidden="true" className="text-sm text-accent">
             ✦
           </span>
         </span>

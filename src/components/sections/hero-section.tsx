@@ -7,11 +7,11 @@ export function HeroSection() {
     <>
       <HeroRoot content={heroContent} />
 
-      <div className="border-y border-white/6 py-5">
+      <div className="ds-divider border-y py-5">
         <Marquee
           items={heroTickerItems}
           duration={40}
-          itemClassName="font-mono text-xs font-medium uppercase tracking-[0.3em] text-[var(--brand-muted)]"
+          itemClassName="type-overline"
         />
       </div>
     </>

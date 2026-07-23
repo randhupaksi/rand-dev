@@ -14,11 +14,11 @@ export function ProcessSection() {
           </div>
           <h2
             data-reveal
-            className="section-title text-[clamp(2rem,3.6vw,3rem)]"
+            className="type-h2"
           >
             Cara project dibentuk, dari ide sampai matang.
           </h2>
-          <p data-reveal className="section-copy max-w-[26rem]">
+          <p data-reveal className="section-copy max-w-lg">
             Bukan cuma soal mengerjakan — tapi bagaimana struktur, visual, dan
             interaksi dibangun dengan urutan yang disengaja.
           </p>
@@ -29,19 +29,19 @@ export function ProcessSection() {
             <li
               key={step.step}
               data-reveal
-              className="group grid grid-cols-[minmax(4.5rem,auto)_1fr] items-start gap-6 border-t border-white/8 py-8 transition-colors duration-300 last:border-b hover:border-[rgb(211_196_255/0.25)] sm:grid-cols-[minmax(6.5rem,auto)_1fr] sm:gap-10"
+              className="ds-divider group grid grid-cols-[minmax(4.5rem,auto)_1fr] items-start gap-6 border-t py-8 transition-colors duration-300 last:border-b hover:border-border-strong sm:grid-cols-[minmax(6.5rem,auto)_1fr] sm:gap-10"
             >
               <span
                 aria-hidden="true"
-                className="text-ghost select-none font-mono text-[clamp(2.6rem,6vw,4.2rem)] font-semibold leading-none transition-all duration-300 group-hover:[-webkit-text-stroke-color:rgb(155_140_255/0.5)]"
+                className="text-ghost select-none font-mono text-5xl font-semibold leading-none transition-all duration-300 group-hover:[-webkit-text-stroke-color:var(--accent)] sm:text-6xl"
               >
                 {step.step}
               </span>
               <div className="content-stack-xs pt-1.5">
-                <h3 className="text-xl font-semibold tracking-tight text-foreground sm:text-2xl">
+                <h3 className="type-h4 sm:text-2xl">
                   {step.title}
                 </h3>
-                <p className="max-w-[32rem] text-sm leading-7 text-muted-foreground">
+                <p className="type-body-sm max-w-2xl">
                   {step.description}
                 </p>
               </div>

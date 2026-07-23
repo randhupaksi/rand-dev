@@ -3,9 +3,12 @@ import { Link, useParams } from "react-router-dom";
 
 import { DraftBadge } from "@/components/common/draft-badge";
 import { MediaPlaceholder } from "@/components/common/media-placeholder";
+import { Badge } from "@/components/ui/badge";
+import { buttonVariants } from "@/components/ui/button-variants";
 import { getAdjacentProjects, getProjectBySlug } from "@/data/projects";
 import { usePageMeta } from "@/hooks/use-page-meta";
 import { useReveal } from "@/hooks/use-reveal";
+import { cn } from "@/lib/utils";
 
 import NotFoundPage from "@/pages/not-found-page";
 
@@ -19,11 +22,11 @@ function ComingSoonLink({
   return (
     <span
       title={`${label} — belum tersedia`}
-      className="inline-flex h-11 cursor-not-allowed items-center gap-2 rounded-full border border-dashed border-white/14 bg-white/[0.02] px-5 text-sm text-muted-foreground/70"
+      className={cn(buttonVariants({ variant: "outline", size: "md" }), "cursor-not-allowed border-dashed opacity-50")}
     >
       <Icon className="size-4" aria-hidden="true" />
       {label}
-      <span className="text-[0.6rem] font-semibold uppercase tracking-[0.14em] text-[var(--brand-muted)]">
+      <span className="type-overline">
         Coming soon
       </span>
     </span>
@@ -56,7 +59,7 @@ export default function ProjectDetailPage() {
           <div data-reveal>
             <Link
               to="/projects"
-              className="group inline-flex min-h-[2.75rem] items-center gap-2 text-sm text-muted-foreground transition-colors duration-300 hover:text-foreground"
+              className={cn(buttonVariants({ variant: "ghost", size: "md" }), "group")}
             >
               <ArrowLeft className="size-4 transition-transform duration-300 group-hover:-translate-x-0.5" />
               Semua project
@@ -64,10 +67,10 @@ export default function ProjectDetailPage() {
           </div>
 
           <div data-reveal className="flex flex-wrap items-center gap-3">
-            <span className="rounded-full border border-white/10 bg-white/5 px-3 py-1.5 text-xs uppercase tracking-[0.18em] text-[var(--brand-soft)]">
+            <Badge>
               {project.category}
-            </span>
-            <span className="font-mono text-xs uppercase tracking-[0.2em] text-[var(--brand-muted)]">
+            </Badge>
+            <span className="type-overline">
               {project.period}
             </span>
             {project.status === "draft" ? <DraftBadge label="Draft case study" /> : null}
@@ -75,11 +78,11 @@ export default function ProjectDetailPage() {
 
           <h1
             data-reveal
-            className="section-title max-w-[46rem] text-[clamp(2.4rem,4.8vw,4rem)]"
+            className="type-h1 max-w-3xl"
           >
             {project.name}
           </h1>
-          <p data-reveal className="section-copy max-w-[44rem]">
+          <p data-reveal className="section-copy max-w-3xl">
             {project.summary}
           </p>
         </div>
@@ -103,23 +106,20 @@ export default function ProjectDetailPage() {
             className="content-stack-lg lg:sticky lg:top-32 lg:self-start"
           >
             <div className="content-stack-sm">
-              <p className="text-xs font-semibold uppercase tracking-[0.2em] text-[var(--brand-muted)]">
+              <p className="type-overline">
                 Stack
               </p>
               <div className="flex flex-wrap gap-2">
                 {project.stack.map((item) => (
-                  <span
-                    key={item}
-                    className="rounded-full border border-white/10 bg-white/4 px-3 py-1.5 text-xs text-[var(--brand-soft)]"
-                  >
+                  <Badge key={item}>
                     {item}
-                  </span>
+                  </Badge>
                 ))}
               </div>
             </div>
 
             <div className="content-stack-sm">
-              <p className="text-xs font-semibold uppercase tracking-[0.2em] text-[var(--brand-muted)]">
+              <p className="type-overline">
                 Focus
               </p>
               <ul className="content-stack-xs">
@@ -130,7 +130,7 @@ export default function ProjectDetailPage() {
                   >
                     <span
                       aria-hidden="true"
-                      className="size-1.5 shrink-0 rounded-full bg-[var(--accent)]"
+                    className="size-1.5 shrink-0 rounded-full bg-accent"
                     />
                     {area}
                   </li>
@@ -139,7 +139,7 @@ export default function ProjectDetailPage() {
             </div>
 
             <div className="content-stack-sm">
-              <p className="text-xs font-semibold uppercase tracking-[0.2em] text-[var(--brand-muted)]">
+              <p className="type-overline">
                 Links
               </p>
               <div className="flex flex-wrap gap-3">
@@ -148,7 +148,7 @@ export default function ProjectDetailPage() {
                     href={project.links.demo}
                     target="_blank"
                     rel="noreferrer"
-                    className="inline-flex h-11 items-center gap-2 rounded-full border border-[rgb(211_196_255/0.18)] bg-white/4 px-5 text-sm text-foreground transition-all duration-300 hover:-translate-y-0.5 hover:bg-white/7"
+                    className={buttonVariants({ variant: "outline", size: "md" })}
                   >
                     <ExternalLink className="size-4" aria-hidden="true" />
                     Live demo
@@ -161,7 +161,7 @@ export default function ProjectDetailPage() {
                     href={project.links.repository}
                     target="_blank"
                     rel="noreferrer"
-                    className="inline-flex h-11 items-center gap-2 rounded-full border border-[rgb(211_196_255/0.18)] bg-white/4 px-5 text-sm text-foreground transition-all duration-300 hover:-translate-y-0.5 hover:bg-white/7"
+                    className={buttonVariants({ variant: "outline", size: "md" })}
                   >
                     <FolderGit2 className="size-4" aria-hidden="true" />
                     Repository
@@ -178,13 +178,13 @@ export default function ProjectDetailPage() {
             {project.caseStudy.map((block) => (
               <div key={block.title} data-reveal className="content-stack-sm">
                 <div className="flex flex-wrap items-center gap-3">
-                  <h2 className="text-xl font-semibold tracking-tight text-foreground">
+                  <h2 className="type-h4">
                     {block.title}
                   </h2>
                   {block.isPlaceholder ? <DraftBadge /> : null}
                 </div>
                 <p
-                  className={`max-w-[40rem] text-base leading-8 ${
+                  className={`type-body max-w-2xl ${
                     block.isPlaceholder
                       ? "italic text-muted-foreground/70"
                       : "text-muted-foreground"
@@ -193,7 +193,7 @@ export default function ProjectDetailPage() {
                   {block.body}
                 </p>
                 {block.isPlaceholder ? (
-                  <p className="text-xs text-[var(--brand-muted)]">
+                  <p className="type-caption text-brand-muted">
                     Add real case-study content here — edit di src/data/projects.ts.
                   </p>
                 ) : null}
@@ -202,7 +202,7 @@ export default function ProjectDetailPage() {
 
             <div data-reveal className="content-stack-sm">
               <div className="flex flex-wrap items-center gap-3">
-                <h2 className="text-xl font-semibold tracking-tight text-foreground">
+                <h2 className="type-h4">
                   Gallery
                 </h2>
                 <DraftBadge label="Coming Soon" />
@@ -231,11 +231,11 @@ export default function ProjectDetailPage() {
           {previous ? (
             <Link
               to={`/projects/${previous.slug}`}
-              className="surface-panel interactive-ring group flex items-center gap-4 p-[var(--panel-padding)]"
+              className="ds-card ds-card-interactive group flex items-center gap-4 p-[var(--panel-padding)]"
             >
-              <ArrowLeft className="size-4 shrink-0 text-[var(--accent)] transition-transform duration-300 group-hover:-translate-x-0.5" />
+              <ArrowLeft className="size-4 shrink-0 text-accent transition-transform duration-300 group-hover:-translate-x-0.5" />
               <span className="content-stack-xs min-w-0">
-                <span className="text-xs uppercase tracking-[0.18em] text-[var(--brand-muted)]">
+                <span className="type-overline">
                   Sebelumnya
                 </span>
                 <span className="truncate text-base font-semibold text-foreground">
@@ -250,17 +250,17 @@ export default function ProjectDetailPage() {
           {next ? (
             <Link
               to={`/projects/${next.slug}`}
-              className="surface-panel interactive-ring group flex items-center justify-end gap-4 p-[var(--panel-padding)] text-right"
+              className="ds-card ds-card-interactive group flex items-center justify-end gap-4 p-[var(--panel-padding)] text-right"
             >
               <span className="content-stack-xs min-w-0">
-                <span className="text-xs uppercase tracking-[0.18em] text-[var(--brand-muted)]">
+                <span className="type-overline">
                   Selanjutnya
                 </span>
                 <span className="truncate text-base font-semibold text-foreground">
                   {next.name}
                 </span>
               </span>
-              <ArrowRight className="size-4 shrink-0 text-[var(--accent)] transition-transform duration-300 group-hover:translate-x-0.5" />
+              <ArrowRight className="size-4 shrink-0 text-accent transition-transform duration-300 group-hover:translate-x-0.5" />
             </Link>
           ) : null}
         </nav>

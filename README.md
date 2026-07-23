@@ -44,6 +44,25 @@ npm run preview   # preview hasil build
 - `src/hooks/` — `useReveal` (animasi masuk), `usePageMeta` (title/description per halaman).
 - `src/styles/design-system.css` — sumber kebenaran token visual.
 
+## Design system
+
+Seluruh styling lintas halaman memakai fondasi yang sama:
+
+- `src/styles/design-system.css` menyimpan primitive color scale, semantic color,
+  typography role, spacing, radius, shadow, surface, dan state token.
+- `src/components/ui/button.tsx` menyediakan variant `primary`, `secondary`,
+  `outline`, dan `ghost` dengan ukuran `sm`, `md`, dan `lg`.
+- `src/components/ui/` menyediakan primitive reusable untuk badge, card,
+  input/textarea, modal, dan table.
+- Class typography `type-display`, `type-h1` sampai `type-h4`, `type-body`,
+  `type-body-medium`, `type-body-sm`, `type-caption`, dan `type-overline`
+  menjaga hierarchy konsisten pada semua route.
+
+Komponen dan halaman harus memakai semantic token atau primitive tersebut.
+Nilai visual baru hanya ditambahkan ke design system jika memang merupakan
+keputusan reusable; nilai komposisi khusus tetap dibatasi pada art direction
+yang tidak digunakan sebagai pattern global.
+
 ## Sistem placeholder (PENTING)
 
 Website ini sengaja dibangun dengan sistem placeholder yang jujur: tidak ada link palsu, klaim palsu, atau foto palsu. Semua yang masih draft ditandai secara visual (badge **Draft/Placeholder/Coming Soon**).

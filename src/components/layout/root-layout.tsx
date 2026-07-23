@@ -14,7 +14,7 @@ function PageFallback() {
       <span className="inline-flex items-center gap-3 text-sm text-muted-foreground">
         <span
           aria-hidden="true"
-          className="size-4 animate-spin rounded-full border-2 border-white/15 border-t-[var(--accent)]"
+          className="size-4 animate-spin rounded-full border-2 border-border border-t-accent"
         />
         Memuat halaman…
       </span>

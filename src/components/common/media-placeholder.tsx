@@ -29,35 +29,30 @@ export function MediaPlaceholder({
   return (
     <div
       className={cn(
-        "relative flex items-center justify-center overflow-hidden rounded-[1.4rem] border border-white/10 bg-[linear-gradient(180deg,rgba(255,255,255,0.03),rgba(6,3,12,0.35))]",
+        "relative flex items-center justify-center overflow-hidden rounded-[var(--card-radius)] border border-border bg-card",
         aspectClassMap[aspect],
         className,
       )}
     >
       <div
         aria-hidden="true"
-        className="absolute inset-0 opacity-70"
-        style={{
-          backgroundImage:
-            "linear-gradient(rgba(211,196,255,0.05) 1px, transparent 1px), linear-gradient(90deg, rgba(211,196,255,0.05) 1px, transparent 1px)",
-          backgroundSize: "24px 24px",
-        }}
+        className="media-placeholder-grid absolute inset-0 opacity-70"
       />
       <div
         aria-hidden="true"
-        className="absolute left-1/2 top-0 h-32 w-3/4 -translate-x-1/2 bg-[radial-gradient(circle_at_top,rgba(124,92,250,0.14),transparent_72%)] blur-2xl"
+        className="absolute left-1/2 top-0 h-32 w-3/4 -translate-x-1/2 bg-primary-surface blur-2xl"
       />
 
       <div className="relative z-10 flex flex-col items-center gap-3 px-6 py-8 text-center">
-        <span className="inline-flex size-11 items-center justify-center rounded-full border border-white/10 bg-white/4 text-[var(--brand-muted)]">
+        <span className="ds-icon-control">
           <ImageIcon className="size-4" aria-hidden="true" />
         </span>
         <div className="content-stack-xs items-center">
-          <p className="text-[0.66rem] font-semibold uppercase tracking-[0.22em] text-[var(--brand-muted)]">
+          <p className="type-overline">
             {label}
           </p>
           {hint ? (
-            <p className="max-w-[16rem] text-xs leading-5 text-muted-foreground/80">
+            <p className="type-caption max-w-64">
               {hint}
             </p>
           ) : null}

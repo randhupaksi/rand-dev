@@ -20,7 +20,7 @@ export function LocalTime() {
   }, []);
 
   return (
-    <span className="font-mono text-xs tracking-[0.14em] text-[var(--brand-soft)]">
+    <span className="type-overline text-brand-soft">
       {time} WIB
     </span>
   );

@@ -40,7 +40,7 @@ export function ScrollProgress() {
     >
       <div
         ref={barRef}
-        className="h-full origin-left scale-x-0 bg-[linear-gradient(90deg,#8f63ff,#c24aff)]"
+        className="h-full origin-left scale-x-0 bg-[image:var(--gradient-text)]"
       />
     </div>
   );

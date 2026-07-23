@@ -11,6 +11,8 @@ import {
 } from "lucide-react";
 
 import type { AboutProfile } from "@/types/home";
+import { Badge } from "@/components/ui/badge";
+import { buttonVariants } from "@/components/ui/button-variants";
 
 type AboutRootProps = {
   profile: AboutProfile;
@@ -79,28 +81,26 @@ export function AboutRoot({ profile: _profile }: AboutRootProps) {
     <section ref={sectionRef} id="about" className="section-shell-compact">
       <div
         data-about-panel
-        className="relative overflow-hidden rounded-[2rem] border border-[rgb(211_196_255/0.16)] bg-[linear-gradient(165deg,rgba(255,255,255,0.04),rgba(8,6,16,0.58))] px-5 py-9 sm:px-8 sm:py-11 lg:px-12 lg:py-12"
+        className="ds-card ds-card-solid relative overflow-hidden px-5 py-9 sm:px-8 sm:py-11 lg:px-12 lg:py-12"
       >
-        <div className="pointer-events-none absolute inset-x-24 top-0 h-24 bg-[radial-gradient(circle_at_top,rgba(124,92,250,0.2),transparent_72%)] blur-xl" />
-
         <div className="relative z-10 content-stack-lg">
-          <div className="mx-auto max-w-[58rem] text-center content-stack-sm">
+          <div className="mx-auto max-w-5xl text-center content-stack-sm">
             <div
               data-about-copy
-              className="mx-auto section-eyebrow border-white/12 bg-white/3"
+              className="mx-auto section-eyebrow"
             >
               About Me
             </div>
             <h2
               data-about-copy
-              className="text-[clamp(2.5rem,4.6vw,4rem)] font-semibold leading-[1.08] tracking-[-0.045em] text-foreground"
+              className="type-h2"
             >
-              Tentang <span className="text-[var(--accent)]">Randhu</span> Paksi
+              Tentang <span className="text-accent">Randhu</span> Paksi
               Membumi
             </h2>
             <p
               data-about-copy
-              className="mx-auto max-w-[52rem] text-lg leading-8 text-muted-foreground sm:text-xl sm:leading-9 lg:text-[1.35rem] lg:leading-10"
+              className="type-body mx-auto max-w-4xl sm:text-lg"
             >
               Saya siswa SMK PPLG kelas 11 yang fokus membangun website dengan
               struktur yang rapi, visual yang clean, dan pengalaman pengguna
@@ -108,22 +108,21 @@ export function AboutRoot({ profile: _profile }: AboutRootProps) {
             </p>
 
             <div className="flex flex-wrap justify-center gap-2.5">
-              <span
+              <Badge
                 data-about-meta
-                className="rounded-full border border-white/10 bg-white/5 px-3.5 py-1.5 text-xs text-[var(--brand-soft)]"
               >
                 SMK PPLG - Class 11
-              </span>
-              <span
+              </Badge>
+              <Badge
+                variant="primary"
                 data-about-meta
-                className="rounded-full border border-[rgb(211_196_255/0.18)] bg-[rgb(124,92,250,0.1)] px-3.5 py-1.5 text-xs text-[var(--accent)]"
               >
                 Creative Web Developer
-              </span>
+              </Badge>
             </div>
           </div>
 
-          <div className="h-px w-full bg-[linear-gradient(90deg,transparent,rgba(211,196,255,0.18),transparent)]" />
+          <div className="rule-gradient" />
 
           <div className="grid grid-cols-2 gap-x-3 gap-y-6 sm:grid-cols-3 md:grid-cols-6 md:gap-y-3">
             {aboutFeatureItems.map((item) => {
@@ -133,13 +132,13 @@ export function AboutRoot({ profile: _profile }: AboutRootProps) {
                 <article
                   key={item.title}
                   data-about-item
-                  className="group flex flex-col items-center gap-4 rounded-[1rem] px-2 py-3 text-center transition-all duration-300 hover:-translate-y-1 sm:px-3"
+                  className="group flex flex-col items-center gap-4 rounded-[var(--control-radius)] px-2 py-3 text-center transition-all duration-300 hover:-translate-y-1 sm:px-3"
                 >
-                  <div className="flex size-[3.8rem] items-center justify-center rounded-[1.15rem] border border-white/12 bg-white/[0.03] text-[var(--accent)] shadow-[0_8px_26px_rgba(0,0,0,0.16)] transition-all duration-300 group-hover:scale-105 group-hover:border-[rgb(211_196_255/0.28)] group-hover:bg-white/[0.055]">
+                  <div className="ds-icon-control size-14 rounded-[var(--control-radius)] text-accent shadow-sm group-hover:scale-105 group-hover:border-border-strong">
                     <Icon className="size-5" />
                   </div>
 
-                  <p className="text-sm font-semibold leading-5 text-foreground lg:text-[0.97rem] lg:leading-6">
+                  <p className="type-body-medium text-foreground">
                     {item.title}
                   </p>
                 </article>
@@ -147,12 +146,12 @@ export function AboutRoot({ profile: _profile }: AboutRootProps) {
             })}
           </div>
 
-          <div className="h-px w-full bg-[linear-gradient(90deg,transparent,rgba(211,196,255,0.18),transparent)]" />
+          <div className="rule-gradient" />
 
           <div data-about-cta className="flex justify-center">
             <a
               href="#skills"
-              className="inline-flex items-center gap-2 rounded-full border border-[rgb(211_196_255/0.16)] bg-[linear-gradient(120deg,rgba(124,92,250,0.22),rgba(255,255,255,0.05))] px-6 py-3 text-sm font-medium text-foreground transition-all duration-300 hover:-translate-y-0.5 hover:border-[rgb(211_196_255/0.28)] hover:bg-[linear-gradient(120deg,rgba(124,92,250,0.3),rgba(255,255,255,0.08))]"
+              className={buttonVariants({ variant: "secondary", size: "md" })}
             >
               Lihat Fokus Keahlian
               <ArrowRight className="size-4" />

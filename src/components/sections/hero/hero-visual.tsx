@@ -43,22 +43,22 @@ export function HeroVisual() {
   return (
     <div className="relative mx-auto w-full max-w-[37rem] overflow-hidden lg:overflow-visible" data-hero-float>
       <div
-        className="absolute left-1/2 top-[16%] h-32 w-32 -translate-x-1/2 rounded-full bg-[radial-gradient(circle,rgba(194,74,255,0.18),transparent_68%)] blur-3xl sm:h-40 sm:w-40 lg:left-[12%] lg:top-[26%] lg:h-52 lg:w-52 lg:translate-x-0"
+        className="hero-glow-secondary absolute left-1/2 top-[16%] h-32 w-32 -translate-x-1/2 rounded-full blur-3xl sm:h-40 sm:w-40 lg:left-[12%] lg:top-[26%] lg:h-52 lg:w-52 lg:translate-x-0"
         data-hero-orb
       />
       <div
-        className="absolute left-1/2 top-[4%] h-44 w-44 -translate-x-1/2 rounded-full bg-[radial-gradient(circle,rgba(124,92,250,0.14),transparent_72%)] blur-3xl sm:h-52 sm:w-52 lg:left-auto lg:right-[8%] lg:top-[14%] lg:h-72 lg:w-72 lg:translate-x-0"
+        className="hero-glow-primary absolute left-1/2 top-[4%] h-44 w-44 -translate-x-1/2 rounded-full blur-3xl sm:h-52 sm:w-52 lg:left-auto lg:right-[8%] lg:top-[14%] lg:h-72 lg:w-72 lg:translate-x-0"
         data-hero-orb
       />
 
       <div className="relative min-h-[11rem] pt-0 sm:min-h-[22rem] lg:min-h-[34rem] lg:pt-0">
         <div
-          className="relative mx-auto h-[15.25rem] w-[15.25rem] overflow-hidden rounded-full border border-[rgb(211_196_255/0.14)] bg-[linear-gradient(180deg,rgba(255,255,255,0.04),rgba(255,255,255,0.015))] shadow-[0_14px_32px_rgba(6,3,12,0.24)] sm:h-[19.5rem] sm:w-[19.5rem] lg:absolute lg:left-[10%] lg:top-[7%] lg:mx-0 lg:h-[26rem] lg:w-[26rem] lg:shadow-[0_24px_60px_rgba(6,3,12,0.36)]"
+          className="hero-frame relative mx-auto size-60 overflow-hidden rounded-full border sm:size-80 lg:absolute lg:left-[10%] lg:top-[7%] lg:mx-0 lg:size-[26rem]"
           data-hero-ring
         >
-          <div className="absolute inset-0 rounded-full border border-[rgb(255,255,255,0.05)]" />
-          <div className="absolute inset-[3%] rounded-full bg-[radial-gradient(120%_90%_at_50%_8%,rgba(194,74,255,0.32)_0%,rgba(27,20,39,0.62)_46%,rgba(16,12,23,0.96)_100%)]" />
-          <div className="absolute inset-[9%] overflow-hidden rounded-full border border-[rgb(255,255,255,0.05)] bg-[radial-gradient(circle_at_top,rgba(255,255,255,0.04),rgba(14,10,20,0.94)_72%)]">
+          <div className="absolute inset-0 rounded-full border border-border-subtle" />
+          <div className="hero-portrait-surface absolute inset-[3%] rounded-full" />
+          <div className="hero-portrait-inner absolute inset-[9%] overflow-hidden rounded-full border">
             <img
               src="/images/profile/randhu-no-bg.png"
               alt="Portrait of Randhu Paksi Membumi"
@@ -68,12 +68,12 @@ export function HeroVisual() {
         </div>
 
         <div
-          className="surface-panel absolute bottom-0 right-0 hidden w-[18rem] overflow-visible rounded-[1.6rem] p-0 shadow-[0_22px_48px_rgba(4,2,10,0.38)] md:block lg:hidden"
+          className="ds-card absolute bottom-0 right-0 hidden w-72 overflow-visible p-0 shadow-[var(--shadow-dropdown)] md:block lg:hidden"
           data-hero-card
         >
-          <div className="flex items-center justify-between border-b border-white/6 bg-[linear-gradient(180deg,rgba(255,255,255,0.05),rgba(255,255,255,0.015))] px-5 py-4">
+          <div className="ds-divider flex items-center justify-between border-b bg-surface-subtle px-5 py-4">
             <div className="text-base font-semibold tracking-tight text-foreground">
-              <span className="text-[var(--accent)]">Randhu</span>{" "}
+              <span className="text-accent">Randhu</span>{" "}
               <span className="text-foreground">Paksi</span>
             </div>
             <div aria-hidden="true" className="flex items-center gap-2 text-muted-foreground">
@@ -83,8 +83,8 @@ export function HeroVisual() {
           </div>
 
           <div className="p-5">
-            <div className="relative mx-auto mb-5 aspect-square w-[13rem] rounded-full border border-[rgb(211_196_255/0.14)] bg-[radial-gradient(circle,rgba(194,74,255,0.26),transparent_72%)] p-3 shadow-[0_0_36px_rgba(194,74,255,0.24)]">
-              <div className="relative h-full w-full overflow-hidden rounded-full border border-white/8 bg-[radial-gradient(circle_at_top,rgba(255,255,255,0.04),rgba(14,10,20,0.94)_72%)]">
+            <div className="hero-glow-secondary relative mx-auto mb-5 aspect-square w-52 rounded-full border border-border-subtle p-3 shadow-[var(--shadow-glow)]">
+              <div className="hero-portrait-inner relative h-full w-full overflow-hidden rounded-full border">
                 <img
                   src="/images/profile/randhu-no-bg.png"
                   alt="Portrait of Randhu Paksi Membumi"
@@ -95,15 +95,15 @@ export function HeroVisual() {
 
             <div className="content-stack-sm">
               <div className="content-stack-xs">
-                <p className="text-[1.75rem] font-semibold leading-tight text-foreground">
+                <p className="type-h3">
                   Hello, I'm
                 </p>
-                <h3 className="text-[2.2rem] font-semibold leading-[0.95] tracking-tight text-foreground">
+                <h3 className="type-h2">
                   Randhu Paksi
                 </h3>
-                <p className="text-[1.05rem] font-semibold text-foreground">
+                <p className="type-body-medium text-foreground">
                   And I'm a{" "}
-                  <span className="bg-gradient-to-r from-[#f1d3ff] via-[var(--accent)] to-[#c24aff] bg-clip-text text-transparent">
+                  <span className="text-gradient-brand">
                     Web Developer
                   </span>
                 </p>
@@ -116,7 +116,7 @@ export function HeroVisual() {
 
               <Link
                 to="/contact"
-                className="inline-flex w-fit rounded-full border border-[rgb(211_196_255/0.16)] bg-[linear-gradient(135deg,#8f63ff_0%,#7c5cfa_60%,#6b49ef_100%)] px-4 py-2 text-xs font-semibold uppercase tracking-[0.14em] text-primary-foreground transition-transform duration-300 hover:-translate-y-0.5"
+                className="ds-badge ds-badge-primary type-overline text-primary-foreground"
               >
                 Hubungi Saya
               </Link>
@@ -130,14 +130,14 @@ export function HeroVisual() {
           return (
             <div
               key={item.title}
-              className={`absolute ${item.className} hidden rounded-[1rem] border border-white/10 bg-black/18 px-4 py-3 backdrop-blur-md lg:block lg:rounded-[1.15rem]`}
+              className={`absolute ${item.className} ds-card-subtle hidden rounded-[var(--control-radius)] px-4 py-3 backdrop-blur-md lg:block`}
             >
               <div className="flex items-start gap-3">
-                <div className="mt-0.5 shrink-0 rounded-full border border-white/10 bg-white/5 p-1.5 text-[var(--accent)]">
+                <div className="ds-icon-control mt-0.5 size-8 shrink-0 text-accent">
                   <Icon className="size-3.5" />
                 </div>
                 <div className="min-w-0">
-                  <p className="text-[0.64rem] uppercase tracking-[0.2em] text-[var(--brand-muted)]">
+                  <p className="type-overline">
                     {item.title}
                   </p>
                   <p className="mt-1.5 max-w-[11.5rem] text-sm font-medium leading-5 text-foreground">

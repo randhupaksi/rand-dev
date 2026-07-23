@@ -14,6 +14,10 @@ import {
 
 import { DraftBadge } from "@/components/common/draft-badge";
 import { SocialLinks } from "@/components/common/social-links";
+import { Button } from "@/components/ui/button";
+import { buttonVariants } from "@/components/ui/button-variants";
+import { Card } from "@/components/ui/card";
+import { Input, Textarea } from "@/components/ui/input";
 import { contactFaq } from "@/data/about";
 import { contactChannels, contactEndpoint, siteIdentity } from "@/data/site";
 import { usePageMeta } from "@/hooks/use-page-meta";
@@ -33,9 +37,6 @@ type ContactFormValues = {
 };
 
 type SubmitStatus = "idle" | "sent" | "demo" | "error";
-
-const inputClass =
-  "h-[var(--input-height)] w-full rounded-[1.1rem] border border-white/10 bg-white/[0.03] px-4 text-sm text-foreground placeholder:text-muted-foreground/50 transition-colors duration-200 focus:border-[rgb(211_196_255/0.35)] focus:outline-none focus:ring-2 focus:ring-[var(--ring)] aria-[invalid=true]:border-[rgb(239_107_129/0.5)]";
 
 export default function ContactPage() {
   usePageMeta(
@@ -88,18 +89,18 @@ export default function ContactPage() {
   return (
     <div ref={scopeRef}>
       <section className="section-shell-compact">
-        <div className="content-stack-md max-w-[52rem]">
+        <div className="content-stack-md max-w-4xl">
           <div data-reveal className="section-eyebrow">
             Contact
           </div>
-          <h1 data-reveal className="section-title text-[clamp(2.6rem,5.2vw,4.5rem)]">
+          <h1 data-reveal className="type-h1">
             Mari bicara soal{" "}
-            <span className="bg-gradient-to-r from-[#f1d3ff] via-[var(--accent)] to-[#c24aff] bg-clip-text text-transparent">
+            <span className="text-gradient-brand">
               project kamu
             </span>
             .
           </h1>
-          <p data-reveal className="section-copy max-w-[44rem]">
+          <p data-reveal className="section-copy max-w-3xl">
             {siteIdentity.availability.value}. Ceritakan kebutuhanmu — website
             branding, dashboard, atau eksperimen interface — dan kita lihat apa
             yang bisa dibangun bersama.
@@ -116,28 +117,29 @@ export default function ContactPage() {
                 const Icon = channelIconMap[channel.key];
 
                 return (
-                  <li
+                  <Card
+                    as="li"
                     key={channel.key}
                     data-reveal
-                    className="surface-panel flex items-start gap-4 p-[var(--panel-padding)]"
+                    className="flex items-start gap-4 p-[var(--panel-padding)]"
                   >
-                    <span className="mt-0.5 inline-flex size-11 shrink-0 items-center justify-center rounded-full border border-white/10 bg-white/4 text-[var(--accent)]">
+                    <span className="ds-icon-control mt-0.5 shrink-0 text-accent">
                       <Icon className="size-4" aria-hidden="true" />
                     </span>
                     <div className="content-stack-xs min-w-0">
-                      <span className="text-xs font-semibold uppercase tracking-[0.18em] text-[var(--brand-muted)]">
+                      <span className="type-overline">
                         {channel.label}
                       </span>
                       <span className="flex flex-wrap items-center gap-2.5">
                         {channel.href ? (
                           <a
                             href={channel.href}
-                            className="break-all font-mono text-sm text-foreground transition-colors duration-200 hover:text-[var(--accent)]"
+                            className="break-all font-mono text-sm text-foreground transition-colors duration-200 hover:text-accent"
                           >
                             {channel.value}
                           </a>
                         ) : (
-                          <span className="break-all font-mono text-sm text-[var(--brand-soft)]">
+                          <span className="break-all font-mono text-sm text-brand-soft">
                             {channel.value}
                           </span>
                         )}
@@ -146,20 +148,20 @@ export default function ContactPage() {
                         ) : null}
                       </span>
                     </div>
-                  </li>
+                  </Card>
                 );
               })}
             </ul>
 
             <div data-reveal className="content-stack-sm">
-              <p className="text-xs font-semibold uppercase tracking-[0.2em] text-[var(--brand-muted)]">
+              <p className="type-overline">
                 Social
               </p>
               <SocialLinks />
             </div>
 
             <div data-reveal className="content-stack-sm">
-              <p className="text-xs font-semibold uppercase tracking-[0.2em] text-[var(--brand-muted)]">
+              <p className="type-overline">
                 Curriculum Vitae
               </p>
               {siteIdentity.cvHref ? (
@@ -167,16 +169,16 @@ export default function ContactPage() {
                   href={siteIdentity.cvHref}
                   target="_blank"
                   rel="noreferrer"
-                  className="inline-flex h-12 w-fit items-center gap-2 rounded-full border border-[rgb(211_196_255/0.18)] bg-white/4 px-6 text-sm font-medium text-foreground transition-all duration-300 hover:-translate-y-0.5 hover:bg-white/7"
+                  className={buttonVariants({ variant: "outline", size: "md" })}
                 >
                   <FileText className="size-4" aria-hidden="true" />
                   Lihat CV
                 </a>
               ) : (
-                <span className="inline-flex h-12 w-fit cursor-not-allowed items-center gap-2 rounded-full border border-dashed border-white/14 bg-white/[0.02] px-6 text-sm text-muted-foreground/70">
+                <span className="inline-flex h-[var(--button-height-md)] w-fit cursor-not-allowed items-center gap-2 rounded-full border border-dashed border-border px-5 text-sm text-muted-foreground opacity-50">
                   <FileText className="size-4" aria-hidden="true" />
                   CV
-                  <span className="text-[0.6rem] font-semibold uppercase tracking-[0.14em] text-[var(--brand-muted)]">
+                  <span className="type-overline">
                     Coming soon
                   </span>
                 </span>
@@ -185,23 +187,23 @@ export default function ContactPage() {
           </div>
 
           {/* Form */}
-          <div data-reveal className="surface-panel p-[var(--card-padding)]">
+          <Card data-reveal className="p-[var(--card-padding)]">
             <form
               onSubmit={handleSubmit(onSubmit)}
               noValidate
               className="content-stack-md"
             >
               <div className="content-stack-xs">
-                <h2 className="text-xl font-semibold tracking-tight text-foreground">
+                <h2 className="type-h4">
                   Kirim pesan
                 </h2>
-                <p className="text-sm leading-6 text-muted-foreground">
+                <p className="type-body-sm">
                   Isi form di bawah, atau gunakan channel di samping.
                 </p>
               </div>
 
               {!contactEndpoint ? (
-                <p className="flex items-start gap-2.5 rounded-[1.1rem] border border-[rgb(116_183_255/0.22)] bg-[rgb(116_183_255/0.06)] px-4 py-3 text-xs leading-5 text-[var(--info)]">
+                <p className="ds-alert ds-alert-info">
                   <Info className="mt-0.5 size-3.5 shrink-0" aria-hidden="true" />
                   Form ini berjalan dalam mode demo karena endpoint pengiriman
                   belum dikonfigurasi (VITE_CONTACT_ENDPOINT). Pesan tidak akan
@@ -217,14 +219,13 @@ export default function ContactPage() {
                   >
                     Nama
                   </label>
-                  <input
+                  <Input
                     id="contact-name"
                     type="text"
                     autoComplete="name"
                     placeholder="Nama kamu"
                     aria-invalid={errors.name ? true : undefined}
                     aria-describedby={errors.name ? "contact-name-error" : undefined}
-                    className={inputClass}
                     {...register("name", {
                       required: "Nama wajib diisi.",
                       minLength: {
@@ -236,7 +237,7 @@ export default function ContactPage() {
                   {errors.name ? (
                     <p
                       id="contact-name-error"
-                      className="text-xs text-[var(--destructive)]"
+                      className="type-caption text-destructive"
                     >
                       {errors.name.message}
                     </p>
@@ -250,14 +251,13 @@ export default function ContactPage() {
                   >
                     Email
                   </label>
-                  <input
+                  <Input
                     id="contact-email"
                     type="email"
                     autoComplete="email"
                     placeholder="nama@email.com"
                     aria-invalid={errors.email ? true : undefined}
                     aria-describedby={errors.email ? "contact-email-error" : undefined}
-                    className={inputClass}
                     {...register("email", {
                       required: "Email wajib diisi.",
                       pattern: {
@@ -269,7 +269,7 @@ export default function ContactPage() {
                   {errors.email ? (
                     <p
                       id="contact-email-error"
-                      className="text-xs text-[var(--destructive)]"
+                      className="type-caption text-destructive"
                     >
                       {errors.email.message}
                     </p>
@@ -285,11 +285,10 @@ export default function ContactPage() {
                   Topik{" "}
                   <span className="font-normal text-muted-foreground">(opsional)</span>
                 </label>
-                <input
+                <Input
                   id="contact-subject"
                   type="text"
                   placeholder="Misal: website branding, dashboard, kolaborasi"
-                  className={inputClass}
                   {...register("subject")}
                 />
               </div>
@@ -301,7 +300,7 @@ export default function ContactPage() {
                 >
                   Pesan
                 </label>
-                <textarea
+                <Textarea
                   id="contact-message"
                   rows={5}
                   placeholder="Ceritakan konteks project atau ide kamu…"
@@ -309,7 +308,6 @@ export default function ContactPage() {
                   aria-describedby={
                     errors.message ? "contact-message-error" : undefined
                   }
-                  className="w-full resize-y rounded-[1.1rem] border border-white/10 bg-white/[0.03] px-4 py-3 text-sm text-foreground placeholder:text-muted-foreground/50 transition-colors duration-200 focus:border-[rgb(211_196_255/0.35)] focus:outline-none focus:ring-2 focus:ring-[var(--ring)] aria-[invalid=true]:border-[rgb(239_107_129/0.5)]"
                   {...register("message", {
                     required: "Pesan wajib diisi.",
                     minLength: {
@@ -321,7 +319,7 @@ export default function ContactPage() {
                 {errors.message ? (
                   <p
                     id="contact-message-error"
-                    className="text-xs text-[var(--destructive)]"
+                    className="type-caption text-destructive"
                   >
                     {errors.message.message}
                   </p>
@@ -329,10 +327,12 @@ export default function ContactPage() {
               </div>
 
               <div className="content-stack-sm">
-                <button
+                <Button
                   type="submit"
+                  variant="primary"
+                  size="lg"
                   disabled={isSubmitting}
-                  className="inline-flex h-[var(--button-height-lg)] w-full items-center justify-center gap-2 rounded-full border border-[rgb(211_196_255/0.18)] bg-[linear-gradient(135deg,#8f63ff_0%,#7c5cfa_60%,#6b49ef_100%)] px-6 text-sm font-medium text-primary-foreground transition-all duration-300 hover:-translate-y-0.5 disabled:pointer-events-none disabled:opacity-60 sm:w-auto"
+                  className="w-full sm:w-auto"
                 >
                   {isSubmitting ? (
                     <Loader2 className="size-4 animate-spin" aria-hidden="true" />
@@ -340,11 +340,11 @@ export default function ContactPage() {
                     <Send className="size-4" aria-hidden="true" />
                   )}
                   {isSubmitting ? "Mengirim…" : "Kirim Pesan"}
-                </button>
+                </Button>
 
                 <div aria-live="polite">
                   {status === "demo" ? (
-                    <p className="flex items-start gap-2.5 rounded-[1.1rem] border border-[rgb(245_191_93/0.24)] bg-[rgb(245_191_93/0.06)] px-4 py-3 text-xs leading-5 text-[var(--warning)]">
+                    <p className="ds-alert ds-alert-warning">
                       <TriangleAlert
                         className="mt-0.5 size-3.5 shrink-0"
                         aria-hidden="true"
@@ -355,7 +355,7 @@ export default function ContactPage() {
                     </p>
                   ) : null}
                   {status === "sent" ? (
-                    <p className="flex items-start gap-2.5 rounded-[1.1rem] border border-[rgb(61_214_160/0.24)] bg-[rgb(61_214_160/0.06)] px-4 py-3 text-xs leading-5 text-[var(--success)]">
+                    <p className="ds-alert ds-alert-success">
                       <CheckCircle2
                         className="mt-0.5 size-3.5 shrink-0"
                         aria-hidden="true"
@@ -364,7 +364,7 @@ export default function ContactPage() {
                     </p>
                   ) : null}
                   {status === "error" ? (
-                    <p className="flex items-start gap-2.5 rounded-[1.1rem] border border-[rgb(239_107_129/0.24)] bg-[rgb(239_107_129/0.06)] px-4 py-3 text-xs leading-5 text-[var(--destructive)]">
+                    <p className="ds-alert ds-alert-error">
                       <TriangleAlert
                         className="mt-0.5 size-3.5 shrink-0"
                         aria-hidden="true"
@@ -376,16 +376,16 @@ export default function ContactPage() {
                 </div>
               </div>
             </form>
-          </div>
+          </Card>
         </div>
       </section>
 
       {/* FAQ */}
       <section className="section-shell-compact">
         <div className="content-stack-lg">
-          <div data-reveal className="content-stack-sm max-w-[44rem]">
+          <div data-reveal className="content-stack-sm max-w-3xl">
             <div className="section-eyebrow">FAQ</div>
-            <h2 className="text-[clamp(1.9rem,3vw,2.7rem)] font-semibold tracking-tight text-foreground">
+            <h2 className="type-h3">
               Pertanyaan yang sering muncul
             </h2>
           </div>
@@ -395,18 +395,18 @@ export default function ContactPage() {
               <details
                 key={faq.question}
                 data-reveal
-                className="group rounded-[1.4rem] border border-white/10 bg-[linear-gradient(170deg,rgba(255,255,255,0.03),rgba(0,0,0,0.18))] open:border-[rgb(211_196_255/0.22)]"
+                className="ds-card-subtle group open:border-border-strong"
               >
-                <summary className="flex min-h-[3.5rem] cursor-pointer list-none items-center justify-between gap-4 px-5 py-4 text-base font-medium text-foreground [&::-webkit-details-marker]:hidden">
+                <summary className="flex min-h-[var(--button-height-lg)] cursor-pointer list-none items-center justify-between gap-4 px-5 py-4 text-base font-medium text-foreground [&::-webkit-details-marker]:hidden">
                   {faq.question}
                   <span
                     aria-hidden="true"
-                    className="text-lg text-[var(--brand-muted)] transition-transform duration-300 group-open:rotate-45"
+                    className="text-lg text-brand-muted transition-transform duration-300 group-open:rotate-45"
                   >
                     +
                   </span>
                 </summary>
-                <p className="px-5 pb-5 text-sm leading-7 text-muted-foreground">
+                <p className="type-body-sm px-5 pb-5">
                   {faq.answer}
                 </p>
               </details>

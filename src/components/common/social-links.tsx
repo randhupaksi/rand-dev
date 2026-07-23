@@ -25,8 +25,7 @@ export function SocialLinks({ className }: SocialLinksProps) {
     <ul className={cn("flex flex-wrap items-center gap-3", className)}>
       {socialLinks.map((item) => {
         const Icon = iconMap[item.key];
-        const baseClass =
-          "inline-flex size-10 items-center justify-center rounded-full border border-[rgb(211_196_255/0.14)] bg-white/4 text-[var(--accent)] transition-all duration-300 sm:size-11";
+        const baseClass = "ds-icon-control size-11 text-accent";
 
         return (
           <li key={item.key}>
@@ -38,7 +37,7 @@ export function SocialLinks({ className }: SocialLinksProps) {
                 aria-label={item.label}
                 className={cn(
                   baseClass,
-                  "hover:-translate-y-0.5 hover:border-[rgb(211_196_255/0.22)] hover:bg-white/6",
+                  "hover:text-accent",
                 )}
               >
                 <Icon className="size-4" aria-hidden="true" />

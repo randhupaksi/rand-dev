@@ -3,6 +3,9 @@ import { Link } from "react-router-dom";
 
 import { DraftBadge } from "@/components/common/draft-badge";
 import { MediaPlaceholder } from "@/components/common/media-placeholder";
+import { Badge } from "@/components/ui/badge";
+import { Card } from "@/components/ui/card";
+import { buttonVariants } from "@/components/ui/button-variants";
 import { projects } from "@/data/projects";
 import { usePageMeta } from "@/hooks/use-page-meta";
 import { useReveal } from "@/hooks/use-reveal";
@@ -18,21 +21,21 @@ export default function ProjectsPage() {
   return (
     <div ref={scopeRef}>
       <section className="section-shell-compact">
-        <div className="content-stack-md max-w-[52rem]">
+        <div className="content-stack-md max-w-4xl">
           <div data-reveal className="section-eyebrow">
             Projects
           </div>
           <h1
             data-reveal
-            className="section-title text-[clamp(2.6rem,5.2vw,4.5rem)]"
+            className="type-h1"
           >
             Karya yang menunjukkan cara saya{" "}
-            <span className="bg-gradient-to-r from-[#f1d3ff] via-[var(--accent)] to-[#c24aff] bg-clip-text text-transparent">
+            <span className="text-gradient-brand">
               berpikir
             </span>
             .
           </h1>
-          <p data-reveal className="section-copy max-w-[44rem]">
+          <p data-reveal className="section-copy max-w-3xl">
             Setiap project punya halaman case study yang menjelaskan konteks,
             pendekatan, dan keputusan desainnya. Detail faktual yang bertanda
             draft akan diisi seiring datanya diverifikasi.
@@ -43,10 +46,12 @@ export default function ProjectsPage() {
       <section className="section-shell-compact">
         <div className="grid gap-6">
           {projects.map((project, index) => (
-            <article
+            <Card
+              as="article"
               key={project.slug}
               data-reveal
-              className="surface-panel interactive-ring overflow-hidden"
+              interactive
+              className="overflow-hidden"
             >
               <div
                 className={`grid gap-6 p-[var(--card-padding)] lg:items-center ${
@@ -59,10 +64,10 @@ export default function ProjectsPage() {
                   className={`content-stack-md ${index % 2 === 1 ? "lg:order-2" : ""}`}
                 >
                   <div className="flex flex-wrap items-center gap-3">
-                    <span className="rounded-full border border-white/10 bg-white/5 px-3 py-1.5 text-xs uppercase tracking-[0.18em] text-[var(--brand-soft)]">
+                    <Badge>
                       {project.category}
-                    </span>
-                    <span className="font-mono text-xs uppercase tracking-[0.2em] text-[var(--brand-muted)]">
+                    </Badge>
+                    <span className="type-overline">
                       {project.period}
                     </span>
                     {project.status === "draft" ? (
@@ -71,29 +76,26 @@ export default function ProjectsPage() {
                   </div>
 
                   <div className="content-stack-sm">
-                    <h2 className="text-2xl font-semibold tracking-tight text-foreground">
+                    <h2 className="type-h3">
                       {project.name}
                     </h2>
-                    <p className="max-w-[42rem] text-sm leading-7 text-muted-foreground">
+                    <p className="type-body-sm max-w-3xl">
                       {project.summary}
                     </p>
                   </div>
 
                   <div className="flex flex-wrap gap-2">
                     {project.stack.map((item) => (
-                      <span
-                        key={item}
-                        className="rounded-full border border-white/10 bg-black/12 px-3 py-1.5 text-xs text-[var(--brand-soft)]"
-                      >
+                      <Badge key={item}>
                         {item}
-                      </span>
+                      </Badge>
                     ))}
                   </div>
 
                   <div>
                     <Link
                       to={`/projects/${project.slug}`}
-                      className="group inline-flex min-h-[2.75rem] items-center gap-2 text-sm font-medium text-[var(--accent)] transition-colors duration-300 hover:text-[var(--highlight)]"
+                      className={buttonVariants({ variant: "ghost", size: "md" })}
                     >
                       Buka case study
                       <ArrowUpRight className="size-4 transition-transform duration-300 group-hover:-translate-y-0.5 group-hover:translate-x-0.5" />
@@ -108,26 +110,26 @@ export default function ProjectsPage() {
                   className={index % 2 === 1 ? "lg:order-1" : ""}
                 />
               </div>
-            </article>
+            </Card>
           ))}
 
           {/* Slot project berikutnya */}
           <div
             data-reveal
-            className="flex flex-col items-center gap-5 rounded-[2rem] border border-dashed border-[rgb(211_196_255/0.22)] bg-white/[0.02] px-6 py-12 text-center"
+            className="ds-card-subtle flex flex-col items-center gap-5 border-dashed px-6 py-12 text-center"
           >
             <div className="content-stack-xs items-center">
-              <h2 className="text-xl font-semibold tracking-tight text-foreground">
+              <h2 className="type-h4">
                 Project berikutnya bisa jadi milik kamu
               </h2>
-              <p className="max-w-[30rem] text-sm leading-7 text-muted-foreground">
+              <p className="type-body-sm max-w-2xl">
                 Slot ini sengaja kosong — saya terbuka untuk project website
                 branding, dashboard, atau eksperimen interface.
               </p>
             </div>
             <Link
               to="/contact"
-              className="inline-flex h-12 items-center gap-2 rounded-full border border-[rgb(211_196_255/0.18)] bg-[linear-gradient(135deg,#8f63ff_0%,#7c5cfa_60%,#6b49ef_100%)] px-6 text-sm font-medium text-primary-foreground transition-all duration-300 hover:-translate-y-0.5"
+              className={buttonVariants({ variant: "primary", size: "md" })}
             >
               <MessageCircle className="size-4" />
               Mulai Diskusi

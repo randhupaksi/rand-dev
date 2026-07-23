@@ -16,8 +16,8 @@ export function SectionHeading({
   return (
     <div className={`section-header ${alignment}`}>
       <div className="section-eyebrow">{eyebrow}</div>
-      <h2 className="section-title text-[clamp(2.2rem,4.8vw,4.2rem)]">{title}</h2>
-      <p className="section-copy max-w-[44rem]">{description}</p>
+      <h2 className="type-h2">{title}</h2>
+      <p className="section-copy max-w-3xl">{description}</p>
     </div>
   );
 }

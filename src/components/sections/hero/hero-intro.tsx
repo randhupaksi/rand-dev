@@ -25,25 +25,25 @@ export function HeroIntro({
   return (
     <div className="content-stack-md">
       <div className="content-stack-xs">
-        <p className="text-[2rem] font-semibold leading-none text-foreground sm:text-[2.1rem]">
+        <p className="type-h3 leading-none">
           {eyebrow}
         </p>
-        <h1 className="max-w-[30rem] text-[2.7rem] font-semibold leading-[0.92] tracking-[var(--tracking-title)] text-foreground sm:text-[4.35rem]">
-          <span className="block bg-gradient-to-r from-[#f1d3ff] via-[var(--accent)] to-[#c24aff] bg-clip-text text-transparent">
+        <h1 className="type-h1 max-w-2xl">
+          <span className="text-gradient-brand block">
             {firstName}
           </span>
           <span className="block text-foreground">{restName}</span>
         </h1>
 
-        <p className="text-[1.65rem] font-semibold leading-[1.15] text-foreground sm:text-[1.75rem]">
+        <p className="type-h3">
           {rolePrefix}{" "}
-          <span className="bg-gradient-to-r from-[#f1d3ff] via-[var(--accent)] to-[#c24aff] bg-clip-text text-transparent">
+          <span className="text-gradient-brand">
             {roleHighlight}
           </span>
         </p>
       </div>
 
-      <p className="max-w-[34rem] text-[1rem] leading-7 text-muted-foreground">
+      <p className="type-body max-w-2xl">
         {description}
       </p>
 

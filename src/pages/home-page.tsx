@@ -4,7 +4,6 @@ import { HeroSection } from "@/components/sections/hero-section";
 import { HomeCtaSection } from "@/components/sections/home-cta-section";
 import { ProcessSection } from "@/components/sections/process-section";
 import { ProjectsSection } from "@/components/sections/projects-section";
-import { ToolsSection } from "@/components/sections/tools-section";
 import { usePageMeta } from "@/hooks/use-page-meta";
 
 export default function HomePage() {
@@ -20,7 +19,6 @@ export default function HomePage() {
       <ExpertiseSection />
       <ProjectsSection />
       <ProcessSection />
-      <ToolsSection />
       <HomeCtaSection />
     </>
   );
