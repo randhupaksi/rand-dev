@@ -79,12 +79,12 @@ export function AboutRoot({ profile: _profile }: AboutRootProps) {
     <section ref={sectionRef} id="about" className="section-shell-compact">
       <div
         data-about-panel
-        className="relative overflow-hidden rounded-[2rem] border border-[rgb(211_196_255/0.16)] bg-[linear-gradient(165deg,rgba(255,255,255,0.04),rgba(8,6,16,0.58))] px-5 py-8 sm:px-8 sm:py-10 lg:px-12 lg:py-12"
+        className="relative overflow-hidden rounded-[2rem] border border-[rgb(211_196_255/0.16)] bg-[linear-gradient(165deg,rgba(255,255,255,0.04),rgba(8,6,16,0.58))] px-5 py-9 sm:px-8 sm:py-11 lg:px-12 lg:py-12"
       >
         <div className="pointer-events-none absolute inset-x-24 top-0 h-24 bg-[radial-gradient(circle_at_top,rgba(124,92,250,0.2),transparent_72%)] blur-xl" />
 
         <div className="relative z-10 content-stack-lg">
-          <div className="mx-auto max-w-[50rem] text-center content-stack-sm">
+          <div className="mx-auto max-w-[58rem] text-center content-stack-sm">
             <div
               data-about-copy
               className="mx-auto section-eyebrow border-white/12 bg-white/3"
@@ -93,14 +93,14 @@ export function AboutRoot({ profile: _profile }: AboutRootProps) {
             </div>
             <h2
               data-about-copy
-              className="text-[clamp(2rem,3.4vw,3rem)] font-semibold tracking-tight text-foreground"
+              className="text-[clamp(2.5rem,4.6vw,4rem)] font-semibold leading-[1.08] tracking-[-0.045em] text-foreground"
             >
               Tentang <span className="text-[var(--accent)]">Randhu</span> Paksi
               Membumi
             </h2>
             <p
               data-about-copy
-              className="mx-auto max-w-[44rem] text-base leading-8 text-muted-foreground sm:text-lg"
+              className="mx-auto max-w-[52rem] text-lg leading-8 text-muted-foreground sm:text-xl sm:leading-9 lg:text-[1.35rem] lg:leading-10"
             >
               Saya siswa SMK PPLG kelas 11 yang fokus membangun website dengan
               struktur yang rapi, visual yang clean, dan pengalaman pengguna
@@ -125,7 +125,7 @@ export function AboutRoot({ profile: _profile }: AboutRootProps) {
 
           <div className="h-px w-full bg-[linear-gradient(90deg,transparent,rgba(211,196,255,0.18),transparent)]" />
 
-          <div className="grid grid-cols-3 gap-3 lg:grid-cols-3 xl:grid-cols-6">
+          <div className="grid grid-cols-2 gap-x-3 gap-y-6 sm:grid-cols-3 md:grid-cols-6 md:gap-y-3">
             {aboutFeatureItems.map((item) => {
               const Icon = item.icon;
 
@@ -133,13 +133,13 @@ export function AboutRoot({ profile: _profile }: AboutRootProps) {
                 <article
                   key={item.title}
                   data-about-item
-                  className="group flex flex-col items-center gap-3 rounded-[1rem] px-3 py-2.5 text-center transition-all duration-300 hover:-translate-y-1"
+                  className="group flex flex-col items-center gap-4 rounded-[1rem] px-2 py-3 text-center transition-all duration-300 hover:-translate-y-1 sm:px-3"
                 >
-                  <div className="rounded-[1rem] border border-white/12 bg-white/[0.03] p-3.5 text-[var(--accent)] shadow-[0_8px_26px_rgba(0,0,0,0.16)] transition-all duration-300 group-hover:scale-105 group-hover:border-[rgb(211_196_255/0.28)] group-hover:bg-white/[0.055]">
+                  <div className="flex size-[3.8rem] items-center justify-center rounded-[1.15rem] border border-white/12 bg-white/[0.03] text-[var(--accent)] shadow-[0_8px_26px_rgba(0,0,0,0.16)] transition-all duration-300 group-hover:scale-105 group-hover:border-[rgb(211_196_255/0.28)] group-hover:bg-white/[0.055]">
                     <Icon className="size-5" />
                   </div>
 
-                  <p className="text-[0.97rem] font-semibold leading-6 text-foreground">
+                  <p className="text-sm font-semibold leading-5 text-foreground lg:text-[0.97rem] lg:leading-6">
                     {item.title}
                   </p>
                 </article>

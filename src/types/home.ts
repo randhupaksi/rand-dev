@@ -29,14 +29,6 @@ export type ExpertiseItem = {
   bullets: string[];
 };
 
-export type ProjectItem = {
-  name: string;
-  category: string;
-  summary: string;
-  stack: string[];
-  outcome: string;
-};
-
 export type ProcessStep = {
   step: string;
   title: string;

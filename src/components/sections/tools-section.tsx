@@ -1,45 +1,71 @@
+import { Marquee } from "@/components/common/marquee";
+import { SectionIndex } from "@/components/common/section-index";
 import { toolGroups } from "@/data/home";
-
-import { SectionHeading } from "@/components/sections/home/section-heading";
+import { useReveal } from "@/hooks/use-reveal";
 
 export function ToolsSection() {
+  const scopeRef = useReveal<HTMLElement>();
+
+  const [firstHalf, secondHalf] = [
+    toolGroups.slice(0, 2).flatMap((group) => group.items),
+    toolGroups.slice(2).flatMap((group) => group.items),
+  ];
+
   return (
-    <section className="section-shell-compact">
-      <SectionHeading
-        eyebrow="Tools & Stack"
-        title="Teknologi yang paling relevan dengan cara saya membangun project."
-        description="Saya tidak menampilkan semua tools sekaligus. Yang ditaruh di sini adalah stack yang paling mewakili workflow dan output saya saat ini."
-      />
-
-      <div className="mt-10 grid gap-5 lg:grid-cols-2">
-        {toolGroups.map((group) => (
-          <article
-            key={group.title}
-            className="surface-panel interactive-ring p-[var(--card-padding)]"
+    <section ref={scopeRef} className="section-shell">
+      <div className="content-stack-lg">
+        <div className="content-stack-md">
+          <div data-reveal>
+            <SectionIndex index="05" label="Stack" />
+          </div>
+          <h2
+            data-reveal
+            className="section-title max-w-[40rem] text-[clamp(2.2rem,4.4vw,3.6rem)]"
           >
-            <div className="content-stack-md">
-              <div className="flex items-center justify-between">
-                <h3 className="text-xl font-semibold text-foreground">
-                  {group.title}
-                </h3>
-                <span className="text-xs uppercase tracking-[0.2em] text-[var(--brand-muted)]">
-                  {group.items.length} items
-                </span>
-              </div>
+            Teknologi yang paling mewakili workflow saya.
+          </h2>
+        </div>
 
-              <div className="flex flex-wrap gap-2.5">
-                {group.items.map((item) => (
-                  <span
-                    key={item}
-                    className="rounded-full border border-white/10 bg-white/4 px-3 py-1.5 text-sm text-[var(--brand-soft)]"
-                  >
+        {/* Ticker dua arah */}
+        <div data-reveal className="content-stack-sm border-y border-white/6 py-6">
+          <Marquee
+            items={firstHalf}
+            duration={30}
+            itemClassName="text-[clamp(1.3rem,2.6vw,2rem)] font-semibold tracking-tight text-foreground"
+          />
+          <Marquee
+            items={secondHalf}
+            reverse
+            duration={34}
+            itemClassName="text-ghost text-[clamp(1.3rem,2.6vw,2rem)] font-semibold tracking-tight"
+          />
+        </div>
+
+        {/* Spec sheet */}
+        <div data-reveal>
+          {toolGroups.map((group) => (
+            <div
+              key={group.title}
+              className="grid gap-2 border-t border-white/8 py-5 transition-colors duration-300 last:border-b hover:border-[rgb(211_196_255/0.25)] sm:grid-cols-[11rem_1fr] sm:items-baseline sm:gap-6"
+            >
+              <h3 className="font-mono text-[0.68rem] font-semibold uppercase tracking-[0.24em] text-[var(--brand-muted)]">
+                {group.title}
+              </h3>
+              <p className="flex flex-wrap items-baseline gap-x-3 gap-y-1 text-sm text-[var(--brand-soft)]">
+                {group.items.map((item, index) => (
+                  <span key={item} className="flex items-baseline gap-3">
+                    {index > 0 ? (
+                      <span aria-hidden="true" className="text-[var(--brand-muted)]">
+                        ·
+                      </span>
+                    ) : null}
                     {item}
                   </span>
                 ))}
-              </div>
+              </p>
             </div>
-          </article>
-        ))}
+          ))}
+        </div>
       </div>
     </section>
   );

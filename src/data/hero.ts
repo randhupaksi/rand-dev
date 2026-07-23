@@ -7,6 +7,16 @@ export const heroContent: HeroContent = {
   roleHighlight: "Creative Web Developer",
   description:
     "Saya membangun website modern dengan pendekatan visual yang refined, interaktif, dan terstruktur. Fokus saya ada pada branding website, UI premium, dan pengalaman digital yang terasa matang.",
-  primaryAction: "Download CV",
-  secondaryAction: "See Portfolio",
+  primaryAction: "Lihat Project",
+  secondaryAction: "Hubungi Saya",
 };
+
+export const heroTickerItems: string[] = [
+  "Creative Web Developer",
+  "UI Engineering",
+  "Dashboard Systems",
+  "Interactive Experience",
+  "Design System Thinking",
+  "Clean Architecture",
+  "Responsive Craft",
+];

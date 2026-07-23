@@ -5,7 +5,6 @@ import type {
   ExpertiseItem,
   HomeCta,
   ProcessStep,
-  ProjectItem,
   ToolGroup,
 } from "@/types/home";
 
@@ -48,47 +47,20 @@ export const expertiseItems: ExpertiseItem[] = [
   {
     title: "Web Development",
     description:
-      "Membangun website modern yang rapi secara struktur, scalable, dan nyaman digunakan.",
-    bullets: ["Next.js / React / TS", "Responsive layout", "Clean project structure"],
+      "Saya menerjemahkan kebutuhan menjadi halaman dan komponen yang jelas tanggung jawabnya, supaya website tetap enak dikembangkan saat isinya bertambah.",
+    bullets: ["React & TypeScript", "Responsive sejak awal", "Komponen reusable"],
   },
   {
     title: "UI / UX & Frontend",
     description:
-      "Mengolah hierarchy, spacing, visual rhythm, dan interaksi agar interface terasa matang.",
-    bullets: ["Premium visual hierarchy", "Dashboard-friendly UI", "Interactive presentation"],
+      "Sebelum menambah dekorasi, saya merapikan urutan baca, jarak, kontras, dan feedback. Detail visual dipakai untuk membantu orang memahami interface.",
+    bullets: ["Hierarchy lebih dulu", "State & feedback", "Motion yang terarah"],
   },
   {
     title: "System & Dashboard Building",
     description:
-      "Terbiasa memikirkan alur user, role access, pengelolaan data, dan panel management.",
-    bullets: ["CRUD & auth flow", "Admin / user panels", "Information architecture"],
-  },
-];
-
-export const featuredProjects: ProjectItem[] = [
-  {
-    name: "Sewa Kos Dashboard",
-    category: "Dashboard System",
-    summary:
-      "Panel management untuk pengelolaan kamar, pembayaran, dan verifikasi dengan struktur UI yang rapi.",
-    stack: ["Next.js", "TypeScript", "Tailwind"],
-    outcome: "Enterprise-style dashboard with clean role-based flow.",
-  },
-  {
-    name: "Digital Service Platform",
-    category: "Service Website",
-    summary:
-      "Website layanan digital dengan penekanan pada hierarchy visual, CTA yang jelas, dan presentasi yang premium.",
-    stack: ["React", "GSAP", "Figma"],
-    outcome: "Service presentation that feels polished and conversion-aware.",
-  },
-  {
-    name: "Gallery & Content App",
-    category: "Content System",
-    summary:
-      "Aplikasi galeri dengan pengelolaan data, struktur modul yang rapi, dan tampilan yang konsisten.",
-    stack: ["PHP", "MySQL", "JavaScript"],
-    outcome: "Functional content management with better user flow thinking.",
+      "Untuk interface dengan banyak aksi dan data, saya memetakan role, status, dan jalur utama agar pengguna tidak perlu menebak langkah berikutnya.",
+    bullets: ["Role-aware flow", "CRUD states", "Information architecture"],
   },
 ];
 
@@ -143,5 +115,5 @@ export const homeCta: HomeCta = {
   description:
     "Saya terbuka untuk diskusi website branding, dashboard, dan kebutuhan digital yang butuh perpaduan visual dan struktur yang kuat.",
   primaryLabel: "Diskusi Project",
-  secondaryLabel: "Lihat CV",
+  secondaryLabel: "Lihat Semua Project",
 };

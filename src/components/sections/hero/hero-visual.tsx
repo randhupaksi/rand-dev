@@ -6,6 +6,7 @@ import {
   Sparkles,
   WandSparkles,
 } from "lucide-react";
+import { Link } from "react-router-dom";
 
 const highlightItems = [
   {
@@ -75,7 +76,7 @@ export function HeroVisual() {
               <span className="text-[var(--accent)]">Randhu</span>{" "}
               <span className="text-foreground">Paksi</span>
             </div>
-            <div className="flex items-center gap-2 text-muted-foreground">
+            <div aria-hidden="true" className="flex items-center gap-2 text-muted-foreground">
               <Settings className="size-4" />
               <Menu className="size-4" />
             </div>
@@ -113,9 +114,12 @@ export function HeroVisual() {
                 digital yang rapi, interaktif, dan terasa matang.
               </p>
 
-              <div className="inline-flex w-fit rounded-full border border-[rgb(211_196_255/0.16)] bg-[linear-gradient(135deg,#8f63ff_0%,#7c5cfa_60%,#6b49ef_100%)] px-4 py-2 text-xs font-semibold uppercase tracking-[0.14em] text-primary-foreground">
-                Download CV
-              </div>
+              <Link
+                to="/contact"
+                className="inline-flex w-fit rounded-full border border-[rgb(211_196_255/0.16)] bg-[linear-gradient(135deg,#8f63ff_0%,#7c5cfa_60%,#6b49ef_100%)] px-4 py-2 text-xs font-semibold uppercase tracking-[0.14em] text-primary-foreground transition-transform duration-300 hover:-translate-y-0.5"
+              >
+                Hubungi Saya
+              </Link>
             </div>
           </div>
         </div>
