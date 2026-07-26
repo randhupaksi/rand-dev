@@ -9,7 +9,7 @@ import type {
  *
  * Semua nilai placeholder di bawah dibaca dari `.env` (lihat `.env.example`).
  * Untuk mengganti email, WhatsApp, social link, lokasi, atau CV cukup isi
- * environment variable terkait — tidak perlu menyentuh component mana pun.
+ * environment variable terkait - tidak perlu menyentuh component mana pun.
  */
 const env = import.meta.env;
 

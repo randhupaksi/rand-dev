@@ -21,11 +21,20 @@ export type Project = {
   /** Gunakan "20XX" selama tahun asli belum diverifikasi. */
   period: string;
   summary: string;
+  thumbnail?: {
+    src: string;
+    alt: string;
+  };
   stack: string[];
   focusAreas: string[];
   status: ProjectStatus;
   links: ProjectLinks;
   caseStudy: CaseStudyBlock[];
+  gallery?: {
+    src: string;
+    alt: string;
+    label: string;
+  }[];
   /** Jumlah slot screenshot pada gallery; diisi frame placeholder selama asset belum ada. */
   gallerySlots: number;
 };

@@ -5,7 +5,7 @@ import { buttonVariants } from "@/components/ui/button-variants";
 import { usePageMeta } from "@/hooks/use-page-meta";
 
 export default function NotFoundPage() {
-  usePageMeta("Halaman tidak ditemukan — Randhu Paksi Membumi");
+  usePageMeta("Halaman tidak ditemukan - Randhu Paksi Membumi");
 
   return (
     <section className="flex min-h-[65vh] items-center section-shell-compact">

@@ -40,7 +40,7 @@ type SubmitStatus = "idle" | "sent" | "demo" | "error";
 
 export default function ContactPage() {
   usePageMeta(
-    "Contact — Randhu Paksi Membumi",
+    "Contact - Randhu Paksi Membumi",
     "Hubungi Randhu Paksi Membumi untuk diskusi project website branding, dashboard, atau kolaborasi frontend.",
   );
 
@@ -61,7 +61,7 @@ export default function ContactPage() {
 
     if (!contactEndpoint) {
       // Mode demo: tidak ada endpoint yang dikonfigurasi, jadi tidak ada
-      // pesan yang benar-benar terkirim — status "demo" menjelaskannya.
+      // pesan yang benar-benar terkirim - status "demo" menjelaskannya.
       await new Promise((resolve) => setTimeout(resolve, 700));
       setStatus("demo");
       return;
@@ -101,8 +101,8 @@ export default function ContactPage() {
             .
           </h1>
           <p data-reveal className="section-copy max-w-3xl">
-            {siteIdentity.availability.value}. Ceritakan kebutuhanmu — website
-            branding, dashboard, atau eksperimen interface — dan kita lihat apa
+            {siteIdentity.availability.value}. Ceritakan kebutuhanmu - website
+            branding, dashboard, atau eksperimen interface - dan kita lihat apa
             yang bisa dibangun bersama.
           </p>
         </div>
@@ -349,7 +349,7 @@ export default function ContactPage() {
                         className="mt-0.5 size-3.5 shrink-0"
                         aria-hidden="true"
                       />
-                      Validasi form berhasil, tetapi ini mode demo — pesan TIDAK
+                      Validasi form berhasil, tetapi ini mode demo - pesan TIDAK
                       terkirim. Konfigurasikan VITE_CONTACT_ENDPOINT untuk
                       mengaktifkan pengiriman asli.
                     </p>
@@ -360,7 +360,7 @@ export default function ContactPage() {
                         className="mt-0.5 size-3.5 shrink-0"
                         aria-hidden="true"
                       />
-                      Pesan terkirim. Terima kasih — akan dibalas secepatnya.
+                      Pesan terkirim. Terima kasih - akan dibalas secepatnya.
                     </p>
                   ) : null}
                   {status === "error" ? (

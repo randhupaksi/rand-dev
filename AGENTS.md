@@ -1,4 +1,4 @@
-# Rand Dev Portfolio — Project Instructions
+# Rand Dev Portfolio - Project Instructions
 
 ## Operational context
 
@@ -27,24 +27,24 @@ The primary audience is recruiters, internship or collaboration partners, potent
 3. inspect selected work and process;
 4. continue to CV, project details, social profiles, or contact.
 
-This is a personal portfolio, not an admin dashboard. The “enterprise” influence should appear through precision, hierarchy, consistency, and restrained polish—not through dense dashboard chrome.
+This is a personal portfolio, not an admin dashboard. The “enterprise” influence should appear through precision, hierarchy, consistency, and restrained polish-not through dense dashboard chrome.
 
 ## Current product structure
 
 The application is a multi-page SPA routed with React Router (`src/App.tsx`):
 
-- `/` — home: hero, about summary, expertise, selected projects, process, tools, final CTA;
-- `/about` — editorial intro, working principles, skill areas, journey timeline (draft slots);
-- `/projects` — full project list plus an open "next project" slot;
-- `/projects/:slug` — per-project case study (overview, challenge, approach, outcome, gallery);
-- `/contact` — contact channels, socials, CV, validated contact form, FAQ;
-- `*` — 404 page.
+- `/` - home: hero, about summary, expertise, selected projects, process, tools, final CTA;
+- `/about` - editorial intro, working principles, skill areas, journey timeline (draft slots);
+- `/projects` - full project list plus an open "next project" slot;
+- `/projects/:slug` - per-project case study (overview, challenge, approach, outcome, gallery);
+- `/contact` - contact channels, socials, CV, validated contact form, FAQ;
+- `*` - 404 page.
 
 Non-home pages are lazy-loaded; `RootLayout` owns navbar, footer, and the Suspense fallback. Home sections still use in-page anchors (`#home`, `#about`, `#skills`, `#portfolio`); keep IDs and links synchronized whenever sections change.
 
 Content is intentionally separated from presentation:
 
-- `src/data/` contains all copy, project, contact, and navigation data — including the centralized placeholder system (personal data reads from `.env`, see `.env.example`);
+- `src/data/` contains all copy, project, contact, and navigation data - including the centralized placeholder system (personal data reads from `.env`, see `.env.example`);
 - `src/types/` contains content contracts;
 - `src/pages/` contains page composition;
 - `src/components/layout/` contains navbar, footer, and root layout;
@@ -126,7 +126,7 @@ The approved direction is **dark purple editorial portfolio with enterprise-leve
 
 - Borders are thin and subtle, typically translucent lavender or white.
 - Radius is generous but controlled: large shells and feature panels receive larger radii; buttons, chips, and icon controls use pills or compact rounded forms.
-- Depth comes from tonal layers, spacing, overlap, and limited shadow—not heavy glassmorphism.
+- Depth comes from tonal layers, spacing, overlap, and limited shadow-not heavy glassmorphism.
 - Do not add blur indiscriminately. Backdrop blur is appropriate only where layering needs separation.
 
 ### Icons and controls
@@ -135,7 +135,7 @@ The approved direction is **dark purple editorial portfolio with enterprise-leve
 - Icons support meaning and must not replace clear labels for important actions.
 - Circular icon controls must have accessible names, visible hover/focus feedback, and adequate touch targets.
 - Primary buttons use the violet brand treatment; secondary buttons are quieter outlined or tonal controls.
-- Every control that looks interactive must perform a real action or be explicitly implemented as a disabled/non-interactive visual—not a dead button.
+- Every control that looks interactive must perform a real action or be explicitly implemented as a disabled/non-interactive visual-not a dead button.
 
 ### Motion
 

@@ -1,115 +1,69 @@
 import type { Project } from "@/types/project";
 
 /**
- * Data project bersifat draft: nama, kategori, dan stack berasal dari data
- * repository, sedangkan seluruh klaim faktual (challenge, outcome, periode,
- * link demo/repo) masih placeholder eksplisit sampai data asli tersedia.
- *
- * Cara mengganti: isi `period`, `links`, dan body case study, lalu ubah
- * `status` menjadi "verified" dan `isPlaceholder` menjadi `false`.
+ * Seluruh karya yang ditampilkan pada portfolio dikelola dari file ini.
+ * Detail Absensi CN berasal dari informasi proyek yang diberikan pemilik portfolio.
  */
 export const projects: Project[] = [
   {
-    slug: "sewa-kos-dashboard",
-    name: "Sewa Kos Dashboard",
-    category: "Dashboard System",
-    period: "20XX",
+    slug: "absensi-cn",
+    name: "Absensi CN",
+    category: "Education Management System",
+    period: "Tahun belum dipublikasikan",
     summary:
-      "Panel management untuk pengelolaan kamar, pembayaran, dan verifikasi dengan struktur UI yang rapi dan alur role yang jelas.",
-    stack: ["Next.js", "TypeScript", "Tailwind CSS"],
-    focusAreas: ["Dashboard UI", "CRUD flow", "Role-based layout"],
-    status: "draft",
+      "Platform manajemen kehadiran dan pembinaan siswa untuk Sekolah Citra Negara, yang menyatukan absensi harian, sesi mata pelajaran, pengajuan, monitoring BK, dan laporan.",
+    thumbnail: {
+      src: "/images/project/absensi-cn/hero-absensi-cn.png",
+      alt: "Tampilan utama platform Absensi CN",
+    },
+    stack: [
+      "React",
+      "TypeScript",
+      "Vite",
+      "Tailwind CSS",
+      "Go",
+      "MySQL",
+    ],
+    focusAreas: [
+      "Role-based access",
+      "Attendance workflow",
+      "Student risk monitoring",
+      "Reporting system",
+    ],
+    status: "verified",
     links: { demo: null, repository: null },
     caseStudy: [
       {
         title: "Overview",
-        body: "Project ini adalah dashboard pengelolaan kos: kamar, penghuni, pembayaran, dan proses verifikasi dikelola dari satu panel dengan hierarchy informasi yang terstruktur.",
+        body: "Absensi CN adalah platform manajemen kehadiran dan pembinaan siswa untuk Sekolah Citra Negara. Sistem ini membantu sekolah mengelola absensi harian, kehadiran pada sesi mata pelajaran, pengajuan izin atau sakit, monitoring siswa berisiko, catatan konseling, laporan, serta kalender hari libur dalam satu ekosistem terintegrasi.",
         isPlaceholder: false,
       },
       {
-        title: "Challenge",
-        body: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
-        isPlaceholder: true,
+        title: "Masalah yang diselesaikan",
+        body: "Pencatatan kehadiran tidak berhenti pada status hadir atau tidak hadir. Sistem dirancang untuk mengurangi proses manual yang tersebar, memisahkan absensi pagi dari kehadiran sesi mapel, menyediakan histori yang mudah ditelusuri, dan membantu sekolah membaca pola alfa atau pengajuan yang membutuhkan tindak lanjut.",
+        isPlaceholder: false,
       },
       {
-        title: "Approach",
-        body: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris.",
-        isPlaceholder: true,
+        title: "Alur dan peran pengguna",
+        body: "Siswa dapat mengirim absensi harian dengan status, foto bukti, dan lokasi bila diperlukan, sekaligus mengajukan izin atau sakit. Guru dan wali kelas memantau kelas serta melakukan review atau koreksi ketika ada anomali. Guru mapel mengelola kehadiran per sesi pembelajaran. Guru BK memantau risiko lintas kelas dan menyimpan catatan pembinaan, sementara admin mengelola data akademik, role, import data, dan kalender hari libur.",
+        isPlaceholder: false,
       },
       {
-        title: "Outcome",
-        body: "Placeholder project outcome — replace with verified project information.",
-        isPlaceholder: true,
+        title: "Nilai sistem",
+        body: "Absensi CN mengubah data kehadiran menjadi informasi yang dapat ditindaklanjuti. Status otomatis yang sudah sesuai tidak perlu direview, sedangkan anomali dapat dikoreksi dengan catatan yang meninggalkan jejak konteks. Kalender hari libur juga memastikan Sabtu, Minggu, dan libur sekolah tidak dihitung sebagai hari efektif atau menghasilkan status alfa.",
+        isPlaceholder: false,
       },
     ],
-    gallerySlots: 2,
-  },
-  {
-    slug: "digital-service-platform",
-    name: "Digital Service Platform",
-    category: "Service Website",
-    period: "20XX",
-    summary:
-      "Website layanan digital dengan penekanan pada hierarchy visual, CTA yang jelas, dan presentasi yang terasa premium.",
-    stack: ["React", "GSAP", "Figma"],
-    focusAreas: ["Visual hierarchy", "Interactive presentation", "Conversion-aware layout"],
-    status: "draft",
-    links: { demo: null, repository: null },
-    caseStudy: [
+    gallery: [
       {
-        title: "Overview",
-        body: "Project ini adalah website presentasi layanan digital: fokusnya pada storytelling visual, ritme section, dan CTA yang mudah ditemukan tanpa membuat halaman terasa ramai.",
-        isPlaceholder: false,
+        src: "/images/project/absensi-cn/login-form.png",
+        alt: "Form login platform Absensi CN",
+        label: "Login form",
       },
       {
-        title: "Challenge",
-        body: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
-        isPlaceholder: true,
-      },
-      {
-        title: "Approach",
-        body: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis aute irure dolor in reprehenderit in voluptate velit esse.",
-        isPlaceholder: true,
-      },
-      {
-        title: "Outcome",
-        body: "Placeholder project outcome — replace with verified project information.",
-        isPlaceholder: true,
-      },
-    ],
-    gallerySlots: 2,
-  },
-  {
-    slug: "gallery-content-app",
-    name: "Gallery & Content App",
-    category: "Content System",
-    period: "20XX",
-    summary:
-      "Aplikasi galeri dengan pengelolaan data, struktur modul yang rapi, dan tampilan yang konsisten antar halaman.",
-    stack: ["PHP", "MySQL", "JavaScript"],
-    focusAreas: ["Content management", "Module structure", "Consistent UI"],
-    status: "draft",
-    links: { demo: null, repository: null },
-    caseStudy: [
-      {
-        title: "Overview",
-        body: "Project ini adalah aplikasi galeri dan konten: pengelolaan data dilakukan melalui modul yang terpisah rapi sehingga tampilan tetap konsisten saat konten bertambah.",
-        isPlaceholder: false,
-      },
-      {
-        title: "Challenge",
-        body: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
-        isPlaceholder: true,
-      },
-      {
-        title: "Approach",
-        body: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Excepteur sint occaecat cupidatat non proident, sunt in culpa.",
-        isPlaceholder: true,
-      },
-      {
-        title: "Outcome",
-        body: "Placeholder project outcome — replace with verified project information.",
-        isPlaceholder: true,
+        src: "/images/project/absensi-cn/dashboard.png",
+        alt: "Dashboard utama platform Absensi CN",
+        label: "Dashboard",
       },
     ],
     gallerySlots: 2,

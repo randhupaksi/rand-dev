@@ -12,7 +12,7 @@ import { useReveal } from "@/hooks/use-reveal";
 
 export default function AboutPage() {
   usePageMeta(
-    "About — Randhu Paksi Membumi",
+    "About - Randhu Paksi Membumi",
     "Cara berpikir, prinsip kerja, skill, dan perjalanan Randhu Paksi Membumi sebagai creative web developer.",
   );
 
@@ -44,7 +44,7 @@ export default function AboutPage() {
           </p>
           <div data-reveal className="flex flex-wrap gap-2.5">
             <Badge>
-              SMK PPLG — Kelas 11
+              SMK PPLG - Kelas 11
             </Badge>
             <Badge variant="primary">
               {siteIdentity.role}
@@ -56,7 +56,7 @@ export default function AboutPage() {
         </div>
       </section>
 
-      {/* Prinsip kerja — editorial rows, bukan card grid */}
+      {/* Prinsip kerja - editorial rows, bukan card grid */}
       <section className="section-shell-compact">
         <div className="grid gap-10 lg:grid-cols-[minmax(0,0.55fr)_minmax(0,1fr)]">
           <div data-reveal className="content-stack-sm lg:sticky lg:top-32 lg:self-start">
@@ -65,7 +65,7 @@ export default function AboutPage() {
               Prinsip yang saya pegang di setiap project
             </h2>
             <p className="section-copy">
-              Prinsip ini yang membuat hasil kerja tetap konsisten — apa pun jenis
+              Prinsip ini yang membuat hasil kerja tetap konsisten - apa pun jenis
               project dan stack-nya.
             </p>
           </div>
@@ -103,7 +103,7 @@ export default function AboutPage() {
               Area yang sedang saya bangun dan dalami
             </h2>
             <p className="section-copy">
-              Daftar ini adalah gambaran arah belajar saya saat ini — bukan klaim
+              Daftar ini adalah gambaran arah belajar saya saat ini - bukan klaim
               tingkat keahlian, melainkan peta area yang saya kerjakan setiap hari.
             </p>
           </div>
@@ -150,7 +150,7 @@ export default function AboutPage() {
             </h2>
             <p className="section-copy">
               Entri bertanda draft adalah slot untuk pengalaman yang akan diisi
-              seiring perjalanan — magang, lomba, atau project kolaborasi.
+              seiring perjalanan - magang, lomba, atau project kolaborasi.
             </p>
           </div>
 

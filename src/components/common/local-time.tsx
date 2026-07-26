@@ -10,7 +10,7 @@ function formatNow() {
   return formatter.format(new Date());
 }
 
-/** Jam lokal (WIB) yang hidup — detail kecil yang membuat site terasa aktif. */
+/** Jam lokal (WIB) yang hidup - detail kecil yang membuat site terasa aktif. */
 export function LocalTime() {
   const [time, setTime] = useState(formatNow);
 

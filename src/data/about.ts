@@ -60,20 +60,20 @@ export const skillGroups: SkillGroup[] = [
 
 /**
  * Entri pertama adalah informasi pendidikan yang memang diketahui.
- * Entri `isPlaceholder: true` adalah slot draft — ganti dengan pengalaman
+ * Entri `isPlaceholder: true` adalah slot draft - ganti dengan pengalaman
  * nyata (magang, lomba, project client) ketika sudah tersedia.
  */
 export const journeyItems: JourneyItem[] = [
   {
     period: "Sekarang",
-    title: "SMK PPLG — Kelas 11",
+    title: "SMK PPLG - Kelas 11",
     organization: "Pengembangan Perangkat Lunak dan Gim",
     description:
       "Fokus pada web development: membangun interface yang rapi, memahami alur data, dan melatih kepekaan visual lewat project sekolah dan eksperimen pribadi.",
     isPlaceholder: false,
   },
   {
-    period: "20XX — 20XX",
+    period: "20XX - 20XX",
     title: "Placeholder experience title",
     organization: "Placeholder company",
     description:
@@ -81,7 +81,7 @@ export const journeyItems: JourneyItem[] = [
     isPlaceholder: true,
   },
   {
-    period: "20XX — 20XX",
+    period: "20XX - 20XX",
     title: "Placeholder achievement",
     organization: "Placeholder organization",
     description:
@@ -94,7 +94,7 @@ export const contactFaq: FaqItem[] = [
   {
     question: "Kolaborasi seperti apa yang terbuka?",
     answer:
-      "Project website branding, landing page, dashboard UI, atau eksperimen interface — baik sebagai project latihan, PKL, maupun kolaborasi dengan developer dan designer lain.",
+      "Project website branding, landing page, dashboard UI, atau eksperimen interface - baik sebagai project latihan, PKL, maupun kolaborasi dengan developer dan designer lain.",
   },
   {
     question: "Bagaimana proses kerjanya?",

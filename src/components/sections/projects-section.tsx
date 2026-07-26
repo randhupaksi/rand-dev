@@ -83,6 +83,8 @@ export function ProjectsSection() {
               </div>
 
               <MediaPlaceholder
+                src={featured.thumbnail?.src}
+                alt={featured.thumbnail?.alt}
                 label="Project Image Placeholder"
                 hint="Tambahkan screenshot asli melalui src/data/projects.ts"
                 aspect="wide"

@@ -14,7 +14,7 @@ export function SiteFooter() {
         <div className="content-stack-sm max-w-sm">
           <p className="text-lg font-semibold tracking-tight text-foreground">
             {siteIdentity.brandFirst}{" "}
-            <span className="text-accent">{siteIdentity.brandSecond}</span>
+            <span className=  "text-accent">{siteIdentity.brandSecond}</span>
           </p>
           <p className="text-sm leading-7 text-muted-foreground">
             {siteIdentity.tagline}

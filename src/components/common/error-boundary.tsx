@@ -40,7 +40,7 @@ export class ErrorBoundary extends Component<ErrorBoundaryProps, ErrorBoundarySt
             Halaman gagal dimuat
           </h1>
           <p className="type-body-sm">
-            Ada error tak terduga saat merender halaman ini. Coba muat ulang —
+            Ada error tak terduga saat merender halaman ini. Coba muat ulang -
             jika masih terjadi, periksa console browser untuk detailnya.
           </p>
           <div className="flex justify-center">

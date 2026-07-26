@@ -1,4 +1,4 @@
-# Rand Dev — Portfolio Randhu Paksi Membumi
+# Rand Dev - Portfolio Randhu Paksi Membumi
 
 Website portfolio pribadi Randhu Paksi Membumi (Creative Web Developer, siswa SMK PPLG kelas 11). Multi-page SPA dengan arah visual **dark purple editorial dengan presisi enterprise**.
 
@@ -35,14 +35,14 @@ npm run preview   # preview hasil build
 
 ## Struktur kode
 
-- `src/data/` — **semua konten** (copy, project, kontak, navigasi). Ganti konten di sini, bukan di komponen.
-- `src/types/` — kontrak konten.
-- `src/pages/` — komposisi per halaman (lazy-loaded kecuali home).
-- `src/components/layout/` — navbar, footer, root layout.
-- `src/components/sections/` — section home.
-- `src/components/common/` — primitif reusable: `MediaPlaceholder`, `DraftBadge`, `SocialLinks`, `ErrorBoundary`, `ScrollToTop`.
-- `src/hooks/` — `useReveal` (animasi masuk), `usePageMeta` (title/description per halaman).
-- `src/styles/design-system.css` — sumber kebenaran token visual.
+- `src/data/` - **semua konten** (copy, project, kontak, navigasi). Ganti konten di sini, bukan di komponen.
+- `src/types/` - kontrak konten.
+- `src/pages/` - komposisi per halaman (lazy-loaded kecuali home).
+- `src/components/layout/` - navbar, footer, root layout.
+- `src/components/sections/` - section home.
+- `src/components/common/` - primitif reusable: `MediaPlaceholder`, `DraftBadge`, `SocialLinks`, `ErrorBoundary`, `ScrollToTop`.
+- `src/hooks/` - `useReveal` (animasi masuk), `usePageMeta` (title/description per halaman).
+- `src/styles/design-system.css` - sumber kebenaran token visual.
 
 ## Design system
 
@@ -93,10 +93,10 @@ Edit `src/data/projects.ts`:
 
 ### Cara mengganti journey/pengalaman
 
-Edit `src/data/about.ts` — entri `isPlaceholder: true` adalah slot draft untuk pengalaman nyata (magang, lomba, kolaborasi).
+Edit `src/data/about.ts` - entri `isPlaceholder: true` adalah slot draft untuk pengalaman nyata (magang, lomba, kolaborasi).
 
 ## Catatan
 
-- Contact form berjalan dalam **mode demo** selama `VITE_CONTACT_ENDPOINT` kosong, dan menyatakannya secara eksplisit ke pengguna — pesan tidak pernah pura-pura terkirim.
+- Contact form berjalan dalam **mode demo** selama `VITE_CONTACT_ENDPOINT` kosong, dan menyatakannya secara eksplisit ke pengguna - pesan tidak pernah pura-pura terkirim.
 - Foto profil di hero adalah asset asli di `public/images/profile/`.
 - Module `src/components/ui/button.tsx` memicu warning Oxlint Fast Refresh yang sudah ada sejak awal (export komponen + konstanta); bukan regression.

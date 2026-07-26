@@ -7,7 +7,7 @@ gsap.registerPlugin(ScrollTrigger);
 /**
  * Scroll-based reveal: elemen bertanda `data-reveal` di dalam scope muncul
  * saat masuk viewport (sekali saja), sehingga halaman terasa hidup ketika
- * discroll — bukan animasi mount yang selesai sebelum terlihat.
+ * discroll - bukan animasi mount yang selesai sebelum terlihat.
  * Menghormati prefers-reduced-motion.
  */
 export function useReveal<T extends HTMLElement>(dependencyKey?: string) {

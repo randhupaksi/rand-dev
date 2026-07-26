@@ -10,7 +10,7 @@ export type SkillGroup = {
 };
 
 export type JourneyItem = {
-  /** Gunakan "20XX — 20XX" selama periode asli belum diverifikasi. */
+  /** Gunakan "20XX - 20XX" selama periode asli belum diverifikasi. */
   period: string;
   title: string;
   organization: string;

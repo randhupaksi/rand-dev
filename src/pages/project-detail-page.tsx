@@ -21,7 +21,7 @@ function ComingSoonLink({
 }) {
   return (
     <span
-      title={`${label} — belum tersedia`}
+      title={`${label} - belum tersedia`}
       className={cn(buttonVariants({ variant: "outline", size: "md" }), "cursor-not-allowed border-dashed opacity-50")}
     >
       <Icon className="size-4" aria-hidden="true" />
@@ -39,8 +39,8 @@ export default function ProjectDetailPage() {
 
   usePageMeta(
     project
-      ? `${project.name} — Case Study — Randhu Paksi Membumi`
-      : "Project tidak ditemukan — Randhu Paksi Membumi",
+      ? `${project.name} - Case Study - Randhu Paksi Membumi`
+      : "Project tidak ditemukan - Randhu Paksi Membumi",
     project?.summary,
   );
 
@@ -54,7 +54,7 @@ export default function ProjectDetailPage() {
 
   return (
     <div ref={scopeRef}>
-      <section className="section-shell-compact">
+      <section className="section-shell-compact pb-6 lg:pb-8">
         <div className="content-stack-md">
           <div data-reveal>
             <Link
@@ -88,17 +88,20 @@ export default function ProjectDetailPage() {
         </div>
       </section>
 
-      <section className="section-shell-compact">
+      <section className="section-shell-compact py-6 lg:py-8">
         <div data-reveal>
           <MediaPlaceholder
+            src={project.thumbnail?.src}
+            alt={project.thumbnail?.alt}
             label="Project Cover Placeholder"
             hint="Tambahkan cover asli project ini melalui src/data/projects.ts"
             aspect="video"
+            className="mx-auto max-w-4xl"
           />
         </div>
       </section>
 
-      <section className="section-shell-compact">
+      <section className="section-shell-compact pt-6 lg:pt-8">
         <div className="grid gap-10 lg:grid-cols-[minmax(0,0.42fr)_minmax(0,1fr)]">
           {/* Meta rail */}
           <aside
@@ -194,7 +197,7 @@ export default function ProjectDetailPage() {
                 </p>
                 {block.isPlaceholder ? (
                   <p className="type-caption text-brand-muted">
-                    Add real case-study content here — edit di src/data/projects.ts.
+                    Add real case-study content here - edit di src/data/projects.ts.
                   </p>
                 ) : null}
               </div>
@@ -205,17 +208,27 @@ export default function ProjectDetailPage() {
                 <h2 className="type-h4">
                   Gallery
                 </h2>
-                <DraftBadge label="Coming Soon" />
+                {project.gallery?.length ? null : <DraftBadge label="Coming Soon" />}
               </div>
               <div className="grid gap-4 sm:grid-cols-2">
-                {Array.from({ length: project.gallerySlots }, (_, slotIndex) => (
-                  <MediaPlaceholder
-                    key={slotIndex}
-                    label={`Screenshot 0${slotIndex + 1}`}
-                    hint="Add screenshot"
-                    aspect="wide"
-                  />
-                ))}
+                {project.gallery?.length
+                  ? project.gallery.map((item) => (
+                      <MediaPlaceholder
+                        key={item.src}
+                        src={item.src}
+                        alt={item.alt}
+                        label={item.label}
+                        aspect="wide"
+                      />
+                    ))
+                  : Array.from({ length: project.gallerySlots }, (_, slotIndex) => (
+                      <MediaPlaceholder
+                        key={slotIndex}
+                        label={`Screenshot 0${slotIndex + 1}`}
+                        hint="Add screenshot"
+                        aspect="wide"
+                      />
+                    ))}
               </div>
             </div>
           </div>
@@ -223,11 +236,12 @@ export default function ProjectDetailPage() {
       </section>
 
       {/* Prev / next */}
-      <section className="section-shell-compact">
-        <nav
-          aria-label="Navigasi antarproject"
-          className="grid gap-4 sm:grid-cols-2"
-        >
+      {previous || next ? (
+        <section className="section-shell-compact">
+          <nav
+            aria-label="Navigasi antarproject"
+            className="grid gap-4 sm:grid-cols-2"
+          >
           {previous ? (
             <Link
               to={`/projects/${previous.slug}`}
@@ -263,8 +277,9 @@ export default function ProjectDetailPage() {
               <ArrowRight className="size-4 shrink-0 text-accent transition-transform duration-300 group-hover:translate-x-0.5" />
             </Link>
           ) : null}
-        </nav>
-      </section>
+          </nav>
+        </section>
+      ) : null}
     </div>
   );
 }

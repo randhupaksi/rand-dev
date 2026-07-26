@@ -1,4 +1,4 @@
-import { ArrowUpRight, MessageCircle } from "lucide-react";
+import { ArrowUpRight } from "lucide-react";
 import { Link } from "react-router-dom";
 
 import { DraftBadge } from "@/components/common/draft-badge";
@@ -12,8 +12,8 @@ import { useReveal } from "@/hooks/use-reveal";
 
 export default function ProjectsPage() {
   usePageMeta(
-    "Projects — Randhu Paksi Membumi",
-    "Kumpulan project Randhu Paksi Membumi: dashboard, website layanan digital, dan sistem konten dengan fokus pada struktur dan visual.",
+    "Projects - Randhu Paksi Membumi",
+    "Case study Absensi CN, platform manajemen kehadiran dan pembinaan siswa untuk Sekolah Citra Negara.",
   );
 
   const scopeRef = useReveal<HTMLDivElement>();
@@ -36,9 +36,8 @@ export default function ProjectsPage() {
             .
           </h1>
           <p data-reveal className="section-copy max-w-3xl">
-            Setiap project punya halaman case study yang menjelaskan konteks,
-            pendekatan, dan keputusan desainnya. Detail faktual yang bertanda
-            draft akan diisi seiring datanya diverifikasi.
+            Case study yang menjelaskan konteks, alur kerja, dan nilai sistem
+            dari karya yang saya bangun.
           </p>
         </div>
       </section>
@@ -104,6 +103,8 @@ export default function ProjectsPage() {
                 </div>
 
                 <MediaPlaceholder
+                  src={project.thumbnail?.src}
+                  alt={project.thumbnail?.alt}
                   label="Project Image Placeholder"
                   hint="Tambahkan screenshot asli melalui src/data/projects.ts"
                   aspect="wide"
@@ -112,29 +113,6 @@ export default function ProjectsPage() {
               </div>
             </Card>
           ))}
-
-          {/* Slot project berikutnya */}
-          <div
-            data-reveal
-            className="ds-card-subtle flex flex-col items-center gap-5 border-dashed px-6 py-12 text-center"
-          >
-            <div className="content-stack-xs items-center">
-              <h2 className="type-h4">
-                Project berikutnya bisa jadi milik kamu
-              </h2>
-              <p className="type-body-sm max-w-2xl">
-                Slot ini sengaja kosong — saya terbuka untuk project website
-                branding, dashboard, atau eksperimen interface.
-              </p>
-            </div>
-            <Link
-              to="/contact"
-              className={buttonVariants({ variant: "primary", size: "md" })}
-            >
-              <MessageCircle className="size-4" />
-              Mulai Diskusi
-            </Link>
-          </div>
         </div>
       </section>
     </div>

@@ -19,7 +19,7 @@ export function ProcessSection() {
             Cara project dibentuk, dari ide sampai matang.
           </h2>
           <p data-reveal className="section-copy max-w-lg">
-            Bukan cuma soal mengerjakan — tapi bagaimana struktur, visual, dan
+            Bukan cuma soal mengerjakan - tapi bagaimana struktur, visual, dan
             interaksi dibangun dengan urutan yang disengaja.
           </p>
         </div>
