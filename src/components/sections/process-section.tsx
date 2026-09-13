@@ -10,17 +10,17 @@ export function ProcessSection() {
       <div className="grid gap-12 lg:grid-cols-[minmax(0,0.42fr)_minmax(0,1fr)] lg:gap-16">
         <div className="content-stack-md lg:sticky lg:top-32 lg:self-start">
           <div data-reveal>
-            <SectionIndex index="04" label="Process" />
+            <SectionIndex index="04" label="How I work" />
           </div>
           <h2
             data-reveal
             className="type-h2"
           >
-            Cara project dibentuk, dari ide sampai matang.
+            From a rough idea to something people can use.
           </h2>
           <p data-reveal className="section-copy max-w-lg">
-            Bukan cuma soal mengerjakan - tapi bagaimana struktur, visual, dan
-            interaksi dibangun dengan urutan yang disengaja.
+            I take time to understand the problem, shape the flow, build the
+            interface, and make the details feel right.
           </p>
         </div>
 

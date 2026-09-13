@@ -9,7 +9,7 @@ import { usePageMeta } from "@/hooks/use-page-meta";
 export default function HomePage() {
   usePageMeta(
     "Randhu Paksi Membumi - Frontend Developer",
-    "Portfolio Randhu Paksi Membumi, Frontend Developer di Matik Creative Technology yang membangun website dan aplikasi responsive dengan React, Next.js, dan TypeScript.",
+    "Portfolio of Randhu Paksi Membumi, a Frontend Developer at Matik Creative Technology building responsive websites and apps with React, Next.js, and TypeScript.",
   );
 
   return (

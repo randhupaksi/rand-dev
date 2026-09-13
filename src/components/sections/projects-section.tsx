@@ -18,7 +18,7 @@ export function ProjectsSection() {
           <div data-reveal>
             <SectionIndex
               index="03"
-              label={projects.length === 1 ? "Case Study" : "Selected Work"}
+              label={projects.length === 1 ? "Case study" : "Selected work"}
             />
           </div>
           <div
@@ -27,15 +27,13 @@ export function ProjectsSection() {
           >
             <h2 className="type-h2 max-w-3xl">
               {projects.length === 1
-                ? "Absensi CN, satu sistem untuk kehadiran dan pembinaan siswa."
-                : "Karya yang mewakili cara saya berpikir."}
+                ? "Absensi CN, a system for keeping track of attendance and student follow-up."
+                : "Work that shows how I think."}
             </h2>
             <aside className="content-stack-sm border-t border-border-subtle pt-5 lg:border-l lg:border-t-0 lg:pb-1 lg:pl-6 lg:pt-0">
-              <p className="type-overline text-accent">
-                Featured project
-              </p>
+              <p className="type-overline text-accent">Featured work</p>
               <p className="type-body-sm">
-                Lihat konteks, alur pengguna, dan keputusan yang membentuknya.
+                A closer look at the context, user flows, and decisions behind it.
               </p>
               <Link
                 to={
@@ -45,7 +43,7 @@ export function ProjectsSection() {
                 }
                 className="group inline-flex min-h-11 w-fit items-center gap-2 text-sm font-medium text-accent transition-colors duration-300 hover:text-highlight"
               >
-                {projects.length === 1 ? "Buka case study" : "Buka semua project"}
+                {projects.length === 1 ? "Read the case study" : "See all work"}
                 <ArrowRight className="size-4 transition-transform duration-300 group-hover:translate-x-0.5" />
               </Link>
             </aside>
@@ -66,7 +64,7 @@ export function ProjectsSection() {
                     Featured case study
                   </span>
                   {featured.period.isPlaceholder ? (
-                    <DraftBadge label="Periode belum dipublikasikan" />
+                    <DraftBadge label="Timeline not published" />
                   ) : (
                     <span className="type-overline">{featured.period.value}</span>
                   )}
@@ -99,7 +97,7 @@ export function ProjectsSection() {
                 </div>
 
                 <span className="group/link inline-flex items-center gap-2 text-sm font-medium text-accent transition-colors duration-300 group-hover:text-highlight">
-                  Buka case study
+                  Read the case study
                   <ArrowUpRight className="size-4 transition-transform duration-300 group-hover:-translate-y-0.5 group-hover:translate-x-0.5" />
                 </span>
               </div>
@@ -107,8 +105,8 @@ export function ProjectsSection() {
               <MediaPlaceholder
                 src={featured.thumbnail?.src}
                 alt={featured.thumbnail?.alt}
-                label="Project Image Placeholder"
-                hint="Tambahkan screenshot asli melalui src/data/projects.ts"
+                label="Project image placeholder"
+                hint="Add the real screenshots in src/data/projects.ts"
                 aspect="wide"
               />
             </div>

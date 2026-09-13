@@ -16,16 +16,16 @@ export function HomeCtaSection() {
     <section ref={scopeRef} className="section-shell">
       <div className="content-stack-lg">
         <div data-reveal>
-          <SectionIndex index="06" label="Contact" />
+          <SectionIndex index="06" label="Say hello" />
         </div>
 
         <h2
           data-reveal
           className="type-display max-w-4xl"
         >
-          Punya ide yang ingin dibuat{" "}
+          Have an idea you want to make{" "}
           <span className="text-gradient-brand">
-            lebih hidup
+            feel real
           </span>
           ?
         </h2>
@@ -67,7 +67,7 @@ export function HomeCtaSection() {
                 {email.value}
               </a>
             ) : (
-              <span className="font-mono text-sm text-brand-soft">Contact details coming soon</span>
+          <span className="font-mono text-sm text-brand-soft">Contact details not published yet</span>
             )}
           </div>
 

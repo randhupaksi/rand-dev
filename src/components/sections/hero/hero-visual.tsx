@@ -30,13 +30,13 @@ export function HeroVisual() {
         </div>
 
         <div className="absolute bottom-[4%] right-[1%] hidden max-w-52 border-l border-border-strong pl-4 lg:block">
-          <p className="type-overline">Case study saat ini</p>
-          <p className="mt-2 text-sm font-medium leading-6 text-foreground">Absensi CN — workflow manajemen pendidikan.</p>
+          <p className="type-overline">Currently exploring</p>
+          <p className="mt-2 text-sm font-medium leading-6 text-foreground">Absensi CN — a school attendance workflow.</p>
           <Link
             to="/projects/absensi-cn"
             className="mt-3 inline-flex items-center gap-1.5 text-sm font-medium text-accent transition-colors hover:text-highlight focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-ring"
           >
-            Baca case study
+            Read the case study
             <ArrowUpRight className="size-3.5" aria-hidden="true" />
           </Link>
         </div>

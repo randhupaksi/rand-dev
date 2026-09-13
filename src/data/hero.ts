@@ -1,12 +1,12 @@
 import type { HeroContent } from "@/types/hero";
 
 export const heroContent: HeroContent = {
-  eyebrow: "Halo, saya",
+  eyebrow: "Hey, I'm",
   name: "Randhu Paksi Membumi",
-  rolePrefix: "Saya seorang",
+  rolePrefix: "a",
   roleHighlight: "Frontend Developer",
   description:
-    "Frontend Developer di Matik Creative Technology. Saya membangun website dan aplikasi dengan React, Next.js, TypeScript, dan perhatian pada responsive UI, visual hierarchy, serta pengalaman pengguna.",
-  primaryAction: "Lihat Project",
-  secondaryAction: "Hubungi Saya",
+    "I’m a Frontend Developer at Matik Creative Technology. I build websites and apps with React, Next.js, and TypeScript, with a soft spot for clear layouts, responsive details, and interfaces that feel easy to use.",
+  primaryAction: "See my work",
+  secondaryAction: "Let’s talk",
 };

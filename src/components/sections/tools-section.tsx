@@ -10,13 +10,13 @@ export function ToolsSection() {
       <div className="content-stack-lg">
         <div className="content-stack-md">
           <div data-reveal>
-            <SectionIndex index="05" label="Stack" />
+            <SectionIndex index="05" label="Toolkit" />
           </div>
           <h2
             data-reveal
             className="type-h2 max-w-2xl"
           >
-            Teknologi yang paling mewakili workflow saya.
+            The tools I reach for most often.
           </h2>
         </div>
 

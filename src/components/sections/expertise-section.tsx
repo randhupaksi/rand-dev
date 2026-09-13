@@ -7,22 +7,22 @@ import { useReveal } from "@/hooks/use-reveal";
 const expertiseMeta = [
   {
     label: "Build",
-    note: "Struktur yang bisa tumbuh",
+    note: "Solid foundations",
     icon: Code2,
   },
   {
     label: "Shape",
-    note: "Visual yang punya alasan",
+    note: "Visual with purpose",
     icon: ScanLine,
   },
   {
     label: "Connect",
-    note: "Flow yang mudah diikuti",
+    note: "Flows that make sense",
     icon: PanelsTopLeft,
   },
   {
     label: "Guide",
-    note: "Belajar bersama",
+    note: "Learning together",
     icon: UsersRound,
   },
 ] as const;
@@ -40,13 +40,12 @@ export function ExpertiseSection() {
 
           <div data-reveal className="content-stack-md">
             <h2 className="type-h2 max-w-md">
-              Bukan sekadar daftar{" "}
+              More than a list of{" "}
               <span className="text-accent">tools.</span>
             </h2>
             <p className="type-body max-w-md">
-              Saya melihat interface sebagai satu rangkaian: strukturnya harus
-              kuat, tampilannya harus jelas, dan alurnya harus terasa masuk
-              akal ketika dipakai.
+              I care about the whole experience: a strong structure, a clear
+              visual language, and a flow that feels natural to use.
             </p>
           </div>
 

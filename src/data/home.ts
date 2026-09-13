@@ -11,9 +11,9 @@ export const aboutProfile: AboutProfile = {
   role: "Frontend Developer",
   education: "SMK Citra Negara Depok · PPLG (2024 — 2027)",
   summary:
-    "Saya adalah Frontend Developer di Matik Creative Technology, sekaligus Frontend & UI/UX Instructor di IT Club SMK Citra Negara Depok.",
+    "I work as a Frontend Developer at Matik Creative Technology, and also teach frontend and UI/UX at the IT Club of SMK Citra Negara Depok.",
   statement:
-    "Saya menggabungkan implementasi frontend dengan visual hierarchy, responsive behavior, dan UI yang tetap nyaman dipakai dalam konteks nyata.",
+    "I like bringing frontend implementation and visual thinking together, so the UI is not only neat, but also comfortable to use.",
   tags: ["Frontend Development", "UI/UX", "Mentoring"],
 };
 
@@ -31,16 +31,16 @@ export const expertiseItems: ExpertiseItem[] = [
     bullets: ["Visual hierarchy", "Responsive UI", "Motion & feedback"],
   },
   {
-    title: "Product Workflow",
+    title: "Product flows",
     description:
-      "Memetakan role, status, dan alur kerja pada interface dengan banyak aksi maupun data agar pengguna tidak perlu menebak langkah berikutnya.",
-    bullets: ["Dashboard workflow", "Role-aware UI", "API integration"],
+      "I map out roles, states, and actions in interfaces with a lot going on, so people always have a clear next step.",
+    bullets: ["Dashboard flows", "Role-aware UI", "API integration"],
   },
   {
-    title: "Mentoring & Collaboration",
+    title: "Mentoring & collaboration",
     description:
-      "Sebagai Frontend & UI/UX Instructor di IT Club, saya membimbing anggota memahami fondasi frontend dan menyusun interface yang lebih terarah.",
-    bullets: ["Frontend fundamentals", "UI/UX mentoring", "Project guidance"],
+      "As a Frontend & UI/UX Instructor at the IT Club, I help members get comfortable with frontend basics and clearer interface thinking.",
+    bullets: ["Frontend basics", "UI/UX mentoring", "Project guidance"],
   },
 ];
 
@@ -49,25 +49,25 @@ export const processSteps: ProcessStep[] = [
     step: "01",
     title: "Understand",
     description:
-      "Memahami tujuan project, user flow, dan kebutuhan visual sebelum mulai membangun.",
+      "I start by understanding the goal, the people using it, and the flow that needs to work.",
   },
   {
     step: "02",
-    title: "Structure",
+    title: "Shape the flow",
     description:
-      "Menyusun layout, section, dan komponen agar project tetap rapi saat berkembang.",
+      "Then I shape the pages and components so the project stays clear as it grows.",
   },
   {
     step: "03",
     title: "Build",
     description:
-      "Mengimplementasikan interface dan logic dengan perhatian pada detail dan performa.",
+      "Once the direction is clear, I build the interface and logic with care for detail and performance.",
   },
   {
     step: "04",
     title: "Refine",
     description:
-      "Memoles hierarchy, spacing, dan interaksi sampai hasil akhirnya terasa matang.",
+      "Finally, I check the hierarchy, spacing, states, and interactions until everything feels right in use.",
   },
 ];
 
@@ -77,7 +77,7 @@ export const toolGroups: ToolGroup[] = [
     items: ["Next.js", "React", "TypeScript", "Tailwind CSS", "GSAP"],
   },
   {
-    title: "Application",
+    title: "Applications",
     items: ["Go", "REST API", "MySQL", "Role-based flow", "Dashboard UI"],
   },
   {
@@ -91,9 +91,9 @@ export const toolGroups: ToolGroup[] = [
 ];
 
 export const homeCta: HomeCta = {
-  title: "Punya kebutuhan frontend atau interface yang ingin dibangun?",
+  title: "Have a frontend idea in mind?",
   description:
-    "Saya terbuka untuk berdiskusi tentang website, aplikasi, dashboard, dan kolaborasi yang membutuhkan implementasi frontend serta perhatian pada UI/UX.",
-  primaryLabel: "Mulai Diskusi",
-  secondaryLabel: "Lihat Semua Project",
+    "Tell me what you’re working on—a website, app, dashboard, or anything that needs thoughtful frontend work.",
+  primaryLabel: "Let’s talk",
+  secondaryLabel: "See all work",
 };
