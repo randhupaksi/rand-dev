@@ -19,7 +19,7 @@ export default function ProjectDetailPage() {
   usePageMeta(
     project
       ? `${project.name} - Case Study - Randhu Paksi Membumi`
-      : "Project tidak ditemukan - Randhu Paksi Membumi",
+      : "Work not found - Randhu Paksi Membumi",
     project?.summary,
   );
 
@@ -41,7 +41,7 @@ export default function ProjectDetailPage() {
               className={cn(buttonVariants({ variant: "ghost", size: "md" }), "group")}
             >
               <ArrowLeft className="size-4 transition-transform duration-300 group-hover:-translate-x-0.5" />
-              Semua project
+              Back to work
             </Link>
           </div>
 
@@ -50,11 +50,11 @@ export default function ProjectDetailPage() {
               {project.category}
             </Badge>
             {project.period.isPlaceholder ? (
-              <DraftBadge label="Periode belum dipublikasikan" />
+              <DraftBadge label="Timeline not published" />
             ) : (
               <span className="type-overline">{project.period.value}</span>
             )}
-            {project.status === "draft" ? <DraftBadge label="Draft case study" /> : null}
+            {project.status === "draft" ? <DraftBadge label="Case study in progress" /> : null}
           </div>
 
           <h1
@@ -74,8 +74,8 @@ export default function ProjectDetailPage() {
           <MediaPlaceholder
             src={project.thumbnail?.src}
             alt={project.thumbnail?.alt}
-            label="Project Cover Placeholder"
-            hint="Tambahkan cover asli project ini melalui src/data/projects.ts"
+            label="Project cover placeholder"
+            hint="Add the real cover in src/data/projects.ts"
             aspect="video"
             className="mx-auto max-w-4xl"
           />
@@ -91,7 +91,7 @@ export default function ProjectDetailPage() {
           >
             <div className="content-stack-sm">
               <p className="type-overline">
-                Stack
+                Built with
               </p>
               <div className="flex flex-wrap gap-2">
                 {project.stack.map((item) => (
@@ -172,7 +172,7 @@ export default function ProjectDetailPage() {
                 </p>
                 {block.isPlaceholder ? (
                   <p className="type-caption text-brand-muted">
-                    Add real case-study content here - edit di src/data/projects.ts.
+                    Add the real case-study content in src/data/projects.ts.
                   </p>
                 ) : null}
               </div>
@@ -183,7 +183,7 @@ export default function ProjectDetailPage() {
                 <h2 className="type-h4">
                   Gallery
                 </h2>
-                {project.gallery?.length ? null : <DraftBadge label="Coming Soon" />}
+                {project.gallery?.length ? null : <DraftBadge label="More images coming soon" />}
               </div>
               <div className="grid gap-4 sm:grid-cols-2">
                 {project.gallery?.length
@@ -200,7 +200,7 @@ export default function ProjectDetailPage() {
                       <MediaPlaceholder
                         key={slotIndex}
                         label={`Screenshot 0${slotIndex + 1}`}
-                        hint="Add screenshot"
+                        hint="Add a real screenshot"
                         aspect="wide"
                       />
                     ))}

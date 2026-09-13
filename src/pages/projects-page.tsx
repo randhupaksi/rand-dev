@@ -12,8 +12,8 @@ import { useReveal } from "@/hooks/use-reveal";
 
 export default function ProjectsPage() {
   usePageMeta(
-    "Projects - Randhu Paksi Membumi",
-    "Case study Absensi CN, platform manajemen kehadiran dan pembinaan siswa untuk Sekolah Citra Negara.",
+    "Work - Randhu Paksi Membumi",
+    "A case study of Absensi CN, a student attendance and follow-up platform for Sekolah Citra Negara.",
   );
 
   const scopeRef = useReveal<HTMLDivElement>();
@@ -24,22 +24,22 @@ export default function ProjectsPage() {
       <section className="section-shell-compact">
         <div className="content-stack-md max-w-4xl">
           <div data-reveal className="section-eyebrow">
-            Projects
+            Work
           </div>
           <h1
             data-reveal
             className="type-h1"
           >
-            {isSingleCaseStudy ? "Case study utama yang sedang saya " : "Karya yang menunjukkan cara saya "}
+            {isSingleCaseStudy ? "One case study I’m currently " : "Work that shows how I "}
             <span className="text-gradient-brand">
-              {isSingleCaseStudy ? "dokumentasikan" : "berpikir"}
+              {isSingleCaseStudy ? "documenting" : "think"}
             </span>
             .
           </h1>
           <p data-reveal className="section-copy max-w-3xl">
             {isSingleCaseStudy
-              ? "Dokumentasi Absensi CN: konteks sistem, kebutuhan pengguna, dan area implementasi yang sedang saya pelajari."
-              : "Case study yang menjelaskan konteks, alur kerja, dan nilai sistem dari karya yang saya bangun."}
+              ? "A closer look at the system, its users, and the frontend decisions behind it."
+              : "Case studies about the context, flows, and decisions behind my work."}
           </p>
         </div>
       </section>
@@ -69,12 +69,12 @@ export default function ProjectsPage() {
                       {project.category}
                     </Badge>
                     {project.period.isPlaceholder ? (
-                      <DraftBadge label="Periode belum dipublikasikan" />
+                      <DraftBadge label="Timeline not published" />
                     ) : (
                       <span className="type-overline">{project.period.value}</span>
                     )}
                     {project.status === "draft" ? (
-                      <DraftBadge label="Draft case study" />
+                      <DraftBadge label="Case study in progress" />
                     ) : null}
                   </div>
 
@@ -100,7 +100,7 @@ export default function ProjectsPage() {
                       to={`/projects/${project.slug}`}
                       className={`${buttonVariants({ variant: "ghost", size: "md" })} group`}
                     >
-                      Buka case study
+                      Read the case study
                       <ArrowUpRight className="size-4 transition-transform duration-300 group-hover:-translate-y-0.5 group-hover:translate-x-0.5" />
                     </Link>
                   </div>
@@ -109,8 +109,8 @@ export default function ProjectsPage() {
                 <MediaPlaceholder
                   src={project.thumbnail?.src}
                   alt={project.thumbnail?.alt}
-                  label="Project Image Placeholder"
-                  hint="Tambahkan screenshot asli melalui src/data/projects.ts"
+                  label="Project image placeholder"
+                  hint="Add the real screenshots in src/data/projects.ts"
                   aspect="wide"
                   className={index % 2 === 1 ? "lg:order-1" : ""}
                 />

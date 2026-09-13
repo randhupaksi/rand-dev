@@ -8,13 +8,13 @@ export const projects: Project[] = [
   {
     slug: "absensi-cn",
     name: "Absensi CN",
-    category: "Education Management System",
+    category: "School management system",
     period: {
-      value: "Periode belum dipublikasikan",
+      value: "Timeline not published",
       isPlaceholder: true,
     },
     summary:
-      "Platform manajemen kehadiran dan pembinaan siswa untuk Sekolah Citra Negara, yang menyatukan absensi harian, sesi mata pelajaran, pengajuan, monitoring BK, dan laporan.",
+      "A platform that helps Sekolah Citra Negara manage student attendance and follow-up—from daily check-ins to reports and counselling support.",
     thumbnail: {
       src: "/images/project/absensi-cn/hero-absensi-cn.png",
       alt: "Tampilan utama platform Absensi CN",
@@ -29,31 +29,31 @@ export const projects: Project[] = [
     ],
     focusAreas: [
       "Role-based access",
-      "Attendance workflow",
-      "Student risk monitoring",
+      "Attendance flow",
+      "Student follow-up",
       "Reporting system",
     ],
     status: "verified",
     links: { demo: null, repository: null },
     caseStudy: [
       {
-        title: "Overview",
-        body: "Absensi CN adalah platform manajemen kehadiran dan pembinaan siswa untuk Sekolah Citra Negara. Sistem ini membantu sekolah mengelola absensi harian, kehadiran pada sesi mata pelajaran, pengajuan izin atau sakit, monitoring siswa berisiko, catatan konseling, laporan, serta kalender hari libur dalam satu ekosistem terintegrasi.",
+        title: "A quick overview",
+        body: "Absensi CN is a platform for managing attendance and student follow-up at Sekolah Citra Negara. It brings together daily check-ins, attendance by class session, leave or sick requests, student risk monitoring, counselling notes, reports, and a school holiday calendar.",
         isPlaceholder: false,
       },
       {
-        title: "Masalah yang diselesaikan",
-        body: "Pencatatan kehadiran tidak berhenti pada status hadir atau tidak hadir. Sistem dirancang untuk mengurangi proses manual yang tersebar, memisahkan absensi pagi dari kehadiran sesi mapel, menyediakan histori yang mudah ditelusuri, dan membantu sekolah membaca pola alfa atau pengajuan yang membutuhkan tindak lanjut.",
+        title: "What needed untangling",
+        body: "Attendance is more than a simple present-or-absent status. The system brings scattered processes together, separates morning check-ins from class-session attendance, keeps a traceable history, and highlights records that need follow-up.",
         isPlaceholder: false,
       },
       {
-        title: "Alur dan peran pengguna",
-        body: "Siswa dapat mengirim absensi harian dengan status, foto bukti, dan lokasi bila diperlukan, sekaligus mengajukan izin atau sakit. Guru dan wali kelas memantau kelas serta melakukan review atau koreksi ketika ada anomali. Guru mapel mengelola kehadiran per sesi pembelajaran. Guru BK memantau risiko lintas kelas dan menyimpan catatan pembinaan, sementara admin mengelola data akademik, role, import data, dan kalender hari libur.",
+        title: "Who does what",
+        body: "Students can submit a daily check-in with a status, photo proof, and location when needed, then send leave or sick requests. Teachers and homeroom teachers monitor their classes and correct unusual records. Subject teachers manage session attendance, counsellors monitor students who need attention, and admins manage academic data, roles, imports, and school holidays.",
         isPlaceholder: false,
       },
       {
-        title: "Nilai sistem",
-        body: "Absensi CN mengubah data kehadiran menjadi informasi yang dapat ditindaklanjuti. Status otomatis yang sudah sesuai tidak perlu direview, sedangkan anomali dapat dikoreksi dengan catatan yang meninggalkan jejak konteks. Kalender hari libur juga memastikan Sabtu, Minggu, dan libur sekolah tidak dihitung sebagai hari efektif atau menghasilkan status alfa.",
+        title: "What the system helps with",
+        body: "Absensi CN turns attendance data into something easier to follow up. Records that already match do not need another review, while unusual records can be corrected with a note. The holiday calendar also helps prevent non-school days from being counted as absences.",
         isPlaceholder: false,
       },
     ],
@@ -61,12 +61,12 @@ export const projects: Project[] = [
       {
         src: "/images/project/absensi-cn/login-form.png",
         alt: "Form login platform Absensi CN",
-        label: "Login form",
+        label: "Login screen",
       },
       {
         src: "/images/project/absensi-cn/dashboard.png",
         alt: "Dashboard utama platform Absensi CN",
-        label: "Dashboard",
+        label: "Main dashboard",
       },
     ],
     gallerySlots: 2,
