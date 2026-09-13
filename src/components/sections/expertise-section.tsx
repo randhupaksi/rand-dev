@@ -1,4 +1,4 @@
-import { Code2, PanelsTopLeft, ScanLine } from "lucide-react";
+import { Code2, PanelsTopLeft, ScanLine, UsersRound } from "lucide-react";
 
 import { SectionIndex } from "@/components/common/section-index";
 import { expertiseItems } from "@/data/home";
@@ -19,6 +19,11 @@ const expertiseMeta = [
     label: "Connect",
     note: "Flow yang mudah diikuti",
     icon: PanelsTopLeft,
+  },
+  {
+    label: "Guide",
+    note: "Belajar bersama",
+    icon: UsersRound,
   },
 ] as const;
 
