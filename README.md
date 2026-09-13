@@ -1,6 +1,6 @@
 # Rand Dev - Portfolio Randhu Paksi Membumi
 
-Website portfolio pribadi Randhu Paksi Membumi (Creative Web Developer, siswa SMK PPLG kelas 11). Multi-page SPA dengan arah visual **dark purple editorial dengan presisi enterprise**.
+Website portfolio pribadi Randhu Paksi Membumi, Frontend Developer di Matik Creative Technology serta Frontend & UI/UX Instructor di IT Club SMK Citra Negara Depok. Multi-page SPA dengan arah visual **dark purple editorial dengan presisi enterprise**.
 
 ## Stack
 
@@ -27,7 +27,7 @@ npm run preview   # preview hasil build
 | Route | Isi |
 | --- | --- |
 | `/` | Hero, about ringkas, expertise, selected projects, proses kerja, tools, CTA |
-| `/about` | Intro editorial, prinsip kerja, skill area, journey timeline (draft) |
+| `/about` | Intro editorial, prinsip kerja, skill area, dan journey timeline |
 | `/projects` | Semua project + slot "project berikutnya" |
 | `/projects/:slug` | Case study per project (overview, challenge, approach, outcome, gallery) |
 | `/contact` | Channel kontak, social, CV, contact form, FAQ |
@@ -77,8 +77,8 @@ Semua data personal terpusat dan dibaca dari environment variable. Salin `.env.e
 | `VITE_WHATSAPP_NUMBER` | Channel WhatsApp aktif dengan link `wa.me` |
 | `VITE_LOCATION` | Mengganti `YOUR_LOCATION` |
 | `VITE_CV_URL` | Tombol CV aktif (menggantikan "Coming soon") |
-| `VITE_SOCIAL_GITHUB` dll. | Ikon social berubah dari placeholder menjadi link asli |
-| `VITE_CONTACT_ENDPOINT` | Contact form mengirim POST JSON asli (menggantikan mode demo) |
+| `VITE_SOCIAL_GITHUB` dll. | Menambah atau mengganti link social yang ditampilkan |
+| `VITE_CONTACT_ENDPOINT` | Membuka contact form untuk mengirim POST JSON asli |
 
 Identitas dasar (nama, role, tagline) ada di `src/data/site.ts`.
 
@@ -87,16 +87,16 @@ Identitas dasar (nama, role, tagline) ada di `src/data/site.ts`.
 Edit `src/data/projects.ts`:
 
 1. Isi `period`, `links.demo`, `links.repository` dengan data asli.
-2. Ganti body case study yang masih Lorem Ipsum, lalu set `isPlaceholder: false`.
+2. Lengkapi body case study yang masih draft, lalu set `isPlaceholder: false`.
 3. Ubah `status` menjadi `"verified"` untuk menghilangkan badge draft.
 4. Frame gambar (`MediaPlaceholder`) diganti dengan `<img>` screenshot asli ketika asset tersedia.
 
 ### Cara mengganti journey/pengalaman
 
-Edit `src/data/about.ts` - entri `isPlaceholder: true` adalah slot draft untuk pengalaman nyata (magang, lomba, kolaborasi).
+Edit `src/data/about.ts` untuk memperbarui pengalaman kerja, pendidikan, mentoring, dan penghargaan yang sudah terverifikasi.
 
 ## Catatan
 
-- Contact form berjalan dalam **mode demo** selama `VITE_CONTACT_ENDPOINT` kosong, dan menyatakannya secara eksplisit ke pengguna - pesan tidak pernah pura-pura terkirim.
+- Contact form tidak dibuka selama `VITE_CONTACT_ENDPOINT` kosong; website menjelaskan kondisi tersebut secara eksplisit dan tidak pernah berpura-pura menerima pesan.
 - Foto profil di hero adalah asset asli di `public/images/profile/`.
 - Module `src/components/ui/button.tsx` memicu warning Oxlint Fast Refresh yang sudah ada sejak awal (export komponen + konstanta); bukan regression.

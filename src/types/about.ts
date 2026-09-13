@@ -9,14 +9,14 @@ export type SkillGroup = {
   items: string[];
 };
 
+export type JourneyKind = "work" | "award" | "mentoring" | "education";
+
 export type JourneyItem = {
-  /** Gunakan "20XX - 20XX" selama periode asli belum diverifikasi. */
   period: string;
   title: string;
   organization: string;
   description: string;
-  /** `true` berarti entri masih draft dan wajib ditandai di UI. */
-  isPlaceholder: boolean;
+  kind: JourneyKind;
 };
 
 export type FaqItem = {

@@ -1,3 +1,5 @@
+import type { PlaceholderValue } from "@/types/site";
+
 export type ProjectStatus = "draft" | "verified";
 
 export type ProjectLinks = {
@@ -10,7 +12,7 @@ export type ProjectLinks = {
 export type CaseStudyBlock = {
   title: string;
   body: string;
-  /** `true` berarti isi masih Lorem Ipsum / draft dan wajib ditandai di UI. */
+  /** `true` berarti isi masih draft dan wajib ditandai di UI. */
   isPlaceholder: boolean;
 };
 
@@ -18,8 +20,8 @@ export type Project = {
   slug: string;
   name: string;
   category: string;
-  /** Gunakan "20XX" selama tahun asli belum diverifikasi. */
-  period: string;
+  /** Periode hanya ditampilkan sebagai fakta jika sudah diverifikasi. */
+  period: PlaceholderValue;
   summary: string;
   thumbnail?: {
     src: string;

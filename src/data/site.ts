@@ -7,9 +7,9 @@ import type {
 /**
  * Satu-satunya sumber informasi personal di seluruh website.
  *
- * Semua nilai placeholder di bawah dibaca dari `.env` (lihat `.env.example`).
- * Untuk mengganti email, WhatsApp, social link, lokasi, atau CV cukup isi
- * environment variable terkait - tidak perlu menyentuh component mana pun.
+ * Email, WhatsApp, lokasi, dan CV dibaca dari `.env` (lihat `.env.example`).
+ * LinkedIn memakai profil publik yang sudah diverifikasi; environment variable
+ * tetap dapat digunakan bila profil tersebut perlu diganti.
  */
 const env = import.meta.env;
 
@@ -17,16 +17,19 @@ const email = (env.VITE_EMAIL as string | undefined) || "";
 const whatsapp = (env.VITE_WHATSAPP_NUMBER as string | undefined) || "";
 const location = (env.VITE_LOCATION as string | undefined) || "";
 const cvUrl = (env.VITE_CV_URL as string | undefined) || "";
+const linkedInUrl =
+  (env.VITE_SOCIAL_LINKEDIN as string | undefined) ||
+  "https://id.linkedin.com/in/randhu-paksi-membumi";
 
 export const siteIdentity: SiteIdentity = {
   name: "Randhu Paksi Membumi",
   brandFirst: "Randhu",
   brandSecond: "Paksi",
-  role: "Creative Web Developer",
+  role: "Frontend Developer",
   tagline:
-    "Membangun website modern dengan struktur yang rapi, visual yang refined, dan interaksi yang terkontrol.",
+    "Frontend Developer yang membangun website dan aplikasi dengan interface terstruktur, responsive, dan mudah digunakan.",
   availability: {
-    value: "Terbuka untuk kolaborasi, PKL, dan project latihan",
+    value: "Terbuka untuk kolaborasi frontend dan UI/UX",
     isPlaceholder: false,
   },
   location: {
@@ -50,7 +53,7 @@ export const socialLinks: SocialLink[] = [
   {
     key: "linkedin",
     label: "LinkedIn",
-    href: (env.VITE_SOCIAL_LINKEDIN as string | undefined) || null,
+    href: linkedInUrl,
   },
   {
     key: "dribbble",
@@ -85,7 +88,7 @@ export const contactChannels: ContactChannel[] = [
 
 /**
  * Endpoint pengiriman contact form (POST JSON).
- * Selama kosong, form berjalan dalam mode demo dan menjelaskannya ke pengguna.
+ * Selama kosong, UI menampilkan state bahwa form belum dibuka untuk pengiriman.
  */
 export const contactEndpoint =
   (env.VITE_CONTACT_ENDPOINT as string | undefined) || null;

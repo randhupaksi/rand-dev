@@ -1,6 +1,4 @@
 import type {
-  AboutCard,
-  AboutMetric,
   AboutProfile,
   ExpertiseItem,
   HomeCta,
@@ -8,59 +6,41 @@ import type {
   ToolGroup,
 } from "@/types/home";
 
-export const aboutMetrics: AboutMetric[] = [
-  { value: "Class 11", label: "SMK PPLG Student" },
-  { value: "Code + Visual", label: "Main working approach" },
-  { value: "Enterprise UI", label: "Preferred design direction" },
-];
-
 export const aboutProfile: AboutProfile = {
   name: "Randhu Paksi Membumi",
-  role: "Creative Web Developer",
-  education: "SMK PPLG · Class 11",
+  role: "Frontend Developer",
+  education: "SMK Citra Negara Depok · PPLG (2024 — 2027)",
   summary:
-    "Saya fokus membangun website yang rapi secara struktur, enak dilihat, dan tetap terasa matang saat digunakan.",
+    "Saya adalah Frontend Developer di Matik Creative Technology, sekaligus Frontend & UI/UX Instructor di IT Club SMK Citra Negara Depok.",
   statement:
-    "Buat saya, interface yang baik harus jelas, punya ritme visual, dan tidak terasa template.",
-  tags: ["Web Development", "UI Thinking", "Interactive Flow"],
+    "Saya menggabungkan implementasi frontend dengan visual hierarchy, responsive behavior, dan UI yang tetap nyaman dipakai dalam konteks nyata.",
+  tags: ["Frontend Development", "UI/UX", "Mentoring"],
 };
-
-export const aboutCards: AboutCard[] = [
-  {
-    label: "Core",
-    title: "Structured build",
-    description: "Membangun dengan logika dan susunan yang rapi.",
-  },
-  {
-    label: "Visual",
-    title: "Clean interface",
-    description: "Fokus pada hierarchy, spacing, dan UI yang enak dilihat.",
-  },
-  {
-    label: "Focus",
-    title: "Interactive web",
-    description: "Branding website, dashboard UI, dan presentasi digital.",
-  },
-];
 
 export const expertiseItems: ExpertiseItem[] = [
   {
-    title: "Web Development",
+    title: "Frontend Development",
     description:
-      "Saya menerjemahkan kebutuhan menjadi halaman dan komponen yang jelas tanggung jawabnya, supaya website tetap enak dikembangkan saat isinya bertambah.",
-    bullets: ["React & TypeScript", "Responsive sejak awal", "Komponen reusable"],
+      "Mengembangkan website dan aplikasi yang modern, responsive, serta terstruktur untuk kebutuhan produk dan pengguna yang berbeda.",
+    bullets: ["React & Next.js", "TypeScript & JavaScript", "Vite & Tailwind CSS"],
   },
   {
-    title: "UI / UX & Frontend",
+    title: "UI Engineering",
     description:
-      "Sebelum menambah dekorasi, saya merapikan urutan baca, jarak, kontras, dan feedback. Detail visual dipakai untuk membantu orang memahami interface.",
-    bullets: ["Hierarchy lebih dulu", "State & feedback", "Motion yang terarah"],
+      "Menerjemahkan kebutuhan dan desain menjadi interface yang jelas, nyaman dipakai, dan konsisten dari desktop sampai mobile.",
+    bullets: ["Visual hierarchy", "Responsive UI", "Motion & feedback"],
   },
   {
-    title: "System & Dashboard Building",
+    title: "Product Workflow",
     description:
-      "Untuk interface dengan banyak aksi dan data, saya memetakan role, status, dan jalur utama agar pengguna tidak perlu menebak langkah berikutnya.",
-    bullets: ["Role-aware flow", "CRUD states", "Information architecture"],
+      "Memetakan role, status, dan alur kerja pada interface dengan banyak aksi maupun data agar pengguna tidak perlu menebak langkah berikutnya.",
+    bullets: ["Dashboard workflow", "Role-aware UI", "API integration"],
+  },
+  {
+    title: "Mentoring & Collaboration",
+    description:
+      "Sebagai Frontend & UI/UX Instructor di IT Club, saya membimbing anggota memahami fondasi frontend dan menyusun interface yang lebih terarah.",
+    bullets: ["Frontend fundamentals", "UI/UX mentoring", "Project guidance"],
   },
 ];
 
@@ -97,23 +77,23 @@ export const toolGroups: ToolGroup[] = [
     items: ["Next.js", "React", "TypeScript", "Tailwind CSS", "GSAP"],
   },
   {
-    title: "System",
-    items: ["PHP", "MySQL", "Role-based flow", "CRUD", "Dashboard UI"],
+    title: "Application",
+    items: ["Go", "REST API", "MySQL", "Role-based flow", "Dashboard UI"],
   },
   {
     title: "Design",
     items: ["Figma", "UI / UX planning", "Visual hierarchy", "Design references"],
   },
   {
-    title: "Creative",
-    items: ["DaVinci Resolve", "Blender", "Interactive media", "Digital editing"],
+    title: "Collaboration",
+    items: ["IT Club mentoring", "Figma handoff", "Git workflow", "Project communication"],
   },
 ];
 
 export const homeCta: HomeCta = {
-  title: "Punya ide project yang ingin dibuat lebih rapi, premium, dan interaktif?",
+  title: "Punya kebutuhan frontend atau interface yang ingin dibangun?",
   description:
-    "Saya terbuka untuk diskusi website branding, dashboard, dan kebutuhan digital yang butuh perpaduan visual dan struktur yang kuat.",
-  primaryLabel: "Diskusi Project",
+    "Saya terbuka untuk berdiskusi tentang website, aplikasi, dashboard, dan kolaborasi yang membutuhkan implementasi frontend serta perhatian pada UI/UX.",
+  primaryLabel: "Mulai Diskusi",
   secondaryLabel: "Lihat Semua Project",
 };

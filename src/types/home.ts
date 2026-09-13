@@ -1,8 +1,3 @@
-export type AboutMetric = {
-  label: string;
-  value: string;
-};
-
 export type AboutProfile = {
   name: string;
   role: string;
@@ -11,17 +6,6 @@ export type AboutProfile = {
   statement: string;
   tags: string[];
 };
-
-export type AboutCard = {
-  label: string;
-  title: string;
-  description: string;
-};
-
-export type AboutCardIconKey =
-  | "graduation-cap"
-  | "layout-template"
-  | "scan-search";
 
 export type ExpertiseItem = {
   title: string;

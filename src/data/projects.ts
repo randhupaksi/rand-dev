@@ -9,7 +9,10 @@ export const projects: Project[] = [
     slug: "absensi-cn",
     name: "Absensi CN",
     category: "Education Management System",
-    period: "Tahun belum dipublikasikan",
+    period: {
+      value: "Periode belum dipublikasikan",
+      isPlaceholder: true,
+    },
     summary:
       "Platform manajemen kehadiran dan pembinaan siswa untuk Sekolah Citra Negara, yang menyatukan absensi harian, sesi mata pelajaran, pengajuan, monitoring BK, dan laporan.",
     thumbnail: {

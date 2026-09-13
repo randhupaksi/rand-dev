@@ -2,41 +2,41 @@ import type { FaqItem, JourneyItem, PrincipleItem, SkillGroup } from "@/types/ab
 
 export const principles: PrincipleItem[] = [
   {
-    title: "Struktur dulu, baru styling",
+    title: "Konteks dulu, baru implementasi",
     description:
-      "Layout, hierarchy, dan alur konten dipikirkan sebelum detail visual. Styling yang bagus tidak bisa menyelamatkan struktur yang salah.",
+      "Sebelum menulis interface, saya memahami pengguna, alur kerja, dan informasi yang benar-benar perlu terlihat. Visual baru menyusul setelah fondasinya jelas.",
   },
   {
-    title: "Hierarchy yang bisa discan",
+    title: "Hierarchy yang bisa dipakai",
     description:
-      "Setiap halaman punya focal point dan urutan baca yang jelas. Pengguna harus tahu apa yang penting tanpa harus berpikir.",
+      "Setiap halaman perlu memiliki prioritas informasi dan action yang jelas, supaya pengguna tahu apa yang penting tanpa harus menebak langkah berikutnya.",
   },
   {
-    title: "Interaksi yang terkontrol",
+    title: "Interface yang responsive",
     description:
-      "Motion dipakai untuk feedback dan continuity, bukan dekorasi. Animasi tidak boleh menghalangi membaca atau navigasi.",
+      "Responsive behavior, state feedback, dan motion dipakai untuk membantu penggunaan—bukan sekadar dekorasi atau efek visual.",
   },
   {
-    title: "Kode yang bisa dirawat",
+    title: "Kode yang bisa berkembang",
     description:
-      "Komponen dipecah berdasarkan tanggung jawab nyata, konten dipisah dari presentasi, dan token dipakai konsisten agar project mudah dikembangkan.",
+      "Komponen, data, dan visual token dijaga tetap terstruktur agar project bisa dikembangkan dan dikolaborasikan dengan lebih nyaman.",
   },
 ];
 
 export const skillGroups: SkillGroup[] = [
   {
-    title: "Core Web",
-    description: "Fondasi utama dalam membangun interface web.",
+    title: "Core Frontend",
+    description: "Fondasi yang dipakai untuk membangun interface web modern.",
     items: ["HTML", "CSS", "JavaScript", "TypeScript"],
   },
   {
     title: "Framework & Tooling",
-    description: "Stack yang paling sering dipakai dalam workflow saya.",
+    description: "Stack yang digunakan dalam pengembangan web dan aplikasi.",
     items: ["React", "Next.js", "Vite", "Tailwind CSS", "Git"],
   },
   {
     title: "UI Engineering",
-    description: "Menerjemahkan desain menjadi interface yang hidup.",
+    description: "Menerjemahkan kebutuhan dan desain menjadi interface yang usable.",
     items: [
       "Responsive design",
       "Component architecture",
@@ -46,47 +46,51 @@ export const skillGroups: SkillGroup[] = [
     ],
   },
   {
-    title: "Workflow",
-    description: "Cara kerja dari desain sampai integrasi.",
+    title: "Application & Collaboration",
+    description: "Pengembangan aplikasi dan proses kerja bersama tim maupun komunitas.",
     items: [
-      "Figma handoff",
+      "Go & REST API",
       "REST API integration",
       "Form handling & validation",
-      "State management",
-      "Clean project structure",
+      "IT Club mentoring",
+      "Project communication",
     ],
   },
 ];
 
-/**
- * Entri pertama adalah informasi pendidikan yang memang diketahui.
- * Entri `isPlaceholder: true` adalah slot draft - ganti dengan pengalaman
- * nyata (magang, lomba, project client) ketika sudah tersedia.
- */
+/** Informasi perjalanan hanya ditampilkan jika sudah dapat diverifikasi. */
 export const journeyItems: JourneyItem[] = [
   {
-    period: "Sekarang",
-    title: "SMK PPLG - Kelas 11",
-    organization: "Pengembangan Perangkat Lunak dan Gim",
+    period: "Jan 2026 — Sekarang",
+    title: "Frontend Developer",
+    organization: "Matik Creative Technology",
     description:
-      "Fokus pada web development: membangun interface yang rapi, memahami alur data, dan melatih kepekaan visual lewat project sekolah dan eksperimen pribadi.",
-    isPlaceholder: false,
+      "Mengembangkan website dan aplikasi dengan fokus pada interface modern, responsive, dan terstruktur menggunakan Next.js, React, TypeScript, serta JavaScript.",
+    kind: "work",
   },
   {
-    period: "20XX - 20XX",
-    title: "Placeholder experience title",
-    organization: "Placeholder company",
+    period: "Mei 2026",
+    title: "Student of The Year",
+    organization: "Citra Negara Awards 2026 · SMK Citra Negara Depok",
     description:
-      "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Replace with verified experience information.",
-    isPlaceholder: true,
+      "Menerima penghargaan Student of The Year sebagai pengakuan atas pertumbuhan, dedikasi, kreativitas, dan kontribusi dalam perjalanan akademik.",
+    kind: "award",
   },
   {
-    period: "20XX - 20XX",
-    title: "Placeholder achievement",
-    organization: "Placeholder organization",
+    period: "Mar 2025 — Sekarang",
+    title: "Frontend & UI/UX Instructor",
+    organization: "IT Club · SMK Citra Negara Depok",
     description:
-      "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Add real achievement or competition history here.",
-    isPlaceholder: true,
+      "Membimbing anggota IT Club mempelajari frontend development dan UI/UX, termasuk fondasi web modern serta penyusunan interface yang clean dan user-friendly.",
+    kind: "mentoring",
+  },
+  {
+    period: "2024 — 2027",
+    title: "Software Engineering (PPLG)",
+    organization: "SMK Citra Negara Depok",
+    description:
+      "Menempuh pendidikan PPLG sambil mengembangkan project web dan aplikasi, dengan fokus pada frontend development, UI/UX, visual hierarchy, dan user experience.",
+    kind: "education",
   },
 ];
 
@@ -94,21 +98,21 @@ export const contactFaq: FaqItem[] = [
   {
     question: "Kolaborasi seperti apa yang terbuka?",
     answer:
-      "Project website branding, landing page, dashboard UI, atau eksperimen interface - baik sebagai project latihan, PKL, maupun kolaborasi dengan developer dan designer lain.",
+      "Kolaborasi frontend, website, aplikasi, dashboard UI, atau eksperimen interface yang membutuhkan implementasi modern dan perhatian pada pengalaman pengguna.",
   },
   {
     question: "Bagaimana proses kerjanya?",
     answer:
-      "Dimulai dari memahami tujuan dan pengguna, lalu menyusun struktur halaman, baru masuk ke visual dan interaksi. Progress dikomunikasikan bertahap supaya arah tetap sejalan.",
+      "Dimulai dari memahami tujuan dan pengguna, menyusun struktur serta flow, lalu mengimplementasikan interface dan feedback. Progress dikomunikasikan bertahap agar arah tetap sejalan.",
   },
   {
     question: "Tools apa yang biasa dipakai?",
     answer:
-      "React/Next.js dengan TypeScript dan Tailwind CSS untuk pengembangan, Figma untuk desain dan handoff, serta GSAP untuk motion yang terkontrol.",
+      "React, Next.js, Vite, TypeScript, JavaScript, dan Tailwind CSS untuk frontend. Saya juga menggunakan Go dan REST API pada workflow aplikasi, serta Figma untuk desain dan handoff.",
   },
   {
     question: "Berapa lama respon terhadap pesan?",
     answer:
-      "Karena masih bersekolah, pesan biasanya dibalas di luar jam sekolah. Sertakan konteks project yang jelas supaya diskusinya langsung produktif.",
+      "Pesan biasanya dibalas di sela kegiatan sekolah, pekerjaan frontend, dan mentoring. Sertakan konteks project yang jelas supaya diskusinya langsung produktif.",
   },
 ];
