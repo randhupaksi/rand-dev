@@ -1,7 +1,6 @@
 import { ArrowRight, ArrowUpRight } from "lucide-react";
 import { Link } from "react-router-dom";
 
-import { DraftBadge } from "@/components/common/draft-badge";
 import { SectionIndex } from "@/components/common/section-index";
 import { buttonVariants } from "@/components/ui/button-variants";
 import { homeCta } from "@/data/home";
@@ -17,7 +16,7 @@ export function HomeCtaSection() {
     <section ref={scopeRef} className="section-shell">
       <div className="content-stack-lg">
         <div data-reveal>
-          <SectionIndex index="05" label="Contact" />
+          <SectionIndex index="06" label="Contact" />
         </div>
 
         <h2
@@ -60,17 +59,20 @@ export function HomeCtaSection() {
             <span className="type-overline">
               Email
             </span>
-            <span className="font-mono text-sm text-brand-soft">
-              {email?.value}
-            </span>
-            {email?.isPlaceholder ? <DraftBadge label="Placeholder" /> : null}
+            {email?.href ? (
+              <a
+                href={email.href}
+                className="font-mono text-sm text-brand-soft transition-colors hover:text-foreground focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-ring"
+              >
+                {email.value}
+              </a>
+            ) : (
+              <span className="font-mono text-sm text-brand-soft">Contact details coming soon</span>
+            )}
           </div>
 
           <div className="flex items-center gap-3">
-            <span className="relative flex size-2" aria-hidden="true">
-              <span className="absolute inline-flex h-full w-full rounded-full bg-success opacity-60 motion-safe:animate-ping" />
-              <span className="relative inline-flex size-2 rounded-full bg-success" />
-            </span>
+            <span className="size-2 rounded-full bg-success" aria-hidden="true" />
             <span className="type-overline text-brand-soft">
               {siteIdentity.availability.value}
             </span>

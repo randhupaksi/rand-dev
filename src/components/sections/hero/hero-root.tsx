@@ -39,18 +39,6 @@ export function HeroRoot({ content }: HeroRootProps) {
           },
         )
         .fromTo(
-          "[data-hero-card]",
-          { y: 34, opacity: 0, rotate: 4, scale: 0.96 },
-          {
-            y: 0,
-            opacity: 1,
-            rotate: 0,
-            scale: 1,
-            duration: 0.9,
-          },
-          "-=0.52",
-        )
-        .fromTo(
           "[data-hero-ring]",
           { scale: 0.88, opacity: 0, rotate: -8 },
           {
@@ -62,32 +50,6 @@ export function HeroRoot({ content }: HeroRootProps) {
           },
           "-=0.84",
         );
-
-      gsap.to("[data-hero-float]", {
-        y: -10,
-        duration: 3.1,
-        repeat: -1,
-        yoyo: true,
-        ease: "sine.inOut",
-      });
-
-      gsap.to("[data-hero-card]", {
-        y: 8,
-        duration: 3.6,
-        repeat: -1,
-        yoyo: true,
-        ease: "sine.inOut",
-      });
-
-      gsap.to("[data-hero-orb]", {
-        scale: 1.08,
-        opacity: 0.82,
-        duration: 4.2,
-        repeat: -1,
-        yoyo: true,
-        ease: "sine.inOut",
-        stagger: 0.4,
-      });
     }, sectionRef);
 
     return () => ctx.revert();
@@ -106,9 +68,7 @@ export function HeroRoot({ content }: HeroRootProps) {
       >
         <div className="order-2 flex max-w-[39rem] flex-col gap-4 sm:gap-5 lg:order-1 lg:gap-8">
           <div data-hero-reveal className="content-stack-sm lg:content-stack-md">
-            <div className="ds-badge type-overline hidden lg:inline-flex">
-              Creative Web Developer
-            </div>
+            <p className="type-overline hidden lg:block">Frontend Developer · Matik Creative Technology</p>
 
             <HeroIntro
               eyebrow={content.eyebrow}
@@ -117,11 +77,7 @@ export function HeroRoot({ content }: HeroRootProps) {
               roleHighlight={content.roleHighlight}
               description={content.description}
               mobileVisual={<HeroVisual />}
-              mobileBadge={
-                <div className="ds-badge type-overline">
-                  Creative Web Developer
-                </div>
-              }
+              mobileBadge={<p className="type-overline">Frontend Developer</p>}
             />
           </div>
 

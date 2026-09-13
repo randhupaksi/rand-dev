@@ -1,33 +1,16 @@
 import { useEffect, useRef } from "react";
 import gsap from "gsap";
-import {
-  ArrowRight,
-  Blend,
-  Boxes,
-  LayoutTemplate,
-  MonitorSmartphone,
-  Sparkles,
-  Workflow,
-} from "lucide-react";
+import { ArrowRight } from "lucide-react";
+import { Link } from "react-router-dom";
 
 import type { AboutProfile } from "@/types/home";
-import { Badge } from "@/components/ui/badge";
 import { buttonVariants } from "@/components/ui/button-variants";
 
 type AboutRootProps = {
   profile: AboutProfile;
 };
 
-const aboutFeatureItems = [
-  { title: "UI Konsisten", icon: LayoutTemplate },
-  { title: "Struktur Rapi", icon: Boxes },
-  { title: "Interaksi Halus", icon: Sparkles },
-  { title: "Responsive", icon: MonitorSmartphone },
-  { title: "Logic Flow", icon: Workflow },
-  { title: "Code + Visual", icon: Blend },
-];
-
-export function AboutRoot({ profile: _profile }: AboutRootProps) {
+export function AboutRoot({ profile }: AboutRootProps) {
   const sectionRef = useRef<HTMLElement>(null);
 
   useEffect(() => {
@@ -44,27 +27,10 @@ export function AboutRoot({ profile: _profile }: AboutRootProps) {
 
       timeline
         .fromTo(
-          "[data-about-panel]",
-          { y: 24, opacity: 0, scale: 0.985 },
-          { y: 0, opacity: 1, scale: 1, duration: 0.72 },
-        )
-        .fromTo(
           "[data-about-copy]",
           { y: 16, opacity: 0 },
           { y: 0, opacity: 1, duration: 0.62, stagger: 0.08 },
           "-=0.38",
-        )
-        .fromTo(
-          "[data-about-meta]",
-          { y: 12, opacity: 0 },
-          { y: 0, opacity: 1, duration: 0.45, stagger: 0.06 },
-          "-=0.36",
-        )
-        .fromTo(
-          "[data-about-item]",
-          { y: 18, opacity: 0, scale: 0.98 },
-          { y: 0, opacity: 1, scale: 1, duration: 0.52, stagger: 0.06 },
-          "-=0.3",
         )
         .fromTo(
           "[data-about-cta]",
@@ -79,84 +45,38 @@ export function AboutRoot({ profile: _profile }: AboutRootProps) {
 
   return (
     <section ref={sectionRef} id="about" className="section-shell-compact">
-      <div
-        data-about-panel
-        className="ds-card ds-card-solid relative overflow-hidden px-5 py-9 sm:px-8 sm:py-11 lg:px-12 lg:py-12"
-      >
-        <div className="relative z-10 content-stack-lg">
-          <div className="mx-auto max-w-5xl text-center content-stack-sm">
-            <div
-              data-about-copy
-              className="mx-auto section-eyebrow"
-            >
-              About Me
+      <div className="grid gap-10 border-y border-border-subtle py-10 lg:grid-cols-[minmax(0,1.1fr)_minmax(16rem,0.62fr)] lg:items-end lg:gap-16 lg:py-14">
+        <div className="content-stack-md">
+          <p data-about-copy className="type-overline">About</p>
+          <div data-about-copy className="content-stack-sm max-w-3xl">
+            <h2 className="type-h2">Membangun dengan struktur yang bisa dipahami, lalu memperjelasnya lewat visual.</h2>
+            <p className="type-body">{profile.summary}</p>
+          </div>
+          <p data-about-copy className="max-w-2xl border-l border-accent pl-4 text-sm leading-7 text-brand-soft">
+            {profile.statement}
+          </p>
+        </div>
+
+        <div className="content-stack-md lg:pb-1">
+          <dl data-about-copy className="content-stack-sm border-t border-border-subtle pt-5">
+            <div className="flex items-baseline justify-between gap-5">
+              <dt className="type-overline">Role</dt>
+              <dd className="text-right text-sm text-foreground">{profile.role}</dd>
             </div>
-            <h2
-              data-about-copy
-              className="type-h2"
-            >
-              Tentang <span className="text-accent">Randhu</span> Paksi
-              Membumi
-            </h2>
-            <p
-              data-about-copy
-              className="type-body mx-auto max-w-4xl sm:text-lg"
-            >
-              Saya siswa SMK PPLG kelas 11 yang fokus membangun website dengan
-              struktur yang rapi, visual yang clean, dan pengalaman pengguna
-              yang terasa matang.
-            </p>
-
-            <div className="flex flex-wrap justify-center gap-2.5">
-              <Badge
-                data-about-meta
-              >
-                SMK PPLG - Class 11
-              </Badge>
-              <Badge
-                variant="primary"
-                data-about-meta
-              >
-                Creative Web Developer
-              </Badge>
+            <div className="flex items-baseline justify-between gap-5">
+              <dt className="type-overline">Education</dt>
+              <dd className="text-right text-sm text-foreground">{profile.education}</dd>
             </div>
-          </div>
+          </dl>
 
-          <div className="rule-gradient" />
-
-          <div className="grid grid-cols-2 gap-x-3 gap-y-6 sm:grid-cols-3 md:grid-cols-6 md:gap-y-3">
-            {aboutFeatureItems.map((item) => {
-              const Icon = item.icon;
-
-              return (
-                <article
-                  key={item.title}
-                  data-about-item
-                  className="group flex flex-col items-center gap-4 rounded-[var(--control-radius)] px-2 py-3 text-center transition-all duration-300 hover:-translate-y-1 sm:px-3"
-                >
-                  <div className="ds-icon-control size-14 rounded-[var(--control-radius)] text-accent shadow-sm group-hover:scale-105 group-hover:border-border-strong">
-                    <Icon className="size-5" />
-                  </div>
-
-                  <p className="type-body-medium text-foreground">
-                    {item.title}
-                  </p>
-                </article>
-              );
-            })}
-          </div>
-
-          <div className="rule-gradient" />
-
-          <div data-about-cta className="flex justify-center">
-            <a
-              href="#skills"
-              className={buttonVariants({ variant: "secondary", size: "md" })}
-            >
-              Lihat Fokus Keahlian
-              <ArrowRight className="size-4" />
-            </a>
-          </div>
+          <Link
+            data-about-cta
+            to="/about"
+            className={buttonVariants({ variant: "ghost", size: "md" })}
+          >
+            Tentang cara saya bekerja
+            <ArrowRight className="size-4" aria-hidden="true" />
+          </Link>
         </div>
       </div>
     </section>

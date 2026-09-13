@@ -37,7 +37,7 @@ export function SiteNavbar() {
         <div className="mx-auto flex min-h-[var(--header-height)] items-center justify-between rounded-[var(--card-radius)] border border-border bg-background/85 px-5 backdrop-blur-md sm:px-7">
           <Link
             to="/"
-            className="group inline-flex items-center gap-0.5 text-lg font-semibold tracking-tight text-foreground transition-transform duration-300 hover:scale-[1.015]"
+            className="group inline-flex items-center gap-0.5 text-lg font-semibold tracking-tight text-foreground focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-ring"
           >
             {siteIdentity.brandFirst}{" "}
             <span className="text-accent">{siteIdentity.brandSecond}</span>
@@ -52,7 +52,7 @@ export function SiteNavbar() {
                 end={item.to === "/"}
                 className={({ isActive }) =>
                   cn(
-                    "group relative text-sm font-medium transition-all duration-300",
+                    "group relative text-sm font-medium transition-all duration-300 focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-ring",
                     isActive
                       ? "text-foreground"
                       : "text-muted-foreground hover:text-foreground",
@@ -110,7 +110,7 @@ export function SiteNavbar() {
                   end={item.to === "/"}
                   className={({ isActive }) =>
                     cn(
-                      "flex min-h-[var(--button-height-md)] items-center justify-between rounded-[var(--control-radius)] px-4 text-sm font-medium transition-colors duration-200",
+                      "flex min-h-[var(--button-height-md)] items-center justify-between rounded-[var(--control-radius)] px-4 text-sm font-medium transition-colors duration-200 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-ring",
                       isActive
                         ? "bg-surface-hover text-foreground"
                         : "text-muted-foreground hover:bg-surface-subtle hover:text-foreground",

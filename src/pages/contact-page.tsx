@@ -3,7 +3,6 @@ import { useForm } from "react-hook-form";
 import {
   CheckCircle2,
   FileText,
-  Info,
   Loader2,
   Mail,
   MapPin,
@@ -12,14 +11,13 @@ import {
   TriangleAlert,
 } from "lucide-react";
 
-import { DraftBadge } from "@/components/common/draft-badge";
 import { SocialLinks } from "@/components/common/social-links";
 import { Button } from "@/components/ui/button";
 import { buttonVariants } from "@/components/ui/button-variants";
 import { Card } from "@/components/ui/card";
 import { Input, Textarea } from "@/components/ui/input";
 import { contactFaq } from "@/data/about";
-import { contactChannels, contactEndpoint, siteIdentity } from "@/data/site";
+import { contactChannels, contactEndpoint, siteIdentity, socialLinks } from "@/data/site";
 import { usePageMeta } from "@/hooks/use-page-meta";
 import { useReveal } from "@/hooks/use-reveal";
 
@@ -36,7 +34,7 @@ type ContactFormValues = {
   message: string;
 };
 
-type SubmitStatus = "idle" | "sent" | "demo" | "error";
+type SubmitStatus = "idle" | "sent" | "error";
 
 export default function ContactPage() {
   usePageMeta(
@@ -46,6 +44,8 @@ export default function ContactPage() {
 
   const scopeRef = useReveal<HTMLDivElement>();
   const [status, setStatus] = useState<SubmitStatus>("idle");
+  const directChannels = contactChannels.filter((channel) => channel.href);
+  const hasPublishedSocials = socialLinks.some((link) => link.href);
 
   const {
     register,
@@ -59,13 +59,7 @@ export default function ContactPage() {
   const onSubmit = async (values: ContactFormValues) => {
     setStatus("idle");
 
-    if (!contactEndpoint) {
-      // Mode demo: tidak ada endpoint yang dikonfigurasi, jadi tidak ada
-      // pesan yang benar-benar terkirim - status "demo" menjelaskannya.
-      await new Promise((resolve) => setTimeout(resolve, 700));
-      setStatus("demo");
-      return;
-    }
+    if (!contactEndpoint) return;
 
     try {
       const response = await fetch(contactEndpoint, {
@@ -112,8 +106,9 @@ export default function ContactPage() {
         <div className="grid gap-8 lg:grid-cols-[minmax(0,0.72fr)_minmax(0,1fr)]">
           {/* Kontak & sosial */}
           <div className="content-stack-lg">
-            <ul className="content-stack-sm">
-              {contactChannels.map((channel) => {
+            {directChannels.length > 0 ? (
+              <ul className="content-stack-sm">
+              {directChannels.map((channel) => {
                 const Icon = channelIconMap[channel.key];
 
                 return (
@@ -134,59 +129,51 @@ export default function ContactPage() {
                         {channel.href ? (
                           <a
                             href={channel.href}
-                            className="break-all font-mono text-sm text-foreground transition-colors duration-200 hover:text-accent"
+                            className="break-all font-mono text-sm text-foreground transition-colors duration-200 hover:text-accent focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-ring"
                           >
                             {channel.value}
                           </a>
-                        ) : (
-                          <span className="break-all font-mono text-sm text-brand-soft">
-                            {channel.value}
-                          </span>
-                        )}
-                        {channel.isPlaceholder ? (
-                          <DraftBadge label="Placeholder" />
                         ) : null}
                       </span>
                     </div>
                   </Card>
                 );
               })}
-            </ul>
+              </ul>
+            ) : (
+              <div data-reveal className="border-y border-border-subtle py-6">
+                <p className="type-overline">Direct contact</p>
+                <p className="mt-3 max-w-sm text-sm leading-7 text-muted-foreground">
+                  Detail kontak belum dipublikasikan. Tidak ada email atau nomor dummy yang ditampilkan di halaman ini.
+                </p>
+              </div>
+            )}
 
-            <div data-reveal className="content-stack-sm">
+            {hasPublishedSocials ? <div data-reveal className="content-stack-sm">
               <p className="type-overline">
                 Social
               </p>
               <SocialLinks />
-            </div>
+            </div> : null}
 
-            <div data-reveal className="content-stack-sm">
+            {siteIdentity.cvHref ? <div data-reveal className="content-stack-sm">
               <p className="type-overline">
                 Curriculum Vitae
               </p>
-              {siteIdentity.cvHref ? (
-                <a
-                  href={siteIdentity.cvHref}
-                  target="_blank"
-                  rel="noreferrer"
-                  className={buttonVariants({ variant: "outline", size: "md" })}
-                >
-                  <FileText className="size-4" aria-hidden="true" />
-                  Lihat CV
-                </a>
-              ) : (
-                <span className="inline-flex h-[var(--button-height-md)] w-fit cursor-not-allowed items-center gap-2 rounded-full border border-dashed border-border px-5 text-sm text-muted-foreground opacity-50">
-                  <FileText className="size-4" aria-hidden="true" />
-                  CV
-                  <span className="type-overline">
-                    Coming soon
-                  </span>
-                </span>
-              )}
-            </div>
+              <a
+                href={siteIdentity.cvHref}
+                target="_blank"
+                rel="noreferrer"
+                className={buttonVariants({ variant: "outline", size: "md" })}
+              >
+                <FileText className="size-4" aria-hidden="true" />
+                Lihat CV
+              </a>
+            </div> : null}
           </div>
 
           {/* Form */}
+          {contactEndpoint ? (
           <Card data-reveal className="p-[var(--card-padding)]">
             <form
               onSubmit={handleSubmit(onSubmit)}
@@ -201,15 +188,6 @@ export default function ContactPage() {
                   Isi form di bawah, atau gunakan channel di samping.
                 </p>
               </div>
-
-              {!contactEndpoint ? (
-                <p className="ds-alert ds-alert-info">
-                  <Info className="mt-0.5 size-3.5 shrink-0" aria-hidden="true" />
-                  Form ini berjalan dalam mode demo karena endpoint pengiriman
-                  belum dikonfigurasi (VITE_CONTACT_ENDPOINT). Pesan tidak akan
-                  terkirim ke mana pun.
-                </p>
-              ) : null}
 
               <div className="grid gap-[var(--form-gap)] sm:grid-cols-2">
                 <div className="content-stack-xs">
@@ -343,17 +321,6 @@ export default function ContactPage() {
                 </Button>
 
                 <div aria-live="polite">
-                  {status === "demo" ? (
-                    <p className="ds-alert ds-alert-warning">
-                      <TriangleAlert
-                        className="mt-0.5 size-3.5 shrink-0"
-                        aria-hidden="true"
-                      />
-                      Validasi form berhasil, tetapi ini mode demo - pesan TIDAK
-                      terkirim. Konfigurasikan VITE_CONTACT_ENDPOINT untuk
-                      mengaktifkan pengiriman asli.
-                    </p>
-                  ) : null}
                   {status === "sent" ? (
                     <p className="ds-alert ds-alert-success">
                       <CheckCircle2
@@ -377,6 +344,17 @@ export default function ContactPage() {
               </div>
             </form>
           </Card>
+          ) : (
+            <aside data-reveal className="border-y border-border-subtle py-8 sm:py-10">
+              <div className="content-stack-sm max-w-lg">
+                <p className="type-overline">Contact form</p>
+                <h2 className="type-h3">Form belum dibuka untuk pengiriman.</h2>
+                <p className="type-body-sm">
+                  Form hanya ditampilkan saat endpoint pengiriman sudah dikonfigurasi, agar pengunjung tidak mengisi pesan yang tidak dapat diterima.
+                </p>
+              </div>
+            </aside>
+          )}
         </div>
       </section>
 
@@ -397,7 +375,7 @@ export default function ContactPage() {
                 data-reveal
                 className="ds-card-subtle group open:border-border-strong"
               >
-                <summary className="flex min-h-[var(--button-height-lg)] cursor-pointer list-none items-center justify-between gap-4 px-5 py-4 text-base font-medium text-foreground [&::-webkit-details-marker]:hidden">
+                <summary className="flex min-h-[var(--button-height-lg)] cursor-pointer list-none items-center justify-between gap-4 px-5 py-4 text-base font-medium text-foreground focus-visible:outline-2 focus-visible:outline-offset-[-2px] focus-visible:outline-ring [&::-webkit-details-marker]:hidden">
                   {faq.question}
                   <span
                     aria-hidden="true"

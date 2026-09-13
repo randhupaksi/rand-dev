@@ -1,19 +1,30 @@
-import { ArrowRight, ArrowUpRight, GraduationCap } from "lucide-react";
+import {
+  ArrowRight,
+  ArrowUpRight,
+  BriefcaseBusiness,
+  GraduationCap,
+  Trophy,
+  UsersRound,
+} from "lucide-react";
 import { Link } from "react-router-dom";
 
-import { DraftBadge } from "@/components/common/draft-badge";
-import { Badge } from "@/components/ui/badge";
-import { Card } from "@/components/ui/card";
 import { buttonVariants } from "@/components/ui/button-variants";
 import { journeyItems, principles, skillGroups } from "@/data/about";
 import { siteIdentity } from "@/data/site";
 import { usePageMeta } from "@/hooks/use-page-meta";
 import { useReveal } from "@/hooks/use-reveal";
 
+const journeyIconMap = {
+  work: BriefcaseBusiness,
+  award: Trophy,
+  mentoring: UsersRound,
+  education: GraduationCap,
+} as const;
+
 export default function AboutPage() {
   usePageMeta(
     "About - Randhu Paksi Membumi",
-    "Cara berpikir, prinsip kerja, skill, dan perjalanan Randhu Paksi Membumi sebagai creative web developer.",
+    "Pengalaman, cara berpikir, skill, dan perjalanan Randhu Paksi Membumi sebagai Frontend Developer.",
   );
 
   const scopeRef = useReveal<HTMLDivElement>();
@@ -37,22 +48,14 @@ export default function AboutPage() {
             .
           </h1>
           <p data-reveal className="section-copy max-w-3xl">
-            Saya {siteIdentity.name}, siswa SMK PPLG kelas 11 dan {siteIdentity.role}.
-            Bagi saya website yang baik lahir dari dua hal yang berjalan bersama:
-            struktur yang dipikirkan dengan rapi, dan tampilan yang terasa disengaja
-            sampai ke detail kecilnya.
+            Saya {siteIdentity.name}, {siteIdentity.role} di Matik Creative Technology
+            sekaligus Frontend & UI/UX Instructor di IT Club SMK Citra Negara Depok.
+            Saya membangun interface yang terstruktur, responsive, dan nyaman dipakai
+            sambil terus mengembangkan kemampuan melalui pekerjaan, mentoring, dan project.
           </p>
-          <div data-reveal className="flex flex-wrap gap-2.5">
-            <Badge>
-              SMK PPLG - Kelas 11
-            </Badge>
-            <Badge variant="primary">
-              {siteIdentity.role}
-            </Badge>
-            <Badge>
-              {siteIdentity.availability.value}
-            </Badge>
-          </div>
+          <p data-reveal className="type-overline text-brand-soft">
+            Matik Creative Technology · IT Club SMK Citra Negara · PPLG 2024 — 2027
+          </p>
         </div>
       </section>
 
@@ -100,41 +103,29 @@ export default function AboutPage() {
           <div data-reveal className="content-stack-sm max-w-3xl">
             <div className="section-eyebrow">Skills & Tools</div>
             <h2 className="type-h3">
-              Area yang sedang saya bangun dan dalami
+              Kapabilitas yang saya gunakan dan terus kembangkan
             </h2>
             <p className="section-copy">
-              Daftar ini adalah gambaran arah belajar saya saat ini - bukan klaim
-              tingkat keahlian, melainkan peta area yang saya kerjakan setiap hari.
+              Daftar ini merangkum teknologi dan praktik yang digunakan dalam pekerjaan,
+              project, serta aktivitas mentoring saya saat ini.
             </p>
           </div>
 
-          <div className="grid gap-4 sm:grid-cols-2">
+          <div className="ds-divider border-y">
             {skillGroups.map((group) => (
-              <Card
-                as="article"
+              <article
                 key={group.title}
                 data-reveal
-                interactive
-                className="p-[var(--panel-padding)]"
+                className="grid gap-4 border-t border-border-subtle py-6 first:border-t-0 sm:grid-cols-[minmax(10rem,0.35fr)_minmax(0,1fr)] sm:gap-8"
               >
-                <div className="content-stack-sm">
-                  <div className="content-stack-xs">
-                    <h3 className="type-h4">
-                      {group.title}
-                    </h3>
-                    <p className="type-body-sm">
-                      {group.description}
-                    </p>
-                  </div>
-                  <div className="flex flex-wrap gap-2">
-                    {group.items.map((item) => (
-                      <Badge key={item}>
-                        {item}
-                      </Badge>
-                    ))}
-                  </div>
+                <div className="content-stack-xs">
+                  <h3 className="type-h4">{group.title}</h3>
+                  <p className="type-caption">{group.description}</p>
                 </div>
-              </Card>
+                <p className="type-body-sm text-brand-soft">
+                  {group.items.join(" · ")}
+                </p>
+              </article>
             ))}
           </div>
         </div>
@@ -149,46 +140,47 @@ export default function AboutPage() {
               Perjalanan sejauh ini
             </h2>
             <p className="section-copy">
-              Entri bertanda draft adalah slot untuk pengalaman yang akan diisi
-              seiring perjalanan - magang, lomba, atau project kolaborasi.
+              Riwayat ini memuat pengalaman, pendidikan, dan penghargaan yang sudah
+              dipublikasikan secara profesional.
             </p>
           </div>
 
           <ol className="ds-divider relative content-stack-lg border-l pl-8">
-            {journeyItems.map((item) => (
-              <li key={item.title} data-reveal className="relative">
-                <span
-                  aria-hidden="true"
-                  className="absolute -left-9 top-1.5 inline-flex size-3 items-center justify-center rounded-full border border-border-strong bg-background"
-                >
-                  <span className="size-1.5 rounded-full bg-accent" />
-                </span>
+            {journeyItems.map((item) => {
+              const Icon = journeyIconMap[item.kind];
 
-                <div className="content-stack-xs">
-                  <div className="flex flex-wrap items-center gap-3">
-                    <span className="type-overline">
-                      {item.period}
-                    </span>
-                    {item.isPlaceholder ? <DraftBadge /> : null}
-                  </div>
-                  <h3 className="type-h4 flex flex-wrap items-center gap-2.5">
-                    {!item.isPlaceholder ? (
-                      <GraduationCap
+              return (
+                <li key={item.title} data-reveal className="relative">
+                  <span
+                    aria-hidden="true"
+                    className="absolute -left-9 top-1.5 inline-flex size-3 items-center justify-center rounded-full border border-border-strong bg-background"
+                  >
+                    <span className="size-1.5 rounded-full bg-accent" />
+                  </span>
+
+                  <div className="content-stack-xs">
+                    <div className="flex flex-wrap items-center gap-3">
+                      <span className="type-overline">
+                        {item.period}
+                      </span>
+                    </div>
+                    <h3 className="type-h4 flex flex-wrap items-center gap-2.5">
+                      <Icon
                         aria-hidden="true"
                         className="size-4 text-accent"
                       />
-                    ) : null}
-                    {item.title}
-                  </h3>
-                  <p className="type-body-medium text-brand-soft">
-                    {item.organization}
-                  </p>
-                  <p className="type-body-sm max-w-2xl">
-                    {item.description}
-                  </p>
-                </div>
-              </li>
-            ))}
+                      {item.title}
+                    </h3>
+                    <p className="type-body-medium text-brand-soft">
+                      {item.organization}
+                    </p>
+                    <p className="type-body-sm max-w-2xl">
+                      {item.description}
+                    </p>
+                  </div>
+                </li>
+              );
+            })}
           </ol>
         </div>
       </section>

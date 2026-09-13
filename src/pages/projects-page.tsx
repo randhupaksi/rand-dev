@@ -17,6 +17,7 @@ export default function ProjectsPage() {
   );
 
   const scopeRef = useReveal<HTMLDivElement>();
+  const isSingleCaseStudy = projects.length === 1;
 
   return (
     <div ref={scopeRef}>
@@ -29,15 +30,16 @@ export default function ProjectsPage() {
             data-reveal
             className="type-h1"
           >
-            Karya yang menunjukkan cara saya{" "}
+            {isSingleCaseStudy ? "Case study utama yang sedang saya " : "Karya yang menunjukkan cara saya "}
             <span className="text-gradient-brand">
-              berpikir
+              {isSingleCaseStudy ? "dokumentasikan" : "berpikir"}
             </span>
             .
           </h1>
           <p data-reveal className="section-copy max-w-3xl">
-            Case study yang menjelaskan konteks, alur kerja, dan nilai sistem
-            dari karya yang saya bangun.
+            {isSingleCaseStudy
+              ? "Dokumentasi Absensi CN: konteks sistem, kebutuhan pengguna, dan area implementasi yang sedang saya pelajari."
+              : "Case study yang menjelaskan konteks, alur kerja, dan nilai sistem dari karya yang saya bangun."}
           </p>
         </div>
       </section>
@@ -66,9 +68,11 @@ export default function ProjectsPage() {
                     <Badge>
                       {project.category}
                     </Badge>
-                    <span className="type-overline">
-                      {project.period}
-                    </span>
+                    {project.period.isPlaceholder ? (
+                      <DraftBadge label="Periode belum dipublikasikan" />
+                    ) : (
+                      <span className="type-overline">{project.period.value}</span>
+                    )}
                     {project.status === "draft" ? (
                       <DraftBadge label="Draft case study" />
                     ) : null}
@@ -94,7 +98,7 @@ export default function ProjectsPage() {
                   <div>
                     <Link
                       to={`/projects/${project.slug}`}
-                      className={buttonVariants({ variant: "ghost", size: "md" })}
+                      className={`${buttonVariants({ variant: "ghost", size: "md" })} group`}
                     >
                       Buka case study
                       <ArrowUpRight className="size-4 transition-transform duration-300 group-hover:-translate-y-0.5 group-hover:translate-x-0.5" />

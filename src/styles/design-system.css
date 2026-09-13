@@ -249,7 +249,7 @@
   --type-body-size: 1rem;
   --type-body-sm-size: 0.875rem;
   --type-caption-size: 0.75rem;
-  --type-overline-size: 0.6875rem;
+  --type-overline-size: 0.75rem;
   --leading-tight: 1.08;
   --leading-snug: 1.2;
   --leading-normal: 1.6;
@@ -263,8 +263,8 @@
   --container-narrow: 72rem;
   --container-wide: 90rem;
   --container-padding-x: clamp(1.25rem, 2vw, 2rem);
-  --section-space-y: clamp(5rem, 8vw, 8rem);
-  --section-space-y-compact: clamp(3.5rem, 6vw, 5rem);
+  --section-space-y: clamp(4rem, 6vw, 6.5rem);
+  --section-space-y-compact: clamp(3rem, 4.5vw, 4.5rem);
   --hero-space-y: clamp(2.25rem, 5vh, 3.75rem);
   --stack-gap-xs: var(--space-2);
   --stack-gap-sm: var(--space-4);
@@ -567,8 +567,7 @@
 
   .ds-card-interactive:hover {
     border-color: var(--border-strong);
-    box-shadow: var(--shadow-glow);
-    transform: translateY(-2px);
+    background: var(--surface-hover);
   }
 
   .ds-input {
@@ -691,7 +690,6 @@
     border-color: var(--border-default);
     background: var(--surface-hover);
     color: var(--foreground);
-    transform: translateY(-2px);
   }
 
   .ds-divider {
@@ -902,36 +900,4 @@
     background: linear-gradient(90deg, transparent, rgb(211 196 255 / 0.18), transparent);
   }
 
-  .marquee {
-    overflow: hidden;
-    mask-image: linear-gradient(90deg, transparent, black 10%, black 90%, transparent);
-  }
-
-  .marquee-track {
-    display: flex;
-    width: max-content;
-  }
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .marquee-track {
-    animation: marquee-scroll var(--marquee-duration, 36s) linear infinite;
-  }
-
-  .marquee-reverse .marquee-track {
-    animation-direction: reverse;
-  }
-
-  .marquee:hover .marquee-track {
-    animation-play-state: paused;
-  }
-}
-
-@keyframes marquee-scroll {
-  from {
-    transform: translateX(0);
-  }
-  to {
-    transform: translateX(-50%);
-  }
 }

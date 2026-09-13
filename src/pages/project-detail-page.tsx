@@ -1,4 +1,4 @@
-import { ArrowLeft, ArrowRight, ExternalLink, FolderGit2 } from "lucide-react";
+import { ArrowLeft, ArrowRight } from "lucide-react";
 import { Link, useParams } from "react-router-dom";
 
 import { DraftBadge } from "@/components/common/draft-badge";
@@ -11,27 +11,6 @@ import { useReveal } from "@/hooks/use-reveal";
 import { cn } from "@/lib/utils";
 
 import NotFoundPage from "@/pages/not-found-page";
-
-function ComingSoonLink({
-  icon: Icon,
-  label,
-}: {
-  icon: typeof ExternalLink;
-  label: string;
-}) {
-  return (
-    <span
-      title={`${label} - belum tersedia`}
-      className={cn(buttonVariants({ variant: "outline", size: "md" }), "cursor-not-allowed border-dashed opacity-50")}
-    >
-      <Icon className="size-4" aria-hidden="true" />
-      {label}
-      <span className="type-overline">
-        Coming soon
-      </span>
-    </span>
-  );
-}
 
 export default function ProjectDetailPage() {
   const { slug } = useParams<{ slug: string }>();
@@ -70,9 +49,11 @@ export default function ProjectDetailPage() {
             <Badge>
               {project.category}
             </Badge>
-            <span className="type-overline">
-              {project.period}
-            </span>
+            {project.period.isPlaceholder ? (
+              <DraftBadge label="Periode belum dipublikasikan" />
+            ) : (
+              <span className="type-overline">{project.period.value}</span>
+            )}
             {project.status === "draft" ? <DraftBadge label="Draft case study" /> : null}
           </div>
 
@@ -141,39 +122,33 @@ export default function ProjectDetailPage() {
               </ul>
             </div>
 
-            <div className="content-stack-sm">
-              <p className="type-overline">
-                Links
-              </p>
-              <div className="flex flex-wrap gap-3">
-                {project.links.demo ? (
-                  <a
-                    href={project.links.demo}
-                    target="_blank"
-                    rel="noreferrer"
-                    className={buttonVariants({ variant: "outline", size: "md" })}
-                  >
-                    <ExternalLink className="size-4" aria-hidden="true" />
-                    Live demo
-                  </a>
-                ) : (
-                  <ComingSoonLink icon={ExternalLink} label="Live demo" />
-                )}
-                {project.links.repository ? (
-                  <a
-                    href={project.links.repository}
-                    target="_blank"
-                    rel="noreferrer"
-                    className={buttonVariants({ variant: "outline", size: "md" })}
-                  >
-                    <FolderGit2 className="size-4" aria-hidden="true" />
-                    Repository
-                  </a>
-                ) : (
-                  <ComingSoonLink icon={FolderGit2} label="Repository" />
-                )}
+            {project.links.demo || project.links.repository ? (
+              <div className="content-stack-sm">
+                <p className="type-overline">Links</p>
+                <div className="flex flex-wrap gap-3">
+                  {project.links.demo ? (
+                    <a
+                      href={project.links.demo}
+                      target="_blank"
+                      rel="noreferrer"
+                      className={buttonVariants({ variant: "outline", size: "md" })}
+                    >
+                      Live demo
+                    </a>
+                  ) : null}
+                  {project.links.repository ? (
+                    <a
+                      href={project.links.repository}
+                      target="_blank"
+                      rel="noreferrer"
+                      className={buttonVariants({ variant: "outline", size: "md" })}
+                    >
+                      Repository
+                    </a>
+                  ) : null}
+                </div>
               </div>
-            </div>
+            ) : null}
           </aside>
 
           {/* Case study body */}

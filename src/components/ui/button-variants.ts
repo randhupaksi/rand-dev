@@ -6,11 +6,11 @@ export const buttonVariants = cva(
     variants: {
       variant: {
         primary:
-          "border-transparent bg-[image:var(--gradient-primary)] text-primary-foreground shadow-sm hover:-translate-y-0.5 hover:shadow-[var(--shadow-glow)] active:translate-y-px",
+          "border-transparent bg-[image:var(--gradient-primary)] text-primary-foreground shadow-sm hover:brightness-110 active:brightness-95",
         secondary:
-          "border-border-default bg-secondary text-secondary-foreground hover:-translate-y-0.5 hover:bg-secondary-800 active:translate-y-px",
+          "border-border-default bg-secondary text-secondary-foreground hover:bg-secondary-800",
         outline:
-          "border-border-default bg-surface-subtle text-foreground hover:-translate-y-0.5 hover:border-border-strong hover:bg-surface-hover active:translate-y-px",
+          "border-border-default bg-surface-subtle text-foreground hover:border-border-strong hover:bg-surface-hover",
         ghost:
           "border-transparent bg-transparent text-muted-foreground hover:bg-surface-hover hover:text-foreground",
       },
