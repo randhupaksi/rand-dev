@@ -34,21 +34,21 @@ export class ErrorBoundary extends Component<ErrorBoundaryProps, ErrorBoundarySt
       <div className="flex min-h-screen items-center justify-center px-6">
         <div className="content-stack-md max-w-md text-center">
           <p className="type-overline">
-            Terjadi kesalahan
+            Something went wrong
           </p>
           <h1 className="type-h3">
-            Halaman gagal dimuat
+            This page could not load
           </h1>
           <p className="type-body-sm">
-            Ada error tak terduga saat merender halaman ini. Coba muat ulang -
-            jika masih terjadi, periksa console browser untuk detailnya.
+            Something unexpected happened while loading this page. Try reloading;
+            if it keeps happening, check the browser console for details.
           </p>
           <div className="flex justify-center">
             <Button
               type="button"
               onClick={this.handleReload}
             >
-              Muat ulang halaman
+              Reload page
             </Button>
           </div>
         </div>

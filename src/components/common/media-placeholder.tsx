@@ -18,12 +18,11 @@ const aspectClassMap = {
 } as const;
 
 /**
- * Frame media kosong yang disengaja: menjaga komposisi layout tetap utuh
- * selama screenshot/foto asli belum tersedia, tanpa berpura-pura menjadi
- * gambar nyata.
+ * An intentional empty media frame: keeps the layout intact while real
+ * screenshots or photos are not available, without pretending to be real media.
  */
 export function MediaPlaceholder({
-  label = "Visual Coming Soon",
+  label = "Visual coming soon",
   hint,
   src,
   alt = label,

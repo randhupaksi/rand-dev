@@ -6,7 +6,7 @@ type DraftBadgeProps = {
   className?: string;
 };
 
-/** Penanda visual bahwa sebuah konten masih draft/placeholder. */
+/** Visual marker for content that is still a draft or placeholder. */
 export function DraftBadge({ label = "Draft Content", className }: DraftBadgeProps) {
   return (
     <Badge

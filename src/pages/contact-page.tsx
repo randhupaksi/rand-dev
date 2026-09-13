@@ -39,7 +39,7 @@ type SubmitStatus = "idle" | "sent" | "error";
 export default function ContactPage() {
   usePageMeta(
     "Contact - Randhu Paksi Membumi",
-    "Hubungi Randhu Paksi Membumi untuk diskusi project website branding, dashboard, atau kolaborasi frontend.",
+    "Get in touch with Randhu Paksi Membumi about frontend work, websites, apps, and UI/UX collaborations.",
   );
 
   const scopeRef = useReveal<HTMLDivElement>();
@@ -85,19 +85,19 @@ export default function ContactPage() {
       <section className="section-shell-compact">
         <div className="content-stack-md max-w-4xl">
           <div data-reveal className="section-eyebrow">
-            Contact
+            Say hello
           </div>
           <h1 data-reveal className="type-h1">
-            Mari bicara soal{" "}
+            Let’s talk about{" "}
             <span className="text-gradient-brand">
-              project kamu
+              your project
             </span>
             .
           </h1>
           <p data-reveal className="section-copy max-w-3xl">
-            {siteIdentity.availability.value}. Ceritakan kebutuhanmu - website
-            branding, dashboard, atau eksperimen interface - dan kita lihat apa
-            yang bisa dibangun bersama.
+            {siteIdentity.availability.value}. Tell me what you’re working on—a
+            website, dashboard, app, or interface experiment—and we can see where
+            it goes.
           </p>
         </div>
       </section>
@@ -144,21 +144,22 @@ export default function ContactPage() {
               <div data-reveal className="border-y border-border-subtle py-6">
                 <p className="type-overline">Direct contact</p>
                 <p className="mt-3 max-w-sm text-sm leading-7 text-muted-foreground">
-                  Detail kontak belum dipublikasikan. Tidak ada email atau nomor dummy yang ditampilkan di halaman ini.
+                  Direct contact details are not published yet. I’m keeping this space
+                  free of dummy email addresses or phone numbers.
                 </p>
               </div>
             )}
 
             {hasPublishedSocials ? <div data-reveal className="content-stack-sm">
               <p className="type-overline">
-                Social
+                Find me online
               </p>
               <SocialLinks />
             </div> : null}
 
             {siteIdentity.cvHref ? <div data-reveal className="content-stack-sm">
               <p className="type-overline">
-                Curriculum Vitae
+                Résumé
               </p>
               <a
                 href={siteIdentity.cvHref}
@@ -167,7 +168,7 @@ export default function ContactPage() {
                 className={buttonVariants({ variant: "outline", size: "md" })}
               >
                 <FileText className="size-4" aria-hidden="true" />
-                Lihat CV
+                View résumé
               </a>
             </div> : null}
           </div>
@@ -182,10 +183,10 @@ export default function ContactPage() {
             >
               <div className="content-stack-xs">
                 <h2 className="type-h4">
-                  Kirim pesan
+                  Send a message
                 </h2>
                 <p className="type-body-sm">
-                  Isi form di bawah, atau gunakan channel di samping.
+                  Fill out the form below, or use one of the channels beside it.
                 </p>
               </div>
 
@@ -195,20 +196,20 @@ export default function ContactPage() {
                     htmlFor="contact-name"
                     className="text-sm font-medium text-foreground"
                   >
-                    Nama
+                    Name
                   </label>
                   <Input
                     id="contact-name"
                     type="text"
                     autoComplete="name"
-                    placeholder="Nama kamu"
+                  placeholder="Your name"
                     aria-invalid={errors.name ? true : undefined}
                     aria-describedby={errors.name ? "contact-name-error" : undefined}
                     {...register("name", {
-                      required: "Nama wajib diisi.",
+                      required: "Name is required.",
                       minLength: {
                         value: 2,
-                        message: "Nama minimal 2 karakter.",
+                        message: "Name must be at least 2 characters.",
                       },
                     })}
                   />
@@ -233,14 +234,14 @@ export default function ContactPage() {
                     id="contact-email"
                     type="email"
                     autoComplete="email"
-                    placeholder="nama@email.com"
+                  placeholder="you@email.com"
                     aria-invalid={errors.email ? true : undefined}
                     aria-describedby={errors.email ? "contact-email-error" : undefined}
                     {...register("email", {
-                      required: "Email wajib diisi.",
+                      required: "Email is required.",
                       pattern: {
                         value: /^[^\s@]+@[^\s@]+\.[^\s@]+$/,
-                        message: "Format email tidak valid.",
+                        message: "That email format doesn’t look right.",
                       },
                     })}
                   />
@@ -260,13 +261,13 @@ export default function ContactPage() {
                   htmlFor="contact-subject"
                   className="text-sm font-medium text-foreground"
                 >
-                  Topik{" "}
-                  <span className="font-normal text-muted-foreground">(opsional)</span>
+                  Topic{" "}
+                  <span className="font-normal text-muted-foreground">(optional)</span>
                 </label>
                 <Input
                   id="contact-subject"
                   type="text"
-                  placeholder="Misal: website branding, dashboard, kolaborasi"
+                  placeholder="e.g. website, dashboard, frontend collaboration"
                   {...register("subject")}
                 />
               </div>
@@ -276,21 +277,21 @@ export default function ContactPage() {
                   htmlFor="contact-message"
                   className="text-sm font-medium text-foreground"
                 >
-                  Pesan
+                    Message
                 </label>
                 <Textarea
                   id="contact-message"
                   rows={5}
-                  placeholder="Ceritakan konteks project atau ide kamu…"
+                  placeholder="Tell me a little about the project or idea…"
                   aria-invalid={errors.message ? true : undefined}
                   aria-describedby={
                     errors.message ? "contact-message-error" : undefined
                   }
                   {...register("message", {
-                    required: "Pesan wajib diisi.",
+                      required: "Message is required.",
                     minLength: {
                       value: 10,
-                      message: "Pesan minimal 10 karakter.",
+                        message: "Message must be at least 10 characters.",
                     },
                   })}
                 />
@@ -317,7 +318,7 @@ export default function ContactPage() {
                   ) : (
                     <Send className="size-4" aria-hidden="true" />
                   )}
-                  {isSubmitting ? "Mengirim…" : "Kirim Pesan"}
+                  {isSubmitting ? "Sending…" : "Send message"}
                 </Button>
 
                 <div aria-live="polite">
@@ -327,7 +328,7 @@ export default function ContactPage() {
                         className="mt-0.5 size-3.5 shrink-0"
                         aria-hidden="true"
                       />
-                      Pesan terkirim. Terima kasih - akan dibalas secepatnya.
+                      Message sent. Thanks—I’ll get back to you soon.
                     </p>
                   ) : null}
                   {status === "error" ? (
@@ -336,8 +337,8 @@ export default function ContactPage() {
                         className="mt-0.5 size-3.5 shrink-0"
                         aria-hidden="true"
                       />
-                      Pesan gagal terkirim. Coba lagi, atau gunakan channel
-                      kontak di samping.
+                      The message could not be sent. Try again, or use one of the
+                      contact channels beside it.
                     </p>
                   ) : null}
                 </div>
@@ -348,9 +349,10 @@ export default function ContactPage() {
             <aside data-reveal className="border-y border-border-subtle py-8 sm:py-10">
               <div className="content-stack-sm max-w-lg">
                 <p className="type-overline">Contact form</p>
-                <h2 className="type-h3">Form belum dibuka untuk pengiriman.</h2>
+                <h2 className="type-h3">The form isn’t open yet.</h2>
                 <p className="type-body-sm">
-                  Form hanya ditampilkan saat endpoint pengiriman sudah dikonfigurasi, agar pengunjung tidak mengisi pesan yang tidak dapat diterima.
+                  I’ll open this form once message delivery is configured, so nothing
+                  gets submitted into a dead end.
                 </p>
               </div>
             </aside>
@@ -362,9 +364,9 @@ export default function ContactPage() {
       <section className="section-shell-compact">
         <div className="content-stack-lg">
           <div data-reveal className="content-stack-sm max-w-3xl">
-            <div className="section-eyebrow">FAQ</div>
+            <div className="section-eyebrow">A few answers</div>
             <h2 className="type-h3">
-              Pertanyaan yang sering muncul
+              A few things you might want to know
             </h2>
           </div>
 

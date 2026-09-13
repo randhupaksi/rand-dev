@@ -20,7 +20,7 @@ export type Project = {
   slug: string;
   name: string;
   category: string;
-  /** Periode hanya ditampilkan sebagai fakta jika sudah diverifikasi. */
+  /** Show the period as a fact only once it has been verified. */
   period: PlaceholderValue;
   summary: string;
   thumbnail?: {
@@ -37,6 +37,6 @@ export type Project = {
     alt: string;
     label: string;
   }[];
-  /** Jumlah slot screenshot pada gallery; diisi frame placeholder selama asset belum ada. */
+  /** Number of gallery screenshot slots; placeholder frames fill missing assets. */
   gallerySlots: number;
 };

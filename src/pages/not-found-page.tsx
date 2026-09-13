@@ -5,7 +5,7 @@ import { buttonVariants } from "@/components/ui/button-variants";
 import { usePageMeta } from "@/hooks/use-page-meta";
 
 export default function NotFoundPage() {
-  usePageMeta("Halaman tidak ditemukan - Randhu Paksi Membumi");
+  usePageMeta("Page not found - Randhu Paksi Membumi");
 
   return (
     <section className="flex min-h-[65vh] items-center section-shell-compact">
@@ -14,11 +14,11 @@ export default function NotFoundPage() {
           404
         </p>
         <h1 className="type-h3">
-          Halaman ini tidak ditemukan
+          This page is nowhere to be found
         </h1>
         <p className="type-body-sm">
-          Link yang kamu buka mungkin salah ketik, sudah dipindahkan, atau memang
-          belum dibuat. Kembali ke halaman utama atau jelajahi project.
+          The link may be broken, moved, or not built yet. Head home or take a look
+          at the work instead.
         </p>
         <div className="flex flex-wrap justify-center gap-3 pt-2">
           <Link
@@ -26,13 +26,13 @@ export default function NotFoundPage() {
             className={buttonVariants({ variant: "primary", size: "md" })}
           >
             <Home className="size-4" aria-hidden="true" />
-            Kembali ke Home
+            Back home
           </Link>
           <Link
             to="/projects"
             className={buttonVariants({ variant: "outline", size: "md" })}
           >
-            Lihat Project
+            See the work
             <ArrowRight className="size-4" aria-hidden="true" />
           </Link>
         </div>

@@ -1,4 +1,4 @@
-/** Nilai yang bisa berupa placeholder; UI wajib menandainya sebagai draft. */
+/** A value that may be a placeholder; the UI must mark it as a draft. */
 export type PlaceholderValue = {
   value: string;
   isPlaceholder: boolean;
