@@ -2,41 +2,41 @@ import type { FaqItem, JourneyItem, PrincipleItem, SkillGroup } from "@/types/ab
 
 export const principles: PrincipleItem[] = [
   {
-    title: "Konteks dulu, baru implementasi",
+    title: "Start with the problem",
     description:
-      "Sebelum menulis interface, saya memahami pengguna, alur kerja, dan informasi yang benar-benar perlu terlihat. Visual baru menyusul setelah fondasinya jelas.",
+      "Before opening the editor, I try to understand who will use it, what needs solving, and which information actually matters.",
   },
   {
-    title: "Hierarchy yang bisa dipakai",
+    title: "Make the important stuff easy to find",
     description:
-      "Setiap halaman perlu memiliki prioritas informasi dan action yang jelas, supaya pengguna tahu apa yang penting tanpa harus menebak langkah berikutnya.",
+      "Every page needs a clear order. People should be able to find the important information and actions without having to guess.",
   },
   {
-    title: "Interface yang responsive",
+    title: "Make it work everywhere",
     description:
-      "Responsive behavior, state feedback, dan motion dipakai untuk membantu penggunaan—bukan sekadar dekorasi atau efek visual.",
+      "I use layout, feedback, and motion to make an interface easier to understand—not just to add more effects.",
   },
   {
-    title: "Kode yang bisa berkembang",
+    title: "Keep the code easy to pick up",
     description:
-      "Komponen, data, dan visual token dijaga tetap terstruktur agar project bisa dikembangkan dan dikolaborasikan dengan lebih nyaman.",
+      "I keep components, data, and visual tokens organised so the project is easier to extend and work on together.",
   },
 ];
 
 export const skillGroups: SkillGroup[] = [
   {
-    title: "Core Frontend",
-    description: "Fondasi yang dipakai untuk membangun interface web modern.",
+    title: "Frontend foundations",
+    description: "The building blocks I use for web interfaces.",
     items: ["HTML", "CSS", "JavaScript", "TypeScript"],
   },
   {
-    title: "Framework & Tooling",
-    description: "Stack yang digunakan dalam pengembangan web dan aplikasi.",
+    title: "Frameworks & tools",
+    description: "The tools I reach for most when building websites and apps.",
     items: ["React", "Next.js", "Vite", "Tailwind CSS", "Git"],
   },
   {
-    title: "UI Engineering",
-    description: "Menerjemahkan kebutuhan dan desain menjadi interface yang usable.",
+    title: "UI engineering",
+    description: "Turning product needs and designs into interfaces that feel easy to use.",
     items: [
       "Responsive design",
       "Component architecture",
@@ -46,13 +46,13 @@ export const skillGroups: SkillGroup[] = [
     ],
   },
   {
-    title: "Application & Collaboration",
-    description: "Pengembangan aplikasi dan proses kerja bersama tim maupun komunitas.",
+    title: "Applications & collaboration",
+    description: "The technical pieces and habits behind building things together.",
     items: [
       "Go & REST API",
       "REST API integration",
-      "Form handling & validation",
-      "IT Club mentoring",
+      "Forms & validation",
+      "Mentoring IT Club",
       "Project communication",
     ],
   },
@@ -65,7 +65,7 @@ export const journeyItems: JourneyItem[] = [
     title: "Frontend Developer",
     organization: "Matik Creative Technology",
     description:
-      "Mengembangkan website dan aplikasi dengan fokus pada interface modern, responsive, dan terstruktur menggunakan Next.js, React, TypeScript, serta JavaScript.",
+      "Building websites and apps with a focus on clear, responsive interfaces using Next.js, React, TypeScript, and JavaScript.",
     kind: "work",
   },
   {
@@ -73,7 +73,7 @@ export const journeyItems: JourneyItem[] = [
     title: "Student of The Year",
     organization: "Citra Negara Awards 2026 · SMK Citra Negara Depok",
     description:
-      "Menerima penghargaan Student of The Year sebagai pengakuan atas pertumbuhan, dedikasi, kreativitas, dan kontribusi dalam perjalanan akademik.",
+      "Received the Student of The Year award as part of my growth and contribution during school.",
     kind: "award",
   },
   {
@@ -81,7 +81,7 @@ export const journeyItems: JourneyItem[] = [
     title: "Frontend & UI/UX Instructor",
     organization: "IT Club · SMK Citra Negara Depok",
     description:
-      "Membimbing anggota IT Club mempelajari frontend development dan UI/UX, termasuk fondasi web modern serta penyusunan interface yang clean dan user-friendly.",
+      "Helping IT Club members learn frontend and UI/UX, from web basics to building clearer, more comfortable interfaces.",
     kind: "mentoring",
   },
   {
@@ -89,7 +89,7 @@ export const journeyItems: JourneyItem[] = [
     title: "Software Engineering (PPLG)",
     organization: "SMK Citra Negara Depok",
     description:
-      "Menempuh pendidikan PPLG sambil mengembangkan project web dan aplikasi, dengan fokus pada frontend development, UI/UX, visual hierarchy, dan user experience.",
+      "Studying software engineering while building web and app projects, with a strong interest in frontend and UI/UX.",
     kind: "education",
   },
 ];
@@ -98,21 +98,21 @@ export const contactFaq: FaqItem[] = [
   {
     question: "Kolaborasi seperti apa yang terbuka?",
     answer:
-      "Kolaborasi frontend, website, aplikasi, dashboard UI, atau eksperimen interface yang membutuhkan implementasi modern dan perhatian pada pengalaman pengguna.",
+      "I’m open to frontend collaborations, websites, apps, dashboards, or interface experiments that need to feel clearer and easier to use.",
   },
   {
     question: "Bagaimana proses kerjanya?",
     answer:
-      "Dimulai dari memahami tujuan dan pengguna, menyusun struktur serta flow, lalu mengimplementasikan interface dan feedback. Progress dikomunikasikan bertahap agar arah tetap sejalan.",
+      "It usually starts with a conversation about the goal and the people using it. From there, I shape the structure, build the interface, and refine the feedback along the way.",
   },
   {
     question: "Tools apa yang biasa dipakai?",
     answer:
-      "React, Next.js, Vite, TypeScript, JavaScript, dan Tailwind CSS untuk frontend. Saya juga menggunakan Go dan REST API pada workflow aplikasi, serta Figma untuk desain dan handoff.",
+      "For frontend work, I mostly use React, Next.js, Vite, TypeScript, JavaScript, and Tailwind CSS. I also work with Go, REST APIs, and Figma when the project calls for it.",
   },
   {
     question: "Berapa lama respon terhadap pesan?",
     answer:
-      "Pesan biasanya dibalas di sela kegiatan sekolah, pekerjaan frontend, dan mentoring. Sertakan konteks project yang jelas supaya diskusinya langsung produktif.",
+      "I usually reply between school, frontend work, and mentoring. A little context about your project helps us get to the useful part faster.",
   },
 ];

@@ -24,7 +24,7 @@ const journeyIconMap = {
 export default function AboutPage() {
   usePageMeta(
     "About - Randhu Paksi Membumi",
-    "Pengalaman, cara berpikir, skill, dan perjalanan Randhu Paksi Membumi sebagai Frontend Developer.",
+    "A closer look at how Randhu Paksi Membumi works as a Frontend Developer.",
   );
 
   const scopeRef = useReveal<HTMLDivElement>();
@@ -35,23 +35,23 @@ export default function AboutPage() {
       <section className="section-shell-compact">
         <div className="content-stack-md max-w-4xl">
           <div data-reveal className="section-eyebrow">
-            About Me
+            About
           </div>
           <h1
             data-reveal
             className="type-h1"
           >
-            Menggabungkan struktur engineering dengan{" "}
+            I like combining solid engineering with{" "}
             <span className="text-gradient-brand">
-              rasa visual
+              visual thinking
             </span>
             .
           </h1>
           <p data-reveal className="section-copy max-w-3xl">
-            Saya {siteIdentity.name}, {siteIdentity.role} di Matik Creative Technology
-            sekaligus Frontend & UI/UX Instructor di IT Club SMK Citra Negara Depok.
-            Saya membangun interface yang terstruktur, responsive, dan nyaman dipakai
-            sambil terus mengembangkan kemampuan melalui pekerjaan, mentoring, dan project.
+            I’m {siteIdentity.name}, a {siteIdentity.role} at Matik Creative Technology
+            and a Frontend & UI/UX Instructor at the IT Club of SMK Citra Negara Depok.
+            I build structured, responsive interfaces while learning through real work,
+            mentoring, and side projects.
           </p>
           <p data-reveal className="type-overline text-brand-soft">
             Matik Creative Technology · IT Club SMK Citra Negara · PPLG 2024 — 2027
@@ -65,11 +65,10 @@ export default function AboutPage() {
           <div data-reveal className="content-stack-sm lg:sticky lg:top-32 lg:self-start">
             <div className="section-eyebrow">Working Philosophy</div>
             <h2 className="type-h3">
-              Prinsip yang saya pegang di setiap project
+            A few things I try to get right
             </h2>
             <p className="section-copy">
-              Prinsip ini yang membuat hasil kerja tetap konsisten - apa pun jenis
-              project dan stack-nya.
+              These are the habits I bring into a project, whatever the stack or scope.
             </p>
           </div>
 
@@ -101,13 +100,12 @@ export default function AboutPage() {
       <section className="section-shell-compact">
         <div className="content-stack-lg">
           <div data-reveal className="content-stack-sm max-w-3xl">
-            <div className="section-eyebrow">Skills & Tools</div>
+            <div className="section-eyebrow">Skills & tools</div>
             <h2 className="type-h3">
-              Kapabilitas yang saya gunakan dan terus kembangkan
+              The things I use and keep learning
             </h2>
             <p className="section-copy">
-              Daftar ini merangkum teknologi dan praktik yang digunakan dalam pekerjaan,
-              project, serta aktivitas mentoring saya saat ini.
+              A mix of tools and practices from my frontend work, projects, and mentoring.
             </p>
           </div>
 
@@ -135,13 +133,12 @@ export default function AboutPage() {
       <section className="section-shell-compact">
         <div className="content-stack-lg">
           <div data-reveal className="content-stack-sm max-w-3xl">
-            <div className="section-eyebrow">Journey</div>
+            <div className="section-eyebrow">A bit of history</div>
             <h2 className="type-h3">
-              Perjalanan sejauh ini
+              Where I’ve been so far
             </h2>
             <p className="section-copy">
-              Riwayat ini memuat pengalaman, pendidikan, dan penghargaan yang sudah
-              dipublikasikan secara profesional.
+              Work, education, and an award that are part of my current journey.
             </p>
           </div>
 
@@ -193,10 +190,10 @@ export default function AboutPage() {
         >
           <div className="content-stack-xs">
             <h2 className="type-h4">
-              Ingin lihat cara berpikir ini dalam bentuk nyata?
+              Want to see how this thinking shows up in a real project?
             </h2>
             <p className="type-body-sm">
-              Jelajahi project pilihan, atau langsung mulai percakapan.
+              Take a look at the work, or start a conversation.
             </p>
           </div>
           <div className="flex flex-wrap gap-3">
@@ -204,14 +201,14 @@ export default function AboutPage() {
               to="/projects"
               className={buttonVariants({ variant: "primary", size: "md" })}
             >
-              Lihat Project
+              See the work
               <ArrowUpRight className="size-4" />
             </Link>
             <Link
               to="/contact"
               className={buttonVariants({ variant: "outline", size: "md" })}
             >
-              Hubungi Saya
+              Get in touch
               <ArrowRight className="size-4" />
             </Link>
           </div>
