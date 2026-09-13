@@ -24,7 +24,7 @@ export function SiteFooter() {
 
         <nav aria-label="Navigasi footer" className="content-stack-sm">
           <p className="type-overline">
-            Halaman
+            Explore
           </p>
           <ul className="content-stack-xs">
             {navigationItems.map((item) => (
@@ -42,7 +42,7 @@ export function SiteFooter() {
 
         {publishedChannels.length > 0 ? <div className="content-stack-sm">
           <p className="type-overline">
-            Kontak
+            Get in touch
           </p>
           <ul className="content-stack-sm">
             {publishedChannels.map((channel) => (
@@ -64,7 +64,7 @@ export function SiteFooter() {
 
       <div className="ds-divider mt-12 flex items-center justify-center border-t pt-6 text-xs text-muted-foreground">
         <p>
-          © {year} {siteIdentity.name}. All rights reserved.
+          © {year} {siteIdentity.name}. Built with care.
         </p>
       </div>
     </footer>

@@ -27,9 +27,9 @@ export const siteIdentity: SiteIdentity = {
   brandSecond: "Paksi",
   role: "Frontend Developer",
   tagline:
-    "Frontend Developer yang membangun website dan aplikasi dengan interface terstruktur, responsive, dan mudah digunakan.",
+    "Frontend Developer who turns rough ideas into websites and apps that feel good to use.",
   availability: {
-    value: "Terbuka untuk kolaborasi frontend dan UI/UX",
+    value: "Open to frontend and UI/UX conversations",
     isPlaceholder: false,
   },
   location: {

@@ -79,14 +79,14 @@ export function SiteNavbar() {
               to="/contact"
               className={cn(buttonVariants({ variant: "primary", size: "md" }), "hidden sm:inline-flex")}
             >
-              Hubungi Saya
+              Let’s talk
             </Link>
 
             <Button
               type="button"
               variant="outline"
               size="icon"
-              aria-label={menuOpen ? "Tutup menu" : "Buka menu"}
+              aria-label={menuOpen ? "Close menu" : "Open menu"}
               aria-expanded={menuOpen}
               aria-controls="mobile-menu"
               onClick={() => setMenuOpen((open) => !open)}
@@ -137,7 +137,7 @@ export function SiteNavbar() {
                 to="/contact"
                 className={cn(buttonVariants({ variant: "primary", size: "md" }), "flex w-full")}
               >
-                Hubungi Saya
+                Let’s talk
               </Link>
             </div>
           </div>
