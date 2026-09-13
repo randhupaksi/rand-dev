@@ -16,22 +16,39 @@ export function ProjectsSection() {
       <div className="content-stack-lg">
         <div className="content-stack-md">
           <div data-reveal>
-            <SectionIndex index="03" label="Selected Work" />
+            <SectionIndex
+              index="03"
+              label={projects.length === 1 ? "Case Study" : "Selected Work"}
+            />
           </div>
           <div
             data-reveal
-            className="flex flex-wrap items-end justify-between gap-4"
+            className="grid gap-8 lg:grid-cols-[minmax(0,1fr)_minmax(15rem,0.34fr)] lg:items-end lg:gap-16"
           >
-            <h2 className="type-h2 max-w-2xl">
-              Karya yang mewakili cara saya berpikir.
+            <h2 className="type-h2 max-w-3xl">
+              {projects.length === 1
+                ? "Absensi CN, satu sistem untuk kehadiran dan pembinaan siswa."
+                : "Karya yang mewakili cara saya berpikir."}
             </h2>
-            <Link
-              to="/projects"
-              className="group inline-flex min-h-11 items-center gap-2 text-sm font-medium text-accent transition-colors duration-300 hover:text-highlight"
-            >
-              Semua project
-              <ArrowRight className="size-4 transition-transform duration-300 group-hover:translate-x-0.5" />
-            </Link>
+            <aside className="content-stack-sm border-t border-border-subtle pt-5 lg:border-l lg:border-t-0 lg:pb-1 lg:pl-6 lg:pt-0">
+              <p className="type-overline text-accent">
+                Featured project
+              </p>
+              <p className="type-body-sm">
+                Lihat konteks, alur pengguna, dan keputusan yang membentuknya.
+              </p>
+              <Link
+                to={
+                  projects.length === 1 && featured
+                    ? `/projects/${featured.slug}`
+                    : "/projects"
+                }
+                className="group inline-flex min-h-11 w-fit items-center gap-2 text-sm font-medium text-accent transition-colors duration-300 hover:text-highlight"
+              >
+                {projects.length === 1 ? "Buka case study" : "Buka semua project"}
+                <ArrowRight className="size-4 transition-transform duration-300 group-hover:translate-x-0.5" />
+              </Link>
+            </aside>
           </div>
         </div>
 
@@ -42,15 +59,17 @@ export function ProjectsSection() {
             to={`/projects/${featured.slug}`}
             className="ds-card ds-card-interactive group block overflow-hidden"
           >
-            <div className="grid gap-6 p-[var(--card-padding)] lg:grid-cols-[minmax(0,0.9fr)_minmax(20rem,0.75fr)] lg:items-center lg:gap-10">
+            <div className="grid gap-8 p-[var(--card-padding)] lg:grid-cols-[minmax(0,0.9fr)_minmax(22rem,1.05fr)] lg:items-center lg:gap-10">
               <div className="content-stack-md">
                 <div className="flex flex-wrap items-center gap-3">
                   <span className="type-overline text-accent">
-                    Featured
+                    Featured case study
                   </span>
-                  <span className="type-overline">
-                    {featured.category} · {featured.period}
-                  </span>
+                  {featured.period.isPlaceholder ? (
+                    <DraftBadge label="Periode belum dipublikasikan" />
+                  ) : (
+                    <span className="type-overline">{featured.period.value}</span>
+                  )}
                   {featured.status === "draft" ? (
                     <DraftBadge label="Draft case study" />
                   ) : null}
@@ -59,12 +78,15 @@ export function ProjectsSection() {
                 <h3 className="type-h3">
                   {featured.name}
                 </h3>
+                <p className="type-overline text-brand-soft">
+                  {featured.category}
+                </p>
                 <p className="type-body-sm max-w-2xl">
                   {featured.summary}
                 </p>
 
                 <div className="type-overline flex flex-wrap items-center gap-x-3 gap-y-1.5 text-brand-soft">
-                  {featured.stack.map((item, index) => (
+                  {featured.focusAreas.map((item, index) => (
                     <span key={item} className="flex items-center gap-3">
                       {index > 0 ? (
                         <span aria-hidden="true" className="text-brand-muted">
@@ -94,7 +116,7 @@ export function ProjectsSection() {
         ) : null}
 
         {/* Index rows */}
-        <div data-reveal>
+        {others.length > 0 ? <div data-reveal>
           {others.map((project, index) => (
             <Link
               key={project.slug}
@@ -126,7 +148,7 @@ export function ProjectsSection() {
               </span>
             </Link>
           ))}
-        </div>
+        </div> : null}
       </div>
     </section>
   );
