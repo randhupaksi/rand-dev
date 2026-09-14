@@ -6,7 +6,6 @@ type DraftBadgeProps = {
   className?: string;
 };
 
-/** Visual marker for content that is still a draft or placeholder. */
 export function DraftBadge({ label = "Draft Content", className }: DraftBadgeProps) {
   return (
     <Badge

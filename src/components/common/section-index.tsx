@@ -6,7 +6,6 @@ type SectionIndexProps = {
   className?: string;
 };
 
-/** Label section editorial: `01 ── ABOUT` dalam monospace. */
 export function SectionIndex({ index, label, className }: SectionIndexProps) {
   return (
     <div

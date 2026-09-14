@@ -55,10 +55,6 @@ type SocialLinksProps = {
   className?: string;
 };
 
-/**
- * Hanya menampilkan profil sosial dengan URL nyata agar tidak menciptakan
- * kontrol dekoratif atau destinasi palsu.
- */
 export function SocialLinks({ className }: SocialLinksProps) {
   const availableLinks = socialLinks.filter((item) => item.href);
 
@@ -79,6 +75,7 @@ export function SocialLinks({ className }: SocialLinksProps) {
               target="_blank"
               rel="noreferrer"
               aria-label={item.label}
+              data-hero-social-link
               className={cn(baseClass, "hover:text-accent focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-ring")}
             >
               <Icon className="size-4" aria-hidden="true" />

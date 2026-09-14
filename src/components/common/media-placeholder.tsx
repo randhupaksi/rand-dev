@@ -17,10 +17,6 @@ const aspectClassMap = {
   square: "aspect-square",
 } as const;
 
-/**
- * An intentional empty media frame: keeps the layout intact while real
- * screenshots or photos are not available, without pretending to be real media.
- */
 export function MediaPlaceholder({
   label = "Visual coming soon",
   hint,

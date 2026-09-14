@@ -1,10 +1,6 @@
 import { useEffect } from "react";
 import { useLocation } from "react-router-dom";
 
-/**
- * Mengembalikan posisi scroll ke atas pada perpindahan route, dan menghormati
- * anchor hash (mis. /#portfolio) ketika ada.
- */
 export function ScrollToTop() {
   const { pathname, hash } = useLocation();
 
