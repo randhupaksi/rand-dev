@@ -367,6 +367,27 @@
 
   html {
     @apply scroll-smooth font-sans;
+    scrollbar-color: var(--primary-500) var(--background);
+    scrollbar-width: thin;
+  }
+
+  *::-webkit-scrollbar {
+    width: 10px;
+    height: 10px;
+  }
+
+  *::-webkit-scrollbar-track {
+    background: var(--background);
+  }
+
+  *::-webkit-scrollbar-thumb {
+    border: 3px solid var(--background);
+    border-radius: 999px;
+    background: var(--primary-700);
+  }
+
+  *::-webkit-scrollbar-thumb:hover {
+    background: var(--primary-500);
   }
 
   body {
