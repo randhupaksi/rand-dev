@@ -212,7 +212,7 @@ export default function AboutPage() {
       <section className="section-shell-compact">
         <div
           data-reveal
-          className="surface-elevated flex flex-col gap-6 p-[var(--card-padding)] sm:flex-row sm:items-center sm:justify-between"
+          className="surface-elevated flex flex-col gap-6 p-(--card-padding) sm:flex-row sm:items-center sm:justify-between"
         >
           <div className="content-stack-xs">
             <h2 className="type-h4">

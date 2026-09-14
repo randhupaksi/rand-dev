@@ -9,7 +9,7 @@ export function SiteNavbar() {
   return (
     <header className="sticky top-0 z-40 hidden pt-5 lg:block">
       <div className="relative">
-        <div className="mx-auto flex min-h-[var(--header-height)] items-center justify-between rounded-[var(--card-radius)] border border-border bg-background/85 px-5 backdrop-blur-md sm:px-7">
+        <div className="mx-auto flex min-h-(--header-height) items-center justify-between rounded-(--card-radius) border border-border bg-background/85 px-5 backdrop-blur-md sm:px-7">
           <Link
             to="/"
             className="group inline-flex items-center gap-0.5 text-lg font-semibold tracking-tight text-foreground focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-ring"

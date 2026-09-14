@@ -68,7 +68,7 @@ export function MobileBottomNavigation() {
 
         <span
           aria-hidden="true"
-          className="pointer-events-none absolute left-0 top-0 z-20 flex h-full w-1/4 justify-center will-change-transform transition-transform duration-[420ms] ease-[var(--ease-emphasized)] motion-reduce:transition-none"
+          className="pointer-events-none absolute left-0 top-0 z-20 flex h-full w-1/4 justify-center will-change-transform transition-transform duration-[420ms] ease-(--ease-emphasized) motion-reduce:transition-none"
           style={{ transform: `translateX(${resolvedActiveIndex * 100}%) translateY(0.1rem)` }}
         >
           <span className="grid size-[3.25rem] place-items-center rounded-full border-2 border-primary-700 bg-surface-2 p-1 shadow-[0_8px_16px_rgb(8_6_16/0.32)]">

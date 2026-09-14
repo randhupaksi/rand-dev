@@ -252,7 +252,7 @@ export default function ProjectDetailPage() {
           {previous ? (
             <Link
               to={`/projects/${previous.slug}`}
-              className="ds-card ds-card-interactive group flex items-center gap-4 p-[var(--panel-padding)]"
+              className="ds-card ds-card-interactive group flex items-center gap-4 p-(--panel-padding)"
             >
               <ArrowLeft className="size-4 shrink-0 text-accent transition-transform duration-300 group-hover:-translate-x-0.5" />
               <span className="content-stack-xs min-w-0">
@@ -271,7 +271,7 @@ export default function ProjectDetailPage() {
           {next ? (
             <Link
               to={`/projects/${next.slug}`}
-              className="ds-card ds-card-interactive group flex items-center justify-end gap-4 p-[var(--panel-padding)] text-right"
+              className="ds-card ds-card-interactive group flex items-center justify-end gap-4 p-(--panel-padding) text-right"
             >
               <span className="content-stack-xs min-w-0">
                 <span className="type-overline">

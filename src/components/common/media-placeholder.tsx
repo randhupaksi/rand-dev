@@ -32,7 +32,7 @@ export function MediaPlaceholder({
   return (
     <div
       className={cn(
-        "relative flex items-center justify-center overflow-hidden rounded-[var(--card-radius)] border border-border bg-card",
+        "relative flex items-center justify-center overflow-hidden rounded-(--card-radius) border border-border bg-card",
         aspectClassMap[aspect],
         className,
       )}

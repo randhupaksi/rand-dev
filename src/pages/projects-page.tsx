@@ -88,7 +88,7 @@ export default function ProjectsPage() {
               className="overflow-hidden"
             >
               <div
-                className={`grid gap-6 p-[var(--card-padding)] lg:items-center ${
+                className={`grid gap-6 p-(--card-padding) lg:items-center ${
                   index % 2 === 1
                     ? "lg:grid-cols-[minmax(18rem,0.68fr)_minmax(0,0.82fr)]"
                     : "lg:grid-cols-[minmax(0,0.82fr)_minmax(18rem,0.68fr)]"
@@ -224,7 +224,7 @@ export default function ProjectsPage() {
 
       {isSingleCaseStudy && featuredProject ? (
         <section className="section-shell-compact">
-          <div data-reveal className="surface-elevated flex flex-col gap-6 p-[var(--card-padding)] sm:flex-row sm:items-center sm:justify-between">
+          <div data-reveal className="surface-elevated flex flex-col gap-6 p-(--card-padding) sm:flex-row sm:items-center sm:justify-between">
             <div className="content-stack-xs max-w-2xl">
               <p className="type-overline text-accent">Go deeper</p>
               <h2 className="type-h4">See the workflow in more detail.</h2>

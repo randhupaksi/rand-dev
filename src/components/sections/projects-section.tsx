@@ -59,7 +59,7 @@ export function ProjectsSection() {
             to={`/projects/${featured.slug}`}
             className="ds-card ds-card-interactive group block overflow-hidden"
           >
-            <div className="grid gap-8 p-[var(--card-padding)] lg:grid-cols-[minmax(0,0.9fr)_minmax(22rem,1.05fr)] lg:items-center lg:gap-10">
+            <div className="grid gap-8 p-(--card-padding) lg:grid-cols-[minmax(0,0.9fr)_minmax(22rem,1.05fr)] lg:items-center lg:gap-10">
               <div className="content-stack-md">
                 <div className="flex flex-wrap items-center gap-3">
                   <span className="type-overline text-accent">

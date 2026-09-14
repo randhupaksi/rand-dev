@@ -6,7 +6,7 @@ export const buttonVariants = cva(
     variants: {
       variant: {
         primary:
-          "border-transparent bg-[image:var(--gradient-primary)] text-primary-foreground shadow-sm hover:brightness-110 active:brightness-95",
+          "border-transparent bg-(image:--gradient-primary) text-primary-foreground shadow-sm hover:brightness-110 active:brightness-95",
         secondary:
           "border-border-default bg-secondary text-secondary-foreground hover:bg-secondary-800",
         outline:
@@ -15,9 +15,9 @@ export const buttonVariants = cva(
           "border-transparent bg-transparent text-muted-foreground hover:bg-surface-hover hover:text-foreground",
       },
       size: {
-        sm: "h-[var(--button-height-sm)] gap-2 px-4 text-xs",
-        md: "h-[var(--button-height-md)] gap-2 px-5 text-sm",
-        lg: "h-[var(--button-height-lg)] gap-2.5 px-6 text-base",
+        sm: "h-(--button-height-sm) gap-2 px-4 text-xs",
+        md: "h-(--button-height-md) gap-2 px-5 text-sm",
+        lg: "h-(--button-height-lg) gap-2.5 px-6 text-base",
         icon: "size-11 p-0",
       },
     },

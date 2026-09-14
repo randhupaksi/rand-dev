@@ -17,7 +17,7 @@ export function ModalContent({
       <Dialog.Viewport className="fixed inset-0 z-50 flex items-center justify-center p-4">
         <Dialog.Popup
           className={cn(
-            "relative w-full max-w-lg rounded-[var(--modal-radius)] border border-border bg-popover p-[var(--card-padding)] text-popover-foreground shadow-[var(--shadow-modal)] outline-none",
+            "relative w-full max-w-lg rounded-(--modal-radius) border border-border bg-popover p-(--card-padding) text-popover-foreground shadow-(--shadow-modal) outline-none",
             className,
           )}
           {...props}

@@ -4,7 +4,7 @@ import { cn } from "@/lib/utils";
 
 export function Table({ className, ...props }: TableHTMLAttributes<HTMLTableElement>) {
   return (
-    <div className="w-full overflow-x-auto rounded-[var(--card-radius)] border border-border">
+    <div className="w-full overflow-x-auto rounded-(--card-radius) border border-border">
       <table className={cn("w-full border-collapse text-left text-sm", className)} {...props} />
     </div>
   );

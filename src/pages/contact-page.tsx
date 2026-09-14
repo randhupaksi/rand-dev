@@ -73,7 +73,7 @@ export default function ContactPage() {
                 {directChannels.map((channel) => {
                   const Icon = channelIconMap[channel.key];
                   return (
-                    <Card as="li" key={channel.key} data-reveal className="flex items-start gap-4 p-[var(--panel-padding)]">
+                    <Card as="li" key={channel.key} data-reveal className="flex items-start gap-4 p-(--panel-padding)">
                       <span className="ds-icon-control mt-0.5 shrink-0 text-accent">
                         <Icon className="size-4" aria-hidden="true" />
                       </span>
@@ -156,7 +156,7 @@ export default function ContactPage() {
           <div className="border-t border-border-subtle">
             {contactFaq.map((faq) => (
               <details key={faq.question} data-reveal className="group border-b border-border-subtle">
-                <summary className="flex min-h-[var(--button-height-lg)] cursor-pointer list-none items-center justify-between gap-4 py-4 text-base font-medium text-foreground focus-visible:outline-2 focus-visible:outline-offset-[-2px] focus-visible:outline-ring [&::-webkit-details-marker]:hidden">
+                <summary className="flex min-h-(--button-height-lg) cursor-pointer list-none items-center justify-between gap-4 py-4 text-base font-medium text-foreground focus-visible:outline-2 focus-visible:outline-offset-[-2px] focus-visible:outline-ring [&::-webkit-details-marker]:hidden">
                   {faq.question}
                   <span aria-hidden="true" className="text-lg text-brand-muted transition-transform duration-300 group-open:rotate-45">+</span>
                 </summary>
