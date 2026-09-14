@@ -1,39 +1,42 @@
-import { Suspense } from "react";
+import { Suspense, useEffect } from "react";
 import { Outlet } from "react-router-dom";
 
+import { PortfolioLoader } from "@/components/common/portfolio-loader";
 import { SiteFooter } from "@/components/layout/site-footer";
 import { MobileBottomNavigation } from "@/components/layout/mobile-bottom-navigation";
 import { SiteNavbar } from "@/components/layout/site-navbar";
 
-function PageFallback() {
-  return (
-    <div
-      role="status"
-      aria-live="polite"
-      className="flex min-h-[55vh] items-center justify-center"
-    >
-      <span className="inline-flex items-center gap-3 text-sm text-muted-foreground">
-        <span
-          aria-hidden="true"
-          className="size-4 animate-spin rounded-full border-2 border-border border-t-accent"
-        />
-        Memuat halaman…
-      </span>
-    </div>
-  );
+function DismissInitialLoader() {
+  useEffect(() => {
+    const loader = document.getElementById("initial-loader");
+
+    if (!loader) {
+      return;
+    }
+
+    loader.classList.add("is-ready");
+    const timeoutId = window.setTimeout(() => loader.remove(), 260);
+
+    return () => window.clearTimeout(timeoutId);
+  }, []);
+
+  return null;
 }
 
 export function RootLayout() {
   return (
-    <div className="page-shell flex min-h-screen flex-col">
-      <SiteNavbar />
-      <main className="flex-1 pb-24 lg:pb-0">
-        <Suspense fallback={<PageFallback />}>
-          <Outlet />
-        </Suspense>
-      </main>
-      <SiteFooter />
-      <MobileBottomNavigation />
-    </div>
+    <>
+      <DismissInitialLoader />
+      <div className="page-shell flex min-h-screen flex-col">
+        <SiteNavbar />
+        <main className="flex-1">
+          <Suspense fallback={<PortfolioLoader />}>
+            <Outlet />
+          </Suspense>
+        </main>
+        <SiteFooter />
+        <MobileBottomNavigation />
+      </div>
+    </>
   );
 }

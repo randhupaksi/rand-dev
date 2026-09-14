@@ -11,8 +11,127 @@
     <meta property="og:title" content="Randhu Paksi Membumi - Frontend Developer" />
     <meta property="og:description" content="Portfolio of Randhu Paksi Membumi, a Frontend Developer at Matik Creative Technology building responsive websites and apps with React, Next.js, and TypeScript." />
     <meta property="og:locale" content="id_ID" />
+    <style>
+      #initial-loader {
+        position: fixed;
+        inset: 0;
+        z-index: 9999;
+        display: grid;
+        place-items: center;
+        padding: 24px;
+        isolation: isolate;
+        background: #0f0b14;
+        color: #f5f2ff;
+        opacity: 1;
+        visibility: visible;
+        transition: opacity 220ms ease, visibility 220ms ease;
+      }
+
+      #initial-loader.is-ready {
+        opacity: 0;
+        visibility: hidden;
+        pointer-events: none;
+      }
+
+      .initial-loader__content {
+        position: relative;
+        z-index: 1;
+        display: flex;
+        width: min(100%, 320px);
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+      }
+
+      .initial-loader__content::before {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        z-index: -1;
+        width: min(34rem, 92vw);
+        height: 18rem;
+        border-radius: 999px;
+        background: radial-gradient(circle, rgba(124, 92, 250, 0.2), transparent 68%);
+        content: "";
+        filter: blur(10px);
+        pointer-events: none;
+        transform: translate(-50%, -50%);
+      }
+
+      .initial-loader__eyebrow {
+        margin: 0;
+        color: #aa94ff;
+        font: 600 12px/1.4 ui-monospace, SFMono-Regular, Menlo, monospace;
+        letter-spacing: 0.16em;
+        text-transform: uppercase;
+      }
+
+      .initial-loader__title {
+        margin: 16px 0 0;
+        color: #f5f2ff;
+        font: 600 18px/1.3 system-ui, sans-serif;
+        letter-spacing: -0.02em;
+      }
+
+      .initial-loader__subtitle {
+        margin: 5px 0 0;
+        color: #b8aec9;
+        font: 400 14px/1.5 system-ui, sans-serif;
+      }
+
+      .initial-loader__track {
+        position: relative;
+        width: 100%;
+        height: 6px;
+        margin-top: 20px;
+        overflow: hidden;
+        border-radius: 999px;
+        background: rgba(143, 112, 255, 0.16);
+      }
+
+      .initial-loader__bar {
+        position: absolute;
+        inset: 0 auto 0 -42%;
+        width: 42%;
+        border-radius: inherit;
+        background: linear-gradient(90deg, #7c5cfa, #c24aff);
+        animation: initial-loader-progress 1.2s cubic-bezier(0.22, 1, 0.36, 1) infinite;
+      }
+
+      @keyframes initial-loader-progress {
+        from { transform: translateX(0); }
+        to { transform: translateX(340%); }
+      }
+
+      @media (prefers-reduced-motion: reduce) {
+        #initial-loader { transition-duration: 1ms; }
+        .initial-loader__bar { animation-duration: 2.4s; }
+      }
+
+      @media (max-width: 767px) {
+        #initial-loader {
+          transition-duration: 1ms;
+        }
+
+        .initial-loader__bar {
+          left: 0;
+          width: 58%;
+          animation: none;
+        }
+      }
+    </style>
   </head>
   <body class="min-h-full bg-background text-foreground font-sans">
+    <div id="initial-loader" role="status" aria-live="polite" aria-label="Preparing Randhu Paksi Membumi's portfolio">
+      <div class="initial-loader__content">
+        <p class="initial-loader__eyebrow">Randhu Paksi Membumi</p>
+        <p class="initial-loader__title">Preparing the portfolio.</p>
+        <p class="initial-loader__subtitle">Loading selected work and product stories.</p>
+        <div class="initial-loader__track" aria-hidden="true">
+          <span class="initial-loader__bar"></span>
+        </div>
+      </div>
+    </div>
     <div id="root"></div>
     <script type="module" src="/src/main.tsx"></script>
   </body>
