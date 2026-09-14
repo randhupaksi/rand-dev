@@ -35,12 +35,12 @@ export function ExpertiseSection() {
 
           <div data-reveal className="content-stack-md">
             <h2 className="type-h2 max-w-md">
-              I build the part{" "}
-              <span className="text-accent">people use.</span>
+              I build the enterprise UI{" "}
+              <span className="text-accent">people rely on</span>
             </h2>
             <p className="type-body max-w-md">
-              My work sits between interface, product flow, and code—turning
-              complex requirements into experiences that feel clear in use.
+              My work sits between interface, product flow, and code - turning
+              complex requirements into clean, interactive experiences that feel clear in use.
             </p>
           </div>
 
@@ -61,7 +61,7 @@ export function ExpertiseSection() {
           </div>
         </div>
 
-        <div data-reveal className="ds-divider border-b">
+        <div className="ds-divider border-b">
           {expertiseItems.map((item, index) => {
             const meta = expertiseMeta[index];
             const Icon = meta.icon;
@@ -69,6 +69,7 @@ export function ExpertiseSection() {
             return (
               <article
                 key={item.title}
+                data-reveal
                 className="expertise-row ds-divider group overflow-hidden border-t py-8 pl-5 sm:py-10 sm:pl-0"
               >
                 <div className="grid gap-6 sm:grid-cols-[4.5rem_minmax(0,1fr)] sm:gap-8 lg:grid-cols-[5rem_minmax(0,1fr)]">

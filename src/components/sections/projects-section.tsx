@@ -25,8 +25,8 @@ export function ProjectsSection() {
             />
             <h2 className="type-h2 max-w-3xl">
               {projects.length === 1
-                ? "Here’s what that looks like in production."
-                : "Work that shows how I think."}
+                ? "Here’s what clean enterprise UI looks like in production"
+                : "Projects shaped around real product workflows."}
             </h2>
           </div>
             <aside className="content-stack-sm border-t border-border-subtle pt-5 lg:border-l lg:border-t-0 lg:pb-1 lg:pl-6 lg:pt-0">
@@ -36,7 +36,7 @@ export function ProjectsSection() {
                 <span className="type-body-sm">users</span>
               </div>
               <p className="type-body-sm">
-                An attendance workflow built for SMK Citra Negara Depok.
+                A role-aware attendance workflow built for SMK Citra Negara Depok.
               </p>
               <Link
                 to={
@@ -46,13 +46,12 @@ export function ProjectsSection() {
                 }
                 className="ds-text-link group inline-flex min-h-11 w-fit items-center gap-2 text-sm font-medium text-accent hover:text-highlight"
               >
-                {projects.length === 1 ? "Read the case study" : "See all work"}
+                {projects.length === 1 ? "Read the case study" : "See all projects"}
                 <ArrowRight className="size-4 transition-transform duration-300 group-hover:translate-x-0.5" />
               </Link>
             </aside>
         </div>
 
-        {/* Featured */}
         {featured ? (
           <Link
             data-reveal
@@ -120,7 +119,6 @@ export function ProjectsSection() {
           </Link>
         ) : null}
 
-        {/* Index rows */}
         {others.length > 0 ? <div data-reveal>
           {others.map((project, index) => (
             <Link

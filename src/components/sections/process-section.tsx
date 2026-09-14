@@ -16,11 +16,11 @@ export function ProcessSection() {
             data-reveal
             className="type-h2"
           >
-            I make complex products easier to use
+            I make enterprise workflows clearer.
           </h2>
           <p data-reveal className="section-copy max-w-lg">
             I work frontend-first: clarify the workflow, make states visible,
-            then build and refine for real use.
+            then build a clean interface and refine every interaction for real use.
           </p>
         </div>
 
@@ -33,7 +33,7 @@ export function ProcessSection() {
             >
               <span
                 aria-hidden="true"
-                className="text-ghost select-none font-mono text-5xl font-semibold leading-none transition-all duration-300 group-hover:[-webkit-text-stroke-color:var(--accent)] sm:text-6xl"
+                className="select-none font-mono text-5xl font-semibold leading-none text-foreground transition-colors duration-300 group-hover:text-accent sm:text-6xl"
               >
                 {step.step}
               </span>
