@@ -52,7 +52,6 @@ export function MobileBottomNavigation() {
   useLayoutEffect(() => {
     const ctx = gsap.context(() => {
       if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
-        navigationRef.current?.removeAttribute("data-mobile-navigation-motion");
         return;
       }
 
@@ -70,7 +69,6 @@ export function MobileBottomNavigation() {
         },
       );
 
-      navigationRef.current?.removeAttribute("data-mobile-navigation-motion");
     }, navigationRef);
 
     return () => ctx.revert();
@@ -103,7 +101,6 @@ export function MobileBottomNavigation() {
   return (
     <nav
       ref={navigationRef}
-      data-mobile-navigation-motion="pending"
       aria-label="Primary mobile navigation"
       className="pointer-events-none fixed inset-x-0 bottom-0 z-40 lg:hidden"
     >

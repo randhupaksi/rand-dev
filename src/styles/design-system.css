@@ -524,14 +524,6 @@
     padding-block: var(--hero-space-y);
   }
 
-  [data-navbar-motion="pending"] [data-navbar-surface] {
-    transform: translateY(-115%);
-  }
-
-  [data-mobile-navigation-motion="pending"] {
-    transform: translateY(105%);
-  }
-
   [data-footer-container-motion="pending"] {
     transform: translateY(36px);
   }

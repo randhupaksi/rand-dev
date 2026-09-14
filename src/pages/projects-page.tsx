@@ -232,12 +232,12 @@ export default function ProjectsPage() {
                 Explore the roles, decisions, and real screens behind Citra Negara Attendance System.
               </p>
             </div>
-            <div className="flex flex-wrap gap-3">
+            <div className="grid grid-cols-2 gap-3 sm:flex sm:flex-wrap">
               <Link
                 to={`/projects/${featuredProject.slug}`}
-                className={buttonVariants({ variant: "primary", size: "md" })}
+                className={`${buttonVariants({ variant: "primary", size: "md" })} w-full min-w-0 px-2 text-xs sm:w-auto sm:px-5 sm:text-sm`}
               >
-                Read the case study
+                Read case study
                 <ArrowUpRight className="size-4" />
               </Link>
               {featuredProject.links.demo ? (
@@ -245,9 +245,9 @@ export default function ProjectsPage() {
                   href={featuredProject.links.demo}
                   target="_blank"
                   rel="noreferrer"
-                  className={buttonVariants({ variant: "outline", size: "md" })}
+                  className={`${buttonVariants({ variant: "outline", size: "md" })} w-full min-w-0 px-2 text-xs sm:w-auto sm:px-5 sm:text-sm`}
                 >
-                  Visit live product
+                  View live product
                   <ArrowUpRight className="size-4" />
                 </a>
               ) : null}

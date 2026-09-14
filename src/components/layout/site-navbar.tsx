@@ -14,7 +14,6 @@ export function SiteNavbar() {
   useLayoutEffect(() => {
     const ctx = gsap.context(() => {
       if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
-        navbarRef.current?.removeAttribute("data-navbar-motion");
         return;
       }
 
@@ -29,7 +28,6 @@ export function SiteNavbar() {
         },
       );
 
-      navbarRef.current?.removeAttribute("data-navbar-motion");
     }, navbarRef);
 
     return () => ctx.revert();
@@ -38,7 +36,6 @@ export function SiteNavbar() {
   return (
     <header
       ref={navbarRef}
-      data-navbar-motion="pending"
       className="sticky top-0 z-40 hidden pt-5 lg:block"
     >
       <div className="relative">
