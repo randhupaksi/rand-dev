@@ -1,7 +1,8 @@
-import { ArrowUpRight, MessageCircle } from "lucide-react";
+import { ArrowUpRight, Download, MessageCircle } from "lucide-react";
 import { Link } from "react-router-dom";
 
 import { buttonVariants } from "@/components/ui/button-variants";
+import { siteIdentity } from "@/data/site";
 import { cn } from "@/lib/utils";
 
 type HeroCtaProps = {
@@ -10,6 +11,8 @@ type HeroCtaProps = {
 };
 
 export function HeroCta({ primaryLabel, secondaryLabel }: HeroCtaProps) {
+  const cvHref = siteIdentity.cvHref;
+
   return (
     <div className="grid w-full grid-cols-2 gap-3 sm:flex sm:w-auto sm:flex-row sm:flex-wrap sm:items-center sm:gap-4">
       <Link
@@ -23,16 +26,30 @@ export function HeroCta({ primaryLabel, secondaryLabel }: HeroCtaProps) {
         {primaryLabel}
       </Link>
 
-      <Link
-        to="/contact"
-        className={cn(
-          buttonVariants({ variant: "outline", size: "lg" }),
-          "group w-full sm:w-auto",
-        )}
-      >
-        <MessageCircle className="size-4 transition-transform duration-300 group-hover:scale-110" />
-        {secondaryLabel}
-      </Link>
+      {cvHref ? (
+        <a
+          href={cvHref}
+          download="Randhu-Paksi-Membumi-CV.pdf"
+          className={cn(
+            buttonVariants({ variant: "outline", size: "lg" }),
+            "group w-full sm:w-auto",
+          )}
+        >
+          <Download className="size-4 transition-transform duration-300 group-hover:translate-y-0.5" />
+          {secondaryLabel}
+        </a>
+      ) : (
+        <Link
+          to="/contact"
+          className={cn(
+            buttonVariants({ variant: "outline", size: "lg" }),
+            "group w-full sm:w-auto",
+          )}
+        >
+          <MessageCircle className="size-4 transition-transform duration-300 group-hover:scale-110" />
+          Let’s talk
+        </Link>
+      )}
     </div>
   );
 }

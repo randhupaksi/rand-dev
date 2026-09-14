@@ -8,5 +8,5 @@ export const heroContent: HeroContent = {
   description:
     "I’m a Frontend Developer at Matik Creative Technology. I build websites and apps with React, Next.js, and TypeScript, with a soft spot for clear layouts, responsive details, and interfaces that feel easy to use.",
   primaryAction: "See my work",
-  secondaryAction: "Let’s talk",
+  secondaryAction: "Download CV",
 };

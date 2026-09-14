@@ -16,7 +16,9 @@ const env = import.meta.env;
 const email = (env.VITE_EMAIL as string | undefined) || "";
 const whatsapp = (env.VITE_WHATSAPP_NUMBER as string | undefined) || "";
 const location = (env.VITE_LOCATION as string | undefined) || "";
-const cvUrl = (env.VITE_CV_URL as string | undefined) || "";
+const cvUrl =
+  (env.VITE_CV_URL as string | undefined) ||
+  "/files/Randhu_Paksi_Membumi_Frontend_Developer_CV.pdf";
 const linkedInUrl =
   (env.VITE_SOCIAL_LINKEDIN as string | undefined) ||
   "https://id.linkedin.com/in/randhu-paksi-membumi";
