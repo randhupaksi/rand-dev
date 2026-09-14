@@ -20,6 +20,9 @@ const cvUrl = (env.VITE_CV_URL as string | undefined) || "";
 const linkedInUrl =
   (env.VITE_SOCIAL_LINKEDIN as string | undefined) ||
   "https://id.linkedin.com/in/randhu-paksi-membumi";
+const instagramUrl =
+  (env.VITE_SOCIAL_INSTAGRAM as string | undefined) ||
+  "https://www.instagram.com/randdddh___/";
 
 export const siteIdentity: SiteIdentity = {
   name: "Randhu Paksi Membumi",
@@ -27,9 +30,9 @@ export const siteIdentity: SiteIdentity = {
   brandSecond: "Paksi",
   role: "Frontend Developer",
   tagline:
-    "Frontend Developer who turns rough ideas into websites and apps that feel good to use.",
+    "Frontend developer focused on clear product flows, responsive interfaces, and the logic behind them.",
   availability: {
-    value: "Open to frontend and UI/UX conversations",
+    value: "Open to frontend, full-stack, and UI/UX conversations",
     isPlaceholder: false,
   },
   location: {
@@ -48,7 +51,7 @@ export const socialLinks: SocialLink[] = [
   {
     key: "instagram",
     label: "Instagram",
-    href: (env.VITE_SOCIAL_INSTAGRAM as string | undefined) || null,
+    href: instagramUrl,
   },
   {
     key: "linkedin",
@@ -85,10 +88,3 @@ export const contactChannels: ContactChannel[] = [
     isPlaceholder: !location,
   },
 ];
-
-/**
- * Endpoint pengiriman contact form (POST JSON).
- * Selama kosong, UI menampilkan state bahwa form belum dibuka untuk pengiriman.
- */
-export const contactEndpoint =
-  (env.VITE_CONTACT_ENDPOINT as string | undefined) || null;

@@ -2,117 +2,131 @@ import type { FaqItem, JourneyItem, PrincipleItem, SkillGroup } from "@/types/ab
 
 export const principles: PrincipleItem[] = [
   {
-    title: "Start with the problem",
+    title: "Start with the workflow",
     description:
-      "Before opening the editor, I try to understand who will use it, what needs solving, and which information actually matters.",
+      "Before opening the editor, I map the people, roles, actions, and edge cases that make the product work.",
   },
   {
-    title: "Make the important stuff easy to find",
+    title: "Make every state legible",
     description:
-      "Every page needs a clear order. People should be able to find the important information and actions without having to guess.",
+      "Hierarchy, feedback, and clear next steps help people understand what is happening and what they can do next.",
   },
   {
-    title: "Make it work everywhere",
+    title: "Build beyond the happy path",
     description:
-      "I use layout, feedback, and motion to make an interface easier to understand—not just to add more effects.",
+      "I check responsive layouts, loading, empty, error, and feedback states—not just the polished first screen.",
   },
   {
-    title: "Keep the code easy to pick up",
+    title: "Keep the system ready to grow",
     description:
-      "I keep components, data, and visual tokens organised so the project is easier to extend and work on together.",
+      "Clear components, data boundaries, and visual tokens make a project easier to extend and hand over.",
   },
 ];
 
 export const skillGroups: SkillGroup[] = [
   {
-    title: "Frontend foundations",
-    description: "The building blocks I use for web interfaces.",
-    items: ["HTML", "CSS", "JavaScript", "TypeScript"],
+    title: "Product UI systems",
+    description: "The tools I use to turn flows into working interfaces.",
+    items: ["React", "Next.js", "TypeScript", "Vite", "Tailwind CSS"],
   },
   {
-    title: "Frameworks & tools",
-    description: "The tools I reach for most when building websites and apps.",
-    items: ["React", "Next.js", "Vite", "Tailwind CSS", "Git"],
-  },
-  {
-    title: "UI engineering",
-    description: "Turning product needs and designs into interfaces that feel easy to use.",
+    title: "Interface quality",
+    description: "The details that make a product easier to understand and use.",
     items: [
       "Responsive design",
       "Component architecture",
       "Design system & token",
-      "Animation (GSAP)",
-      "Accessibility awareness",
+      "Loading & feedback states",
+      "Accessibility",
     ],
   },
   {
-    title: "Applications & collaboration",
-    description: "The technical pieces and habits behind building things together.",
+    title: "Application workflows",
+    description: "The logic and integration work behind product interfaces.",
     items: [
-      "Go & REST API",
-      "REST API integration",
+      "Go",
+      "REST APIs",
+      "MySQL",
       "Forms & validation",
-      "Mentoring IT Club",
-      "Project communication",
+      "Role-aware workflows",
     ],
+  },
+];
+
+export const aboutFacts = [
+  {
+    label: "Currently",
+    value: "Freelance Full-stack Developer",
+    detail: "Matik Creative Technology",
+  },
+  {
+    label: "Live product",
+    value: "Citra Negara Attendance System",
+    detail: "Live in production · 2,000+ users",
+    href: "https://absensmk.citranegara.online",
+  },
+  {
+    label: "Working with",
+    value: "React · Next.js · TypeScript · Vite",
+    detail: "Frontend, APIs, and product workflows",
   },
 ];
 
 /** Informasi perjalanan hanya ditampilkan jika sudah dapat diverifikasi. */
 export const journeyItems: JourneyItem[] = [
   {
-    period: "Jan 2026 — Sekarang",
-    title: "Frontend Developer",
+    period: "Jan — May 2026",
+    title: "Frontend Developer Trainee",
     organization: "Matik Creative Technology",
     description:
-      "Building websites and apps with a focus on clear, responsive interfaces using Next.js, React, TypeScript, and JavaScript.",
+      "Completed a hands-on frontend placement at Matik Creative Technology, building responsive website and app interfaces with Next.js, React, TypeScript, and JavaScript.",
     kind: "work",
   },
   {
-    period: "Mei 2026",
+    period: "May 2026 — Now",
+    title: "Freelance Full-stack Developer",
+    organization: "Matik Creative Technology",
+    description:
+      "Building web apps and APIs with React, Next.js, TypeScript, and Go, with a focus on the interface and product flow people use.",
+    kind: "work",
+  },
+  {
+    period: "May 2026",
     title: "Student of The Year",
     organization: "Citra Negara Awards 2026 · SMK Citra Negara Depok",
     description:
-      "Received the Student of The Year award as part of my growth and contribution during school.",
+      "Recognized as the best student of the year through the Citra Negara Awards 2026 at SMK Citra Negara Depok.",
     kind: "award",
   },
   {
-    period: "Mar 2025 — Sekarang",
-    title: "Frontend & UI/UX Instructor",
-    organization: "IT Club · SMK Citra Negara Depok",
-    description:
-      "Helping IT Club members learn frontend and UI/UX, from web basics to building clearer, more comfortable interfaces.",
-    kind: "mentoring",
-  },
-  {
-    period: "2024 — 2027",
-    title: "Software Engineering (PPLG)",
+    period: "Aug 2026",
+    title: "Digital Innovation Award",
     organization: "SMK Citra Negara Depok",
     description:
-      "Studying software engineering while building web and app projects, with a strong interest in frontend and UI/UX.",
-    kind: "education",
+      "Received an award for creating Citra Negara Attendance System, a digital attendance platform for the SMK Citra Negara Depok community.",
+    kind: "award",
   },
 ];
 
 export const contactFaq: FaqItem[] = [
   {
-    question: "Kolaborasi seperti apa yang terbuka?",
+    question: "What kind of work are you open to?",
     answer:
-      "I’m open to frontend collaborations, websites, apps, dashboards, or interface experiments that need to feel clearer and easier to use.",
+      "Frontend and full-stack web work where the interface and workflow matter—websites, dashboards, internal tools, and product apps.",
   },
   {
-    question: "Bagaimana proses kerjanya?",
+    question: "How do you approach a project?",
     answer:
-      "It usually starts with a conversation about the goal and the people using it. From there, I shape the structure, build the interface, and refine the feedback along the way.",
+      "We start with the goal, the people using it, and the workflow that needs to work. Then I map the structure, build the interface, and refine the states around it.",
   },
   {
-    question: "Tools apa yang biasa dipakai?",
+    question: "What do you usually work with?",
     answer:
-      "For frontend work, I mostly use React, Next.js, Vite, TypeScript, JavaScript, and Tailwind CSS. I also work with Go, REST APIs, and Figma when the project calls for it.",
+      "React, Next.js, TypeScript, Vite, and Tailwind CSS for frontend work; Go and REST APIs when the project needs backend support.",
   },
   {
-    question: "Berapa lama respon terhadap pesan?",
+    question: "When can I expect a reply?",
     answer:
-      "I usually reply between school, frontend work, and mentoring. A little context about your project helps us get to the useful part faster.",
+      "I reply as soon as I can around school and project work. A little context about the goal, users, and timeline helps us get useful quickly.",
   },
 ];

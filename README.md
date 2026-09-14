@@ -8,7 +8,6 @@ Website portfolio pribadi Randhu Paksi Membumi, Frontend Developer di Matik Crea
 - React Router untuk multi-page routing
 - Tailwind CSS 4 (`@tailwindcss/vite`) dengan design token di `src/styles/design-system.css`
 - GSAP untuk motion (reveal, floating) dengan dukungan `prefers-reduced-motion`
-- React Hook Form untuk contact form
 - Lucide React untuk icon, CVA + `tailwind-merge` untuk variant/class
 - Oxlint untuk static linting; npm sebagai package manager
 
@@ -30,7 +29,7 @@ npm run preview   # preview hasil build
 | `/about` | Intro editorial, prinsip kerja, skill area, dan journey timeline |
 | `/projects` | Semua project + slot "project berikutnya" |
 | `/projects/:slug` | Case study per project (overview, challenge, approach, outcome, gallery) |
-| `/contact` | Channel kontak, social, CV, contact form, FAQ |
+| `/contact` | Contact hub, social profiles, CV, FAQ |
 | `*` | Halaman 404 |
 
 ## Struktur kode
@@ -78,7 +77,6 @@ Semua data personal terpusat dan dibaca dari environment variable. Salin `.env.e
 | `VITE_LOCATION` | Mengganti `YOUR_LOCATION` |
 | `VITE_CV_URL` | Tombol CV aktif (menggantikan "Coming soon") |
 | `VITE_SOCIAL_GITHUB` dll. | Menambah atau mengganti link social yang ditampilkan |
-| `VITE_CONTACT_ENDPOINT` | Membuka contact form untuk mengirim POST JSON asli |
 
 Identitas dasar (nama, role, tagline) ada di `src/data/site.ts`.
 
@@ -97,6 +95,6 @@ Edit `src/data/about.ts` untuk memperbarui pengalaman kerja, pendidikan, mentori
 
 ## Catatan
 
-- Contact form tidak dibuka selama `VITE_CONTACT_ENDPOINT` kosong; website menjelaskan kondisi tersebut secara eksplisit dan tidak pernah berpura-pura menerima pesan.
+- Halaman Contact berfungsi sebagai hub profil sosial dan channel kontak langsung, tanpa form submission.
 - Foto profil di hero adalah asset asli di `public/images/profile/`.
 - Module `src/components/ui/button.tsx` memicu warning Oxlint Fast Refresh yang sudah ada sejak awal (export komponen + konstanta); bukan regression.

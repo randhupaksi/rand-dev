@@ -14,11 +14,10 @@ export default function NotFoundPage() {
           404
         </p>
         <h1 className="type-h3">
-          This page is nowhere to be found
+          This link doesn’t lead anywhere
         </h1>
         <p className="type-body-sm">
-          The link may be broken, moved, or not built yet. Head home or take a look
-          at the work instead.
+          It may be outdated or moved. Head home or browse the work instead.
         </p>
         <div className="flex flex-wrap justify-center gap-3 pt-2">
           <Link
