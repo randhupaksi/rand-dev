@@ -21,6 +21,7 @@ export function HeroCta({ primaryLabel, secondaryLabel }: HeroCtaProps) {
           buttonVariants({ variant: "primary", size: "lg" }),
           "group w-full sm:w-auto",
         )}
+        data-hero-cta
       >
         <ArrowUpRight className="size-4 transition-transform duration-300 group-hover:-translate-y-0.5 group-hover:scale-105" />
         {primaryLabel}
@@ -34,6 +35,7 @@ export function HeroCta({ primaryLabel, secondaryLabel }: HeroCtaProps) {
             buttonVariants({ variant: "outline", size: "lg" }),
             "group w-full sm:w-auto",
           )}
+          data-hero-cta
         >
           <Download className="size-4 transition-transform duration-300 group-hover:translate-y-0.5" />
           {secondaryLabel}
@@ -45,6 +47,7 @@ export function HeroCta({ primaryLabel, secondaryLabel }: HeroCtaProps) {
             buttonVariants({ variant: "outline", size: "lg" }),
             "group w-full sm:w-auto",
           )}
+          data-hero-cta
         >
           <MessageCircle className="size-4 transition-transform duration-300 group-hover:scale-110" />
           Let’s talk

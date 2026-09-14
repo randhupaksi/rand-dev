@@ -25,17 +25,17 @@ export function HeroIntro({
   return (
     <div className="content-stack-md">
       <div className="content-stack-xs">
-        <p className="type-h3 leading-none">
+        <p data-hero-eyebrow className="type-h3 leading-none">
           {eyebrow}
         </p>
         <h1 className="type-h1 max-w-2xl">
-          <span className="text-gradient-brand block">
+          <span data-hero-name-line className="text-gradient-brand block">
             {firstName}
           </span>
-          <span className="block text-foreground">{restName}</span>
+          <span data-hero-name-line className="block text-foreground">{restName}</span>
         </h1>
 
-        <p className="type-h3">
+        <p data-hero-role className="type-h3">
           {rolePrefix}{" "}
           <span className="text-gradient-brand">
             {roleHighlight}
@@ -43,13 +43,13 @@ export function HeroIntro({
         </p>
       </div>
 
-      <p className="type-body max-w-2xl">
+      <p data-hero-description className="type-body max-w-2xl">
         {description}
       </p>
 
       {mobileVisual ? <div className="mt-2 lg:hidden">{mobileVisual}</div> : null}
       {mobileBadge ? (
-        <div className="mt-1 flex justify-center lg:hidden">{mobileBadge}</div>
+        <div data-hero-mobile-badge className="mt-1 flex justify-center lg:hidden">{mobileBadge}</div>
       ) : null}
     </div>
   );

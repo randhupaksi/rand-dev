@@ -1,5 +1,9 @@
 import { SocialLinks } from "@/components/common/social-links";
 
 export function HeroSocials() {
-  return <SocialLinks />;
+  return (
+    <div data-hero-socials>
+      <SocialLinks />
+    </div>
+  );
 }
