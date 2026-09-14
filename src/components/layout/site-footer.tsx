@@ -1,24 +1,54 @@
+import {
+  ArrowUpRight,
+  BriefcaseBusiness,
+  House,
+  Mail,
+  UserRound,
+} from "lucide-react";
 import { Link } from "react-router-dom";
 
 import { SocialLinks } from "@/components/common/social-links";
+import { buttonVariants } from "@/components/ui/button-variants";
 import { navigationItems } from "@/data/navigation";
+import { projects } from "@/data/projects";
 import { contactChannels, siteIdentity, socialLinks } from "@/data/site";
+import { cn } from "@/lib/utils";
+
+const navigationIcons = {
+  "/": House,
+  "/about": UserRound,
+  "/projects": BriefcaseBusiness,
+  "/contact": Mail,
+} as const;
 
 export function SiteFooter() {
   const year = new Date().getFullYear();
-  const publishedChannels = contactChannels.filter((channel) => channel.href);
+  const email = contactChannels.find((channel) => channel.key === "email");
+  const featuredProject = projects[0];
 
   return (
     <footer className="ds-divider mt-8 border-t pb-10 pt-14">
-      <div className={`grid gap-10 ${publishedChannels.length > 0 ? "lg:grid-cols-[minmax(0,1.1fr)_minmax(0,0.6fr)_minmax(0,0.8fr)]" : "lg:grid-cols-[minmax(0,1.1fr)_minmax(0,0.6fr)]"}`}>
+      <div className="grid gap-10 lg:grid-cols-[minmax(0,1.1fr)_minmax(0,0.6fr)_minmax(0,0.8fr)] lg:gap-16">
         <div className="content-stack-sm max-w-sm">
           <p className="text-lg font-semibold tracking-tight text-foreground">
             {siteIdentity.brandFirst}{" "}
-            <span className=  "text-accent">{siteIdentity.brandSecond}</span>
+            <span className="text-accent">{siteIdentity.brandSecond}</span>
           </p>
           <p className="text-sm leading-7 text-muted-foreground">
             {siteIdentity.tagline}
           </p>
+          {email?.href ? (
+            <a
+              href={email.href}
+              className={cn(
+                buttonVariants({ variant: "outline", size: "md" }),
+                "group w-fit max-w-full",
+              )}
+            >
+              {email.value}
+              <ArrowUpRight className="size-4 transition-transform duration-300 group-hover:-translate-y-0.5 group-hover:translate-x-0.5" />
+            </a>
+          ) : null}
           {socialLinks.some((link) => link.href) ? <SocialLinks className="pt-1" /> : null}
         </div>
 
@@ -27,44 +57,52 @@ export function SiteFooter() {
             Explore
           </p>
           <ul className="content-stack-xs">
-            {navigationItems.map((item) => (
-              <li key={item.to}>
+            {navigationItems.map((item) => {
+              const Icon = navigationIcons[item.to as keyof typeof navigationIcons];
+
+              return (
+                <li key={item.to}>
                 <Link
                   to={item.to}
-                  className="inline-flex min-h-9 items-center text-sm text-muted-foreground transition-colors duration-200 hover:text-foreground focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-ring"
+                  className="group inline-flex min-h-9 items-center gap-2 text-sm text-muted-foreground transition-colors duration-200 hover:text-foreground focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-ring"
                 >
+                  <Icon
+                    aria-hidden="true"
+                    className="size-4 text-accent transition-transform duration-200 group-hover:-translate-y-0.5"
+                  />
                   {item.label}
                 </Link>
-              </li>
-            ))}
+                </li>
+              );
+            })}
           </ul>
         </nav>
 
-        {publishedChannels.length > 0 ? <div className="content-stack-sm">
-          <p className="type-overline">
-            Get in touch
-          </p>
-          <ul className="content-stack-sm">
-            {publishedChannels.map((channel) => (
-              <li key={channel.key} className="content-stack-xs">
-                <span className="text-xs text-muted-foreground">{channel.label}</span>
-                <span className="flex flex-wrap items-center gap-2">
-                  <a
-                    href={channel.href!}
-                    className="font-mono text-sm text-brand-soft transition-colors hover:text-foreground focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-ring"
-                  >
-                    {channel.value}
-                  </a>
-                </span>
-              </li>
-            ))}
-          </ul>
-        </div> : null}
+        {featuredProject ? (
+          <div className="content-stack-sm">
+            <p className="type-overline">Featured product</p>
+            <p className="text-base font-semibold tracking-tight text-foreground">
+              {featuredProject.name}
+            </p>
+            <p className="text-sm leading-6 text-muted-foreground">
+              Live in production · 2,000+ users
+            </p>
+            <a
+              href={featuredProject.links.demo ?? undefined}
+              target="_blank"
+              rel="noreferrer"
+              className="group inline-flex min-h-9 w-fit items-center gap-2 text-sm font-medium text-accent transition-colors hover:text-highlight focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-ring"
+            >
+              View live product
+              <ArrowUpRight className="size-4 transition-transform duration-300 group-hover:-translate-y-0.5 group-hover:translate-x-0.5" />
+            </a>
+          </div>
+        ) : null}
       </div>
 
       <div className="ds-divider mt-12 flex items-center justify-center border-t pt-6 text-xs text-muted-foreground">
         <p>
-          © {year} {siteIdentity.name}. Built with care.
+          © {year} {siteIdentity.name}.
         </p>
       </div>
     </footer>

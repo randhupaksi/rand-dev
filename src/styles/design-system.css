@@ -185,8 +185,8 @@
   --hero-glow-secondary: radial-gradient(circle, rgb(194 74 255 / 0.18), transparent 68%);
   --hero-glow-soft: radial-gradient(circle, rgb(191 167 255 / 0.1), transparent 70%);
   --hero-frame-surface: linear-gradient(180deg, rgb(255 255 255 / 0.04), rgb(255 255 255 / 0.015));
-  --hero-portrait-surface: radial-gradient(120% 90% at 50% 8%, rgb(194 74 255 / 0.32), rgb(27 20 39 / 0.62) 46%, rgb(16 12 23 / 0.96));
-  --hero-portrait-inner: radial-gradient(circle at top, rgb(255 255 255 / 0.04), rgb(14 10 20 / 0.94) 72%);
+  --hero-portrait-surface: radial-gradient(120% 90% at 50% 8%, rgb(194 74 255 / 0.2), transparent 68%);
+  --hero-portrait-inner: radial-gradient(circle at top, rgb(255 255 255 / 0.035), transparent 68%);
   --shadow-portrait: 0 24px 60px rgb(6 3 12 / 0.36);
 
   /* Sidebar and support tokens */
@@ -279,6 +279,7 @@
   --duration-slow: 420ms;
   --ease-standard: cubic-bezier(0.22, 1, 0.36, 1);
   --ease-snappy: cubic-bezier(0.2, 0.8, 0.2, 1);
+  --ease-emphasized: cubic-bezier(0.2, 0.8, 0.2, 1);
 
   /* Shadows */
   --shadow-xs: 0 1px 1px rgb(0 0 0 / 0.16);
@@ -347,6 +348,16 @@
   --sidebar-accent-foreground: #eaf1ff;
   --sidebar-border: rgb(86 129 173 / 0.16);
   --sidebar-ring: rgb(79 215 255 / 0.28);
+}
+
+@keyframes fade-in {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
 }
 
 @layer base {
@@ -716,9 +727,9 @@
   }
 
   .hero-frame {
-    background: var(--hero-frame-surface);
-    border-color: var(--border-subtle);
-    box-shadow: var(--shadow-portrait);
+    background: transparent;
+    border-color: rgb(191 167 255 / 0.2);
+    box-shadow: 0 24px 60px rgb(6 3 12 / 0.28);
   }
 
   .hero-portrait-surface {
@@ -727,7 +738,7 @@
 
   .hero-portrait-inner {
     background: var(--hero-portrait-inner);
-    border-color: var(--border-subtle);
+    border-color: rgb(191 167 255 / 0.14);
   }
 
   /* Expertise editorial rows */
