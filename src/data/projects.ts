@@ -12,8 +12,8 @@ export const projects: Project[] = [
     summary:
       "A production school operations platform used by 2,000+ people at SMK Citra Negara Depok, showing how clean interfaces, role-aware workflows, and reliable product logic work together.",
     thumbnail: {
-      src: "/images/project/absensi-cn/hero-absensi-cn.png",
-      alt: "Tampilan utama Citra Negara Attendance System",
+      src: "/images/project/absensi-cn/hero-overview.png",
+      alt: "Hero landing page Citra Negara Attendance System",
     },
     stack: [
       "React",
@@ -135,17 +135,27 @@ export const projects: Project[] = [
     ],
     gallery: [
       {
-        src: "/images/project/absensi-cn/login-form.png",
-        alt: "Login screen for Citra Negara Attendance System",
-        label: "Login screen",
+        src: "/images/project/absensi-cn/hero-overview.png",
+        alt: "Hero landing page Citra Negara Attendance System",
+        label: "Product overview",
       },
       {
-        src: "/images/project/absensi-cn/dashboard.png",
-        alt: "Main dashboard of Citra Negara Attendance System",
-        label: "Main dashboard",
+        src: "/images/project/absensi-cn/attendance-flow.png",
+        alt: "Student attendance flow with evidence and location steps",
+        label: "Attendance flow",
+      },
+      {
+        src: "/images/project/absensi-cn/student-login.png",
+        alt: "Student login screen for Citra Negara Attendance System",
+        label: "Student login",
+      },
+      {
+        src: "/images/project/absensi-cn/student-dashboard-desktop.png",
+        alt: "Desktop student dashboard for Citra Negara Attendance System",
+        label: "Student dashboard - desktop",
       },
     ],
-    gallerySlots: 2,
+    gallerySlots: 4,
   },
 ];
 
