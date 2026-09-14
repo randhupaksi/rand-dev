@@ -7,15 +7,13 @@ import type {
 /**
  * Satu-satunya sumber informasi personal di seluruh website.
  *
- * Email, WhatsApp, lokasi, dan CV dibaca dari `.env` (lihat `.env.example`).
+ * Email dan CV dibaca dari `.env` (lihat `.env.example`).
  * LinkedIn memakai profil publik yang sudah diverifikasi; environment variable
  * tetap dapat digunakan bila profil tersebut perlu diganti.
  */
 const env = import.meta.env;
 
 const email = (env.VITE_EMAIL as string | undefined) || "";
-const whatsapp = (env.VITE_WHATSAPP_NUMBER as string | undefined) || "";
-const location = (env.VITE_LOCATION as string | undefined) || "";
 const cvUrl =
   (env.VITE_CV_URL as string | undefined) ||
   "/files/Randhu_Paksi_Membumi_Frontend_Developer_CV.pdf";
@@ -36,10 +34,6 @@ export const siteIdentity: SiteIdentity = {
   availability: {
     value: "Open to frontend, full-stack, and UI/UX conversations",
     isPlaceholder: false,
-  },
-  location: {
-    value: location || "YOUR_LOCATION",
-    isPlaceholder: !location,
   },
   cvHref: cvUrl || null,
 };
@@ -74,19 +68,5 @@ export const contactChannels: ContactChannel[] = [
     value: email || "your.email@example.com",
     href: email ? `mailto:${email}` : null,
     isPlaceholder: !email,
-  },
-  {
-    key: "whatsapp",
-    label: "WhatsApp",
-    value: whatsapp || "+62 8xx-xxxx-xxxx",
-    href: whatsapp ? `https://wa.me/${whatsapp.replace(/\D/g, "")}` : null,
-    isPlaceholder: !whatsapp,
-  },
-  {
-    key: "location",
-    label: "Lokasi",
-    value: location || "YOUR_LOCATION",
-    href: null,
-    isPlaceholder: !location,
   },
 ];

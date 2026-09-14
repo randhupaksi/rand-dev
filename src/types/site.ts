@@ -18,7 +18,7 @@ export type SocialLink = {
   href: string | null;
 };
 
-export type ContactChannelKey = "email" | "whatsapp" | "location";
+export type ContactChannelKey = "email";
 
 export type ContactChannel = {
   key: ContactChannelKey;
@@ -37,7 +37,6 @@ export type SiteIdentity = {
   role: string;
   tagline: string;
   availability: PlaceholderValue;
-  location: PlaceholderValue;
   /** URL CV asli; `null` berarti tombol CV tampil sebagai coming soon. */
   cvHref: string | null;
 };
