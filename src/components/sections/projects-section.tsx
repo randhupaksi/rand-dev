@@ -89,14 +89,12 @@ export function ProjectsSection() {
                 <p className="type-overline text-brand-soft">{featured.category}</p>
                 <p className="type-body-sm max-w-2xl">{featured.summary}</p>
 
-                <div className="type-overline flex flex-wrap items-center gap-x-3 gap-y-1.5 text-brand-soft">
-                  {featured.focusAreas.map((item, index) => (
-                    <span key={item} className="flex items-center gap-3">
-                      {index > 0 ? (
-                        <span aria-hidden="true" className="text-brand-muted">
-                          ·
-                        </span>
-                      ) : null}
+                <div className="type-body-sm flex flex-col gap-1.5 text-muted-foreground">
+                  {featured.focusAreas.map((item) => (
+                    <span key={item} className="flex items-center gap-3 font-sans normal-case tracking-normal">
+                      <span aria-hidden="true" className="text-brand-muted">
+                        ·
+                      </span>
                       {item}
                     </span>
                   ))}
