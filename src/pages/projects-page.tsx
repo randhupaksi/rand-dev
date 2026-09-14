@@ -145,6 +145,7 @@ export default function ProjectsPage() {
                   label="Project image placeholder"
                   hint="Add the real screenshots in src/data/projects.ts"
                   aspect="wide"
+                  cropBottom
                   className={index % 2 === 1 ? "lg:order-1" : ""}
                 />
               </div>
@@ -211,6 +212,8 @@ export default function ProjectsPage() {
                     alt={item.alt}
                     label={item.label}
                     aspect="wide"
+                    cropBottom
+                    preview
                   />
                   <figcaption className="type-caption text-brand-soft">
                     {item.label}

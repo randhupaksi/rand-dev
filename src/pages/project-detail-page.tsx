@@ -1,4 +1,4 @@
-import { ArrowLeft, ArrowRight } from "lucide-react";
+import { ArrowLeft, ArrowRight, ArrowUpRight } from "lucide-react";
 import { Link, useParams } from "react-router-dom";
 
 import { DraftBadge } from "@/components/common/draft-badge";
@@ -59,7 +59,7 @@ export default function ProjectDetailPage() {
 
           <h1
             data-reveal
-            className="type-h1 max-w-3xl"
+            className="type-h1 max-w-none lg:whitespace-nowrap"
           >
             {project.name}
           </h1>
@@ -77,6 +77,7 @@ export default function ProjectDetailPage() {
             label="Project cover placeholder"
             hint="Add the real cover in src/data/projects.ts"
             aspect="video"
+            cropBottom
             className="mx-auto max-w-4xl"
           />
         </div>
@@ -86,6 +87,7 @@ export default function ProjectDetailPage() {
         <div className="grid gap-10 lg:grid-cols-[minmax(0,0.42fr)_minmax(0,1fr)]">
           <aside
             data-reveal
+            data-reveal-once
             className="content-stack-lg lg:sticky lg:top-32 lg:self-start"
           >
             <div className="content-stack-sm">
@@ -133,6 +135,7 @@ export default function ProjectDetailPage() {
                       className={buttonVariants({ variant: "outline", size: "md" })}
                     >
                       Live demo
+                      <ArrowUpRight className="size-4" aria-hidden="true" />
                     </a>
                   ) : null}
                   {project.links.repository ? (
@@ -224,6 +227,8 @@ export default function ProjectDetailPage() {
                         alt={item.alt}
                         label={item.label}
                         aspect="wide"
+                        cropBottom
+                        preview
                       />
                     ))
                   : Array.from({ length: project.gallerySlots }, (_, slotIndex) => (

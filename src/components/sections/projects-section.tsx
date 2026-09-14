@@ -83,6 +83,7 @@ export function ProjectsSection() {
                   label="Project image placeholder"
                   hint="Add the real screenshots in src/data/projects.ts"
                   aspect="wide"
+                  cropBottom
                   className="lg:hidden"
                 />
                 <p className="type-overline text-brand-soft">{featured.category}</p>
@@ -113,6 +114,7 @@ export function ProjectsSection() {
                 label="Project image placeholder"
                 hint="Add the real screenshots in src/data/projects.ts"
                 aspect="wide"
+                cropBottom
                 className="hidden lg:flex"
               />
             </div>

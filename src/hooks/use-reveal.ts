@@ -63,15 +63,23 @@ export function useReveal<T extends HTMLElement>(dependencyKey?: string) {
           });
         },
         onLeaveBack: (batch) => {
-          gsap.set(batch, { willChange: "transform,opacity" });
-          gsap.to(batch, {
+          const resetBatch = batch.filter(
+            (element) => !element.hasAttribute("data-reveal-once"),
+          );
+
+          if (!resetBatch.length) {
+            return;
+          }
+
+          gsap.set(resetBatch, { willChange: "transform,opacity" });
+          gsap.to(resetBatch, {
             autoAlpha: 0,
             y: motion.resetDistance,
             duration: motion.resetDuration,
             ease: "power2.out",
             stagger: 0.035,
             overwrite: "auto",
-            onComplete: () => gsap.set(batch, { clearProps: "willChange" }),
+            onComplete: () => gsap.set(resetBatch, { clearProps: "willChange" }),
           });
         },
       });

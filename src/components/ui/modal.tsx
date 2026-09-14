@@ -6,11 +6,16 @@ import { cn } from "@/lib/utils";
 export const Modal = Dialog.Root;
 export const ModalTrigger = Dialog.Trigger;
 
+type ModalContentProps = Dialog.Popup.Props & {
+  closeClassName?: string;
+};
+
 export function ModalContent({
   className,
   children,
+  closeClassName,
   ...props
-}: Dialog.Popup.Props) {
+}: ModalContentProps) {
   return (
     <Dialog.Portal>
       <Dialog.Backdrop className="fixed inset-0 z-50 bg-overlay backdrop-blur-sm transition-opacity" />
@@ -23,7 +28,13 @@ export function ModalContent({
           {...props}
         >
           {children}
-          <Dialog.Close className="ds-icon-control absolute right-4 top-4 size-10" aria-label="Tutup dialog">
+          <Dialog.Close
+            className={cn(
+              "ds-icon-control absolute right-4 top-4 size-10",
+              closeClassName,
+            )}
+            aria-label="Tutup dialog"
+          >
             <X className="size-4" aria-hidden="true" />
           </Dialog.Close>
         </Dialog.Popup>
