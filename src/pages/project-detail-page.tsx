@@ -91,7 +91,7 @@ export default function ProjectDetailPage() {
           >
             <div className="content-stack-sm">
               <p className="type-overline">
-                Built with
+                Core stack
               </p>
               <div className="flex flex-wrap gap-2">
                 {project.stack.map((item) => (
@@ -177,6 +177,38 @@ export default function ProjectDetailPage() {
                 ) : null}
               </div>
             ))}
+
+            {project.technicalStack?.length ? (
+              <section data-reveal className="content-stack-md pt-3">
+                <div className="content-stack-xs max-w-2xl">
+                  <p className="type-overline text-accent">Technical foundation</p>
+                  <h2 className="type-h4">Frontend and API, working as separate layers.</h2>
+                  <p className="type-body-sm text-muted-foreground">
+                    The interface and service are deliberately separated: the frontend focuses on product use, while the API owns the data and rules behind it.
+                  </p>
+                </div>
+
+                <div className="grid gap-8 border-y border-border-subtle py-7 lg:grid-cols-2 lg:gap-10">
+                  {project.technicalStack.map((group) => (
+                    <section key={group.title} className="content-stack-sm">
+                      <div className="content-stack-xs">
+                        <h3 className="text-lg font-semibold tracking-tight text-foreground">
+                          {group.title}
+                        </h3>
+                        <p className="type-body-sm text-muted-foreground">
+                          {group.description}
+                        </p>
+                      </div>
+                      <div className="flex flex-wrap gap-2">
+                        {group.items.map((item) => (
+                          <Badge key={item}>{item}</Badge>
+                        ))}
+                      </div>
+                    </section>
+                  ))}
+                </div>
+              </section>
+            ) : null}
 
             <div data-reveal className="content-stack-sm">
               <div className="flex flex-wrap items-center gap-3">

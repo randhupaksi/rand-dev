@@ -16,6 +16,17 @@ export type CaseStudyBlock = {
   isPlaceholder: boolean;
 };
 
+export type ProductCapability = {
+  title: string;
+  description: string;
+};
+
+export type TechnicalStackGroup = {
+  title: string;
+  description: string;
+  items: string[];
+};
+
 export type Project = {
   slug: string;
   name: string;
@@ -29,6 +40,8 @@ export type Project = {
   };
   stack: string[];
   focusAreas: string[];
+  capabilities?: ProductCapability[];
+  technicalStack?: TechnicalStackGroup[];
   status: ProjectStatus;
   links: ProjectLinks;
   caseStudy: CaseStudyBlock[];

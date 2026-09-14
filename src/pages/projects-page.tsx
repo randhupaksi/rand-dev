@@ -18,29 +18,62 @@ export default function ProjectsPage() {
 
   const scopeRef = useReveal<HTMLDivElement>();
   const isSingleCaseStudy = projects.length === 1;
+  const featuredProject = projects[0];
 
   return (
     <div ref={scopeRef}>
       <section className="section-shell-compact">
-        <div className="content-stack-md max-w-4xl">
-          <div data-reveal className="section-eyebrow">
-            Work
+        <div className={isSingleCaseStudy ? "grid gap-12 lg:grid-cols-[minmax(0,1.1fr)_minmax(15rem,0.42fr)] lg:items-end lg:gap-20" : "content-stack-md max-w-4xl"}>
+          <div className="content-stack-md">
+            <div data-reveal className="section-eyebrow">
+              Work
+            </div>
+            <h1
+              data-reveal
+              className="type-h1"
+            >
+              {isSingleCaseStudy ? "A live product, " : "Work shaped by real "}
+              <span className="text-gradient-brand">
+                {isSingleCaseStudy ? "unpacked" : "workflows"}
+              </span>
+              .
+            </h1>
+            <p data-reveal className="section-copy max-w-3xl">
+              {isSingleCaseStudy
+                ? "Citra Negara Attendance System is a live attendance and follow-up workflow for SMK Citra Negara Depok, used by more than 2,000 users."
+                : "Case studies about the context, flows, and decisions behind my work."}
+            </p>
           </div>
-          <h1
-            data-reveal
-            className="type-h1"
-          >
-            {isSingleCaseStudy ? "A live product, " : "Work shaped by real "}
-            <span className="text-gradient-brand">
-              {isSingleCaseStudy ? "unpacked" : "workflows"}
-            </span>
-            .
-          </h1>
-          <p data-reveal className="section-copy max-w-3xl">
-            {isSingleCaseStudy
-              ? "Citra Negara Attendance System is a live attendance and follow-up workflow for SMK Citra Negara Depok, used by more than 2,000 users."
-              : "Case studies about the context, flows, and decisions behind my work."}
-          </p>
+
+          {isSingleCaseStudy && featuredProject ? (
+            <aside
+              data-reveal
+              aria-label="Project facts"
+              className="border-t border-border-strong pt-6 lg:border-l lg:border-t-0 lg:pb-1 lg:pl-6 lg:pt-0"
+            >
+              <p className="type-overline text-accent">At a glance</p>
+              <dl className="mt-5 divide-y divide-border-subtle">
+                <div className="py-4 first:pt-0">
+                  <dt className="type-overline text-brand-muted">Status</dt>
+                  <dd className="mt-2 text-base font-semibold tracking-tight text-foreground">
+                    Live in production
+                  </dd>
+                </div>
+                <div className="py-4">
+                  <dt className="type-overline text-brand-muted">Reach</dt>
+                  <dd className="mt-2 text-base font-semibold tracking-tight text-foreground">
+                    2,000+ users
+                  </dd>
+                </div>
+                <div className="pb-0 pt-4">
+                  <dt className="type-overline text-brand-muted">Context</dt>
+                  <dd className="mt-2 text-base font-semibold tracking-tight text-foreground">
+                    SMK Citra Negara Depok
+                  </dd>
+                </div>
+              </dl>
+            </aside>
+          ) : null}
         </div>
       </section>
 
@@ -119,6 +152,109 @@ export default function ProjectsPage() {
           ))}
         </div>
       </section>
+
+      {isSingleCaseStudy && featuredProject?.capabilities?.length ? (
+        <section className="section-shell-compact">
+          <div className="grid gap-10 lg:grid-cols-[minmax(0,0.44fr)_minmax(0,1fr)] lg:gap-20">
+            <div data-reveal className="content-stack-sm lg:sticky lg:top-32 lg:self-start">
+              <div className="section-eyebrow">Product scope</div>
+              <h2 className="type-h3">What the product handles</h2>
+              <p className="section-copy">
+                One school workflow, shaped around the moments people need to record, review, and follow up.
+              </p>
+            </div>
+
+            <ol className="ds-divider border-y">
+              {featuredProject.capabilities.map((capability, index) => (
+                <li
+                  key={capability.title}
+                  data-reveal
+                  className="grid gap-4 border-t border-border-subtle py-6 first:border-t-0 sm:grid-cols-[3.5rem_minmax(0,1fr)]"
+                >
+                  <span className="font-mono text-sm text-brand-muted">0{index + 1}</span>
+                  <div className="content-stack-xs">
+                    <h3 className="type-h4">{capability.title}</h3>
+                    <p className="type-body-sm max-w-2xl">{capability.description}</p>
+                  </div>
+                </li>
+              ))}
+            </ol>
+          </div>
+        </section>
+      ) : null}
+
+      {isSingleCaseStudy && featuredProject?.gallery?.length ? (
+        <section className="section-shell-compact">
+          <div className="content-stack-lg">
+            <div data-reveal className="flex flex-col gap-5 sm:flex-row sm:items-end sm:justify-between">
+              <div className="content-stack-sm max-w-2xl">
+                <div className="section-eyebrow">Inside the product</div>
+                <h2 className="type-h3">A look at the working interface</h2>
+                <p className="section-copy">
+                  A focused look at the entry point and the dashboard people use to keep the workflow moving.
+                </p>
+              </div>
+              <Link
+                to={`/projects/${featuredProject.slug}`}
+                className="group inline-flex min-h-9 w-fit items-center gap-2 text-sm font-medium text-accent transition-colors hover:text-highlight focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-ring"
+              >
+                Read the full case study
+                <ArrowUpRight className="size-4 transition-transform duration-300 group-hover:-translate-y-0.5 group-hover:translate-x-0.5" />
+              </Link>
+            </div>
+
+            <div className="grid gap-5 sm:grid-cols-2">
+              {featuredProject.gallery.map((item) => (
+                <figure key={item.src} data-reveal className="content-stack-sm">
+                  <MediaPlaceholder
+                    src={item.src}
+                    alt={item.alt}
+                    label={item.label}
+                    aspect="wide"
+                  />
+                  <figcaption className="type-caption text-brand-soft">
+                    {item.label}
+                  </figcaption>
+                </figure>
+              ))}
+            </div>
+          </div>
+        </section>
+      ) : null}
+
+      {isSingleCaseStudy && featuredProject ? (
+        <section className="section-shell-compact">
+          <div data-reveal className="surface-elevated flex flex-col gap-6 p-[var(--card-padding)] sm:flex-row sm:items-center sm:justify-between">
+            <div className="content-stack-xs max-w-2xl">
+              <p className="type-overline text-accent">Go deeper</p>
+              <h2 className="type-h4">See the workflow in more detail.</h2>
+              <p className="type-body-sm">
+                Explore the roles, decisions, and real screens behind Citra Negara Attendance System.
+              </p>
+            </div>
+            <div className="flex flex-wrap gap-3">
+              <Link
+                to={`/projects/${featuredProject.slug}`}
+                className={buttonVariants({ variant: "primary", size: "md" })}
+              >
+                Read the case study
+                <ArrowUpRight className="size-4" />
+              </Link>
+              {featuredProject.links.demo ? (
+                <a
+                  href={featuredProject.links.demo}
+                  target="_blank"
+                  rel="noreferrer"
+                  className={buttonVariants({ variant: "outline", size: "md" })}
+                >
+                  Visit live product
+                  <ArrowUpRight className="size-4" />
+                </a>
+              ) : null}
+            </div>
+          </div>
+        </section>
+      ) : null}
     </div>
   );
 }

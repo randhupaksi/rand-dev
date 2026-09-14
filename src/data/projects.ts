@@ -14,7 +14,7 @@ export const projects: Project[] = [
       isPlaceholder: false,
     },
     summary:
-      "A live school attendance platform used by 2,000+ users at SMK Citra Negara Depok, bringing daily check-ins, follow-up, and reporting into one workflow.",
+      "A production school operations platform used by 2,000+ people at SMK Citra Negara Depok, connecting attendance, review, follow-up, and reporting across the people who run them.",
     thumbnail: {
       src: "/images/project/absensi-cn/hero-absensi-cn.png",
       alt: "Tampilan utama Citra Negara Attendance System",
@@ -28,9 +28,77 @@ export const projects: Project[] = [
       "MySQL",
     ],
     focusAreas: [
-      "Attendance",
-      "Follow-up",
-      "Reporting",
+      "Multi-role school workflows",
+      "Attendance evidence and review",
+      "Academic operations and reporting",
+    ],
+    capabilities: [
+      {
+        title: "Attendance with evidence",
+        description:
+          "Photo, location, time windows, and separate morning or class-session records give each attendance event the context it needs.",
+      },
+      {
+        title: "Role-aware workspaces",
+        description:
+          "Student, teacher, homeroom, BK, and admin work is shaped by assignments and scope instead of one generic dashboard.",
+      },
+      {
+        title: "Review and follow-up",
+        description:
+          "Corrections keep the original record intact, while requests, unusual attendance, and notifications make the next action clear.",
+      },
+      {
+        title: "School operations",
+        description:
+          "Academic setup, holidays, session recaps, imports, analytics, and PDF or Excel reports keep daily attendance connected to the wider school workflow.",
+      },
+    ],
+    technicalStack: [
+      {
+        title: "Frontend application",
+        description:
+          "The Vite single-page app that handles the interface, server state, forms, reporting views, and interaction details.",
+        items: [
+          "React 19",
+          "TypeScript 5.9",
+          "Vite 8",
+          "React Router 7",
+          "Tailwind CSS 4",
+          "TanStack Query 5",
+          "TanStack Table 8",
+          "Axios",
+          "React Hook Form 7",
+          "Zod 4",
+          "Base UI",
+          "Radix Select",
+          "Motion 12",
+          "Recharts 3",
+          "Sonner",
+          "jsPDF + AutoTable",
+          "react-day-picker",
+        ],
+      },
+      {
+        title: "API, data, and operations",
+        description:
+          "The Go REST API that owns business rules, access control, persistence, private evidence, and operational safeguards.",
+        items: [
+          "Go 1.25",
+          "Gin",
+          "GORM",
+          "MySQL",
+          "JWT (HS256)",
+          "bcrypt",
+          "go-playground/validator",
+          "Excelize",
+          "Cloudinary",
+          "Web Push",
+          "Redis",
+          "Gzip + request tracing",
+          "Rate and admission controls",
+        ],
+      },
     ],
     status: "verified",
     links: {
@@ -39,23 +107,33 @@ export const projects: Project[] = [
     },
     caseStudy: [
       {
-        title: "The product in use",
-        body: "Citra Negara Attendance System is a live platform for attendance and student follow-up at SMK Citra Negara Depok. Used by more than 2,000 users, it brings daily check-ins, class attendance, requests, student follow-up, reports, and school holidays into one workflow.",
+        title: "A school workflow, not a single check-in screen",
+        body: "Citra Negara Attendance System is a production platform for SMK Citra Negara Depok, used by more than 2,000 people. Students, teachers, homeroom teachers, BK staff, and admins each work from the context they need, while one system keeps attendance, follow-up, and reporting connected.",
         isPlaceholder: false,
       },
       {
-        title: "Where the workflow gets complex",
-        body: "Attendance is more than present or absent. The system separates morning check-ins from class-session attendance, keeps a traceable history, and makes unusual records easier to follow up.",
+        title: "Capturing attendance with useful evidence",
+        body: "Students check in with a photo and device location. The flow considers the attendance window, validates the evidence and location policy through the API, and protects submissions from duplicate retries. Evidence remains private behind authenticated access.",
         isPlaceholder: false,
       },
       {
-        title: "Roles behind the workflow",
-        body: "Students submit daily check-ins and leave or sick requests. Teachers and homeroom teachers review class records, subject teachers manage session attendance, counsellors follow up on students who need attention, and admins manage the academic data, roles, imports, and school holidays behind it.",
+        title: "Roles are shaped by school context",
+        body: "A teacher can receive subject, homeroom, or BK capabilities through assignments and scope—not a one-size-fits-all dashboard. That changes the tools available for sessions, student monitoring, attendance review, counselling notes, and permission or sick submissions.",
         isPlaceholder: false,
       },
       {
-        title: "What changes in daily operations",
-        body: "Routine records can move forward without another review, while unusual ones can be corrected with a note. The holiday calendar also stops non-school days from being counted as absences.",
+        title: "Review without losing the original record",
+        body: "The original check-in time and the review time stay separate. When a status is corrected, the first attendance event remains intact, meaningful changes are kept in history, and students can receive a notification about what changed.",
+        isPlaceholder: false,
+      },
+      {
+        title: "From daily attendance to school operations",
+        body: "The platform also covers subject sessions and recaps, manual homeroom attendance, school holidays, academic setup, Excel imports, analytics, and PDF or Excel reporting. It is designed for the chain of work around attendance, not just the first tap of the day.",
+        isPlaceholder: false,
+      },
+      {
+        title: "Built for an operating product",
+        body: "The frontend keeps server data in sync with TanStack Query and lazy-loads heavier chart and reporting tools. The Go API handles authentication, role and scope checks, business validation, private uploads, request tracing, and bounded traffic handling so the system can keep serving everyday school use.",
         isPlaceholder: false,
       },
     ],
