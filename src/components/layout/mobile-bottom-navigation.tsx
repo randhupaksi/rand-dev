@@ -1,3 +1,5 @@
+import { useLayoutEffect, useRef } from "react";
+import gsap from "gsap";
 import { BriefcaseBusiness, CircleUserRound, House, Mail } from "lucide-react";
 import { NavLink, useLocation } from "react-router-dom";
 
@@ -6,7 +8,7 @@ import { cn } from "@/lib/utils";
 const primaryNavigation = [
   { label: "Home", href: "/", icon: House },
   { label: "About", href: "/about", icon: CircleUserRound },
-  { label: "Work", href: "/projects", icon: BriefcaseBusiness },
+  { label: "Projects", href: "/projects", icon: BriefcaseBusiness },
   { label: "Contact", href: "/contact", icon: Mail },
 ];
 
@@ -36,6 +38,8 @@ function buildNavigationFramePath(activeIndex: number) {
 }
 
 export function MobileBottomNavigation() {
+  const navigationRef = useRef<HTMLElement>(null);
+  const activeIndicatorRef = useRef<HTMLSpanElement>(null);
   const { pathname } = useLocation();
   const activeIndex = primaryNavigation.findIndex(({ href }) => (
     href === "/" ? pathname === "/" : pathname.startsWith(href)
@@ -45,8 +49,61 @@ export function MobileBottomNavigation() {
   const ActiveIcon = activeNavigation.icon;
   const navigationFramePath = buildNavigationFramePath(resolvedActiveIndex);
 
+  useLayoutEffect(() => {
+    const ctx = gsap.context(() => {
+      if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
+        navigationRef.current?.removeAttribute("data-mobile-navigation-motion");
+        return;
+      }
+
+      const isCompactViewport = window.matchMedia("(max-width: 767px)").matches;
+
+      gsap.fromTo(
+        navigationRef.current,
+        { yPercent: 105 },
+        {
+          yPercent: 0,
+          duration: isCompactViewport ? 0.66 : 0.78,
+          ease: "power3.out",
+          force3D: true,
+          clearProps: "willChange",
+        },
+      );
+
+      navigationRef.current?.removeAttribute("data-mobile-navigation-motion");
+    }, navigationRef);
+
+    return () => ctx.revert();
+  }, []);
+
+  useLayoutEffect(() => {
+    const indicator = activeIndicatorRef.current;
+
+    if (!indicator) {
+      return;
+    }
+
+    const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+
+    if (reduceMotion) {
+      gsap.set(indicator, { xPercent: resolvedActiveIndex * 100, y: "0.1rem" });
+      return;
+    }
+
+    gsap.to(indicator, {
+      xPercent: resolvedActiveIndex * 100,
+      y: "0.1rem",
+      duration: window.matchMedia("(max-width: 767px)").matches ? 0.42 : 0.56,
+      ease: "power3.out",
+      force3D: true,
+      overwrite: "auto",
+    });
+  }, [resolvedActiveIndex]);
+
   return (
     <nav
+      ref={navigationRef}
+      data-mobile-navigation-motion="pending"
       aria-label="Primary mobile navigation"
       className="pointer-events-none fixed inset-x-0 bottom-0 z-40 lg:hidden"
     >
@@ -67,9 +124,9 @@ export function MobileBottomNavigation() {
         </svg>
 
         <span
+          ref={activeIndicatorRef}
           aria-hidden="true"
-          className="pointer-events-none absolute left-0 top-0 z-20 flex h-full w-1/4 justify-center will-change-transform transition-transform duration-[420ms] ease-(--ease-emphasized) motion-reduce:transition-none"
-          style={{ transform: `translateX(${resolvedActiveIndex * 100}%) translateY(0.1rem)` }}
+          className="pointer-events-none absolute left-0 top-0 z-20 flex h-full w-1/4 justify-center will-change-transform"
         >
           <span className="grid size-[3.25rem] place-items-center rounded-full border-2 border-primary-700 bg-surface-2 p-1 shadow-[0_8px_16px_rgb(8_6_16/0.32)]">
             <span className="grid size-full place-items-center rounded-full bg-primary-800 text-primary-100 shadow-inner">

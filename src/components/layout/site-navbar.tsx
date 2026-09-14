@@ -1,3 +1,6 @@
+import { useLayoutEffect, useRef } from "react";
+import gsap from "gsap";
+import { Download } from "lucide-react";
 import { Link, NavLink } from "react-router-dom";
 
 import { navigationItems } from "@/data/navigation";
@@ -6,10 +9,40 @@ import { buttonVariants } from "@/components/ui/button-variants";
 import { cn } from "@/lib/utils";
 
 export function SiteNavbar() {
+  const navbarRef = useRef<HTMLElement>(null);
+
+  useLayoutEffect(() => {
+    const ctx = gsap.context(() => {
+      if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
+        navbarRef.current?.removeAttribute("data-navbar-motion");
+        return;
+      }
+
+      gsap.fromTo(
+        "[data-navbar-surface]",
+        { yPercent: -115 },
+        {
+          yPercent: 0,
+          duration: 0.9,
+          ease: "power4.out",
+          clearProps: "willChange",
+        },
+      );
+
+      navbarRef.current?.removeAttribute("data-navbar-motion");
+    }, navbarRef);
+
+    return () => ctx.revert();
+  }, []);
+
   return (
-    <header className="sticky top-0 z-40 hidden pt-5 lg:block">
+    <header
+      ref={navbarRef}
+      data-navbar-motion="pending"
+      className="sticky top-0 z-40 hidden pt-5 lg:block"
+    >
       <div className="relative">
-        <div className="mx-auto flex min-h-(--header-height) items-center justify-between rounded-(--card-radius) border border-border bg-background/85 px-5 backdrop-blur-md sm:px-7">
+        <div data-navbar-surface className="mx-auto flex min-h-(--header-height) items-center justify-between rounded-(--card-radius) border border-border bg-background/85 px-5 backdrop-blur-md sm:px-7">
           <Link
             to="/"
             className="ds-text-link group inline-flex items-center gap-0.5 text-lg font-semibold tracking-tight text-foreground"
@@ -50,12 +83,23 @@ export function SiteNavbar() {
           </nav>
 
           <div className="flex items-center gap-2.5">
-            <Link
-              to="/contact"
-              className={cn(buttonVariants({ variant: "primary", size: "md" }), "hidden sm:inline-flex")}
-            >
-              Let’s talk
-            </Link>
+            {siteIdentity.cvHref ? (
+              <a
+                href={siteIdentity.cvHref}
+                download="Randhu-Paksi-Membumi-CV.pdf"
+                className={cn(buttonVariants({ variant: "primary", size: "md" }), "hidden sm:inline-flex group")}
+              >
+                <Download className="size-4 transition-transform duration-300 group-hover:translate-y-0.5" />
+                Download CV
+              </a>
+            ) : (
+              <Link
+                to="/contact"
+                className={cn(buttonVariants({ variant: "primary", size: "md" }), "hidden sm:inline-flex")}
+              >
+                Let’s talk
+              </Link>
+            )}
 
           </div>
         </div>
