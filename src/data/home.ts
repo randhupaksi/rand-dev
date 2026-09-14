@@ -8,10 +8,10 @@ import type {
 
 export const aboutProfile: AboutProfile = {
   name: "Randhu Paksi Membumi",
-  role: "Frontend Developer",
+  role: "Freelance Full-stack Developer at Matik Creative Technology",
   education: "SMK Citra Negara Depok · PPLG (2024 — 2027)",
   summary:
-    "I work as a Frontend Developer at Matik Creative Technology, and also teach frontend and UI/UX at the IT Club of SMK Citra Negara Depok.",
+    "I’m a freelance Full-stack Developer, previously completing my SMK field-work practice as a Frontend Developer at Matik Creative Technology. I also teach frontend and UI/UX at the IT Club of SMK Citra Negara Depok.",
   statement:
     "I like bringing frontend implementation and visual thinking together, so the UI is not only neat, but also comfortable to use.",
   tags: ["Frontend Development", "UI/UX", "Mentoring"],
@@ -19,55 +19,49 @@ export const aboutProfile: AboutProfile = {
 
 export const expertiseItems: ExpertiseItem[] = [
   {
-    title: "Frontend Development",
+    title: "Production interfaces",
     description:
-      "Mengembangkan website dan aplikasi yang modern, responsive, serta terstruktur untuk kebutuhan produk dan pengguna yang berbeda.",
-    bullets: ["React & Next.js", "TypeScript & JavaScript", "Vite & Tailwind CSS"],
+      "I build responsive web interfaces that hold up in real use—not just in a mockup. Absensi CN is now live in production and supports more than 2,000 users.",
+    bullets: ["React & Next.js", "TypeScript", "Production-ready UI"],
   },
   {
-    title: "UI Engineering",
+    title: "UI systems & interaction",
     description:
-      "Menerjemahkan kebutuhan dan desain menjadi interface yang jelas, nyaman dipakai, dan konsisten dari desktop sampai mobile.",
-    bullets: ["Visual hierarchy", "Responsive UI", "Motion & feedback"],
+      "I turn rough requirements and visual direction into interfaces with clear hierarchy, responsive behaviour, useful feedback, and reusable components.",
+    bullets: ["Visual hierarchy", "Responsive behaviour", "Motion & feedback"],
   },
   {
-    title: "Product flows",
+    title: "Product flows & APIs",
     description:
-      "I map out roles, states, and actions in interfaces with a lot going on, so people always have a clear next step.",
-    bullets: ["Dashboard flows", "Role-aware UI", "API integration"],
-  },
-  {
-    title: "Mentoring & collaboration",
-    description:
-      "As a Frontend & UI/UX Instructor at the IT Club, I help members get comfortable with frontend basics and clearer interface thinking.",
-    bullets: ["Frontend basics", "UI/UX mentoring", "Project guidance"],
+      "I work with roles, states, permissions, and API responses so complex products still feel understandable. When needed, I also build the backend services behind the interface with Go.",
+    bullets: ["Role-aware UI", "Dashboard workflows", "Go & REST APIs"],
   },
 ];
 
 export const processSteps: ProcessStep[] = [
   {
     step: "01",
-    title: "Understand",
+    title: "Define the real workflow",
     description:
-      "I start by understanding the goal, the people using it, and the flow that needs to work.",
+      "I start with who needs to do what, which roles are involved, and where the workflow can break—before deciding what the interface needs.",
   },
   {
     step: "02",
-    title: "Shape the flow",
+    title: "Make roles and states clear",
     description:
-      "Then I shape the pages and components so the project stays clear as it grows.",
+      "I turn that context into page structure, role-aware flows, and component states so every user knows what they can do next.",
   },
   {
     step: "03",
-    title: "Build",
+    title: "Connect interface to logic",
     description:
-      "Once the direction is clear, I build the interface and logic with care for detail and performance.",
+      "I build responsive interfaces with React, Next.js, and TypeScript, then connect them to APIs and backend services with Go when the product needs it.",
   },
   {
     step: "04",
-    title: "Refine",
+    title: "Test the edges",
     description:
-      "Finally, I check the hierarchy, spacing, states, and interactions until everything feels right in use.",
+      "I refine hierarchy, responsive behaviour, loading, empty, error, and feedback states until the interface feels reliable in everyday use.",
   },
 ];
 

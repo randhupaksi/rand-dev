@@ -45,7 +45,7 @@ export function AboutRoot({ profile }: AboutRootProps) {
 
   return (
     <section ref={sectionRef} id="about" className="section-shell-compact">
-      <div className="grid gap-10 border-y border-border-subtle py-10 lg:grid-cols-[minmax(0,1.1fr)_minmax(16rem,0.62fr)] lg:items-end lg:gap-16 lg:py-14">
+      <div className="grid gap-10 border-y border-border-subtle py-10 lg:grid-cols-[minmax(0,1.16fr)_minmax(18rem,0.68fr)] lg:items-start lg:gap-20 lg:py-14">
         <div className="content-stack-md">
           <p data-about-copy className="type-overline">A little about me</p>
           <div data-about-copy className="content-stack-sm max-w-3xl">
@@ -57,15 +57,18 @@ export function AboutRoot({ profile }: AboutRootProps) {
           </p>
         </div>
 
-        <div className="content-stack-md lg:pb-1">
-          <dl data-about-copy className="content-stack-sm border-t border-border-subtle pt-5">
-            <div className="flex items-baseline justify-between gap-5">
+        <div className="content-stack-md border-l border-border-subtle pl-5 lg:mt-32 lg:pl-6">
+          <p data-about-copy className="type-overline text-muted-foreground">At a glance</p>
+
+          <dl data-about-copy className="grid gap-5">
+            <div className="space-y-1.5">
               <dt className="type-overline">Currently</dt>
-              <dd className="text-right text-sm text-foreground">{profile.role}</dd>
+              <dd className="text-sm leading-6 text-foreground">{profile.role}</dd>
             </div>
-            <div className="flex items-baseline justify-between gap-5">
+
+            <div className="space-y-1.5">
               <dt className="type-overline">Learning at</dt>
-              <dd className="text-right text-sm text-foreground">{profile.education}</dd>
+              <dd className="text-sm leading-6 text-foreground">{profile.education}</dd>
             </div>
           </dl>
 

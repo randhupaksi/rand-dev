@@ -22,7 +22,7 @@ export function HeroVisual() {
           <div className="hero-portrait-surface absolute inset-[3%] rounded-full" />
           <div className="hero-portrait-inner absolute inset-[9%] overflow-hidden rounded-full border">
             <img
-              src="/images/profile/randhu-no-bg.png"
+              src="/images/profile/randhu-no-bg-dark.png"
               alt="Portrait of Randhu Paksi Membumi"
               className="absolute inset-0 h-full w-full scale-[1.08] object-contain object-bottom sm:scale-[1.14] lg:scale-[1.19]"
             />
@@ -31,7 +31,7 @@ export function HeroVisual() {
 
         <div className="absolute bottom-[4%] right-[1%] hidden max-w-52 border-l border-border-strong pl-4 lg:block">
           <p className="type-overline">Currently exploring</p>
-          <p className="mt-2 text-sm font-medium leading-6 text-foreground">Absensi CN — a school attendance workflow.</p>
+          <p className="mt-2 text-sm font-medium leading-6 text-foreground">Citra Negara Attendance System — a live attendance platform used by 2,000+ users.</p>
           <Link
             to="/projects/absensi-cn"
             className="mt-3 inline-flex items-center gap-1.5 text-sm font-medium text-accent transition-colors hover:text-highlight focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-ring"

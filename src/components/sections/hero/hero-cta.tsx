@@ -11,7 +11,7 @@ type HeroCtaProps = {
 
 export function HeroCta({ primaryLabel, secondaryLabel }: HeroCtaProps) {
   return (
-    <div className="flex w-full flex-col gap-3 sm:w-auto sm:flex-row sm:flex-wrap sm:items-center sm:gap-4">
+    <div className="grid w-full grid-cols-2 gap-3 sm:flex sm:w-auto sm:flex-row sm:flex-wrap sm:items-center sm:gap-4">
       <Link
         to="/projects"
         className={cn(

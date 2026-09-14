@@ -16,11 +16,11 @@ export function ProcessSection() {
             data-reveal
             className="type-h2"
           >
-            From a rough idea to something people can use.
+            I make complex products easier to use
           </h2>
           <p data-reveal className="section-copy max-w-lg">
-            I take time to understand the problem, shape the flow, build the
-            interface, and make the details feel right.
+            I work frontend-first: clarify the workflow, make states visible,
+            then build and refine for real use.
           </p>
         </div>
 

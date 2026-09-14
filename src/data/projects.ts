@@ -2,22 +2,22 @@ import type { Project } from "@/types/project";
 
 /**
  * Seluruh karya yang ditampilkan pada portfolio dikelola dari file ini.
- * Detail Absensi CN berasal dari informasi proyek yang diberikan pemilik portfolio.
+ * Detail Citra Negara Attendance System berasal dari informasi proyek yang diberikan pemilik portfolio.
  */
 export const projects: Project[] = [
   {
     slug: "absensi-cn",
-    name: "Absensi CN",
-    category: "School management system",
+    name: "Citra Negara Attendance System",
+    category: "Live attendance platform",
     period: {
-      value: "Timeline not published",
-      isPlaceholder: true,
+      value: "Live in production · 2026",
+      isPlaceholder: false,
     },
     summary:
-      "A platform that helps Sekolah Citra Negara manage student attendance and follow-up—from daily check-ins to reports and counselling support.",
+      "A live school attendance platform used by 2,000+ users at SMK Citra Negara Depok, bringing daily check-ins, follow-up, and reporting into one workflow.",
     thumbnail: {
       src: "/images/project/absensi-cn/hero-absensi-cn.png",
-      alt: "Tampilan utama platform Absensi CN",
+      alt: "Tampilan utama Citra Negara Attendance System",
     },
     stack: [
       "React",
@@ -28,44 +28,46 @@ export const projects: Project[] = [
       "MySQL",
     ],
     focusAreas: [
-      "Role-based access",
-      "Attendance flow",
-      "Student follow-up",
-      "Reporting system",
+      "Attendance",
+      "Follow-up",
+      "Reporting",
     ],
     status: "verified",
-    links: { demo: null, repository: null },
+    links: {
+      demo: "https://absensmk.citranegara.online",
+      repository: null,
+    },
     caseStudy: [
       {
-        title: "A quick overview",
-        body: "Absensi CN is a platform for managing attendance and student follow-up at Sekolah Citra Negara. It brings together daily check-ins, attendance by class session, leave or sick requests, student risk monitoring, counselling notes, reports, and a school holiday calendar.",
+        title: "The product in use",
+        body: "Citra Negara Attendance System is a live platform for attendance and student follow-up at SMK Citra Negara Depok. Used by more than 2,000 users, it brings daily check-ins, class attendance, requests, student follow-up, reports, and school holidays into one workflow.",
         isPlaceholder: false,
       },
       {
-        title: "What needed untangling",
-        body: "Attendance is more than a simple present-or-absent status. The system brings scattered processes together, separates morning check-ins from class-session attendance, keeps a traceable history, and highlights records that need follow-up.",
+        title: "Where the workflow gets complex",
+        body: "Attendance is more than present or absent. The system separates morning check-ins from class-session attendance, keeps a traceable history, and makes unusual records easier to follow up.",
         isPlaceholder: false,
       },
       {
-        title: "Who does what",
-        body: "Students can submit a daily check-in with a status, photo proof, and location when needed, then send leave or sick requests. Teachers and homeroom teachers monitor their classes and correct unusual records. Subject teachers manage session attendance, counsellors monitor students who need attention, and admins manage academic data, roles, imports, and school holidays.",
+        title: "Roles behind the workflow",
+        body: "Students submit daily check-ins and leave or sick requests. Teachers and homeroom teachers review class records, subject teachers manage session attendance, counsellors follow up on students who need attention, and admins manage the academic data, roles, imports, and school holidays behind it.",
         isPlaceholder: false,
       },
       {
-        title: "What the system helps with",
-        body: "Absensi CN turns attendance data into something easier to follow up. Records that already match do not need another review, while unusual records can be corrected with a note. The holiday calendar also helps prevent non-school days from being counted as absences.",
+        title: "What changes in daily operations",
+        body: "Routine records can move forward without another review, while unusual ones can be corrected with a note. The holiday calendar also stops non-school days from being counted as absences.",
         isPlaceholder: false,
       },
     ],
     gallery: [
       {
         src: "/images/project/absensi-cn/login-form.png",
-        alt: "Form login platform Absensi CN",
+        alt: "Login screen for Citra Negara Attendance System",
         label: "Login screen",
       },
       {
         src: "/images/project/absensi-cn/dashboard.png",
-        alt: "Dashboard utama platform Absensi CN",
+        alt: "Main dashboard of Citra Negara Attendance System",
         label: "Main dashboard",
       },
     ],

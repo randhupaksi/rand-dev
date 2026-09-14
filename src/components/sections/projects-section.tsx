@@ -14,26 +14,29 @@ export function ProjectsSection() {
   return (
     <section ref={scopeRef} id="portfolio" className="section-shell">
       <div className="content-stack-lg">
-        <div className="content-stack-md">
-          <div data-reveal>
+        <div
+          data-reveal
+          className="grid gap-8 lg:grid-cols-[minmax(0,1fr)_minmax(15rem,0.34fr)] lg:items-stretch lg:gap-16"
+        >
+          <div className="flex flex-col gap-6">
             <SectionIndex
               index="03"
-              label={projects.length === 1 ? "Case study" : "Selected work"}
+              label={projects.length === 1 ? "Selected product" : "Selected work"}
             />
-          </div>
-          <div
-            data-reveal
-            className="grid gap-8 lg:grid-cols-[minmax(0,1fr)_minmax(15rem,0.34fr)] lg:items-end lg:gap-16"
-          >
             <h2 className="type-h2 max-w-3xl">
               {projects.length === 1
-                ? "Absensi CN, a system for keeping track of attendance and student follow-up."
+                ? "Here’s what that looks like in production."
                 : "Work that shows how I think."}
             </h2>
+          </div>
             <aside className="content-stack-sm border-t border-border-subtle pt-5 lg:border-l lg:border-t-0 lg:pb-1 lg:pl-6 lg:pt-0">
-              <p className="type-overline text-accent">Featured work</p>
+              <p className="type-overline text-accent">Live product</p>
+              <div className="flex flex-wrap items-baseline gap-x-3 gap-y-1">
+                <span className="text-3xl font-semibold tracking-tight text-foreground">2,000+</span>
+                <span className="type-body-sm">users</span>
+              </div>
               <p className="type-body-sm">
-                A closer look at the context, user flows, and decisions behind it.
+                An attendance workflow built for SMK Citra Negara Depok.
               </p>
               <Link
                 to={
@@ -47,7 +50,6 @@ export function ProjectsSection() {
                 <ArrowRight className="size-4 transition-transform duration-300 group-hover:translate-x-0.5" />
               </Link>
             </aside>
-          </div>
         </div>
 
         {/* Featured */}
@@ -61,7 +63,7 @@ export function ProjectsSection() {
               <div className="content-stack-md">
                 <div className="flex flex-wrap items-center gap-3">
                   <span className="type-overline text-accent">
-                    Featured case study
+                    Featured product
                   </span>
                   {featured.period.isPlaceholder ? (
                     <DraftBadge label="Timeline not published" />
@@ -76,12 +78,16 @@ export function ProjectsSection() {
                 <h3 className="type-h3">
                   {featured.name}
                 </h3>
-                <p className="type-overline text-brand-soft">
-                  {featured.category}
-                </p>
-                <p className="type-body-sm max-w-2xl">
-                  {featured.summary}
-                </p>
+                <MediaPlaceholder
+                  src={featured.thumbnail?.src}
+                  alt={featured.thumbnail?.alt}
+                  label="Project image placeholder"
+                  hint="Add the real screenshots in src/data/projects.ts"
+                  aspect="wide"
+                  className="lg:hidden"
+                />
+                <p className="type-overline text-brand-soft">{featured.category}</p>
+                <p className="type-body-sm max-w-2xl">{featured.summary}</p>
 
                 <div className="type-overline flex flex-wrap items-center gap-x-3 gap-y-1.5 text-brand-soft">
                   {featured.focusAreas.map((item, index) => (
@@ -108,6 +114,7 @@ export function ProjectsSection() {
                 label="Project image placeholder"
                 hint="Add the real screenshots in src/data/projects.ts"
                 aspect="wide"
+                className="hidden lg:flex"
               />
             </div>
           </Link>

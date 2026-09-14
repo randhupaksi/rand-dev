@@ -13,7 +13,7 @@ import { useReveal } from "@/hooks/use-reveal";
 export default function ProjectsPage() {
   usePageMeta(
     "Work - Randhu Paksi Membumi",
-    "A case study of Absensi CN, a student attendance and follow-up platform for Sekolah Citra Negara.",
+    "A case study of Citra Negara Attendance System, a student attendance and follow-up platform for SMK Citra Negara Depok.",
   );
 
   const scopeRef = useReveal<HTMLDivElement>();
@@ -30,15 +30,15 @@ export default function ProjectsPage() {
             data-reveal
             className="type-h1"
           >
-            {isSingleCaseStudy ? "One case study I’m currently " : "Work that shows how I "}
+            {isSingleCaseStudy ? "A live product, " : "Work shaped by real "}
             <span className="text-gradient-brand">
-              {isSingleCaseStudy ? "documenting" : "think"}
+              {isSingleCaseStudy ? "unpacked" : "workflows"}
             </span>
             .
           </h1>
           <p data-reveal className="section-copy max-w-3xl">
             {isSingleCaseStudy
-              ? "A closer look at the system, its users, and the frontend decisions behind it."
+              ? "Citra Negara Attendance System is a live attendance and follow-up workflow for SMK Citra Negara Depok, used by more than 2,000 users."
               : "Case studies about the context, flows, and decisions behind my work."}
           </p>
         </div>

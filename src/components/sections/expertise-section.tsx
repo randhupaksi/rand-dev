@@ -1,4 +1,4 @@
-import { Code2, PanelsTopLeft, ScanLine, UsersRound } from "lucide-react";
+import { Code2, PanelsTopLeft, ScanLine } from "lucide-react";
 
 import { SectionIndex } from "@/components/common/section-index";
 import { expertiseItems } from "@/data/home";
@@ -6,24 +6,19 @@ import { useReveal } from "@/hooks/use-reveal";
 
 const expertiseMeta = [
   {
-    label: "Build",
-    note: "Solid foundations",
+    label: "Ship",
+    note: "Built for real use",
     icon: Code2,
   },
   {
-    label: "Shape",
-    note: "Visual with purpose",
+    label: "Design",
+    note: "Clear by default",
     icon: ScanLine,
   },
   {
     label: "Connect",
-    note: "Flows that make sense",
+    note: "UI meets logic",
     icon: PanelsTopLeft,
-  },
-  {
-    label: "Guide",
-    note: "Learning together",
-    icon: UsersRound,
   },
 ] as const;
 
@@ -40,12 +35,12 @@ export function ExpertiseSection() {
 
           <div data-reveal className="content-stack-md">
             <h2 className="type-h2 max-w-md">
-              More than a list of{" "}
-              <span className="text-accent">tools.</span>
+              I build the part{" "}
+              <span className="text-accent">people use.</span>
             </h2>
             <p className="type-body max-w-md">
-              I care about the whole experience: a strong structure, a clear
-              visual language, and a flow that feels natural to use.
+              My work sits between interface, product flow, and code—turning
+              complex requirements into experiences that feel clear in use.
             </p>
           </div>
 
@@ -74,7 +69,7 @@ export function ExpertiseSection() {
             return (
               <article
                 key={item.title}
-                className="expertise-row ds-divider group overflow-hidden border-t py-8 sm:py-10"
+                className="expertise-row ds-divider group overflow-hidden border-t py-8 pl-5 sm:py-10 sm:pl-0"
               >
                 <div className="grid gap-6 sm:grid-cols-[4.5rem_minmax(0,1fr)] sm:gap-8 lg:grid-cols-[5rem_minmax(0,1fr)]">
                   <div className="expertise-marker">
