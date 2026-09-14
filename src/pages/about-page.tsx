@@ -15,14 +15,13 @@ import { useReveal } from "@/hooks/use-reveal";
 export default function AboutPage() {
   usePageMeta(
     "About - Randhu Paksi Membumi",
-    "How Randhu Paksi Membumi approaches product interfaces, workflows, and frontend implementation.",
+    "How Randhu Paksi Membumi approaches enterprise UI/UX, product workflows, and frontend implementation.",
   );
 
   const scopeRef = useReveal<HTMLDivElement>();
 
   return (
     <div ref={scopeRef}>
-      {/* Intro editorial */}
       <section className="section-shell-compact">
         <div className="grid gap-12 lg:grid-cols-[minmax(0,1.12fr)_minmax(16rem,0.48fr)] lg:items-end lg:gap-20">
           <div className="content-stack-md">
@@ -33,16 +32,15 @@ export default function AboutPage() {
               data-reveal
               className="type-h1"
             >
-              I build interfaces that make{" "}
+              I design enterprise interfaces for{" "}
               <span className="text-gradient-brand">
-                complex work easier to follow
+                complex workflows
               </span>
-              .
             </h1>
             <p data-reveal className="section-copy max-w-3xl">
               I’m {siteIdentity.name}, a freelance Full-stack Developer at Matik Creative
               Technology. I work across interface, product flow, and the code that connects
-              them—then keep refining the details until the product feels clear in use.
+              them - then keep refining the details until the product feels clear in use.
             </p>
             <p data-reveal className="type-overline text-brand-soft">
               Freelance full-stack developer
@@ -83,7 +81,6 @@ export default function AboutPage() {
         </div>
       </section>
 
-      {/* Prinsip kerja - editorial rows, bukan card grid */}
       <section className="section-shell-compact">
         <div className="grid gap-10 lg:grid-cols-[minmax(0,0.55fr)_minmax(0,1fr)]">
           <div data-reveal className="content-stack-sm lg:sticky lg:top-32 lg:self-start">
@@ -120,7 +117,6 @@ export default function AboutPage() {
         </div>
       </section>
 
-      {/* Skills */}
       <section className="section-shell-compact">
         <div className="content-stack-lg">
           <div data-reveal className="content-stack-sm max-w-3xl">
@@ -153,7 +149,6 @@ export default function AboutPage() {
         </div>
       </section>
 
-      {/* Journey timeline */}
       <section className="section-shell-compact">
         <div className="content-stack-lg">
           <div data-reveal className="content-stack-sm max-w-3xl">
@@ -162,7 +157,7 @@ export default function AboutPage() {
               Work, recognition, and momentum
             </h2>
             <p className="section-copy">
-              The experience behind how I work today—from hands-on placement to freelance product work.
+              The experience behind how I work today - from hands-on placement to freelance product work.
             </p>
           </div>
 
@@ -208,15 +203,14 @@ export default function AboutPage() {
         </div>
       </section>
 
-      {/* CTA */}
-      <section className="section-shell-compact">
+      <section className="section-shell-compact page-end-cta">
         <div
           data-reveal
           className="surface-elevated flex flex-col gap-6 p-(--card-padding) sm:flex-row sm:items-center sm:justify-between"
         >
           <div className="content-stack-xs">
             <h2 className="type-h4">
-              See the thinking in a live product.
+              See the thinking in a live product
             </h2>
             <p className="type-body-sm">
               Citra Negara Attendance System shows how interface, workflow, and supporting logic come together.

@@ -8,8 +8,8 @@ import { usePageMeta } from "@/hooks/use-page-meta";
 
 export default function HomePage() {
   usePageMeta(
-    "Randhu Paksi Membumi - Frontend Developer",
-    "Portfolio of Randhu Paksi Membumi, a Frontend Developer at Matik Creative Technology building responsive websites and apps with React, Next.js, and TypeScript.",
+    "Randhu Paksi Membumi - Enterprise UI/UX Frontend Developer",
+    "Portfolio of Randhu Paksi Membumi, a Frontend Developer building clean, interactive enterprise interfaces and product workflows with React, Next.js, and TypeScript.",
   );
 
   return (

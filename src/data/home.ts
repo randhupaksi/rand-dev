@@ -9,59 +9,59 @@ import type {
 export const aboutProfile: AboutProfile = {
   name: "Randhu Paksi Membumi",
   role: "Freelance Full-stack Developer at Matik Creative Technology",
-  education: "SMK Citra Negara Depok · PPLG (2024 — 2027)",
+  education: "SMK Citra Negara Depok · PPLG (2024 - 2027)",
   summary:
-    "I’m a freelance Full-stack Developer, previously completing my SMK field-work practice as a Frontend Developer at Matik Creative Technology. I also teach frontend and UI/UX at the IT Club of SMK Citra Negara Depok.",
+    "I’m a freelance Full-stack Developer at Matik Creative Technology, focused on building clean and interactive interfaces for products with real operational workflows. I also teach frontend and UI/UX at the IT Club of SMK Citra Negara Depok.",
   statement:
-    "I like bringing frontend implementation and visual thinking together, so the UI is not only neat, but also comfortable to use.",
-  tags: ["Frontend Development", "UI/UX", "Mentoring"],
+    "I bring frontend implementation and visual thinking together, so enterprise UI stays minimal on the surface while still making complex work easier to operate.",
+  tags: ["Enterprise UI/UX", "Frontend Development", "Interactive Systems"],
 };
 
 export const expertiseItems: ExpertiseItem[] = [
   {
     title: "Production interfaces",
     description:
-      "I build responsive web interfaces that hold up in real use—not just in a mockup. Absensi CN is now live in production and supports more than 2,000 users.",
-    bullets: ["React & Next.js", "TypeScript", "Production-ready UI"],
+      "I build clean, responsive interfaces for products that have to work beyond the demo. Absensi CN is live in production and supports more than 2,000 users.",
+    bullets: ["Enterprise-ready UI", "React & Next.js", "Production-ready frontend"],
   },
   {
     title: "UI systems & interaction",
     description:
-      "I turn rough requirements and visual direction into interfaces with clear hierarchy, responsive behaviour, useful feedback, and reusable components.",
-    bullets: ["Visual hierarchy", "Responsive behaviour", "Motion & feedback"],
+      "I shape minimal UI systems with clear hierarchy, responsive behaviour, useful feedback, and interaction details that help people move through demanding workflows.",
+    bullets: ["Clean visual systems", "Responsive behaviour", "Motion & feedback"],
   },
   {
     title: "Product flows & APIs",
     description:
-      "I work with roles, states, permissions, and API responses so complex products still feel understandable. When needed, I also build the backend services behind the interface with Go.",
-    bullets: ["Role-aware UI", "Dashboard workflows", "Go & REST APIs"],
+      "I connect roles, states, permissions, and API responses so enterprise products stay understandable. When needed, I also build the Go services behind the interface.",
+    bullets: ["Role-aware UI", "Operational workflows", "Go & REST APIs"],
   },
 ];
 
 export const processSteps: ProcessStep[] = [
   {
     step: "01",
-    title: "Define the real workflow",
+    title: "Understand the operating workflow",
     description:
-      "I start with who needs to do what, which roles are involved, and where the workflow can break—before deciding what the interface needs.",
+      "I start with the people, roles, decisions, and edge cases that shape the work - before deciding what the interface needs.",
   },
   {
     step: "02",
-    title: "Make roles and states clear",
+    title: "Make roles and states legible",
     description:
-      "I turn that context into page structure, role-aware flows, and component states so every user knows what they can do next.",
+      "I turn that context into page structure, role-aware flows, and component states so every user can see what is happening and what to do next.",
   },
   {
     step: "03",
-    title: "Connect interface to logic",
+    title: "Connect interface to product logic",
     description:
-      "I build responsive interfaces with React, Next.js, and TypeScript, then connect them to APIs and backend services with Go when the product needs it.",
+      "I build responsive interfaces with React, Next.js, and TypeScript, then connect them to APIs and Go services when the product needs a deeper system behind it.",
   },
   {
     step: "04",
-    title: "Test the edges",
+    title: "Refine every state",
     description:
-      "I refine hierarchy, responsive behaviour, loading, empty, error, and feedback states until the interface feels reliable in everyday use.",
+      "I refine hierarchy, responsive behaviour, loading, empty, error, and feedback states until the interface feels calm and reliable in everyday use.",
   },
 ];
 
@@ -85,9 +85,9 @@ export const toolGroups: ToolGroup[] = [
 ];
 
 export const homeCta: HomeCta = {
-  title: "Have a frontend idea in mind?",
+  title: "Have a complex product workflow in mind?",
   description:
-    "Tell me what you’re working on—a website, app, dashboard, or anything that needs thoughtful frontend work.",
+    "Tell me what you’re working on - an enterprise interface, dashboard, internal tool, or product flow that needs thoughtful frontend work.",
   primaryLabel: "Let’s talk",
-  secondaryLabel: "See all work",
+  secondaryLabel: "See all projects",
 };

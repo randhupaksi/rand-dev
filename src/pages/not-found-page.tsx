@@ -17,7 +17,7 @@ export default function NotFoundPage() {
           This link doesn’t lead anywhere
         </h1>
         <p className="type-body-sm">
-          It may be outdated or moved. Head home or browse the work instead.
+          It may be outdated or moved. Head home or browse the projects instead.
         </p>
         <div className="flex flex-wrap justify-center gap-3 pt-2">
           <Link
@@ -31,7 +31,7 @@ export default function NotFoundPage() {
             to="/projects"
             className={buttonVariants({ variant: "outline", size: "md" })}
           >
-            See the work
+            See the projects
             <ArrowRight className="size-4" aria-hidden="true" />
           </Link>
         </div>

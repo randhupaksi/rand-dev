@@ -4,13 +4,6 @@ import type {
   SocialLink,
 } from "@/types/site";
 
-/**
- * Satu-satunya sumber informasi personal di seluruh website.
- *
- * Email dan CV dibaca dari `.env` (lihat `.env.example`).
- * LinkedIn memakai profil publik yang sudah diverifikasi; environment variable
- * tetap dapat digunakan bila profil tersebut perlu diganti.
- */
 const env = import.meta.env;
 
 const email = (env.VITE_EMAIL as string | undefined) || "";
@@ -30,9 +23,9 @@ export const siteIdentity: SiteIdentity = {
   brandSecond: "Paksi",
   role: "Frontend Developer",
   tagline:
-    "Frontend developer focused on clear product flows, responsive interfaces, and the logic behind them.",
+    "Frontend developer focused on clean, interactive enterprise interfaces and the workflows behind them.",
   availability: {
-    value: "Open to frontend, full-stack, and UI/UX conversations",
+    value: "Open to enterprise product, frontend, and UI/UX conversations",
     isPlaceholder: false,
   },
   cvHref: cvUrl || null,
