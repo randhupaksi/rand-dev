@@ -1,8 +1,11 @@
 import {
   ArrowUpRight,
+  ChevronDown,
   FileText,
   Mail,
 } from "lucide-react";
+import { useLayoutEffect, useRef, useState } from "react";
+import gsap from "gsap";
 
 import { SocialLinks } from "@/components/common/social-links";
 import { buttonVariants } from "@/components/ui/button-variants";
@@ -11,6 +14,7 @@ import { contactFaq } from "@/data/about";
 import { contactChannels, siteIdentity, socialLinks } from "@/data/site";
 import { usePageMeta } from "@/hooks/use-page-meta";
 import { useReveal } from "@/hooks/use-reveal";
+import { cn } from "@/lib/utils";
 
 const channelIconMap = {
   email: Mail,
@@ -19,12 +23,41 @@ const channelIconMap = {
 export default function ContactPage() {
   usePageMeta(
     "Contact - Randhu Paksi Membumi",
-    "Find Randhu Paksi Membumi online for frontend, full-stack, and UI/UX collaborations.",
+    "Find Randhu Paksi Membumi for enterprise UI/UX, frontend, and full-stack product collaborations.",
   );
 
   const scopeRef = useReveal<HTMLDivElement>();
+  const [openFaqIndex, setOpenFaqIndex] = useState(0);
+  const faqAnswerRefs = useRef<Array<HTMLDivElement | null>>([]);
+  const faqMotionReady = useRef(false);
   const directChannels = contactChannels.filter((channel) => channel.href);
   const publishedSocials = socialLinks.filter((link) => link.href);
+
+  useLayoutEffect(() => {
+    const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+
+    faqAnswerRefs.current.forEach((answer, index) => {
+      if (!answer) {
+        return;
+      }
+
+      const isOpen = index === openFaqIndex;
+
+      if (!faqMotionReady.current || reduceMotion) {
+        gsap.set(answer, { height: isOpen ? "auto" : 0 });
+        return;
+      }
+
+      gsap.to(answer, {
+        height: isOpen ? "auto" : 0,
+        duration: isOpen ? 0.42 : 0.3,
+        ease: isOpen ? "power3.out" : "power2.inOut",
+        overwrite: "auto",
+      });
+    });
+
+    faqMotionReady.current = true;
+  }, [openFaqIndex]);
 
   return (
     <div ref={scopeRef}>
@@ -34,21 +67,21 @@ export default function ContactPage() {
             <div data-reveal className="section-eyebrow">Say hello</div>
             <h1 data-reveal className="type-h1 max-w-3xl">
               Let’s talk about the{" "}
-              <span className="text-gradient-brand">work</span>.
+              <span className="text-gradient-brand">work!</span>
             </h1>
           </div>
           <div data-reveal className="border-l border-border-strong pl-5">
             <p className="type-overline">Product frontend</p>
             <p className="mt-3 max-w-xs text-sm leading-7 text-muted-foreground">
-              Web products with real workflows behind them—from clear interfaces
+              Enterprise web products with real workflows behind them - from clean interfaces
               to role-aware screens and connected APIs.
             </p>
           </div>
         </div>
         <p data-reveal className="section-copy mt-8 max-w-3xl">
           I’m a frontend and full-stack developer at Matik Creative Technology.
-          If you’re shaping a web product that needs clear interface and
-          workflow work, you can reach me through the channels below.
+          If you’re shaping an enterprise product that needs a clean interface,
+          thoughtful interaction, and clear workflow logic, you can reach me through the channels below.
         </p>
       </section>
 
@@ -57,10 +90,10 @@ export default function ContactPage() {
           <div className="content-stack-lg">
             <div data-reveal className="content-stack-sm">
               <p className="type-overline">Where to find me</p>
-              <h2 className="type-h3 max-w-sm">Use the channel that fits the conversation.</h2>
+              <h2 className="type-h3 max-w-sm">Let’s talk about the workflow</h2>
               <p className="type-body-sm max-w-md">
                 Email is best for project conversations. My public profiles are
-                there if you want to see the work first.
+                there if you want to see the projects first.
               </p>
             </div>
 
@@ -90,7 +123,7 @@ export default function ContactPage() {
 
             {siteIdentity.cvHref ? (
               <div data-reveal className="content-stack-sm">
-                <p className="type-overline">Résumé</p>
+                <p className="type-overline">Resume</p>
                 <a
                   href={siteIdentity.cvHref}
                   target="_blank"
@@ -98,7 +131,7 @@ export default function ContactPage() {
                   className={buttonVariants({ variant: "outline", size: "md" })}
                 >
                   <FileText className="size-4" aria-hidden="true" />
-                  View résumé
+                  View resume
                 </a>
               </div>
             ) : null}
@@ -107,9 +140,9 @@ export default function ContactPage() {
           <aside data-reveal className="content-stack-md border-y border-border-subtle py-6 sm:py-8">
             <div className="content-stack-sm max-w-xl">
               <p className="type-overline">Online profiles</p>
-              <h2 className="type-h3">Follow the work in public.</h2>
+              <h2 className="type-h3">Follow the projects in public</h2>
               <p className="type-body-sm">
-                Code, work history, and occasional updates live across these profiles.
+              Code, project history, and occasional updates live across these profiles.
               </p>
             </div>
 
@@ -143,22 +176,54 @@ export default function ContactPage() {
       <section className="section-shell-compact">
         <div className="grid gap-10 lg:grid-cols-[minmax(12rem,0.58fr)_minmax(0,1.42fr)] lg:gap-20">
           <div data-reveal className="content-stack-sm">
-            <div className="section-eyebrow">A few answers</div>
-            <h2 className="type-h3 max-w-sm">A little context before we talk.</h2>
+            <div className="section-eyebrow">Working together</div>
+            <h2 className="type-h3 max-w-sm">The useful stuff to know before you reach out</h2>
             <p className="type-body-sm max-w-xs">
-              The quick version of how I work and what I can help with.
+              A quick read on the product work I’m best placed to help with - and how I turn unclear requirements into clean, usable flows.
             </p>
           </div>
           <div className="border-t border-border-subtle">
-            {contactFaq.map((faq) => (
-              <details key={faq.question} data-reveal className="group border-b border-border-subtle">
-                <summary className="flex min-h-(--button-height-lg) cursor-pointer list-none items-center justify-between gap-4 py-4 text-base font-medium text-foreground transition-[color,opacity] duration-200 hover:text-accent active:opacity-75 focus-visible:outline-2 focus-visible:outline-offset-[-2px] focus-visible:outline-ring motion-reduce:transition-none [&::-webkit-details-marker]:hidden">
-                  {faq.question}
-                  <span aria-hidden="true" className="text-lg text-brand-muted transition-transform duration-300 group-open:rotate-45">+</span>
-                </summary>
-                <p className="type-body-sm max-w-2xl pb-5 pr-8">{faq.answer}</p>
-              </details>
-            ))}
+            {contactFaq.map((faq, index) => {
+              const isOpen = openFaqIndex === index;
+              const answerId = `contact-faq-answer-${index}`;
+
+              return (
+                <article key={faq.question} data-reveal className="group border-b border-border-subtle">
+                  <button
+                    type="button"
+                    aria-expanded={isOpen}
+                    aria-controls={answerId}
+                    onClick={() => setOpenFaqIndex((current) => (current === index ? -1 : index))}
+                    className="faq-option group grid min-h-(--button-height-lg) w-full grid-cols-[2rem_minmax(0,1fr)_auto] items-center gap-3 py-4 text-left focus-visible:outline-2 focus-visible:outline-offset-[-2px] focus-visible:outline-ring motion-reduce:transition-none sm:grid-cols-[2.5rem_minmax(0,1fr)_auto]"
+                  >
+                    <span className="font-mono text-xs font-medium tracking-widest text-brand-muted">
+                      {String(index + 1).padStart(2, "0")}
+                    </span>
+                    <span className="text-base font-medium text-foreground transition-transform duration-200 group-hover:translate-x-0.5 sm:text-lg">
+                      {faq.question}
+                    </span>
+                    <ChevronDown
+                      aria-hidden="true"
+                      className={cn(
+                        "size-5 shrink-0 text-accent transition-transform duration-300 ease-standard motion-reduce:transition-none",
+                        isOpen && "rotate-180",
+                      )}
+                    />
+                  </button>
+                  <div
+                    ref={(node) => {
+                      faqAnswerRefs.current[index] = node;
+                    }}
+                    id={answerId}
+                    role="region"
+                    aria-hidden={!isOpen}
+                    className="h-0 overflow-hidden"
+                  >
+                    <p className="type-body-sm max-w-2xl pb-5 pl-8 pr-8 sm:pl-10">{faq.answer}</p>
+                  </div>
+                </article>
+              );
+            })}
           </div>
         </div>
       </section>
