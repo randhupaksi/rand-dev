@@ -2,8 +2,6 @@ import {
   ArrowUpRight,
   FileText,
   Mail,
-  MapPin,
-  MessageCircle,
 } from "lucide-react";
 
 import { SocialLinks } from "@/components/common/social-links";
@@ -16,8 +14,6 @@ import { useReveal } from "@/hooks/use-reveal";
 
 const channelIconMap = {
   email: Mail,
-  whatsapp: MessageCircle,
-  location: MapPin,
 } as const;
 
 export default function ContactPage() {
@@ -81,7 +77,7 @@ export default function ContactPage() {
                         <span className="type-overline">{channel.label}</span>
                         <a
                           href={channel.href ?? undefined}
-                          className="break-all font-mono text-sm text-foreground transition-colors duration-200 hover:text-accent focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-ring"
+                          className="ds-text-link break-all font-mono text-sm text-foreground hover:text-accent"
                         >
                           {channel.value}
                         </a>
@@ -127,7 +123,7 @@ export default function ContactPage() {
                       href={link.href ?? undefined}
                       target="_blank"
                       rel="noreferrer"
-                      className="group grid grid-cols-[2.5rem_1fr_auto] items-center gap-3 py-4 text-sm font-medium text-foreground transition-colors duration-200 hover:text-accent focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-ring sm:grid-cols-[3rem_1fr_auto]"
+                      className="ds-text-link group grid grid-cols-[2.5rem_1fr_auto] items-center gap-3 py-4 text-sm font-medium text-foreground hover:text-accent sm:grid-cols-[3rem_1fr_auto]"
                     >
                       <span className="font-mono text-xs text-muted-foreground">{String(index + 1).padStart(2, "0")}</span>
                       <span>{link.label}</span>
@@ -156,7 +152,7 @@ export default function ContactPage() {
           <div className="border-t border-border-subtle">
             {contactFaq.map((faq) => (
               <details key={faq.question} data-reveal className="group border-b border-border-subtle">
-                <summary className="flex min-h-(--button-height-lg) cursor-pointer list-none items-center justify-between gap-4 py-4 text-base font-medium text-foreground focus-visible:outline-2 focus-visible:outline-offset-[-2px] focus-visible:outline-ring [&::-webkit-details-marker]:hidden">
+                <summary className="flex min-h-(--button-height-lg) cursor-pointer list-none items-center justify-between gap-4 py-4 text-base font-medium text-foreground transition-[color,opacity] duration-200 hover:text-accent active:opacity-75 focus-visible:outline-2 focus-visible:outline-offset-[-2px] focus-visible:outline-ring motion-reduce:transition-none [&::-webkit-details-marker]:hidden">
                   {faq.question}
                   <span aria-hidden="true" className="text-lg text-brand-muted transition-transform duration-300 group-open:rotate-45">+</span>
                 </summary>

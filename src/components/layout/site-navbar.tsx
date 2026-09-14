@@ -12,7 +12,7 @@ export function SiteNavbar() {
         <div className="mx-auto flex min-h-(--header-height) items-center justify-between rounded-(--card-radius) border border-border bg-background/85 px-5 backdrop-blur-md sm:px-7">
           <Link
             to="/"
-            className="group inline-flex items-center gap-0.5 text-lg font-semibold tracking-tight text-foreground focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-ring"
+            className="ds-text-link group inline-flex items-center gap-0.5 text-lg font-semibold tracking-tight text-foreground"
           >
             {siteIdentity.brandFirst}{" "}
             <span className="text-accent">{siteIdentity.brandSecond}</span>
@@ -27,7 +27,7 @@ export function SiteNavbar() {
                 end={item.to === "/"}
                 className={({ isActive }) =>
                   cn(
-                    "group relative text-sm font-medium transition-all duration-300 focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-ring",
+                    "ds-text-link group relative text-sm font-medium",
                     isActive
                       ? "text-foreground"
                       : "text-muted-foreground hover:text-foreground",

@@ -1,16 +1,16 @@
 import { cva } from "class-variance-authority";
 
 export const buttonVariants = cva(
-  "group/button inline-flex shrink-0 items-center justify-center whitespace-nowrap rounded-full border font-medium transition-all duration-200 outline-none select-none focus-visible:ring-3 focus-visible:ring-ring/50 active:translate-y-px disabled:pointer-events-none disabled:cursor-not-allowed disabled:opacity-45 [&_svg]:pointer-events-none [&_svg]:shrink-0 [&_svg:not([class*='size-'])]:size-4",
+  "group/button inline-flex shrink-0 items-center justify-center whitespace-nowrap rounded-full border font-medium transition-[transform,background-color,border-color,color,box-shadow,filter,opacity] duration-200 ease-standard outline-none select-none hover:-translate-y-px focus-visible:ring-3 focus-visible:ring-ring/50 active:translate-y-0 active:scale-[0.98] disabled:pointer-events-none disabled:cursor-not-allowed disabled:opacity-45 motion-reduce:transform-none motion-reduce:transition-none [&_svg]:pointer-events-none [&_svg]:shrink-0 [&_svg:not([class*='size-'])]:size-4",
   {
     variants: {
       variant: {
         primary:
-          "border-transparent bg-(image:--gradient-primary) text-primary-foreground shadow-sm hover:brightness-110 active:brightness-95",
+          "border-transparent bg-(image:--gradient-primary) text-primary-foreground shadow-sm hover:brightness-110 hover:shadow-md active:brightness-95",
         secondary:
-          "border-border-default bg-secondary text-secondary-foreground hover:bg-secondary-800",
+          "border-border-default bg-secondary text-secondary-foreground hover:bg-secondary-800 hover:shadow-sm",
         outline:
-          "border-border-default bg-surface-subtle text-foreground hover:border-border-strong hover:bg-surface-hover",
+          "border-border-default bg-surface-subtle text-foreground hover:border-border-strong hover:bg-surface-hover hover:shadow-sm",
         ghost:
           "border-transparent bg-transparent text-muted-foreground hover:bg-surface-hover hover:text-foreground",
       },

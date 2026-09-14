@@ -44,7 +44,7 @@ export function ProjectsSection() {
                     ? `/projects/${featured.slug}`
                     : "/projects"
                 }
-                className="group inline-flex min-h-11 w-fit items-center gap-2 text-sm font-medium text-accent transition-colors duration-300 hover:text-highlight"
+                className="ds-text-link group inline-flex min-h-11 w-fit items-center gap-2 text-sm font-medium text-accent hover:text-highlight"
               >
                 {projects.length === 1 ? "Read the case study" : "See all work"}
                 <ArrowRight className="size-4 transition-transform duration-300 group-hover:translate-x-0.5" />
@@ -126,7 +126,7 @@ export function ProjectsSection() {
             <Link
               key={project.slug}
               to={`/projects/${project.slug}`}
-              className="ds-divider group grid grid-cols-[2.5rem_minmax(0,1fr)_auto] items-center gap-4 border-t py-6 transition-all duration-300 last:border-b hover:border-border-strong hover:bg-surface-subtle hover:pl-2 sm:grid-cols-[3.5rem_minmax(0,1fr)_minmax(0,0.45fr)_auto] sm:py-7"
+              className="ds-divider group grid grid-cols-[2.5rem_minmax(0,1fr)_auto] items-center gap-4 border-t py-6 transition-[background-color,border-color,padding,opacity] duration-300 last:border-b hover:border-border-strong hover:bg-surface-subtle hover:pl-2 active:bg-surface-hover active:opacity-80 sm:grid-cols-[3.5rem_minmax(0,1fr)_minmax(0,0.45fr)_auto] sm:py-7"
             >
               <span className="font-mono text-sm text-brand-muted">
                 0{index + 2}

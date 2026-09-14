@@ -64,7 +64,7 @@ export function SiteFooter() {
                 <li key={item.to}>
                 <Link
                   to={item.to}
-                  className="group inline-flex min-h-9 items-center gap-2 text-sm text-muted-foreground transition-colors duration-200 hover:text-foreground focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-ring"
+                  className="ds-text-link group inline-flex min-h-9 items-center gap-2 text-sm text-muted-foreground hover:text-foreground"
                 >
                   <Icon
                     aria-hidden="true"
@@ -91,7 +91,7 @@ export function SiteFooter() {
               href={featuredProject.links.demo ?? undefined}
               target="_blank"
               rel="noreferrer"
-              className="group inline-flex min-h-9 w-fit items-center gap-2 text-sm font-medium text-accent transition-colors hover:text-highlight focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-ring"
+              className="ds-text-link group inline-flex min-h-9 w-fit items-center gap-2 text-sm font-medium text-accent hover:text-highlight"
             >
               View live product
               <ArrowUpRight className="size-4 transition-transform duration-300 group-hover:-translate-y-0.5 group-hover:translate-x-0.5" />

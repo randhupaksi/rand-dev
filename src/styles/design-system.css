@@ -600,6 +600,33 @@
   .ds-card-interactive:hover {
     border-color: var(--border-strong);
     background: var(--surface-hover);
+    box-shadow: var(--shadow-md);
+    transform: translateY(-2px);
+  }
+
+  .ds-card-interactive:active {
+    box-shadow: var(--shadow-xs);
+    transform: translateY(0) scale(0.995);
+  }
+
+  .ds-card-interactive:focus-visible {
+    outline: 3px solid var(--ring);
+    outline-offset: 4px;
+  }
+
+  .ds-text-link {
+    transition:
+      color var(--duration-fast) var(--ease-standard),
+      opacity var(--duration-fast) var(--ease-standard);
+  }
+
+  .ds-text-link:active {
+    opacity: 0.72;
+  }
+
+  .ds-text-link:focus-visible {
+    outline: 2px solid var(--ring);
+    outline-offset: 4px;
   }
 
   .ds-input {
@@ -623,6 +650,11 @@
 
   .ds-input:hover {
     border-color: var(--border-default);
+  }
+
+  .ds-input:active {
+    border-color: var(--border-strong);
+    background: var(--surface-hover);
   }
 
   .ds-input:focus-visible {
@@ -724,8 +756,32 @@
     color: var(--foreground);
   }
 
+  .ds-icon-control:active {
+    transform: scale(0.93);
+  }
+
+  .ds-icon-control:focus-visible {
+    outline: 3px solid var(--ring);
+    outline-offset: 3px;
+  }
+
   .ds-divider {
     border-color: var(--border-subtle);
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .ds-card-interactive,
+    .ds-icon-control,
+    .ds-text-link,
+    .ds-input {
+      transition: none;
+    }
+
+    .ds-card-interactive:hover,
+    .ds-card-interactive:active,
+    .ds-icon-control:active {
+      transform: none;
+    }
   }
 
   .media-placeholder-grid {

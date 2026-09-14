@@ -34,10 +34,10 @@ export function HeroVisual() {
           <p className="mt-2 text-sm font-medium leading-6 text-foreground">Citra Negara Attendance System — a live attendance platform used by 2,000+ users.</p>
           <Link
             to="/projects/absensi-cn"
-            className="mt-3 inline-flex items-center gap-1.5 text-sm font-medium text-accent transition-colors hover:text-highlight focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-ring"
+            className="ds-text-link group mt-3 inline-flex items-center gap-1.5 text-sm font-medium text-accent hover:text-highlight"
           >
             Read the case study
-            <ArrowUpRight className="size-3.5" aria-hidden="true" />
+            <ArrowUpRight className="size-3.5 transition-transform duration-200 group-hover:-translate-y-0.5 group-hover:translate-x-0.5" aria-hidden="true" />
           </Link>
         </div>
       </div>

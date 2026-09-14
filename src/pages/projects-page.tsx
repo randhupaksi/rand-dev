@@ -196,7 +196,7 @@ export default function ProjectsPage() {
               </div>
               <Link
                 to={`/projects/${featuredProject.slug}`}
-                className="group inline-flex min-h-9 w-fit items-center gap-2 text-sm font-medium text-accent transition-colors hover:text-highlight focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-ring"
+                className="ds-text-link group inline-flex min-h-9 w-fit items-center gap-2 text-sm font-medium text-accent hover:text-highlight"
               >
                 Read the full case study
                 <ArrowUpRight className="size-4 transition-transform duration-300 group-hover:-translate-y-0.5 group-hover:translate-x-0.5" />
