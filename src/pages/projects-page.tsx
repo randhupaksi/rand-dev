@@ -12,8 +12,8 @@ import { useReveal } from "@/hooks/use-reveal";
 
 export default function ProjectsPage() {
   usePageMeta(
-    "Work - Randhu Paksi Membumi",
-    "A case study of Citra Negara Attendance System, a student attendance and follow-up platform for SMK Citra Negara Depok.",
+    "Projects - Randhu Paksi Membumi",
+    "A case study of Citra Negara Attendance System, a production enterprise workflow designed around clear UI, role-aware access, and reliable product logic.",
   );
 
   const scopeRef = useReveal<HTMLDivElement>();
@@ -26,22 +26,22 @@ export default function ProjectsPage() {
         <div className={isSingleCaseStudy ? "grid gap-12 lg:grid-cols-[minmax(0,1.1fr)_minmax(15rem,0.42fr)] lg:items-end lg:gap-20" : "content-stack-md max-w-4xl"}>
           <div className="content-stack-md">
             <div data-reveal className="section-eyebrow">
-              Work
+              Projects
             </div>
             <h1
               data-reveal
               className="type-h1"
             >
-              {isSingleCaseStudy ? "A live product, " : "Work shaped by real "}
+              {isSingleCaseStudy ? "Built for real " : "Projects shaped by real "}
               <span className="text-gradient-brand">
-                {isSingleCaseStudy ? "unpacked" : "workflows"}
+                {isSingleCaseStudy ? "operations" : "workflows"}
               </span>
               .
             </h1>
             <p data-reveal className="section-copy max-w-3xl">
               {isSingleCaseStudy
-                ? "Citra Negara Attendance System is a live attendance and follow-up workflow for SMK Citra Negara Depok, used by more than 2,000 users."
-                : "Case studies about the context, flows, and decisions behind my work."}
+                ? "Citra Negara Attendance System is a live enterprise workflow for SMK Citra Negara Depok, used by more than 2,000 users and shaped around clear, role-aware product use."
+                : "Case studies about the context, interface decisions, and product workflows behind my work."}
             </p>
           </div>
 
@@ -223,11 +223,11 @@ export default function ProjectsPage() {
       ) : null}
 
       {isSingleCaseStudy && featuredProject ? (
-        <section className="section-shell-compact">
+        <section className="section-shell-compact page-end-cta">
           <div data-reveal className="surface-elevated flex flex-col gap-6 p-(--card-padding) sm:flex-row sm:items-center sm:justify-between">
             <div className="content-stack-xs max-w-2xl">
               <p className="type-overline text-accent">Go deeper</p>
-              <h2 className="type-h4">See the workflow in more detail.</h2>
+              <h2 className="type-h4">See the workflow in more detail</h2>
               <p className="type-body-sm">
                 Explore the roles, decisions, and real screens behind Citra Negara Attendance System.
               </p>

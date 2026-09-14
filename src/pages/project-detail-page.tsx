@@ -19,7 +19,7 @@ export default function ProjectDetailPage() {
   usePageMeta(
     project
       ? `${project.name} - Case Study - Randhu Paksi Membumi`
-      : "Work not found - Randhu Paksi Membumi",
+              : "Project not found - Randhu Paksi Membumi",
     project?.summary,
   );
 
@@ -41,7 +41,7 @@ export default function ProjectDetailPage() {
               className={cn(buttonVariants({ variant: "ghost", size: "md" }), "group")}
             >
               <ArrowLeft className="size-4 transition-transform duration-300 group-hover:-translate-x-0.5" />
-              Back to work
+              Back to projects
             </Link>
           </div>
 
@@ -84,7 +84,6 @@ export default function ProjectDetailPage() {
 
       <section className="section-shell-compact pt-6 lg:pt-8">
         <div className="grid gap-10 lg:grid-cols-[minmax(0,0.42fr)_minmax(0,1fr)]">
-          {/* Meta rail */}
           <aside
             data-reveal
             className="content-stack-lg lg:sticky lg:top-32 lg:self-start"
@@ -151,7 +150,6 @@ export default function ProjectDetailPage() {
             ) : null}
           </aside>
 
-          {/* Case study body */}
           <div className="content-stack-xl">
             {project.caseStudy.map((block) => (
               <div key={block.title} data-reveal className="content-stack-sm">
@@ -182,9 +180,9 @@ export default function ProjectDetailPage() {
               <section data-reveal className="content-stack-md pt-3">
                 <div className="content-stack-xs max-w-2xl">
                   <p className="type-overline text-accent">Technical foundation</p>
-                  <h2 className="type-h4">Frontend and API, working as separate layers.</h2>
+                  <h2 className="type-h4">Clean frontend and API layers, working together.</h2>
                   <p className="type-body-sm text-muted-foreground">
-                    The interface and service are deliberately separated: the frontend focuses on product use, while the API owns the data and rules behind it.
+                    The interface and service are deliberately separated: the frontend focuses on clean product use, while the API owns the data and rules behind the workflow.
                   </p>
                 </div>
 
@@ -242,7 +240,6 @@ export default function ProjectDetailPage() {
         </div>
       </section>
 
-      {/* Prev / next */}
       {previous || next ? (
         <section className="section-shell-compact">
           <nav

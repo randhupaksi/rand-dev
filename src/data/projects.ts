@@ -1,9 +1,5 @@
 import type { Project } from "@/types/project";
 
-/**
- * Seluruh karya yang ditampilkan pada portfolio dikelola dari file ini.
- * Detail Citra Negara Attendance System berasal dari informasi proyek yang diberikan pemilik portfolio.
- */
 export const projects: Project[] = [
   {
     slug: "absensi-cn",
@@ -14,7 +10,7 @@ export const projects: Project[] = [
       isPlaceholder: false,
     },
     summary:
-      "A production school operations platform used by 2,000+ people at SMK Citra Negara Depok, connecting attendance, review, follow-up, and reporting across the people who run them.",
+      "A production school operations platform used by 2,000+ people at SMK Citra Negara Depok, showing how clean interfaces, role-aware workflows, and reliable product logic work together.",
     thumbnail: {
       src: "/images/project/absensi-cn/hero-absensi-cn.png",
       alt: "Tampilan utama Citra Negara Attendance System",
@@ -58,7 +54,7 @@ export const projects: Project[] = [
       {
         title: "Frontend application",
         description:
-          "The Vite single-page app that handles the interface, server state, forms, reporting views, and interaction details.",
+          "The Vite single-page app that handles the clean interface, server state, forms, reporting views, and interaction details across role-based workflows.",
         items: [
           "React 19",
           "TypeScript 5.9",
@@ -82,7 +78,7 @@ export const projects: Project[] = [
       {
         title: "API, data, and operations",
         description:
-          "The Go REST API that owns business rules, access control, persistence, private evidence, and operational safeguards.",
+          "The Go REST API that owns business rules, access control, persistence, private evidence, and the safeguards behind a dependable enterprise workflow.",
         items: [
           "Go 1.25",
           "Gin",
@@ -107,18 +103,18 @@ export const projects: Project[] = [
     },
     caseStudy: [
       {
-        title: "A school workflow, not a single check-in screen",
-        body: "Citra Negara Attendance System is a production platform for SMK Citra Negara Depok, used by more than 2,000 people. Students, teachers, homeroom teachers, BK staff, and admins each work from the context they need, while one system keeps attendance, follow-up, and reporting connected.",
+        title: "An operating workflow, not a single check-in screen",
+        body: "Citra Negara Attendance System is a production platform for SMK Citra Negara Depok, used by more than 2,000 people. Students, teachers, homeroom teachers, BK staff, and admins each work from the context they need, while one clean system keeps attendance, follow-up, and reporting connected.",
         isPlaceholder: false,
       },
       {
         title: "Capturing attendance with useful evidence",
-        body: "Students check in with a photo and device location. The flow considers the attendance window, validates the evidence and location policy through the API, and protects submissions from duplicate retries. Evidence remains private behind authenticated access.",
+        body: "Students check in with a photo and device location. The interface keeps the action direct, while the API considers the attendance window, validates the evidence and location policy, and protects submissions from duplicate retries.",
         isPlaceholder: false,
       },
       {
         title: "Roles are shaped by school context",
-        body: "A teacher can receive subject, homeroom, or BK capabilities through assignments and scope—not a one-size-fits-all dashboard. That changes the tools available for sessions, student monitoring, attendance review, counselling notes, and permission or sick submissions.",
+        body: "A teacher can receive subject, homeroom, or BK capabilities through assignments and scope - not a one-size-fits-all dashboard. The result is a more focused UI for sessions, student monitoring, attendance review, counselling notes, and permission or sick submissions.",
         isPlaceholder: false,
       },
       {
@@ -133,7 +129,7 @@ export const projects: Project[] = [
       },
       {
         title: "Built for an operating product",
-        body: "The frontend keeps server data in sync with TanStack Query and lazy-loads heavier chart and reporting tools. The Go API handles authentication, role and scope checks, business validation, private uploads, request tracing, and bounded traffic handling so the system can keep serving everyday school use.",
+        body: "The frontend keeps server data in sync with TanStack Query and lazy-loads heavier chart and reporting tools. The Go API handles authentication, role and scope checks, business validation, private uploads, request tracing, and bounded traffic handling so the interface stays useful as the workflow grows.",
         isPlaceholder: false,
       },
     ],
