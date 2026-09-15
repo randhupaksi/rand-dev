@@ -77,6 +77,7 @@ export const journeyItems: JourneyItem[] = [
     period: "Jan - May 2026",
     title: "Frontend Developer Trainee",
     organization: "Matik Creative Technology",
+    organizationHref: "https://www.matik.id/",
     description:
       "Completed a hands-on frontend placement at Matik Creative Technology, building responsive interfaces with Next.js, React, TypeScript, and JavaScript.",
     kind: "work",
@@ -85,6 +86,7 @@ export const journeyItems: JourneyItem[] = [
     period: "May 2026 - Now",
     title: "Freelance Full-stack Developer",
     organization: "Matik Creative Technology",
+    organizationHref: "https://www.matik.id/",
     description:
       "Building web apps and APIs with React, Next.js, TypeScript, and Go, with a focus on clean interfaces and product flows people use every day.",
     kind: "work",
@@ -96,6 +98,10 @@ export const journeyItems: JourneyItem[] = [
     description:
       "Recognized as the best student of the year through the Citra Negara Awards 2026 at SMK Citra Negara Depok.",
     kind: "award",
+    evidence: {
+      label: "View LinkedIn post",
+      href: "https://www.linkedin.com/posts/randhu-paksi-membumi_still-cant-believe-this-really-grateful-activity-7459593873065947136-eX6t/?utm_source=share&utm_medium=member_desktop&rcm=ACoAAGX_10YBeAhqfExZeWRFykGkkAs68GRDn-E",
+    },
   },
   {
     period: "Aug 2026",
@@ -104,6 +110,10 @@ export const journeyItems: JourneyItem[] = [
     description:
       "Received an award for creating Citra Negara Attendance System, a digital attendance platform for the SMK Citra Negara Depok community.",
     kind: "award",
+    evidence: {
+      label: "View school announcement",
+      href: "https://www.instagram.com/p/DcxmlwZBPpP/?stkn=OTdqZDNudjMxZnZn",
+    },
   },
 ];
 

@@ -15,8 +15,13 @@ export type JourneyItem = {
   period: string;
   title: string;
   organization: string;
+  organizationHref?: string;
   description: string;
   kind: JourneyKind;
+  evidence?: {
+    label: string;
+    href: string;
+  };
 };
 
 export type FaqItem = {

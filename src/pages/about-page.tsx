@@ -191,6 +191,28 @@ export default function AboutPage() {
                       <p className="type-body-medium text-brand-soft">
                         {item.organization}
                       </p>
+                      {item.organizationHref ? (
+                        <a
+                          href={item.organizationHref}
+                          target="_blank"
+                          rel="noreferrer"
+                          className="timeline-proof-link group"
+                        >
+                          Visit company website
+                          <ArrowUpRight className="size-3.5 transition-transform duration-200 group-hover:-translate-y-0.5 group-hover:translate-x-0.5" />
+                        </a>
+                      ) : null}
+                      {item.evidence ? (
+                        <a
+                          href={item.evidence.href}
+                          target="_blank"
+                          rel="noreferrer"
+                          className="timeline-proof-link group"
+                        >
+                          {item.evidence.label}
+                          <ArrowUpRight className="size-3.5 transition-transform duration-200 group-hover:-translate-y-0.5 group-hover:translate-x-0.5" />
+                        </a>
+                      ) : null}
                     </div>
 
                     <p className="type-body-sm max-w-2xl lg:col-start-3 lg:max-w-none">
