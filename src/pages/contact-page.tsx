@@ -13,6 +13,7 @@ import { Card } from "@/components/ui/card";
 import { contactFaq } from "@/data/about";
 import { contactChannels, siteIdentity, socialLinks } from "@/data/site";
 import { usePageMeta } from "@/hooks/use-page-meta";
+import { usePageHeroReveal } from "@/hooks/use-page-hero-reveal";
 import { useReveal } from "@/hooks/use-reveal";
 import { cn } from "@/lib/utils";
 
@@ -27,6 +28,7 @@ export default function ContactPage() {
   );
 
   const scopeRef = useReveal<HTMLDivElement>();
+  const heroRef = usePageHeroReveal<HTMLElement>();
   const [openFaqIndex, setOpenFaqIndex] = useState(0);
   const faqAnswerRefs = useRef<Array<HTMLDivElement | null>>([]);
   const faqMotionReady = useRef(false);
@@ -61,24 +63,24 @@ export default function ContactPage() {
 
   return (
     <div ref={scopeRef}>
-      <section className="section-shell-compact">
+      <section ref={heroRef} className="section-shell-compact">
         <div className="grid gap-10 border-b border-border-subtle pb-12 lg:grid-cols-[minmax(0,1.25fr)_minmax(15rem,0.75fr)] lg:items-end lg:gap-16">
           <div className="content-stack-md">
-            <div data-reveal className="section-eyebrow">Say hello</div>
-            <h1 data-reveal className="type-h1 max-w-3xl">
+            <div data-page-hero-reveal className="section-eyebrow">Say hello</div>
+            <h1 data-page-hero-reveal className="type-h1 max-w-3xl">
               Let’s talk about the{" "}
               <span className="text-gradient-brand">work!</span>
             </h1>
           </div>
-          <div data-reveal className="border-l border-border-strong pl-5">
-            <p className="type-overline">Product frontend</p>
-            <p className="mt-3 max-w-xs text-sm leading-7 text-muted-foreground">
+          <div className="border-l border-border-strong pl-5">
+            <p data-page-hero-reveal className="type-overline">Product frontend</p>
+            <p data-page-hero-reveal className="mt-3 max-w-xs text-sm leading-7 text-muted-foreground">
               Enterprise web products with real workflows behind them - from clean interfaces
               to role-aware screens and connected APIs.
             </p>
           </div>
         </div>
-        <p data-reveal className="section-copy mt-8 max-w-3xl">
+        <p data-page-hero-reveal className="section-copy mt-8 max-w-3xl">
           I’m a frontend and full-stack developer at Matik Creative Technology.
           If you’re shaping an enterprise product that needs a clean interface,
           thoughtful interaction, and clear workflow logic, you can reach me through the channels below.

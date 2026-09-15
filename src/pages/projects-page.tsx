@@ -8,6 +8,7 @@ import { Card } from "@/components/ui/card";
 import { buttonVariants } from "@/components/ui/button-variants";
 import { projects } from "@/data/projects";
 import { usePageMeta } from "@/hooks/use-page-meta";
+import { usePageHeroReveal } from "@/hooks/use-page-hero-reveal";
 import { useReveal } from "@/hooks/use-reveal";
 
 export default function ProjectsPage() {
@@ -17,28 +18,29 @@ export default function ProjectsPage() {
   );
 
   const scopeRef = useReveal<HTMLDivElement>();
+  const heroRef = usePageHeroReveal<HTMLDivElement>(true);
   const isSingleCaseStudy = projects.length === 1;
   const featuredProject = projects[0];
 
   return (
     <div ref={scopeRef}>
-      <section className="section-shell-compact">
+      <div ref={heroRef}>
+        <section className="section-shell-compact">
         <div className={isSingleCaseStudy ? "grid gap-12 lg:grid-cols-[minmax(0,1.1fr)_minmax(15rem,0.42fr)] lg:items-end lg:gap-20" : "content-stack-md max-w-4xl"}>
-          <div className="content-stack-md">
-            <div data-reveal className="section-eyebrow">
+          <div className="content-stack-md min-w-0">
+            <div data-page-hero-reveal className="section-eyebrow">
               Projects
             </div>
             <h1
-              data-reveal
-              className="type-h1"
+              data-page-hero-reveal
+              className="type-h1 max-w-full min-w-0 break-words [overflow-wrap:anywhere] lg:whitespace-nowrap"
             >
               {isSingleCaseStudy ? "Built for real " : "Projects shaped by real "}
-              <span className="text-gradient-brand">
+              <span className="text-gradient-brand block max-w-full lg:inline">
                 {isSingleCaseStudy ? "operations" : "workflows"}
               </span>
-              .
             </h1>
-            <p data-reveal className="section-copy max-w-3xl">
+            <p data-page-hero-reveal className="section-copy max-w-3xl">
               {isSingleCaseStudy
                 ? "Citra Negara Attendance System is a live enterprise workflow for SMK Citra Negara Depok, used by more than 2,000 users and shaped around clear, role-aware product use."
                 : "Case studies about the context, interface decisions, and product workflows behind my work."}
@@ -47,25 +49,24 @@ export default function ProjectsPage() {
 
           {isSingleCaseStudy && featuredProject ? (
             <aside
-              data-reveal
               aria-label="Project facts"
               className="border-t border-border-strong pt-6 lg:border-l lg:border-t-0 lg:pb-1 lg:pl-6 lg:pt-0"
             >
-              <p className="type-overline text-accent">At a glance</p>
+              <p data-page-hero-reveal className="type-overline text-accent">At a glance</p>
               <dl className="mt-5 divide-y divide-border-subtle">
-                <div className="py-4 first:pt-0">
+                <div data-page-hero-reveal className="py-4 first:pt-0">
                   <dt className="type-overline text-brand-muted">Status</dt>
                   <dd className="mt-2 text-base font-semibold tracking-tight text-foreground">
                     Live in production
                   </dd>
                 </div>
-                <div className="py-4">
+                <div data-page-hero-reveal className="py-4">
                   <dt className="type-overline text-brand-muted">Reach</dt>
                   <dd className="mt-2 text-base font-semibold tracking-tight text-foreground">
                     2,000+ users
                   </dd>
                 </div>
-                <div className="pb-0 pt-4">
+                <div data-page-hero-reveal className="pb-0 pt-4">
                   <dt className="type-overline text-brand-muted">Context</dt>
                   <dd className="mt-2 text-base font-semibold tracking-tight text-foreground">
                     SMK Citra Negara Depok
@@ -83,7 +84,7 @@ export default function ProjectsPage() {
             <Card
               as="article"
               key={project.slug}
-              data-reveal
+              data-project-flow-reveal
               interactive
               className="overflow-hidden"
             >
@@ -97,7 +98,7 @@ export default function ProjectsPage() {
                 <div
                   className={`content-stack-md ${index % 2 === 1 ? "lg:order-2" : ""}`}
                 >
-                  <div className="flex flex-wrap items-center gap-3">
+                  <div data-project-flow-reveal className="flex flex-wrap items-center gap-3">
                     <Badge>
                       {project.category}
                     </Badge>
@@ -112,15 +113,15 @@ export default function ProjectsPage() {
                   </div>
 
                   <div className="content-stack-sm">
-                    <h2 className="type-h3">
+                    <h2 data-project-flow-reveal className="type-h3">
                       {project.name}
                     </h2>
-                    <p className="type-body-sm max-w-3xl">
+                    <p data-project-flow-reveal className="type-body-sm max-w-3xl">
                       {project.summary}
                     </p>
                   </div>
 
-                  <div className="flex flex-wrap gap-2">
+                  <div data-project-flow-reveal className="flex flex-wrap gap-2">
                     {project.stack.map((item) => (
                       <Badge key={item}>
                         {item}
@@ -128,7 +129,7 @@ export default function ProjectsPage() {
                     ))}
                   </div>
 
-                  <div>
+                  <div data-project-flow-reveal>
                     <Link
                       to={`/projects/${project.slug}`}
                       className={`${buttonVariants({ variant: "ghost", size: "md" })} group`}
@@ -139,20 +140,22 @@ export default function ProjectsPage() {
                   </div>
                 </div>
 
-                <MediaPlaceholder
-                  src={project.thumbnail?.src}
-                  alt={project.thumbnail?.alt}
-                  label="Project image placeholder"
-                  hint="Add the real screenshots in src/data/projects.ts"
-                  aspect="wide"
-                  cropBottom
-                  className={index % 2 === 1 ? "lg:order-1" : ""}
-                />
+                <div data-project-flow-reveal className={index % 2 === 1 ? "lg:order-1" : undefined}>
+                  <MediaPlaceholder
+                    src={project.thumbnail?.src}
+                    alt={project.thumbnail?.alt}
+                    label="Project image placeholder"
+                    hint="Add the real screenshots in src/data/projects.ts"
+                    aspect="wide"
+                    cropBottom
+                  />
+                </div>
               </div>
             </Card>
           ))}
         </div>
-      </section>
+        </section>
+      </div>
 
       {isSingleCaseStudy && featuredProject?.capabilities?.length ? (
         <section className="section-shell-compact">

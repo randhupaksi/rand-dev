@@ -5,7 +5,7 @@ import { ScrollTrigger } from "gsap/ScrollTrigger";
 gsap.registerPlugin(ScrollTrigger);
 ScrollTrigger.config({ limitCallbacks: true });
 
-const revealSelector = "[data-reveal]";
+const revealSelector = "[data-reveal], [data-project-flow-reveal]";
 export function useReveal<T extends HTMLElement>(dependencyKey?: string) {
   const scopeRef = useRef<T>(null);
 
@@ -18,14 +18,14 @@ export function useReveal<T extends HTMLElement>(dependencyKey?: string) {
       const isCompactViewport = window.matchMedia("(max-width: 767px)").matches;
       const motion = isCompactViewport
         ? {
-            distance: 16,
-            resetDistance: 12,
-            duration: 0.52,
-            stagger: 0.055,
-            resetDuration: 0.26,
-            batchInterval: 0.06,
-            batchMax: 3,
-            start: "top 92%",
+            distance: 22,
+            resetDistance: 16,
+            duration: 0.68,
+            stagger: 0.085,
+            resetDuration: 0.32,
+            batchInterval: 0.1,
+            batchMax: 4,
+            start: "top 70%",
           }
         : {
             distance: 24,
@@ -38,13 +38,59 @@ export function useReveal<T extends HTMLElement>(dependencyKey?: string) {
             start: "top 86%",
           };
 
-      const elements = (self.selector?.(revealSelector) ?? []) as HTMLElement[];
+      const elements = ((self.selector?.(revealSelector) ?? []) as HTMLElement[]).filter(
+        (element) => isCompactViewport || !element.hasAttribute("data-project-flow-reveal"),
+      );
 
       if (!elements.length) {
         return;
       }
 
       gsap.set(elements, { autoAlpha: 0, y: motion.distance });
+
+      if (isCompactViewport) {
+        let queuedUntil = 0;
+
+        elements.forEach((element) => {
+          ScrollTrigger.create({
+            trigger: element,
+            start: motion.start,
+            onEnter: () => {
+              const currentTime = gsap.globalTimeline.time();
+              const delay = Math.max(0, queuedUntil - currentTime);
+
+              queuedUntil = currentTime + delay + motion.duration * 0.72;
+              gsap.set(element, { willChange: "transform,opacity" });
+              gsap.to(element, {
+                autoAlpha: 1,
+                y: 0,
+                delay,
+                duration: motion.duration,
+                ease: "power3.out",
+                overwrite: "auto",
+                onComplete: () => gsap.set(element, { clearProps: "willChange" }),
+              });
+            },
+            onLeaveBack: () => {
+              if (element.hasAttribute("data-reveal-once")) {
+                return;
+              }
+
+              gsap.set(element, { willChange: "transform,opacity" });
+              gsap.to(element, {
+                autoAlpha: 0,
+                y: motion.resetDistance,
+                duration: motion.resetDuration,
+                ease: "power2.out",
+                overwrite: "auto",
+                onComplete: () => gsap.set(element, { clearProps: "willChange" }),
+              });
+            },
+          });
+        });
+
+        return;
+      }
 
       ScrollTrigger.batch(elements, {
         start: motion.start,

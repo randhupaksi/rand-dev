@@ -10,6 +10,7 @@ import { buttonVariants } from "@/components/ui/button-variants";
 import { aboutFacts, journeyItems, principles, skillGroups } from "@/data/about";
 import { siteIdentity } from "@/data/site";
 import { usePageMeta } from "@/hooks/use-page-meta";
+import { usePageHeroReveal } from "@/hooks/use-page-hero-reveal";
 import { useReveal } from "@/hooks/use-reveal";
 
 export default function AboutPage() {
@@ -19,43 +20,43 @@ export default function AboutPage() {
   );
 
   const scopeRef = useReveal<HTMLDivElement>();
+  const heroRef = usePageHeroReveal<HTMLElement>();
 
   return (
     <div ref={scopeRef}>
-      <section className="section-shell-compact">
+      <section ref={heroRef} className="section-shell-compact">
         <div className="grid gap-12 lg:grid-cols-[minmax(0,1.12fr)_minmax(16rem,0.48fr)] lg:items-end lg:gap-20">
-          <div className="content-stack-md">
-            <div data-reveal className="section-eyebrow">
+          <div className="content-stack-md min-w-0">
+            <div data-page-hero-reveal className="section-eyebrow">
               About
             </div>
             <h1
-              data-reveal
-              className="type-h1"
+              data-page-hero-reveal
+              className="type-h1 max-w-full min-w-0 break-words [overflow-wrap:anywhere]"
             >
               I design enterprise interfaces for{" "}
-              <span className="text-gradient-brand">
+              <span className="text-gradient-brand block max-w-full">
                 complex workflows
               </span>
             </h1>
-            <p data-reveal className="section-copy max-w-3xl">
+            <p data-page-hero-reveal className="section-copy max-w-3xl">
               I’m {siteIdentity.name}, a freelance Full-stack Developer at Matik Creative
               Technology. I work across interface, product flow, and the code that connects
               them - then keep refining the details until the product feels clear in use.
             </p>
-            <p data-reveal className="type-overline text-brand-soft">
+            <p data-page-hero-reveal className="type-overline text-brand-soft">
               Freelance full-stack developer
             </p>
           </div>
 
           <aside
-            data-reveal
             aria-label="Professional highlights"
             className="border-t border-border-strong pt-6 lg:border-l lg:border-t-0 lg:pb-1 lg:pl-6 lg:pt-0"
           >
-            <p className="type-overline text-accent">In practice</p>
+            <p data-page-hero-reveal className="type-overline text-accent">In practice</p>
             <dl className="mt-5 divide-y divide-border-subtle">
               {aboutFacts.map((fact) => (
-                <div key={fact.label} className="py-5 first:pt-0 last:pb-0">
+                <div key={fact.label} data-page-hero-reveal className="py-5 first:pt-0 last:pb-0">
                   <dt className="type-overline text-brand-muted">{fact.label}</dt>
                   <dd className="mt-2 flex items-center justify-between gap-3 text-base font-semibold tracking-tight text-foreground">
                     <span>{fact.value}</span>
