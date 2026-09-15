@@ -6,6 +6,7 @@ type HeroIntroProps = {
   rolePrefix: string;
   roleHighlight: string;
   description: string;
+  mobileSocials?: ReactNode;
   mobileVisual?: ReactNode;
   mobileBadge?: ReactNode;
 };
@@ -16,6 +17,7 @@ export function HeroIntro({
   rolePrefix,
   roleHighlight,
   description,
+  mobileSocials,
   mobileVisual,
   mobileBadge,
 }: HeroIntroProps) {
@@ -42,6 +44,8 @@ export function HeroIntro({
           </span>
         </p>
       </div>
+
+      {mobileSocials ? <div className="lg:hidden">{mobileSocials}</div> : null}
 
       <p data-hero-description className="type-body max-w-2xl">
         {description}

@@ -4,6 +4,7 @@ import { Link } from "react-router-dom";
 import { DraftBadge } from "@/components/common/draft-badge";
 import { MediaPlaceholder } from "@/components/common/media-placeholder";
 import { SectionIndex } from "@/components/common/section-index";
+import { Card } from "@/components/ui/card";
 import { projects } from "@/data/projects";
 import { useReveal } from "@/hooks/use-reveal";
 
@@ -26,7 +27,7 @@ export function ProjectsSection() {
             <h2 className="type-h2 max-w-3xl">
               {projects.length === 1
                 ? "Here’s what clean enterprise UI looks like in production"
-                : "Projects shaped around real product workflows."}
+                : "Projects shaped around real product workflows"}
             </h2>
           </div>
             <aside className="content-stack-sm border-t border-border-subtle pt-5 lg:border-l lg:border-t-0 lg:pb-1 lg:pl-6 lg:pt-0">
@@ -53,10 +54,11 @@ export function ProjectsSection() {
         </div>
 
         {featured ? (
-          <Link
+          <Card
+            as="article"
             data-reveal
-            to={`/projects/${featured.slug}`}
-            className="ds-card ds-card-interactive group block overflow-hidden"
+            interactive
+            className="group block overflow-hidden"
           >
             <div className="grid gap-8 p-(--card-padding) lg:grid-cols-[minmax(0,0.9fr)_minmax(22rem,1.05fr)] lg:items-center lg:gap-10">
               <div className="content-stack-md">
@@ -100,10 +102,13 @@ export function ProjectsSection() {
                   ))}
                 </div>
 
-                <span className="group/link inline-flex items-center gap-2 text-sm font-medium text-accent transition-colors duration-300 group-hover:text-highlight">
+                <Link
+                  to={`/projects/${featured.slug}`}
+                  className="ds-text-link group/link inline-flex items-center gap-2 text-sm font-medium text-accent transition-[transform,color,opacity] duration-200 ease-standard hover:-translate-y-px hover:text-highlight active:translate-y-0 active:scale-[0.995] active:opacity-85"
+                >
                   Read the case study
-                  <ArrowUpRight className="size-4 transition-transform duration-300 group-hover:-translate-y-0.5 group-hover:translate-x-0.5" />
-                </span>
+                  <ArrowUpRight className="size-4 transition-transform duration-200 group-hover/link:-translate-y-0.5 group-hover/link:translate-x-0.5" />
+                </Link>
               </div>
 
               <MediaPlaceholder
@@ -116,7 +121,7 @@ export function ProjectsSection() {
                 className="hidden lg:flex"
               />
             </div>
-          </Link>
+          </Card>
         ) : null}
 
         {others.length > 0 ? <div data-reveal>

@@ -60,12 +60,23 @@ export function HeroRoot({ content }: HeroRootProps) {
           { y: motion.roleOffset, opacity: 0 },
           { y: 0, opacity: 1, duration: 0.58 },
           "-=0.34",
-        )
+        );
+
+      if (isCompactViewport) {
+        timeline.fromTo(
+          "[data-hero-social-link]",
+          { y: motion.socialOffset, opacity: 0, scale: 0.92 },
+          { y: 0, opacity: 1, scale: 1, duration: 0.46, stagger: 0.08 },
+          "-=0.18",
+        );
+      }
+
+      timeline
         .fromTo(
           "[data-hero-description]",
           { y: motion.copyOffset, opacity: 0 },
           { y: 0, opacity: 1, duration: 0.62 },
-          "-=0.3",
+          isCompactViewport ? "-=0.22" : "-=0.3",
         )
         .fromTo(
           "[data-hero-ring]",
@@ -96,13 +107,18 @@ export function HeroRoot({ content }: HeroRootProps) {
           { y: motion.ctaOffset, opacity: 0 },
           { y: 0, opacity: 1, duration: 0.58, stagger: 0.08 },
           "-=0.52",
-        )
-        .fromTo(
+        );
+
+      if (!isCompactViewport) {
+        timeline.fromTo(
           "[data-hero-social-link]",
           { y: motion.socialOffset, opacity: 0, scale: 0.92 },
           { y: 0, opacity: 1, scale: 1, duration: 0.46, stagger: 0.08 },
           "-=0.34",
-        )
+        );
+      }
+
+      timeline
         .fromTo(
           "[data-hero-callout]",
           { x: 18, opacity: 0 },
@@ -146,6 +162,7 @@ export function HeroRoot({ content }: HeroRootProps) {
               rolePrefix={content.rolePrefix}
               roleHighlight={content.roleHighlight}
               description={content.description}
+              mobileSocials={<HeroSocials />}
               mobileVisual={<HeroVisual />}
               mobileBadge={<p className="type-overline">Frontend Developer</p>}
             />
@@ -158,7 +175,7 @@ export function HeroRoot({ content }: HeroRootProps) {
             />
           </div>
 
-          <div>
+          <div className="hidden lg:block">
             <HeroSocials />
           </div>
         </div>
