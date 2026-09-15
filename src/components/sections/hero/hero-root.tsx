@@ -154,7 +154,10 @@ export function HeroRoot({ content }: HeroRootProps) {
       >
         <div className="order-2 flex max-w-[39rem] flex-col gap-4 sm:gap-5 lg:order-1 lg:gap-8">
           <div className="content-stack-sm lg:content-stack-md">
-            <p className="type-overline hidden lg:block">Frontend Developer · Matik Creative Technology</p>
+            <p className="type-overline">
+              <span className="hidden lg:inline">Enterprise Interfaces · Clean Systems · Interactive Flows</span>
+              <span className="lg:hidden">Enterprise · Clean · Interactive</span>
+            </p>
 
             <HeroIntro
               eyebrow={content.eyebrow}

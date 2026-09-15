@@ -8,10 +8,10 @@ import type {
 
 export const aboutProfile: AboutProfile = {
   name: "Randhu Paksi Membumi",
-  role: "Freelance Full-stack Developer at Matik Creative Technology",
+  role: "Freelance Frontend Developer",
   education: "SMK Citra Negara Depok · PPLG (2024 - 2027)",
   summary:
-    "I’m a freelance Full-stack Developer at Matik Creative Technology, focused on building clean and interactive interfaces for products with real operational workflows. I also teach frontend and UI/UX at the IT Club of SMK Citra Negara Depok.",
+    "I’m a freelance frontend developer focused on building clean and interactive interfaces for products with real operational workflows. I also enjoy sharing what I learn through frontend and UI/UX mentoring.",
   statement:
     "I bring frontend implementation and visual thinking together, so enterprise UI stays minimal on the surface while still making complex work easier to operate.",
   tags: ["Enterprise UI/UX", "Frontend Development", "Interactive Systems"],
@@ -55,7 +55,7 @@ export const processSteps: ProcessStep[] = [
     step: "03",
     title: "Connect interface to product logic",
     description:
-      "I build responsive interfaces with React, Next.js, and TypeScript, then connect them to APIs and Go services when the product needs a deeper system behind it.",
+      "I build responsive interfaces with React, Next.js, and TypeScript, then connect them to APIs and Go services when the product needs a deeper system.",
   },
   {
     step: "04",

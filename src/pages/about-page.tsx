@@ -40,9 +40,9 @@ export default function AboutPage() {
               </span>
             </h1>
             <p data-page-hero-reveal className="section-copy max-w-3xl">
-              I’m {siteIdentity.name}, a freelance Full-stack Developer at Matik Creative
-              Technology. I work across interface, product flow, and the code that connects
-              them - then keep refining the details until the product feels clear in use.
+              I’m {siteIdentity.name}, a freelance frontend developer with experience across
+              interface, product flow, and the code that connects them - then keep refining the
+              details until the product feels clear in use.
             </p>
             <p data-page-hero-reveal className="type-overline text-brand-soft">
               Freelance full-stack developer

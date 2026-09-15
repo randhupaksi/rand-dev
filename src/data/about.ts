@@ -121,7 +121,7 @@ export const contactFaq: FaqItem[] = [
   {
     question: "Where do I contribute most technically?",
     answer:
-      "My strongest work sits in React, Next.js, TypeScript, Vite, Tailwind CSS, and component architecture. I connect the interface to Go services, REST APIs, and MySQL data when the product needs a deeper system behind it.",
+      "My strongest work sits in React, Next.js, TypeScript, Vite, Tailwind CSS, and component architecture. I connect the interface to Go services, REST APIs, and MySQL data when the product needs a deeper system.",
   },
   {
     question: "What helps me get useful quickly?",
