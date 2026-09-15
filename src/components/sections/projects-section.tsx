@@ -62,7 +62,7 @@ export function ProjectsSection() {
           >
             <div className="grid gap-8 p-(--card-padding) lg:grid-cols-[minmax(0,0.9fr)_minmax(22rem,1.05fr)] lg:items-center lg:gap-10">
               <div className="content-stack-md">
-                <div className="flex flex-wrap items-center gap-3">
+                <div data-reveal className="flex flex-wrap items-center gap-3">
                   <span className="type-overline text-accent">
                     Featured product
                   </span>
@@ -76,7 +76,7 @@ export function ProjectsSection() {
                   ) : null}
                 </div>
 
-                <h3 className="type-h3">
+                <h3 data-reveal className="type-h3">
                   {featured.name}
                 </h3>
                 <MediaPlaceholder
@@ -87,13 +87,14 @@ export function ProjectsSection() {
                   aspect="wide"
                   cropBottom
                   className="lg:hidden"
+                  data-reveal
                 />
-                <p className="type-overline text-brand-soft">{featured.category}</p>
-                <p className="type-body-sm max-w-2xl">{featured.summary}</p>
+                <p data-reveal className="type-overline text-brand-soft">{featured.category}</p>
+                <p data-reveal className="type-body-sm max-w-2xl">{featured.summary}</p>
 
                 <div className="type-body-sm flex flex-col gap-1.5 text-muted-foreground">
                   {featured.focusAreas.map((item) => (
-                    <span key={item} className="flex items-center gap-3 font-sans normal-case tracking-normal">
+                    <span data-reveal key={item} className="flex items-center gap-3 font-sans normal-case tracking-normal">
                       <span aria-hidden="true" className="text-brand-muted">
                         ·
                       </span>
@@ -104,7 +105,9 @@ export function ProjectsSection() {
 
                 <Link
                   to={`/projects/${featured.slug}`}
-                  className="ds-text-link group/link inline-flex items-center gap-2 text-sm font-medium text-accent transition-[transform,color,opacity] duration-200 ease-standard hover:-translate-y-px hover:text-highlight active:translate-y-0 active:scale-[0.995] active:opacity-85"
+                  data-reveal
+                  data-reveal-fast
+                  className="ds-text-link group/link inline-flex items-center gap-2 text-sm font-medium text-accent transition-[color,opacity] duration-200 ease-standard hover:text-highlight active:opacity-85"
                 >
                   Read the case study
                   <ArrowUpRight className="size-4 transition-transform duration-200 group-hover/link:-translate-y-0.5 group-hover/link:translate-x-0.5" />
@@ -119,6 +122,7 @@ export function ProjectsSection() {
                 aspect="wide"
                 cropBottom
                 className="hidden lg:flex"
+                data-reveal
               />
             </div>
           </Card>

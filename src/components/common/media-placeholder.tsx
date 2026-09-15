@@ -1,10 +1,10 @@
 import { Eye, Image as ImageIcon } from "lucide-react";
-import { useState } from "react";
+import { useState, type HTMLAttributes } from "react";
 
 import { Modal, ModalContent, ModalTitle, ModalTrigger } from "@/components/ui/modal";
 import { cn } from "@/lib/utils";
 
-type MediaPlaceholderProps = {
+type MediaPlaceholderProps = HTMLAttributes<HTMLDivElement> & {
   label?: string;
   hint?: string;
   src?: string;
@@ -30,11 +30,13 @@ export function MediaPlaceholder({
   cropBottom = false,
   preview = false,
   className,
+  ...props
 }: MediaPlaceholderProps) {
   const [isPreviewOpen, setIsPreviewOpen] = useState(false);
 
   return (
     <div
+      {...props}
       className={cn(
         "relative flex items-center justify-center overflow-hidden rounded-(--card-radius) border border-border bg-card",
         aspectClassMap[aspect],

@@ -6,6 +6,9 @@ gsap.registerPlugin(ScrollTrigger);
 ScrollTrigger.config({ limitCallbacks: true });
 
 const revealSelector = "[data-reveal], [data-project-flow-reveal]";
+const getRevealDuration = (element: HTMLElement, defaultDuration: number) =>
+  element.hasAttribute("data-reveal-fast") ? defaultDuration * 0.8 : defaultDuration;
+
 export function useReveal<T extends HTMLElement>(dependencyKey?: string) {
   const scopeRef = useRef<T>(null);
 
@@ -65,7 +68,7 @@ export function useReveal<T extends HTMLElement>(dependencyKey?: string) {
                 autoAlpha: 1,
                 y: 0,
                 delay,
-                duration: motion.duration,
+                duration: getRevealDuration(element, motion.duration),
                 ease: "power3.out",
                 overwrite: "auto",
                 onComplete: () => gsap.set(element, { clearProps: "willChange" }),
@@ -98,14 +101,26 @@ export function useReveal<T extends HTMLElement>(dependencyKey?: string) {
         batchMax: motion.batchMax,
         onEnter: (batch) => {
           gsap.set(batch, { willChange: "transform,opacity" });
-          gsap.to(batch, {
-            autoAlpha: 1,
-            y: 0,
-            duration: motion.duration,
-            ease: "power3.out",
-            stagger: motion.stagger,
-            overwrite: "auto",
-            onComplete: () => gsap.set(batch, { clearProps: "willChange" }),
+          const fastBatch = batch.filter((element) => element.hasAttribute("data-reveal-fast"));
+          const regularBatch = batch.filter((element) => !element.hasAttribute("data-reveal-fast"));
+
+          [
+            { elements: regularBatch, duration: motion.duration },
+            { elements: fastBatch, duration: motion.duration * 0.8 },
+          ].forEach(({ elements, duration }) => {
+            if (!elements.length) {
+              return;
+            }
+
+            gsap.to(elements, {
+              autoAlpha: 1,
+              y: 0,
+              duration,
+              ease: "power3.out",
+              stagger: motion.stagger,
+              overwrite: "auto",
+              onComplete: () => gsap.set(elements, { clearProps: "willChange" }),
+            });
           });
         },
         onLeaveBack: (batch) => {
