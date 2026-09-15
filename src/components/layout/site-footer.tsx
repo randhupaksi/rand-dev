@@ -156,8 +156,8 @@ export function SiteFooter() {
         ) : null}
       </div>
 
-      <div className="page-shell ds-divider mt-10 flex items-center justify-center border-t pt-5 text-xs text-muted-foreground">
-        <p data-reveal>
+      <div className="page-shell relative z-10 ds-divider mt-10 flex min-h-12 items-center justify-center border-t pb-2 pt-5 text-xs text-muted-foreground">
+        <p className="block text-center">
           © {year} {siteIdentity.name}. All rights reserved.
         </p>
       </div>

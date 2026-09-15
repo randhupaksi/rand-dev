@@ -81,9 +81,10 @@ export default function ContactPage() {
           </div>
         </div>
         <p data-page-hero-reveal className="section-copy mt-8 max-w-3xl">
-          I’m a frontend and full-stack developer at Matik Creative Technology.
-          If you’re shaping an enterprise product that needs a clean interface,
-          thoughtful interaction, and clear workflow logic, you can reach me through the channels below.
+          I’m a freelance frontend developer working.
+          I build clean, thoughtful interfaces for enterprise products and turn complex
+          workflows into experiences that feel clear and easy to use. If you’re working on
+          something that needs a reliable frontend, you can reach me through the channels below.
         </p>
       </section>
 
