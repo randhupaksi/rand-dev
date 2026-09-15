@@ -32,17 +32,23 @@ export function HomeCtaSection() {
           {homeCta.description}
         </p>
 
-        <div data-reveal className="flex flex-wrap items-center gap-4">
+        <div data-reveal className="grid grid-cols-2 items-center gap-2 sm:flex sm:flex-wrap sm:gap-4">
           <Link
             to="/contact"
-            className={cn(buttonVariants({ variant: "primary", size: "lg" }), "group")}
+            className={cn(
+              buttonVariants({ variant: "primary", size: "lg" }),
+              "group w-full min-w-0 px-2 text-xs sm:w-auto sm:px-6 sm:text-base",
+            )}
           >
             {homeCta.primaryLabel}
             <ArrowUpRight className="size-5 transition-transform duration-300 group-hover:-translate-y-0.5 group-hover:translate-x-0.5" />
           </Link>
           <Link
             to="/projects"
-            className={cn(buttonVariants({ variant: "outline", size: "lg" }), "group")}
+            className={cn(
+              buttonVariants({ variant: "outline", size: "lg" }),
+              "group w-full min-w-0 px-2 text-xs sm:w-auto sm:px-6 sm:text-base",
+            )}
           >
             {homeCta.secondaryLabel}
             <ArrowRight className="size-5 transition-transform duration-300 group-hover:translate-x-0.5" />
