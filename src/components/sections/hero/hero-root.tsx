@@ -106,7 +106,7 @@ export function HeroRoot({ content }: HeroRootProps) {
           "[data-hero-cta]",
           { y: motion.ctaOffset, opacity: 0 },
           { y: 0, opacity: 1, duration: 0.58, stagger: 0.08 },
-          "-=0.52",
+          isCompactViewport ? "-=0.52" : "-=0.72",
         );
 
       if (!isCompactViewport) {
@@ -114,7 +114,7 @@ export function HeroRoot({ content }: HeroRootProps) {
           "[data-hero-social-link]",
           { y: motion.socialOffset, opacity: 0, scale: 0.92 },
           { y: 0, opacity: 1, scale: 1, duration: 0.46, stagger: 0.08 },
-          "-=0.34",
+          "-=0.58",
         );
       }
 
@@ -123,7 +123,7 @@ export function HeroRoot({ content }: HeroRootProps) {
           "[data-hero-callout]",
           { x: 18, opacity: 0 },
           { x: 0, opacity: 1, duration: 0.56 },
-          "-=0.26",
+          isCompactViewport ? "-=0.26" : "-=0.52",
         )
         .set(
           "[data-hero-eyebrow], [data-hero-name-line], [data-hero-role], [data-hero-description], [data-hero-mobile-badge], [data-hero-cta], [data-hero-socials], [data-hero-social-link], [data-hero-ring], [data-hero-callout], [data-hero-glow]",
