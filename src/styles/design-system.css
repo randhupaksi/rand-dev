@@ -710,6 +710,45 @@
     background: color-mix(in srgb, var(--surface-subtle) 42%, transparent);
   }
 
+  .timeline-proof-link {
+    display: inline-flex;
+    min-height: 2.25rem;
+    width: fit-content;
+    align-items: center;
+    gap: 0.375rem;
+    border: 1px solid var(--border-default);
+    border-radius: 999px;
+    background: var(--surface-subtle);
+    padding: 0.5rem 0.75rem;
+    color: var(--accent);
+    font-size: 0.75rem;
+    font-weight: 500;
+    line-height: 1;
+    transition:
+      transform var(--duration-fast) var(--ease-snappy),
+      background-color var(--duration-fast) var(--ease-standard),
+      border-color var(--duration-fast) var(--ease-standard),
+      color var(--duration-fast) var(--ease-standard),
+      opacity var(--duration-fast) var(--ease-standard);
+  }
+
+  .timeline-proof-link:hover {
+    transform: translateY(-1px);
+    border-color: var(--border-strong);
+    background: var(--surface-hover);
+    color: var(--highlight);
+  }
+
+  .timeline-proof-link:active {
+    transform: translateY(1px) scale(0.98);
+    opacity: 0.82;
+  }
+
+  .timeline-proof-link:focus-visible {
+    outline: 2px solid var(--ring);
+    outline-offset: 3px;
+  }
+
   @media (max-width: 639px) {
     .faq-answer {
       margin-left: 0.75rem;
@@ -860,6 +899,7 @@
     .ds-card-interactive,
     .ds-icon-control,
     .ds-text-link,
+    .timeline-proof-link,
     .ds-input {
       transition: none;
     }
@@ -867,6 +907,8 @@
     .ds-card-interactive:hover,
     .ds-card-interactive:active,
     .ds-icon-control:active,
+    .timeline-proof-link:hover,
+    .timeline-proof-link:active,
     .faq-option:active {
       transform: none;
     }
