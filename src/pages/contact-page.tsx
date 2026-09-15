@@ -220,9 +220,9 @@ export default function ContactPage() {
                     id={answerId}
                     role="region"
                     aria-hidden={!isOpen}
-                    className="h-0 overflow-hidden"
+                    className="faq-answer h-0 overflow-hidden"
                   >
-                    <p className="type-body-sm max-w-2xl pb-5 pl-8 pr-8 sm:pl-10">{faq.answer}</p>
+                    <p className="type-body-sm max-w-2xl px-4 pb-5 pt-3">{faq.answer}</p>
                   </div>
                 </article>
               );

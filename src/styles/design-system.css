@@ -703,6 +703,19 @@
     transform: scale(0.995);
   }
 
+  .faq-answer {
+    margin-left: 2.75rem;
+    border-left: 1px solid var(--border-default);
+    border-radius: 0 var(--control-radius) var(--control-radius) 0;
+    background: color-mix(in srgb, var(--surface-subtle) 42%, transparent);
+  }
+
+  @media (max-width: 639px) {
+    .faq-answer {
+      margin-left: 0.75rem;
+    }
+  }
+
   .ds-input {
     min-height: var(--input-height);
     width: 100%;
