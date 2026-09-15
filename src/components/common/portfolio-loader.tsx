@@ -13,7 +13,7 @@ export function PortfolioLoader({ fullScreen = false }: PortfolioLoaderProps) {
       <div className="relative z-10 flex w-full max-w-xs flex-col items-center text-center">
         <p className="type-overline">Randhu Paksi Membumi</p>
         <p className="mt-4 text-lg font-semibold tracking-tight text-foreground">
-          Preparing the portfolio.
+          Preparing the portfolio
         </p>
         <p className="mt-1 text-sm text-muted-foreground">
           Loading selected work and product stories.

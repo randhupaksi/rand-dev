@@ -23,15 +23,23 @@ function DismissInitialLoader() {
   return null;
 }
 
+function RouteLoadingFallback() {
+  if (document.getElementById("initial-loader")) {
+    return null;
+  }
+
+  return <PortfolioLoader />;
+}
+
 export function RootLayout() {
   return (
     <>
-      <DismissInitialLoader />
       <div className="page-shell flex min-h-screen flex-col">
         <SiteNavbar />
         <main className="flex-1">
-          <Suspense fallback={<PortfolioLoader />}>
+          <Suspense fallback={<RouteLoadingFallback />}>
             <Outlet />
+            <DismissInitialLoader />
           </Suspense>
         </main>
         <SiteFooter />
