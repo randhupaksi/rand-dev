@@ -116,6 +116,16 @@ export default function ProjectsPage() {
                     <h2 data-project-flow-reveal className="type-h3">
                       {project.name}
                     </h2>
+                    <div data-project-flow-reveal className="lg:hidden">
+                      <MediaPlaceholder
+                        src={project.thumbnail?.src}
+                        alt={project.thumbnail?.alt}
+                        label="Project image placeholder"
+                        hint="Add the real screenshots in src/data/projects.ts"
+                        aspect="wide"
+                        cropBottom
+                      />
+                    </div>
                     <p data-project-flow-reveal className="type-body-sm max-w-3xl">
                       {project.summary}
                     </p>
@@ -129,18 +139,32 @@ export default function ProjectsPage() {
                     ))}
                   </div>
 
-                  <div data-project-flow-reveal>
+                  <div data-project-flow-reveal className="grid grid-cols-2 gap-3 sm:flex sm:flex-wrap">
                     <Link
                       to={`/projects/${project.slug}`}
-                      className={`${buttonVariants({ variant: "ghost", size: "md" })} group`}
+                      className={`${buttonVariants({ variant: "primary", size: "md" })} group w-full min-w-0 px-2 text-xs sm:w-auto sm:px-5 sm:text-sm`}
                     >
-                      Read the case study
+                      Read
                       <ArrowUpRight className="size-4 transition-transform duration-300 group-hover:-translate-y-0.5 group-hover:translate-x-0.5" />
                     </Link>
+                    {project.links.demo ? (
+                      <a
+                        href={project.links.demo}
+                        target="_blank"
+                        rel="noreferrer"
+                        className={`${buttonVariants({ variant: "outline", size: "md" })} group w-full min-w-0 px-2 text-xs sm:w-auto sm:px-5 sm:text-sm`}
+                      >
+                        View live product
+                        <ArrowUpRight className="size-4 transition-transform duration-300 group-hover:-translate-y-0.5 group-hover:translate-x-0.5" />
+                      </a>
+                    ) : null}
                   </div>
                 </div>
 
-                <div data-project-flow-reveal className={index % 2 === 1 ? "lg:order-1" : undefined}>
+                <div
+                  data-project-flow-reveal
+                  className={`hidden lg:block ${index % 2 === 1 ? "lg:order-1" : ""}`}
+                >
                   <MediaPlaceholder
                     src={project.thumbnail?.src}
                     alt={project.thumbnail?.alt}
