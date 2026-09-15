@@ -38,7 +38,7 @@ export function HeroIntro({
         </h1>
 
         <p data-hero-role className="type-h3">
-          {rolePrefix}{" "}
+          {rolePrefix ? `${rolePrefix} ` : null}
           <span className="text-gradient-brand">
             {roleHighlight}
           </span>
