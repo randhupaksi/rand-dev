@@ -71,7 +71,7 @@ export function useReveal<T extends HTMLElement>(dependencyKey?: string) {
                 duration: getRevealDuration(element, motion.duration),
                 ease: "power3.out",
                 overwrite: "auto",
-                onComplete: () => gsap.set(element, { clearProps: "willChange" }),
+                onComplete: () => gsap.set(element, { clearProps: "willChange,transform" }),
               });
             },
             onLeaveBack: () => {
@@ -119,7 +119,7 @@ export function useReveal<T extends HTMLElement>(dependencyKey?: string) {
               ease: "power3.out",
               stagger: motion.stagger,
               overwrite: "auto",
-              onComplete: () => gsap.set(elements, { clearProps: "willChange" }),
+              onComplete: () => gsap.set(elements, { clearProps: "willChange,transform" }),
             });
           });
         },

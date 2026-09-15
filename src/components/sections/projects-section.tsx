@@ -103,15 +103,30 @@ export function ProjectsSection() {
                   ))}
                 </div>
 
-                <Link
-                  to={`/projects/${featured.slug}`}
-                  data-reveal
-                  data-reveal-fast
-                  className="ds-text-link group/link inline-flex items-center gap-2 text-sm font-medium text-accent transition-[color,opacity] duration-200 ease-standard hover:text-highlight active:opacity-85"
-                >
-                  Read the case study
-                  <ArrowUpRight className="size-4 transition-transform duration-200 group-hover/link:-translate-y-0.5 group-hover/link:translate-x-0.5" />
-                </Link>
+                <div className="flex flex-wrap items-center gap-x-3 gap-y-0 sm:gap-y-3">
+                  <Link
+                    to={`/projects/${featured.slug}`}
+                    data-reveal
+                    data-reveal-fast
+                    className="ds-text-link group/link inline-flex items-center gap-2 rounded-full px-4 py-2.5 text-sm font-medium text-accent transition-[transform,background-color,color,opacity,box-shadow] duration-150 ease-out hover:-translate-y-px hover:bg-surface-hover hover:text-highlight hover:shadow-sm active:translate-y-px active:scale-[0.98] active:opacity-85 active:duration-75 sm:py-3"
+                  >
+                    Read the case study
+                    <ArrowUpRight className="size-4 transition-transform duration-200 group-hover/link:-translate-y-0.5 group-hover/link:translate-x-0.5" />
+                  </Link>
+                  {featured.links.demo ? (
+                    <a
+                      href={featured.links.demo}
+                      target="_blank"
+                      rel="noreferrer"
+                      data-reveal
+                      data-reveal-fast
+                      className="ds-text-link group/live inline-flex items-center gap-2 rounded-full px-4 py-2.5 text-sm font-medium text-muted-foreground transition-[transform,background-color,color,opacity,box-shadow] duration-150 ease-out hover:-translate-y-px hover:bg-surface-hover hover:text-highlight hover:shadow-sm active:translate-y-px active:scale-[0.98] active:opacity-85 active:duration-75 sm:py-3"
+                    >
+                      View live product
+                      <ArrowUpRight className="size-4 transition-transform duration-200 group-hover/live:-translate-y-0.5 group-hover/live:translate-x-0.5" />
+                    </a>
+                  ) : null}
+                </div>
               </div>
 
               <MediaPlaceholder
