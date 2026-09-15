@@ -18,7 +18,7 @@ export function AboutRoot({ profile }: AboutRootProps) {
         <div className="content-stack-md">
           <p data-reveal className="type-overline">A little about me</p>
           <div data-reveal className="content-stack-sm max-w-3xl">
-            <h2 className="type-h2">I make complex enterprise workflows feel easier to use.</h2>
+            <h2 className="type-h2">I make complex enterprise workflows feel easier to use</h2>
             <p className="type-body">{profile.summary}</p>
           </div>
           <p data-reveal className="max-w-2xl border-l border-accent pl-4 text-sm leading-7 text-brand-soft">

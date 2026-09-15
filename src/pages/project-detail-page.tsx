@@ -183,7 +183,7 @@ export default function ProjectDetailPage() {
               <section data-reveal className="content-stack-md pt-3">
                 <div className="content-stack-xs max-w-2xl">
                   <p className="type-overline text-accent">Technical foundation</p>
-                  <h2 className="type-h4">Clean frontend and API layers, working together.</h2>
+                  <h2 className="type-h4">Clean frontend and API layers, working together</h2>
                   <p className="type-body-sm text-muted-foreground">
                     The interface and service are deliberately separated: the frontend focuses on clean product use, while the API owns the data and rules behind the workflow.
                   </p>

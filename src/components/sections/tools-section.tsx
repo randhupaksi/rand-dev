@@ -16,7 +16,7 @@ export function ToolsSection() {
             data-reveal
             className="type-h2 max-w-2xl"
           >
-            The tools I reach for most often.
+            The tools I reach for most often
           </h2>
         </div>
 

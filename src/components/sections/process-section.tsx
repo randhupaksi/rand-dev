@@ -16,7 +16,7 @@ export function ProcessSection() {
             data-reveal
             className="type-h2"
           >
-            I make enterprise workflows clearer.
+            I make enterprise workflows clearer
           </h2>
           <p data-reveal className="section-copy max-w-lg">
             I work frontend-first: clarify the workflow, make states visible,
