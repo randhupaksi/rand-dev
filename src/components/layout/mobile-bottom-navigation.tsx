@@ -104,7 +104,7 @@ export function MobileBottomNavigation() {
       aria-label="Primary mobile navigation"
       className="pointer-events-none fixed inset-x-0 bottom-0 z-40 lg:hidden"
     >
-      <div className="pointer-events-auto relative h-[5.75rem] overflow-visible">
+      <div className="pointer-events-auto relative h-23 overflow-visible">
         <svg
           aria-hidden="true"
           className="pointer-events-none absolute inset-0 size-full overflow-visible text-border-strong"
@@ -125,7 +125,7 @@ export function MobileBottomNavigation() {
           aria-hidden="true"
           className="pointer-events-none absolute left-0 top-0 z-20 flex h-full w-1/4 justify-center will-change-transform"
         >
-          <span className="grid size-[3.25rem] place-items-center rounded-full border-2 border-primary-700 bg-surface-2 p-1 shadow-[0_8px_16px_rgb(8_6_16/0.32)]">
+          <span className="grid size-13 place-items-center rounded-full border-2 border-primary-700 bg-surface-2 p-1 shadow-[0_8px_16px_rgb(8_6_16/0.32)]">
             <span className="grid size-full place-items-center rounded-full bg-primary-800 text-primary-100 shadow-inner">
               <ActiveIcon
                 key={activeNavigation.href}

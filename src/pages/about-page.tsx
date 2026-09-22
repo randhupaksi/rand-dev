@@ -32,7 +32,7 @@ export default function AboutPage() {
             </div>
             <h1
               data-page-hero-reveal
-              className="type-h1 max-w-full min-w-0 break-words [overflow-wrap:anywhere]"
+              className="type-h1 max-w-full min-w-0 wrap-break-word wrap-anywhere"
             >
               I design enterprise interfaces for{" "}
               <span className="text-gradient-brand block max-w-full">

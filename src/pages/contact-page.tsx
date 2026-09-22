@@ -197,7 +197,7 @@ export default function ContactPage() {
                     aria-expanded={isOpen}
                     aria-controls={answerId}
                     onClick={() => setOpenFaqIndex((current) => (current === index ? -1 : index))}
-                    className="faq-option group grid min-h-(--button-height-lg) w-full grid-cols-[2rem_minmax(0,1fr)_auto] items-center gap-3 py-4 text-left focus-visible:outline-2 focus-visible:outline-offset-[-2px] focus-visible:outline-ring motion-reduce:transition-none sm:grid-cols-[2.5rem_minmax(0,1fr)_auto]"
+                    className="faq-option group grid min-h-(--button-height-lg) w-full grid-cols-[2rem_minmax(0,1fr)_auto] items-center gap-3 py-4 text-left focus-visible:outline-2 focus-visible:-outline-offset-2 focus-visible:outline-ring motion-reduce:transition-none sm:grid-cols-[2.5rem_minmax(0,1fr)_auto]"
                   >
                     <span className="font-mono text-xs font-medium tracking-widest text-brand-muted">
                       {String(index + 1).padStart(2, "0")}

@@ -33,7 +33,7 @@ export default function ProjectsPage() {
             </div>
             <h1
               data-page-hero-reveal
-              className="type-h1 max-w-full min-w-0 break-words [overflow-wrap:anywhere] lg:whitespace-nowrap"
+              className="type-h1 max-w-full min-w-0 wrap-break-word wrap-anywhere lg:whitespace-nowrap"
             >
               {isSingleCaseStudy ? "Built for real " : "Projects shaped by real "}
               <span className="text-gradient-brand block max-w-full lg:inline">

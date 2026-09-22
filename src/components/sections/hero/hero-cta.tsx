@@ -38,7 +38,7 @@ export function HeroCta({ primaryLabel, secondaryLabel }: HeroCtaProps) {
         to="/projects"
         variant="primary"
         size="lg"
-        className="group w-full data-[pressed=true]:!translate-y-px data-[pressed=true]:!scale-[0.96] data-[pressed=true]:!duration-75 sm:w-auto"
+        className="group w-full data-[pressed=true]:translate-y-px! data-[pressed=true]:scale-[0.96]! data-[pressed=true]:duration-75! sm:w-auto"
         data-pressed={pressedAction === "primary"}
         data-hero-cta
         onPointerDown={() => showPressed("primary")}
@@ -56,7 +56,7 @@ export function HeroCta({ primaryLabel, secondaryLabel }: HeroCtaProps) {
           download="Randhu-Paksi-Membumi-CV.pdf"
           variant="outline"
           size="lg"
-          className="group w-full data-[pressed=true]:!translate-y-px data-[pressed=true]:!scale-[0.96] data-[pressed=true]:!duration-75 sm:w-auto"
+          className="group w-full data-[pressed=true]:translate-y-px! data-[pressed=true]:scale-[0.96]! data-[pressed=true]:duration-75! sm:w-auto"
           data-pressed={pressedAction === "secondary"}
           data-hero-cta
           onPointerDown={() => showPressed("secondary")}
@@ -78,7 +78,7 @@ export function HeroCta({ primaryLabel, secondaryLabel }: HeroCtaProps) {
           to="/contact"
           variant="outline"
           size="lg"
-          className="group w-full data-[pressed=true]:!translate-y-px data-[pressed=true]:!scale-[0.96] data-[pressed=true]:!duration-75 sm:w-auto"
+          className="group w-full data-[pressed=true]:translate-y-px! data-[pressed=true]:scale-[0.96]! data-[pressed=true]:duration-75! sm:w-auto"
           data-pressed={pressedAction === "secondary"}
           data-hero-cta
           onPointerDown={() => showPressed("secondary")}

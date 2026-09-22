@@ -17,7 +17,7 @@ type MediaPlaceholderProps = HTMLAttributes<HTMLDivElement> & {
 
 const aspectClassMap = {
   video: "aspect-video",
-  wide: "aspect-[16/10]",
+  wide: "aspect-16/10",
   square: "aspect-square",
 } as const;
 

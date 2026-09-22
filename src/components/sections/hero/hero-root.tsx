@@ -152,7 +152,7 @@ export function HeroRoot({ content }: HeroRootProps) {
         id="home"
         className="relative z-10 grid w-full gap-6 sm:gap-8 lg:grid-cols-[minmax(0,1.02fr)_minmax(22rem,0.98fr)] lg:items-center lg:gap-10"
       >
-        <div className="order-2 flex max-w-[39rem] flex-col gap-4 sm:gap-5 lg:order-1 lg:gap-8">
+        <div className="order-2 flex max-w-156 flex-col gap-4 sm:gap-5 lg:order-1 lg:gap-8">
           <div className="content-stack-sm lg:content-stack-md">
             <p className="type-overline">
               <span className="hidden lg:inline">Enterprise Interfaces · Clean Systems · Interactive Flows</span>

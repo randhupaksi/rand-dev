@@ -5,7 +5,7 @@ import { Link } from "react-router-dom";
 
 export function HeroVisual() {
   return (
-    <div className="relative mx-auto w-full max-w-[34rem] overflow-hidden lg:overflow-visible">
+    <div className="relative mx-auto w-full max-w-136 overflow-hidden lg:overflow-visible">
       <div
         data-hero-glow
         className="hero-glow-secondary absolute left-1/2 top-[16%] h-32 w-32 -translate-x-1/2 rounded-full blur-3xl sm:h-40 sm:w-40 lg:left-[12%] lg:top-[26%] lg:h-52 lg:w-52 lg:translate-x-0"
@@ -15,9 +15,9 @@ export function HeroVisual() {
         className="hero-glow-primary absolute left-1/2 top-[4%] h-44 w-44 -translate-x-1/2 rounded-full blur-3xl sm:h-52 sm:w-52 lg:left-auto lg:right-[8%] lg:top-[14%] lg:h-72 lg:w-72 lg:translate-x-0"
       />
 
-      <div className="relative min-h-[11rem] pt-0 sm:min-h-[22rem] lg:min-h-[32rem] lg:pt-0">
+      <div className="relative min-h-44 pt-0 sm:min-h-88 lg:min-h-128 lg:pt-0">
         <div
-          className="hero-frame relative mx-auto size-60 overflow-hidden rounded-full border sm:size-80 lg:absolute lg:left-[12%] lg:top-[7%] lg:mx-0 lg:size-[25rem]"
+          className="hero-frame relative mx-auto size-60 overflow-hidden rounded-full border sm:size-80 lg:absolute lg:left-[12%] lg:top-[7%] lg:mx-0 lg:size-100"
           data-hero-ring
         >
           <div className="absolute inset-0 rounded-full border border-border-subtle" />
