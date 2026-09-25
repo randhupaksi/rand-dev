@@ -1,100 +1,80 @@
-# Rand Dev - Portfolio Randhu Paksi Membumi
+# Rand Dev
 
-Website portfolio pribadi Randhu Paksi Membumi, Frontend Developer di Matik Creative Technology serta Frontend & UI/UX Instructor di IT Club SMK Citra Negara Depok. Multi-page SPA dengan arah visual **dark purple editorial dengan presisi enterprise**.
+Rand Dev is Randhu Paksi Membumi's personal portfolio. It introduces his frontend and product UI work, explains his working approach, presents selected projects, and provides CV, social, and contact links. The portfolio's positioning emphasizes responsive interfaces, enterprise workflows, role-aware screens, and thoughtful interaction.
+
+## Routes
+
+| Route | Purpose |
+| --- | --- |
+| `/` | Hero, profile summary, expertise, selected project, process, tools, and contact CTA |
+| `/about` | Working principles, capabilities, profile facts, and experience/journey timeline |
+| `/projects` | Project index and honest draft/placeholder slots |
+| `/projects/:slug` | Project overview, capabilities, technical stack, case study, and gallery |
+| `/contact` | Contact channels, published social profiles, CV link, and contact FAQ; there is no submission form |
+| `*` | Not-found page |
+
+The home page is loaded directly. Other routes are lazy-loaded within the shared root layout. Home navigation anchors are `#home`, `#about`, `#skills`, and `#portfolio`; keep their links synchronized with the section IDs.
+
+## Current project content
+
+Project content is centralized in `src/data/projects.ts`. The current verified case study is **Citra Negara Attendance System** (`absensi-cn`), described as a production attendance platform for SMK Citra Negara Depok. Its project entry includes the live demo, stack, capabilities, case study, and local screenshots. Repository access is not published in the project data.
+
+Personal and journey content is maintained in `src/data/site.ts`, `src/data/hero.ts`, `src/data/home.ts`, and `src/data/about.ts`. Keep factual claims, dates, links, and outcomes grounded in information that has been verified. Use the draft/placeholder system for anything that is not ready to publish.
+
+## Contact and environment
+
+Copy `.env.example` to `.env` when local overrides are needed. These values are optional:
+
+| Variable | Behavior |
+| --- | --- |
+| `VITE_EMAIL` | Publishes an email address and `mailto:` action; otherwise the contact channel remains a placeholder |
+| `VITE_CV_URL` | Overrides the CV link; defaults to the CV PDF shipped in `public/files/` |
+| `VITE_SOCIAL_GITHUB` | Publishes the GitHub profile link |
+| `VITE_SOCIAL_INSTAGRAM` | Overrides the built-in Instagram profile link |
+| `VITE_SOCIAL_LINKEDIN` | Overrides the built-in LinkedIn profile link |
+| `VITE_SOCIAL_DRIBBBLE` | Publishes the Dribbble profile link |
+
+The Contact page is a directory of direct channels, social profiles, and the CV. It does not submit a form or send data to an API. Never put secrets in `VITE_` variables because Vite exposes them to browser code.
 
 ## Stack
 
-- Vite 8 + React 19 + TypeScript (strict unused checks)
-- React Router untuk multi-page routing
-- Tailwind CSS 4 (`@tailwindcss/vite`) dengan design token di `src/styles/design-system.css`
-- GSAP untuk motion (reveal, floating) dengan dukungan `prefers-reduced-motion`
-- Lucide React untuk icon, CVA + `tailwind-merge` untuk variant/class
-- Oxlint untuk static linting; npm sebagai package manager
+- Vite 8, React 19, and TypeScript
+- React Router for the SPA routes
+- Tailwind CSS 4 with the semantic theme and utility source in `src/styles/design-system.css`
+- GSAP for reveal and interaction motion, respecting reduced-motion preferences
+- Base UI and Radix Select for accessible primitives; Lucide React for icons
+- CVA, `clsx`, and `tailwind-merge` for button variants and class composition
+- Oxlint for static checks; npm and the checked-in `package-lock.json`
 
-## Menjalankan
+## Source structure
+
+```text
+src/
+├── components/
+│   ├── common/       Reusable behavior, media placeholders, and social links
+│   ├── layout/       Shared navbar, footer, mobile navigation, and root layout
+│   ├── sections/     Home and feature sections
+│   └── ui/           Shared interface primitives
+├── data/             Copy, project content, navigation, and contact values
+├── hooks/            Reveal and page metadata behavior
+├── lib/              Small shared utilities
+├── pages/            Route-level composition
+├── styles/           Theme tokens and shared visual utilities
+└── types/            Content contracts
+```
+
+Content belongs in `src/data/`; update `src/types/` when a content contract changes. Reuse the theme tokens and existing component patterns. Keep project-specific composition near its page or feature.
+
+## Development and checks
+
+Run from this directory:
 
 ```bash
 npm install
-npm run dev       # development server
-npm run lint      # static check
-npm run build     # typecheck + production build
-npm run preview   # preview hasil build
+npm run dev
+npm run lint
+npm run build
+npm run preview
 ```
 
-## Struktur halaman
-
-| Route | Isi |
-| --- | --- |
-| `/` | Hero, about ringkas, expertise, selected projects, proses kerja, tools, CTA |
-| `/about` | Intro editorial, prinsip kerja, skill area, dan journey timeline |
-| `/projects` | Semua project + slot "project berikutnya" |
-| `/projects/:slug` | Case study per project (overview, challenge, approach, outcome, gallery) |
-| `/contact` | Contact hub, social profiles, CV, FAQ |
-| `*` | Halaman 404 |
-
-## Struktur kode
-
-- `src/data/` - **semua konten** (copy, project, kontak, navigasi). Ganti konten di sini, bukan di komponen.
-- `src/types/` - kontrak konten.
-- `src/pages/` - komposisi per halaman (lazy-loaded kecuali home).
-- `src/components/layout/` - navbar, footer, root layout.
-- `src/components/sections/` - section home.
-- `src/components/common/` - primitif reusable: `MediaPlaceholder`, `DraftBadge`, `SocialLinks`, `ErrorBoundary`, `ScrollToTop`.
-- `src/hooks/` - `useReveal` (animasi masuk), `usePageMeta` (title/description per halaman).
-- `src/styles/design-system.css` - sumber kebenaran token visual.
-
-## Design system
-
-Seluruh styling lintas halaman memakai fondasi yang sama:
-
-- `src/styles/design-system.css` menyimpan primitive color scale, semantic color,
-  typography role, spacing, radius, shadow, surface, dan state token.
-- `src/components/ui/button.tsx` menyediakan variant `primary`, `secondary`,
-  `outline`, dan `ghost` dengan ukuran `sm`, `md`, dan `lg`.
-- `src/components/ui/` menyediakan primitive reusable untuk badge, card,
-  input/textarea, modal, dan table.
-- Class typography `type-display`, `type-h1` sampai `type-h4`, `type-body`,
-  `type-body-medium`, `type-body-sm`, `type-caption`, dan `type-overline`
-  menjaga hierarchy konsisten pada semua route.
-
-Komponen dan halaman harus memakai semantic token atau primitive tersebut.
-Nilai visual baru hanya ditambahkan ke design system jika memang merupakan
-keputusan reusable; nilai komposisi khusus tetap dibatasi pada art direction
-yang tidak digunakan sebagai pattern global.
-
-## Sistem placeholder (PENTING)
-
-Website ini sengaja dibangun dengan sistem placeholder yang jujur: tidak ada link palsu, klaim palsu, atau foto palsu. Semua yang masih draft ditandai secara visual (badge **Draft/Placeholder/Coming Soon**).
-
-### Cara mengganti data personal
-
-Semua data personal terpusat dan dibaca dari environment variable. Salin `.env.example` menjadi `.env`, lalu isi:
-
-| Variabel | Efek saat diisi |
-| --- | --- |
-| `VITE_EMAIL` | Email asli tampil dan bisa diklik (mailto) di Contact & footer |
-| `VITE_WHATSAPP_NUMBER` | Channel WhatsApp aktif dengan link `wa.me` |
-| `VITE_LOCATION` | Mengganti `YOUR_LOCATION` |
-| `VITE_CV_URL` | Tombol CV aktif (menggantikan "Coming soon") |
-| `VITE_SOCIAL_GITHUB` dll. | Menambah atau mengganti link social yang ditampilkan |
-
-Identitas dasar (nama, role, tagline) ada di `src/data/site.ts`.
-
-### Cara mengganti konten project
-
-Edit `src/data/projects.ts`:
-
-1. Isi `period`, `links.demo`, `links.repository` dengan data asli.
-2. Lengkapi body case study yang masih draft, lalu set `isPlaceholder: false`.
-3. Ubah `status` menjadi `"verified"` untuk menghilangkan badge draft.
-4. Frame gambar (`MediaPlaceholder`) diganti dengan `<img>` screenshot asli ketika asset tersedia.
-
-### Cara mengganti journey/pengalaman
-
-Edit `src/data/about.ts` untuk memperbarui pengalaman kerja, pendidikan, mentoring, dan penghargaan yang sudah terverifikasi.
-
-## Catatan
-
-- Halaman Contact berfungsi sebagai hub profil sosial dan channel kontak langsung, tanpa form submission.
-- Foto profil di hero adalah asset asli di `public/images/profile/`.
-- Module `src/components/ui/button.tsx` memicu warning Oxlint Fast Refresh yang sudah ada sejak awal (export komponen + konstanta); bukan regression.
+`npm run build` runs TypeScript project checks followed by the Vite production build. `npm run lint` runs Oxlint.

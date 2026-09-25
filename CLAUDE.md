@@ -1,4 +1,4 @@
-# Rand Dev Portfolio - Project Instructions
+# Rand Dev Portfolio - Claude Code Instructions
 
 ## Operational context
 
