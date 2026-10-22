@@ -1,25 +1,26 @@
-import { useLayoutEffect, useRef } from "react";
-import gsap from "gsap";
+import { useLayoutEffect, useRef } from 'react'
+import gsap from 'gsap'
 
-const heroRevealSelector = "[data-page-hero-reveal]";
+const heroRevealSelector = '[data-page-hero-reveal]'
 
 export function usePageHeroReveal<T extends HTMLElement>(includeDesktopFlow = false) {
-  const scopeRef = useRef<T>(null);
+  const scopeRef = useRef<T>(null)
 
   useLayoutEffect(() => {
-    const ctx = gsap.context((self) => {
-      if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
-        return;
+    const ctx = gsap.context(self => {
+      if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+        return
       }
 
-      const isCompactViewport = window.matchMedia("(max-width: 767px)").matches;
-      const selector = includeDesktopFlow && !isCompactViewport
-        ? `${heroRevealSelector}, [data-project-flow-reveal]`
-        : heroRevealSelector;
-      const targets = (self.selector?.(selector) ?? []) as HTMLElement[];
+      const isCompactViewport = window.matchMedia('(max-width: 767px)').matches
+      const selector =
+        includeDesktopFlow && !isCompactViewport
+          ? `${heroRevealSelector}, [data-project-flow-reveal]`
+          : heroRevealSelector
+      const targets = (self.selector?.(selector) ?? []) as HTMLElement[]
 
       if (!targets.length) {
-        return;
+        return
       }
 
       gsap.fromTo(
@@ -29,15 +30,15 @@ export function usePageHeroReveal<T extends HTMLElement>(includeDesktopFlow = fa
           autoAlpha: 1,
           y: 0,
           duration: isCompactViewport ? 0.62 : 0.72,
-          ease: "power3.out",
+          ease: 'power3.out',
           stagger: isCompactViewport ? 0.08 : 0.1,
-          clearProps: "transform,visibility",
+          clearProps: 'transform,visibility',
         },
-      );
-    }, scopeRef);
+      )
+    }, scopeRef)
 
-    return () => ctx.revert();
-  }, [includeDesktopFlow]);
+    return () => ctx.revert()
+  }, [includeDesktopFlow])
 
-  return scopeRef;
+  return scopeRef
 }

@@ -1,15 +1,15 @@
-import type { ReactNode } from "react";
+import type { ReactNode } from 'react'
 
 type HeroIntroProps = {
-  eyebrow: string;
-  name: string;
-  rolePrefix: string;
-  roleHighlight: string;
-  description: string;
-  mobileSocials?: ReactNode;
-  mobileVisual?: ReactNode;
-  mobileBadge?: ReactNode;
-};
+  eyebrow: string
+  name: string
+  rolePrefix: string
+  roleHighlight: string
+  description: string
+  mobileSocials?: ReactNode
+  mobileVisual?: ReactNode
+  mobileBadge?: ReactNode
+}
 
 export function HeroIntro({
   eyebrow,
@@ -21,8 +21,8 @@ export function HeroIntro({
   mobileVisual,
   mobileBadge,
 }: HeroIntroProps) {
-  const [firstName, ...restNameParts] = name.split(" ");
-  const restName = restNameParts.join(" ");
+  const [firstName, ...restNameParts] = name.split(' ')
+  const restName = restNameParts.join(' ')
 
   return (
     <div className="content-stack-md">
@@ -34,14 +34,14 @@ export function HeroIntro({
           <span data-hero-name-line className="text-gradient-brand block">
             {firstName}
           </span>
-          <span data-hero-name-line className="block text-foreground">{restName}</span>
+          <span data-hero-name-line className="block text-foreground">
+            {restName}
+          </span>
         </h1>
 
         <p data-hero-role className="type-h3">
           {rolePrefix ? `${rolePrefix} ` : null}
-          <span className="text-gradient-brand">
-            {roleHighlight}
-          </span>
+          <span className="text-gradient-brand">{roleHighlight}</span>
         </p>
       </div>
 
@@ -53,8 +53,10 @@ export function HeroIntro({
 
       {mobileVisual ? <div className="mt-2 lg:hidden">{mobileVisual}</div> : null}
       {mobileBadge ? (
-        <div data-hero-mobile-badge className="mt-1 flex justify-center lg:hidden">{mobileBadge}</div>
+        <div data-hero-mobile-badge className="mt-1 flex justify-center lg:hidden">
+          {mobileBadge}
+        </div>
       ) : null}
     </div>
-  );
+  )
 }

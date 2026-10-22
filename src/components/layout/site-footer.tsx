@@ -1,49 +1,43 @@
-import {
-  ArrowUpRight,
-  BriefcaseBusiness,
-  House,
-  Mail,
-  UserRound,
-} from "lucide-react";
-import { useLayoutEffect } from "react";
-import gsap from "gsap";
-import { ScrollTrigger } from "gsap/ScrollTrigger";
-import { Link } from "react-router-dom";
+import { ArrowUpRight, BriefcaseBusiness, House, Mail, UserRound } from 'lucide-react'
+import { useLayoutEffect } from 'react'
+import gsap from 'gsap'
+import { ScrollTrigger } from 'gsap/ScrollTrigger'
+import { Link } from 'react-router-dom'
 
-import { SocialLinks } from "@/components/common/social-links";
-import { buttonVariants } from "@/components/ui/button-variants";
-import { navigationItems } from "@/data/navigation";
-import { projects } from "@/data/projects";
-import { contactChannels, siteIdentity, socialLinks } from "@/data/site";
-import { useReveal } from "@/hooks/use-reveal";
-import { cn } from "@/lib/utils";
+import { SocialLinks } from '@/components/common/social-links'
+import { buttonVariants } from '@/components/ui/button-variants'
+import { navigationItems } from '@/data/navigation'
+import { projects } from '@/data/projects'
+import { contactChannels, siteIdentity, socialLinks } from '@/data/site'
+import { useReveal } from '@/hooks/use-reveal'
+import { cn } from '@/lib/utils'
 
-gsap.registerPlugin(ScrollTrigger);
+gsap.registerPlugin(ScrollTrigger)
 
 const navigationIcons = {
-  "/": House,
-  "/about": UserRound,
-  "/projects": BriefcaseBusiness,
-  "/contact": Mail,
-} as const;
+  '/': House,
+  '/about': UserRound,
+  '/projects': BriefcaseBusiness,
+  '/contact': Mail,
+} as const
 
 export function SiteFooter() {
-  const footerRef = useReveal<HTMLElement>();
-  const year = new Date().getFullYear();
-  const email = contactChannels.find((channel) => channel.key === "email");
-  const featuredProject = projects[0];
+  const footerRef = useReveal<HTMLElement>()
+  const year = new Date().getFullYear()
+  const email = contactChannels.find(channel => channel.key === 'email')
+  const featuredProject = projects[0]
 
   useLayoutEffect(() => {
-    const footer = footerRef.current;
+    const footer = footerRef.current
 
     if (!footer) {
-      return;
+      return
     }
 
     const ctx = gsap.context(() => {
-      if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
-        footer.removeAttribute("data-footer-container-motion");
-        return;
+      if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+        footer.removeAttribute('data-footer-container-motion')
+        return
       }
 
       const entrance = gsap.fromTo(
@@ -52,31 +46,31 @@ export function SiteFooter() {
         {
           y: 0,
           duration: 0.64,
-          ease: "power3.out",
+          ease: 'power3.out',
           paused: true,
           force3D: true,
-          clearProps: "willChange",
+          clearProps: 'willChange',
         },
-      );
+      )
 
       ScrollTrigger.create({
         trigger: footer,
-        start: "top 92%",
+        start: 'top 92%',
         animation: entrance,
-        toggleActions: "play none none reverse",
+        toggleActions: 'play none none reverse',
         invalidateOnRefresh: true,
-      });
+      })
 
-      footer.removeAttribute("data-footer-container-motion");
-    }, footerRef);
+      footer.removeAttribute('data-footer-container-motion')
+    }, footerRef)
 
-    const refreshFrame = window.requestAnimationFrame(() => ScrollTrigger.refresh());
+    const refreshFrame = window.requestAnimationFrame(() => ScrollTrigger.refresh())
 
     return () => {
-      window.cancelAnimationFrame(refreshFrame);
-      ctx.revert();
-    };
-  }, [footerRef]);
+      window.cancelAnimationFrame(refreshFrame)
+      ctx.revert()
+    }
+  }, [footerRef])
 
   return (
     <footer
@@ -87,49 +81,45 @@ export function SiteFooter() {
       <div className="page-shell grid gap-10 lg:grid-cols-[minmax(0,1.1fr)_minmax(0,0.6fr)_minmax(0,0.8fr)] lg:gap-16">
         <div data-reveal className="content-stack-sm max-w-sm">
           <p className="text-lg font-semibold tracking-tight text-foreground">
-            {siteIdentity.brandFirst}{" "}
+            {siteIdentity.brandFirst}{' '}
             <span className="text-accent">{siteIdentity.brandSecond}</span>
           </p>
-          <p className="text-sm leading-7 text-muted-foreground">
-            {siteIdentity.tagline}
-          </p>
+          <p className="text-sm leading-7 text-muted-foreground">{siteIdentity.tagline}</p>
           {email?.href ? (
             <a
               href={email.href}
               className={cn(
-                buttonVariants({ variant: "outline", size: "md" }),
-                "group w-fit max-w-full",
+                buttonVariants({ variant: 'outline', size: 'md' }),
+                'group w-fit max-w-full',
               )}
             >
               {email.value}
               <ArrowUpRight className="size-4 transition-transform duration-300 group-hover:-translate-y-0.5 group-hover:translate-x-0.5" />
             </a>
           ) : null}
-          {socialLinks.some((link) => link.href) ? <SocialLinks className="pt-1" /> : null}
+          {socialLinks.some(link => link.href) ? <SocialLinks className="pt-1" /> : null}
         </div>
 
         <nav data-reveal aria-label="Navigasi footer" className="content-stack-sm">
-          <p className="type-overline">
-            Explore
-          </p>
+          <p className="type-overline">Explore</p>
           <ul className="content-stack-xs">
-            {navigationItems.map((item) => {
-              const Icon = navigationIcons[item.to as keyof typeof navigationIcons];
+            {navigationItems.map(item => {
+              const Icon = navigationIcons[item.to as keyof typeof navigationIcons]
 
               return (
                 <li key={item.to}>
-                <Link
-                  to={item.to}
-                  className="ds-text-link group inline-flex min-h-9 items-center gap-2 text-sm text-muted-foreground hover:text-foreground"
-                >
-                  <Icon
-                    aria-hidden="true"
-                    className="size-4 text-accent transition-transform duration-200 group-hover:-translate-y-0.5"
-                  />
-                  {item.label}
-                </Link>
+                  <Link
+                    to={item.to}
+                    className="ds-text-link group inline-flex min-h-9 items-center gap-2 text-sm text-muted-foreground hover:text-foreground"
+                  >
+                    <Icon
+                      aria-hidden="true"
+                      className="size-4 text-accent transition-transform duration-200 group-hover:-translate-y-0.5"
+                    />
+                    {item.label}
+                  </Link>
                 </li>
-              );
+              )
             })}
           </ul>
         </nav>
@@ -162,5 +152,5 @@ export function SiteFooter() {
         </p>
       </div>
     </footer>
-  );
+  )
 }

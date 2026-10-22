@@ -1,30 +1,30 @@
-import { useLayoutEffect, useRef } from "react";
-import gsap from "gsap";
-import { BriefcaseBusiness, CircleUserRound, House, Mail } from "lucide-react";
-import { NavLink, useLocation } from "react-router-dom";
+import { useLayoutEffect, useRef } from 'react'
+import gsap from 'gsap'
+import { BriefcaseBusiness, CircleUserRound, House, Mail } from 'lucide-react'
+import { NavLink, useLocation } from 'react-router-dom'
 
-import { cn } from "@/lib/utils";
+import { cn } from '@/lib/utils'
 
 const primaryNavigation = [
-  { label: "Home", href: "/", icon: House },
-  { label: "About", href: "/about", icon: CircleUserRound },
-  { label: "Projects", href: "/projects", icon: BriefcaseBusiness },
-  { label: "Contact", href: "/contact", icon: Mail },
-];
+  { label: 'Home', href: '/', icon: House },
+  { label: 'About', href: '/about', icon: CircleUserRound },
+  { label: 'Projects', href: '/projects', icon: BriefcaseBusiness },
+  { label: 'Contact', href: '/contact', icon: Mail },
+]
 
-const NAVIGATION_VIEWBOX_WIDTH = 400;
-const NAVIGATION_VIEWBOX_HEIGHT = 92;
-const NAVIGATION_TOP_EDGE = 30;
-const NAVIGATION_ACTIVE_NOTCH_DEPTH = 59;
-const NAVIGATION_ACTIVE_NOTCH_HALF_WIDTH = 46;
-const NAVIGATION_ACTIVE_NOTCH_CONTROL_OFFSET = 18;
+const NAVIGATION_VIEWBOX_WIDTH = 400
+const NAVIGATION_VIEWBOX_HEIGHT = 92
+const NAVIGATION_TOP_EDGE = 30
+const NAVIGATION_ACTIVE_NOTCH_DEPTH = 59
+const NAVIGATION_ACTIVE_NOTCH_HALF_WIDTH = 46
+const NAVIGATION_ACTIVE_NOTCH_CONTROL_OFFSET = 18
 
 function buildNavigationFramePath(activeIndex: number) {
-  const activeCenter = activeIndex * 100 + 50;
-  const notchStart = activeCenter - NAVIGATION_ACTIVE_NOTCH_HALF_WIDTH;
-  const notchEnd = activeCenter + NAVIGATION_ACTIVE_NOTCH_HALF_WIDTH;
-  const notchCenter = activeCenter;
-  const curveControl = Math.min(26, (notchEnd - notchStart) * 0.34);
+  const activeCenter = activeIndex * 100 + 50
+  const notchStart = activeCenter - NAVIGATION_ACTIVE_NOTCH_HALF_WIDTH
+  const notchEnd = activeCenter + NAVIGATION_ACTIVE_NOTCH_HALF_WIDTH
+  const notchCenter = activeCenter
+  const curveControl = Math.min(26, (notchEnd - notchStart) * 0.34)
 
   return [
     `M 0 ${NAVIGATION_TOP_EDGE}`,
@@ -33,29 +33,29 @@ function buildNavigationFramePath(activeIndex: number) {
     `C ${notchCenter + curveControl} ${NAVIGATION_ACTIVE_NOTCH_DEPTH} ${notchEnd - NAVIGATION_ACTIVE_NOTCH_CONTROL_OFFSET} ${NAVIGATION_TOP_EDGE} ${notchEnd} ${NAVIGATION_TOP_EDGE}`,
     `H ${NAVIGATION_VIEWBOX_WIDTH}`,
     `V ${NAVIGATION_VIEWBOX_HEIGHT}`,
-    "H 0 Z",
-  ].join(" ");
+    'H 0 Z',
+  ].join(' ')
 }
 
 export function MobileBottomNavigation() {
-  const navigationRef = useRef<HTMLElement>(null);
-  const activeIndicatorRef = useRef<HTMLSpanElement>(null);
-  const { pathname } = useLocation();
-  const activeIndex = primaryNavigation.findIndex(({ href }) => (
-    href === "/" ? pathname === "/" : pathname.startsWith(href)
-  ));
-  const resolvedActiveIndex = activeIndex === -1 ? 0 : activeIndex;
-  const activeNavigation = primaryNavigation[resolvedActiveIndex];
-  const ActiveIcon = activeNavigation.icon;
-  const navigationFramePath = buildNavigationFramePath(resolvedActiveIndex);
+  const navigationRef = useRef<HTMLElement>(null)
+  const activeIndicatorRef = useRef<HTMLSpanElement>(null)
+  const { pathname } = useLocation()
+  const activeIndex = primaryNavigation.findIndex(({ href }) =>
+    href === '/' ? pathname === '/' : pathname.startsWith(href),
+  )
+  const resolvedActiveIndex = activeIndex === -1 ? 0 : activeIndex
+  const activeNavigation = primaryNavigation[resolvedActiveIndex]
+  const ActiveIcon = activeNavigation.icon
+  const navigationFramePath = buildNavigationFramePath(resolvedActiveIndex)
 
   useLayoutEffect(() => {
     const ctx = gsap.context(() => {
-      if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
-        return;
+      if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+        return
       }
 
-      const isCompactViewport = window.matchMedia("(max-width: 767px)").matches;
+      const isCompactViewport = window.matchMedia('(max-width: 767px)').matches
 
       gsap.fromTo(
         navigationRef.current,
@@ -63,40 +63,39 @@ export function MobileBottomNavigation() {
         {
           yPercent: 0,
           duration: isCompactViewport ? 0.66 : 0.78,
-          ease: "power3.out",
+          ease: 'power3.out',
           force3D: true,
-          clearProps: "willChange",
+          clearProps: 'willChange',
         },
-      );
+      )
+    }, navigationRef)
 
-    }, navigationRef);
-
-    return () => ctx.revert();
-  }, []);
+    return () => ctx.revert()
+  }, [])
 
   useLayoutEffect(() => {
-    const indicator = activeIndicatorRef.current;
+    const indicator = activeIndicatorRef.current
 
     if (!indicator) {
-      return;
+      return
     }
 
-    const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+    const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches
 
     if (reduceMotion) {
-      gsap.set(indicator, { xPercent: resolvedActiveIndex * 100, y: "0.1rem" });
-      return;
+      gsap.set(indicator, { xPercent: resolvedActiveIndex * 100, y: '0.1rem' })
+      return
     }
 
     gsap.to(indicator, {
       xPercent: resolvedActiveIndex * 100,
-      y: "0.1rem",
-      duration: window.matchMedia("(max-width: 767px)").matches ? 0.42 : 0.56,
-      ease: "power3.out",
+      y: '0.1rem',
+      duration: window.matchMedia('(max-width: 767px)').matches ? 0.42 : 0.56,
+      ease: 'power3.out',
       force3D: true,
-      overwrite: "auto",
-    });
-  }, [resolvedActiveIndex]);
+      overwrite: 'auto',
+    })
+  }, [resolvedActiveIndex])
 
   return (
     <nav
@@ -141,14 +140,16 @@ export function MobileBottomNavigation() {
           {primaryNavigation.map(({ label, href, icon: Icon }) => (
             <NavLink
               key={href}
-              end={href === "/"}
+              end={href === '/'}
               to={href}
-              className={({ isActive }) => cn(
-                "group relative flex min-w-0 touch-manipulation flex-col items-center justify-end gap-1.5 px-0.5 pb-3 text-[10px] font-semibold transition-[color,opacity,transform] duration-300 ease-standard active:scale-[0.91] active:opacity-85 motion-reduce:transition-none",
-                isActive
-                  ? "z-10 text-brand-muted"
-                  : "text-muted-foreground hover:text-brand-soft active:text-brand-muted",
-              )}
+              className={({ isActive }) =>
+                cn(
+                  'group relative flex min-w-0 touch-manipulation flex-col items-center justify-end gap-1.5 px-0.5 pb-3 text-[10px] font-semibold transition-[color,opacity,transform] duration-300 ease-standard active:scale-[0.91] active:opacity-85 motion-reduce:transition-none',
+                  isActive
+                    ? 'z-10 text-brand-muted'
+                    : 'text-muted-foreground hover:text-brand-soft active:text-brand-muted',
+                )
+              }
             >
               {({ isActive }) => (
                 <>
@@ -157,11 +158,18 @@ export function MobileBottomNavigation() {
                     size={20}
                     strokeWidth={2.05}
                     className={cn(
-                      "will-change-transform transition-[opacity,transform] duration-300 ease-standard group-active:scale-90",
-                      isActive ? "scale-75 opacity-0" : "opacity-100",
+                      'will-change-transform transition-[opacity,transform] duration-300 ease-standard group-active:scale-90',
+                      isActive ? 'scale-75 opacity-0' : 'opacity-100',
                     )}
                   />
-                  <span className={cn("max-w-full truncate leading-none", isActive && "animate-[fade-in_260ms_var(--ease-standard)_both]")}>{label}</span>
+                  <span
+                    className={cn(
+                      'max-w-full truncate leading-none',
+                      isActive && 'animate-[fade-in_260ms_var(--ease-standard)_both]',
+                    )}
+                  >
+                    {label}
+                  </span>
                 </>
               )}
             </NavLink>
@@ -169,5 +177,5 @@ export function MobileBottomNavigation() {
         </div>
       </div>
     </nav>
-  );
+  )
 }

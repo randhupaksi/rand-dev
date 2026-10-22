@@ -1,90 +1,91 @@
-import {
-  ArrowUpRight,
-  ChevronDown,
-  FileText,
-  Mail,
-} from "lucide-react";
-import { useLayoutEffect, useRef, useState } from "react";
-import gsap from "gsap";
+import { ArrowUpRight, ChevronDown, FileText, Mail } from 'lucide-react'
+import { useLayoutEffect, useRef, useState } from 'react'
+import gsap from 'gsap'
 
-import { SocialLinks } from "@/components/common/social-links";
-import { buttonVariants } from "@/components/ui/button-variants";
-import { Card } from "@/components/ui/card";
-import { contactFaq } from "@/data/about";
-import { contactChannels, siteIdentity, socialLinks } from "@/data/site";
-import { usePageMeta } from "@/hooks/use-page-meta";
-import { usePageHeroReveal } from "@/hooks/use-page-hero-reveal";
-import { useReveal } from "@/hooks/use-reveal";
-import { cn } from "@/lib/utils";
+import { SocialLinks } from '@/components/common/social-links'
+import { buttonVariants } from '@/components/ui/button-variants'
+import { Card } from '@/components/ui/card'
+import { contactFaq } from '@/data/about'
+import { contactChannels, siteIdentity, socialLinks } from '@/data/site'
+import { usePageMeta } from '@/hooks/use-page-meta'
+import { usePageHeroReveal } from '@/hooks/use-page-hero-reveal'
+import { useReveal } from '@/hooks/use-reveal'
+import { cn } from '@/lib/utils'
 
 const channelIconMap = {
   email: Mail,
-} as const;
+} as const
 
 export default function ContactPage() {
   usePageMeta(
-    "Contact - Randhu Paksi Membumi",
-    "Find Randhu Paksi Membumi for enterprise UI/UX, frontend, and full-stack product collaborations.",
-  );
+    'Contact - Randhu Paksi Membumi',
+    'Find Randhu Paksi Membumi for enterprise UI/UX, frontend, and full-stack product collaborations.',
+  )
 
-  const scopeRef = useReveal<HTMLDivElement>();
-  const heroRef = usePageHeroReveal<HTMLElement>();
-  const [openFaqIndex, setOpenFaqIndex] = useState(0);
-  const faqAnswerRefs = useRef<Array<HTMLDivElement | null>>([]);
-  const faqMotionReady = useRef(false);
-  const directChannels = contactChannels.filter((channel) => channel.href);
-  const publishedSocials = socialLinks.filter((link) => link.href);
+  const scopeRef = useReveal<HTMLDivElement>()
+  const heroRef = usePageHeroReveal<HTMLElement>()
+  const [openFaqIndex, setOpenFaqIndex] = useState(0)
+  const faqAnswerRefs = useRef<Array<HTMLDivElement | null>>([])
+  const faqMotionReady = useRef(false)
+  const directChannels = contactChannels.filter(channel => channel.href)
+  const publishedSocials = socialLinks.filter(link => link.href)
 
   useLayoutEffect(() => {
-    const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+    const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches
 
     faqAnswerRefs.current.forEach((answer, index) => {
       if (!answer) {
-        return;
+        return
       }
 
-      const isOpen = index === openFaqIndex;
+      const isOpen = index === openFaqIndex
 
       if (!faqMotionReady.current || reduceMotion) {
-        gsap.set(answer, { height: isOpen ? "auto" : 0 });
-        return;
+        gsap.set(answer, { height: isOpen ? 'auto' : 0 })
+        return
       }
 
       gsap.to(answer, {
-        height: isOpen ? "auto" : 0,
+        height: isOpen ? 'auto' : 0,
         duration: isOpen ? 0.42 : 0.3,
-        ease: isOpen ? "power3.out" : "power2.inOut",
-        overwrite: "auto",
-      });
-    });
+        ease: isOpen ? 'power3.out' : 'power2.inOut',
+        overwrite: 'auto',
+      })
+    })
 
-    faqMotionReady.current = true;
-  }, [openFaqIndex]);
+    faqMotionReady.current = true
+  }, [openFaqIndex])
 
   return (
     <div ref={scopeRef}>
       <section ref={heroRef} className="section-shell-compact">
         <div className="grid gap-10 border-b border-border-subtle pb-12 lg:grid-cols-[minmax(0,1.25fr)_minmax(15rem,0.75fr)] lg:items-end lg:gap-16">
           <div className="content-stack-md">
-            <div data-page-hero-reveal className="section-eyebrow">Say hello</div>
+            <div data-page-hero-reveal className="section-eyebrow">
+              Say hello
+            </div>
             <h1 data-page-hero-reveal className="type-h1 max-w-3xl">
-              Let’s talk about the{" "}
-              <span className="text-gradient-brand">work!</span>
+              Let’s talk about the <span className="text-gradient-brand">work!</span>
             </h1>
           </div>
           <div className="border-l border-border-strong pl-5">
-            <p data-page-hero-reveal className="type-overline">Product frontend</p>
-            <p data-page-hero-reveal className="mt-3 max-w-xs text-sm leading-7 text-muted-foreground">
-              Enterprise web products with real workflows behind them - from clean interfaces
-              to role-aware screens and connected APIs.
+            <p data-page-hero-reveal className="type-overline">
+              Product frontend
+            </p>
+            <p
+              data-page-hero-reveal
+              className="mt-3 max-w-xs text-sm leading-7 text-muted-foreground"
+            >
+              Enterprise web products with real workflows behind them - from clean interfaces to
+              role-aware screens and connected APIs.
             </p>
           </div>
         </div>
         <p data-page-hero-reveal className="section-copy mt-8 max-w-3xl">
-          I’m a freelance frontend developer working.
-          I build clean, thoughtful interfaces for enterprise products and turn complex
-          workflows into experiences that feel clear and easy to use. If you’re working on
-          something that needs a reliable frontend, you can reach me through the channels below.
+          I’m a freelance frontend developer working. I build clean, thoughtful interfaces for
+          enterprise products and turn complex workflows into experiences that feel clear and easy
+          to use. If you’re working on something that needs a reliable frontend, you can reach me
+          through the channels below.
         </p>
       </section>
 
@@ -95,17 +96,22 @@ export default function ContactPage() {
               <p className="type-overline">Where to find me</p>
               <h2 className="type-h3 max-w-sm">Let’s talk about the workflow</h2>
               <p className="type-body-sm max-w-md">
-                Email is best for project conversations. My public profiles are
-                there if you want to see the projects first.
+                Email is best for project conversations. My public profiles are there if you want to
+                see the projects first.
               </p>
             </div>
 
             {directChannels.length > 0 ? (
               <ul className="content-stack-sm">
-                {directChannels.map((channel) => {
-                  const Icon = channelIconMap[channel.key];
+                {directChannels.map(channel => {
+                  const Icon = channelIconMap[channel.key]
                   return (
-                    <Card as="li" key={channel.key} data-reveal className="flex items-start gap-4 p-(--panel-padding)">
+                    <Card
+                      as="li"
+                      key={channel.key}
+                      data-reveal
+                      className="flex items-start gap-4 p-(--panel-padding)"
+                    >
                       <span className="ds-icon-control mt-0.5 shrink-0 text-accent">
                         <Icon className="size-4" aria-hidden="true" />
                       </span>
@@ -119,7 +125,7 @@ export default function ContactPage() {
                         </a>
                       </div>
                     </Card>
-                  );
+                  )
                 })}
               </ul>
             ) : null}
@@ -131,7 +137,7 @@ export default function ContactPage() {
                   href={siteIdentity.cvHref}
                   target="_blank"
                   rel="noreferrer"
-                  className={buttonVariants({ variant: "outline", size: "md" })}
+                  className={buttonVariants({ variant: 'outline', size: 'md' })}
                 >
                   <FileText className="size-4" aria-hidden="true" />
                   View resume
@@ -140,12 +146,15 @@ export default function ContactPage() {
             ) : null}
           </div>
 
-          <aside data-reveal className="content-stack-md border-y border-border-subtle py-6 sm:py-8">
+          <aside
+            data-reveal
+            className="content-stack-md border-y border-border-subtle py-6 sm:py-8"
+          >
             <div className="content-stack-sm max-w-xl">
               <p className="type-overline">Online profiles</p>
               <h2 className="type-h3">Follow the projects in public</h2>
               <p className="type-body-sm">
-              Code, project history, and occasional updates live across these profiles.
+                Code, project history, and occasional updates live across these profiles.
               </p>
             </div>
 
@@ -161,7 +170,9 @@ export default function ContactPage() {
                       rel="noreferrer"
                       className="ds-text-link group grid grid-cols-[2.5rem_1fr_auto] items-center gap-3 py-4 text-sm font-medium text-foreground hover:text-accent sm:grid-cols-[3rem_1fr_auto]"
                     >
-                      <span className="font-mono text-xs text-muted-foreground">{String(index + 1).padStart(2, "0")}</span>
+                      <span className="font-mono text-xs text-muted-foreground">
+                        {String(index + 1).padStart(2, '0')}
+                      </span>
                       <span>{link.label}</span>
                       <span className="flex items-center gap-2 text-muted-foreground group-hover:text-accent">
                         <span className="hidden font-mono text-xs sm:inline">Open profile</span>
@@ -182,25 +193,30 @@ export default function ContactPage() {
             <div className="section-eyebrow">Working together</div>
             <h2 className="type-h3 max-w-sm">The useful stuff to know before you reach out</h2>
             <p className="type-body-sm max-w-xs">
-              A quick read on the product work I’m best placed to help with - and how I turn unclear requirements into clean, usable flows.
+              A quick read on the product work I’m best placed to help with - and how I turn unclear
+              requirements into clean, usable flows.
             </p>
           </div>
           <div className="border-t border-border-subtle">
             {contactFaq.map((faq, index) => {
-              const isOpen = openFaqIndex === index;
-              const answerId = `contact-faq-answer-${index}`;
+              const isOpen = openFaqIndex === index
+              const answerId = `contact-faq-answer-${index}`
 
               return (
-                <article key={faq.question} data-reveal className="group border-b border-border-subtle">
+                <article
+                  key={faq.question}
+                  data-reveal
+                  className="group border-b border-border-subtle"
+                >
                   <button
                     type="button"
                     aria-expanded={isOpen}
                     aria-controls={answerId}
-                    onClick={() => setOpenFaqIndex((current) => (current === index ? -1 : index))}
+                    onClick={() => setOpenFaqIndex(current => (current === index ? -1 : index))}
                     className="faq-option group grid min-h-(--button-height-lg) w-full grid-cols-[2rem_minmax(0,1fr)_auto] items-center gap-3 py-4 text-left focus-visible:outline-2 focus-visible:-outline-offset-2 focus-visible:outline-ring motion-reduce:transition-none sm:grid-cols-[2.5rem_minmax(0,1fr)_auto]"
                   >
                     <span className="font-mono text-xs font-medium tracking-widest text-brand-muted">
-                      {String(index + 1).padStart(2, "0")}
+                      {String(index + 1).padStart(2, '0')}
                     </span>
                     <span className="text-base font-medium text-foreground transition-transform duration-200 group-hover:translate-x-0.5 sm:text-lg">
                       {faq.question}
@@ -208,14 +224,14 @@ export default function ContactPage() {
                     <ChevronDown
                       aria-hidden="true"
                       className={cn(
-                        "size-5 shrink-0 text-accent transition-transform duration-300 ease-standard motion-reduce:transition-none",
-                        isOpen && "rotate-180",
+                        'size-5 shrink-0 text-accent transition-transform duration-300 ease-standard motion-reduce:transition-none',
+                        isOpen && 'rotate-180',
                       )}
                     />
                   </button>
                   <div
-                    ref={(node) => {
-                      faqAnswerRefs.current[index] = node;
+                    ref={node => {
+                      faqAnswerRefs.current[index] = node
                     }}
                     id={answerId}
                     role="region"
@@ -225,11 +241,11 @@ export default function ContactPage() {
                     <p className="type-body-sm max-w-2xl px-4 pb-5 pt-3">{faq.answer}</p>
                   </div>
                 </article>
-              );
+              )
             })}
           </div>
         </div>
       </section>
     </div>
-  );
+  )
 }

@@ -1,16 +1,16 @@
-import { AboutSection } from "@/components/sections/about-section";
-import { ExpertiseSection } from "@/components/sections/expertise-section";
-import { HeroSection } from "@/components/sections/hero-section";
-import { HomeCtaSection } from "@/components/sections/home-cta-section";
-import { ProcessSection } from "@/components/sections/process-section";
-import { ProjectsSection } from "@/components/sections/projects-section";
-import { usePageMeta } from "@/hooks/use-page-meta";
+import { AboutSection } from '@/components/sections/about-section'
+import { ExpertiseSection } from '@/components/sections/expertise-section'
+import { HeroSection } from '@/components/sections/hero-section'
+import { HomeCtaSection } from '@/components/sections/home-cta-section'
+import { ProcessSection } from '@/components/sections/process-section'
+import { ProjectsSection } from '@/components/sections/projects-section'
+import { usePageMeta } from '@/hooks/use-page-meta'
 
 export default function HomePage() {
   usePageMeta(
-    "Randhu Paksi Membumi - Enterprise UI/UX Frontend Developer",
-    "Portfolio of Randhu Paksi Membumi, a Frontend Developer building clean, interactive enterprise interfaces and product workflows with React, Next.js, and TypeScript.",
-  );
+    'Randhu Paksi Membumi - Enterprise UI/UX Frontend Developer',
+    'Portfolio of Randhu Paksi Membumi, a Frontend Developer building clean, interactive enterprise interfaces and product workflows with React, Next.js, and TypeScript.',
+  )
 
   return (
     <>
@@ -21,5 +21,5 @@ export default function HomePage() {
       <ProcessSection />
       <HomeCtaSection />
     </>
-  );
+  )
 }

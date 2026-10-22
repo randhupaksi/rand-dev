@@ -1,47 +1,47 @@
-import { useLayoutEffect, useRef } from "react";
-import gsap from "gsap";
+import { useLayoutEffect, useRef } from 'react'
+import gsap from 'gsap'
 
-import { HeroCta } from "@/components/sections/hero/hero-cta";
-import { HeroIntro } from "@/components/sections/hero/hero-intro";
-import { HeroSpotlight } from "@/components/sections/hero/hero-spotlight";
-import { HeroSocials } from "@/components/sections/hero/hero-socials";
-import { HeroVisual } from "@/components/sections/hero/hero-visual";
-import type { HeroContent } from "@/types/hero";
+import { HeroCta } from '@/components/sections/hero/hero-cta'
+import { HeroIntro } from '@/components/sections/hero/hero-intro'
+import { HeroSpotlight } from '@/components/sections/hero/hero-spotlight'
+import { HeroSocials } from '@/components/sections/hero/hero-socials'
+import { HeroVisual } from '@/components/sections/hero/hero-visual'
+import type { HeroContent } from '@/types/hero'
 
 type HeroRootProps = {
-  content: HeroContent;
-};
+  content: HeroContent
+}
 
 export function HeroRoot({ content }: HeroRootProps) {
-  const sectionRef = useRef<HTMLElement>(null);
+  const sectionRef = useRef<HTMLElement>(null)
 
   useLayoutEffect(() => {
     const ctx = gsap.context(() => {
-      const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)");
+      const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)')
 
       if (reduceMotion.matches) {
-        sectionRef.current?.removeAttribute("data-hero-motion");
-        return;
+        sectionRef.current?.removeAttribute('data-hero-motion')
+        return
       }
 
-      const isCompactViewport = window.matchMedia("(max-width: 767px)").matches;
+      const isCompactViewport = window.matchMedia('(max-width: 767px)').matches
       const motion = isCompactViewport
         ? { nameOffset: 30, roleOffset: 18, copyOffset: 14, ctaOffset: 16, socialOffset: 10 }
-        : { nameOffset: 42, roleOffset: 24, copyOffset: 18, ctaOffset: 20, socialOffset: 14 };
+        : { nameOffset: 42, roleOffset: 24, copyOffset: 18, ctaOffset: 20, socialOffset: 14 }
 
       const timeline = gsap.timeline({
-        defaults: { ease: "power3.out" },
-      });
+        defaults: { ease: 'power3.out' },
+      })
 
       timeline
         .set(
-          "[data-hero-eyebrow], [data-hero-name-line], [data-hero-role], [data-hero-description], [data-hero-mobile-badge], [data-hero-cta], [data-hero-socials], [data-hero-social-link], [data-hero-ring], [data-hero-callout], [data-hero-glow]",
+          '[data-hero-eyebrow], [data-hero-name-line], [data-hero-role], [data-hero-description], [data-hero-mobile-badge], [data-hero-cta], [data-hero-socials], [data-hero-social-link], [data-hero-ring], [data-hero-callout], [data-hero-glow]',
           {
-          willChange: "transform,opacity",
+            willChange: 'transform,opacity',
           },
         )
         .fromTo(
-          "[data-hero-eyebrow]",
+          '[data-hero-eyebrow]',
           { y: 18, opacity: 0 },
           {
             y: 0,
@@ -50,95 +50,95 @@ export function HeroRoot({ content }: HeroRootProps) {
           },
         )
         .fromTo(
-          "[data-hero-name-line]",
+          '[data-hero-name-line]',
           { y: motion.nameOffset, opacity: 0 },
           { y: 0, opacity: 1, duration: 0.72, stagger: 0.1 },
-          "-=0.2",
+          '-=0.2',
         )
         .fromTo(
-          "[data-hero-role]",
+          '[data-hero-role]',
           { y: motion.roleOffset, opacity: 0 },
           { y: 0, opacity: 1, duration: 0.58 },
-          "-=0.34",
-        );
+          '-=0.34',
+        )
 
       if (isCompactViewport) {
         timeline.fromTo(
-          "[data-hero-social-link]",
+          '[data-hero-social-link]',
           { y: motion.socialOffset, opacity: 0, scale: 0.92 },
           { y: 0, opacity: 1, scale: 1, duration: 0.46, stagger: 0.08 },
-          "-=0.18",
-        );
+          '-=0.18',
+        )
       }
 
       timeline
         .fromTo(
-          "[data-hero-description]",
+          '[data-hero-description]',
           { y: motion.copyOffset, opacity: 0 },
           { y: 0, opacity: 1, duration: 0.62 },
-          isCompactViewport ? "-=0.22" : "-=0.3",
+          isCompactViewport ? '-=0.22' : '-=0.3',
         )
         .fromTo(
-          "[data-hero-ring]",
+          '[data-hero-ring]',
           { scale: 0.84, opacity: 0, rotate: -8 },
           {
             scale: 1,
             opacity: 1,
             rotate: 0,
             duration: 0.92,
-            ease: "power2.out",
+            ease: 'power2.out',
           },
-          "-=0.74",
+          '-=0.74',
         )
         .fromTo(
-          "[data-hero-glow]",
+          '[data-hero-glow]',
           { opacity: 0, scale: 0.82 },
-          { opacity: 1, scale: 1, duration: 0.9, ease: "power2.out", stagger: 0.08 },
-          "-=0.72",
+          { opacity: 1, scale: 1, duration: 0.9, ease: 'power2.out', stagger: 0.08 },
+          '-=0.72',
         )
         .fromTo(
-          "[data-hero-mobile-badge]",
+          '[data-hero-mobile-badge]',
           { y: 12, opacity: 0, scale: 0.96 },
           { y: 0, opacity: 1, scale: 1, duration: 0.42 },
-          "-=0.44",
+          '-=0.44',
         )
         .fromTo(
-          "[data-hero-cta]",
+          '[data-hero-cta]',
           { y: motion.ctaOffset, opacity: 0 },
           { y: 0, opacity: 1, duration: 0.58, stagger: 0.08 },
-          isCompactViewport ? "-=0.52" : "-=0.72",
-        );
+          isCompactViewport ? '-=0.52' : '-=0.72',
+        )
 
       if (!isCompactViewport) {
         timeline.fromTo(
-          "[data-hero-social-link]",
+          '[data-hero-social-link]',
           { y: motion.socialOffset, opacity: 0, scale: 0.92 },
           { y: 0, opacity: 1, scale: 1, duration: 0.46, stagger: 0.08 },
-          "-=0.58",
-        );
+          '-=0.58',
+        )
       }
 
       timeline
         .fromTo(
-          "[data-hero-callout]",
+          '[data-hero-callout]',
           { x: 18, opacity: 0 },
           { x: 0, opacity: 1, duration: 0.56 },
-          isCompactViewport ? "-=0.26" : "-=0.52",
+          isCompactViewport ? '-=0.26' : '-=0.52',
         )
         .set(
-          "[data-hero-eyebrow], [data-hero-name-line], [data-hero-role], [data-hero-description], [data-hero-mobile-badge], [data-hero-cta], [data-hero-socials], [data-hero-social-link], [data-hero-ring], [data-hero-callout], [data-hero-glow]",
-          { clearProps: "willChange" },
-        );
+          '[data-hero-eyebrow], [data-hero-name-line], [data-hero-role], [data-hero-description], [data-hero-mobile-badge], [data-hero-cta], [data-hero-socials], [data-hero-social-link], [data-hero-ring], [data-hero-callout], [data-hero-glow]',
+          { clearProps: 'willChange' },
+        )
 
       if (isCompactViewport) {
-        timeline.timeScale(1.16);
+        timeline.timeScale(1.16)
       }
 
-      sectionRef.current?.removeAttribute("data-hero-motion");
-    }, sectionRef);
+      sectionRef.current?.removeAttribute('data-hero-motion')
+    }, sectionRef)
 
-    return () => ctx.revert();
-  }, []);
+    return () => ctx.revert()
+  }, [])
 
   return (
     <section
@@ -155,7 +155,9 @@ export function HeroRoot({ content }: HeroRootProps) {
         <div className="order-2 flex max-w-156 flex-col gap-4 sm:gap-5 lg:order-1 lg:gap-8">
           <div className="content-stack-sm lg:content-stack-md">
             <p className="type-overline">
-              <span className="hidden lg:inline">Enterprise Interfaces · Clean Systems · Interactive Flows</span>
+              <span className="hidden lg:inline">
+                Enterprise Interfaces · Clean Systems · Interactive Flows
+              </span>
               <span className="lg:hidden">Enterprise · Clean · Interactive</span>
             </p>
 
@@ -183,12 +185,10 @@ export function HeroRoot({ content }: HeroRootProps) {
           </div>
         </div>
 
-        <div
-          className="order-1 mt-2 hidden sm:mt-4 lg:order-2 lg:mt-0 lg:block"
-        >
+        <div className="order-1 mt-2 hidden sm:mt-4 lg:order-2 lg:mt-0 lg:block">
           <HeroVisual />
         </div>
       </div>
     </section>
-  );
+  )
 }

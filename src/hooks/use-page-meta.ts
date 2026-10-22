@@ -1,17 +1,15 @@
-import { useEffect } from "react";
+import { useEffect } from 'react'
 
 export function usePageMeta(title: string, description?: string) {
   useEffect(() => {
-    document.title = title;
+    document.title = title
 
     if (description) {
-      const meta = document.querySelector<HTMLMetaElement>(
-        'meta[name="description"]',
-      );
+      const meta = document.querySelector<HTMLMetaElement>('meta[name="description"]')
 
       if (meta) {
-        meta.content = description;
+        meta.content = description
       }
     }
-  }, [title, description]);
+  }, [title, description])
 }

@@ -1,22 +1,19 @@
-import { Badge } from "@/components/ui/badge";
-import { cn } from "@/lib/utils";
+import { Badge } from '@/components/ui/badge'
+import { cn } from '@/lib/utils'
 
 type DraftBadgeProps = {
-  label?: string;
-  className?: string;
-};
+  label?: string
+  className?: string
+}
 
-export function DraftBadge({ label = "Draft Content", className }: DraftBadgeProps) {
+export function DraftBadge({ label = 'Draft Content', className }: DraftBadgeProps) {
   return (
     <Badge
       variant="warning"
-      className={cn(
-        "type-overline min-h-7 gap-1.5 text-warning",
-        className,
-      )}
+      className={cn('type-overline min-h-7 gap-1.5 text-warning', className)}
     >
       <span aria-hidden="true" className="size-1 rounded-full bg-warning" />
       {label}
     </Badge>
-  );
+  )
 }

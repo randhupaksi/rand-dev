@@ -1,29 +1,29 @@
-import { Code2, PanelsTopLeft, ScanLine } from "lucide-react";
+import { Code2, PanelsTopLeft, ScanLine } from 'lucide-react'
 
-import { SectionIndex } from "@/components/common/section-index";
-import { expertiseItems } from "@/data/home";
-import { useReveal } from "@/hooks/use-reveal";
+import { SectionIndex } from '@/components/common/section-index'
+import { expertiseItems } from '@/data/home'
+import { useReveal } from '@/hooks/use-reveal'
 
 const expertiseMeta = [
   {
-    label: "Ship",
-    note: "Built for real use",
+    label: 'Ship',
+    note: 'Built for real use',
     icon: Code2,
   },
   {
-    label: "Design",
-    note: "Clear by default",
+    label: 'Design',
+    note: 'Clear by default',
     icon: ScanLine,
   },
   {
-    label: "Connect",
-    note: "UI meets logic",
+    label: 'Connect',
+    note: 'UI meets logic',
     icon: PanelsTopLeft,
   },
-] as const;
+] as const
 
 export function ExpertiseSection() {
-  const scopeRef = useReveal<HTMLElement>();
+  const scopeRef = useReveal<HTMLElement>()
 
   return (
     <section ref={scopeRef} id="skills" className="section-shell">
@@ -35,26 +35,20 @@ export function ExpertiseSection() {
 
           <div data-reveal className="content-stack-md">
             <h2 className="type-h2 max-w-md">
-              I build the enterprise UI{" "}
-              <span className="text-accent">people rely on</span>
+              I build the enterprise UI <span className="text-accent">people rely on</span>
             </h2>
             <p className="type-body max-w-md">
-              My work sits between interface, product flow, and code - turning
-              complex requirements into clean, interactive experiences that feel clear in use.
+              My work sits between interface, product flow, and code - turning complex requirements
+              into clean, interactive experiences that feel clear in use.
             </p>
           </div>
 
           <div data-reveal className="flex items-center gap-3">
             {expertiseMeta.map((item, index) => (
               <div key={item.label} className="flex items-center gap-3">
-                <span className="type-overline text-brand-soft">
-                  {item.label}
-                </span>
+                <span className="type-overline text-brand-soft">{item.label}</span>
                 {index < expertiseMeta.length - 1 ? (
-                  <span
-                    aria-hidden="true"
-                    className="h-px w-5 bg-border-default"
-                  />
+                  <span aria-hidden="true" className="h-px w-5 bg-border-default" />
                 ) : null}
               </div>
             ))}
@@ -63,8 +57,8 @@ export function ExpertiseSection() {
 
         <div className="ds-divider border-b">
           {expertiseItems.map((item, index) => {
-            const meta = expertiseMeta[index];
-            const Icon = meta.icon;
+            const meta = expertiseMeta[index]
+            const Icon = meta.icon
 
             return (
               <article
@@ -77,37 +71,23 @@ export function ExpertiseSection() {
                     <div className="expertise-icon hidden sm:inline-flex">
                       <Icon aria-hidden="true" className="size-4" />
                     </div>
-                    <Icon
-                      aria-hidden="true"
-                      className="size-4 text-accent sm:hidden"
-                    />
+                    <Icon aria-hidden="true" className="size-4 text-accent sm:hidden" />
                   </div>
 
                   <div className="content-stack-md">
                     <div className="grid gap-4 xl:grid-cols-[minmax(0,1fr)_minmax(11rem,auto)] xl:items-start xl:gap-10">
-                      <h3 className="type-h3 max-w-2xl">
-                        {item.title}
-                      </h3>
+                      <h3 className="type-h3 max-w-2xl">{item.title}</h3>
                       <div className="expertise-meta xl:text-right">
-                        <p className="type-overline text-accent">
-                          {meta.label}
-                        </p>
-                        <p className="type-caption text-brand-muted">
-                          {meta.note}
-                        </p>
+                        <p className="type-overline text-accent">{meta.label}</p>
+                        <p className="type-caption text-brand-muted">{meta.note}</p>
                       </div>
                     </div>
 
-                    <p className="type-body max-w-3xl">
-                      {item.description}
-                    </p>
+                    <p className="type-body max-w-3xl">{item.description}</p>
 
                     <ul className="expertise-bullets">
-                      {item.bullets.map((bullet) => (
-                        <li
-                          key={bullet}
-                          className="expertise-bullet"
-                        >
+                      {item.bullets.map(bullet => (
+                        <li key={bullet} className="expertise-bullet">
                           {bullet}
                         </li>
                       ))}
@@ -115,10 +95,10 @@ export function ExpertiseSection() {
                   </div>
                 </div>
               </article>
-            );
+            )
           })}
         </div>
       </div>
     </section>
-  );
+  )
 }

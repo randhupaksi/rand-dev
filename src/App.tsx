@@ -1,14 +1,14 @@
-import { lazy } from "react";
-import { Route, Routes } from "react-router-dom";
+import { lazy } from 'react'
+import { Route, Routes } from 'react-router-dom'
 
-import { RootLayout } from "@/components/layout/root-layout";
-import HomePage from "@/pages/home-page";
+import { RootLayout } from '@/components/layout/root-layout'
+import HomePage from '@/pages/home-page'
 
-const AboutPage = lazy(() => import("@/pages/about-page"));
-const ProjectsPage = lazy(() => import("@/pages/projects-page"));
-const ProjectDetailPage = lazy(() => import("@/pages/project-detail-page"));
-const ContactPage = lazy(() => import("@/pages/contact-page"));
-const NotFoundPage = lazy(() => import("@/pages/not-found-page"));
+const AboutPage = lazy(() => import('@/pages/about-page'))
+const ProjectsPage = lazy(() => import('@/pages/projects-page'))
+const ProjectDetailPage = lazy(() => import('@/pages/project-detail-page'))
+const ContactPage = lazy(() => import('@/pages/contact-page'))
+const NotFoundPage = lazy(() => import('@/pages/not-found-page'))
 
 export default function App() {
   return (
@@ -22,5 +22,5 @@ export default function App() {
         <Route path="*" element={<NotFoundPage />} />
       </Route>
     </Routes>
-  );
+  )
 }

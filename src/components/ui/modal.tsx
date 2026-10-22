@@ -1,38 +1,30 @@
-import { Dialog } from "@base-ui/react/dialog";
-import { X } from "lucide-react";
+import { Dialog } from '@base-ui/react/dialog'
+import { X } from 'lucide-react'
 
-import { cn } from "@/lib/utils";
+import { cn } from '@/lib/utils'
 
-export const Modal = Dialog.Root;
-export const ModalTrigger = Dialog.Trigger;
+export const Modal = Dialog.Root
+export const ModalTrigger = Dialog.Trigger
 
 type ModalContentProps = Dialog.Popup.Props & {
-  closeClassName?: string;
-};
+  closeClassName?: string
+}
 
-export function ModalContent({
-  className,
-  children,
-  closeClassName,
-  ...props
-}: ModalContentProps) {
+export function ModalContent({ className, children, closeClassName, ...props }: ModalContentProps) {
   return (
     <Dialog.Portal>
       <Dialog.Backdrop className="fixed inset-0 z-50 bg-overlay backdrop-blur-sm transition-opacity" />
       <Dialog.Viewport className="fixed inset-0 z-50 flex items-center justify-center p-4">
         <Dialog.Popup
           className={cn(
-            "relative w-full max-w-lg rounded-(--modal-radius) border border-border bg-popover p-(--card-padding) text-popover-foreground shadow-(--shadow-modal) outline-none",
+            'relative w-full max-w-lg rounded-(--modal-radius) border border-border bg-popover p-(--card-padding) text-popover-foreground shadow-(--shadow-modal) outline-none',
             className,
           )}
           {...props}
         >
           {children}
           <Dialog.Close
-            className={cn(
-              "ds-icon-control absolute right-4 top-4 size-10",
-              closeClassName,
-            )}
+            className={cn('ds-icon-control absolute right-4 top-4 size-10', closeClassName)}
             aria-label="Tutup dialog"
           >
             <X className="size-4" aria-hidden="true" />
@@ -40,15 +32,15 @@ export function ModalContent({
         </Dialog.Popup>
       </Dialog.Viewport>
     </Dialog.Portal>
-  );
+  )
 }
 
 export function ModalTitle({ className, ...props }: Dialog.Title.Props) {
-  return <Dialog.Title className={cn("type-h4 pr-12", className)} {...props} />;
+  return <Dialog.Title className={cn('type-h4 pr-12', className)} {...props} />
 }
 
 export function ModalDescription({ className, ...props }: Dialog.Description.Props) {
-  return <Dialog.Description className={cn("type-body-sm mt-2", className)} {...props} />;
+  return <Dialog.Description className={cn('type-body-sm mt-2', className)} {...props} />
 }
 
-export const ModalClose = Dialog.Close;
+export const ModalClose = Dialog.Close

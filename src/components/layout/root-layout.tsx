@@ -1,34 +1,34 @@
-import { Suspense, useEffect } from "react";
-import { Outlet } from "react-router-dom";
+import { Suspense, useEffect } from 'react'
+import { Outlet } from 'react-router-dom'
 
-import { PortfolioLoader } from "@/components/common/portfolio-loader";
-import { SiteFooter } from "@/components/layout/site-footer";
-import { MobileBottomNavigation } from "@/components/layout/mobile-bottom-navigation";
-import { SiteNavbar } from "@/components/layout/site-navbar";
+import { PortfolioLoader } from '@/components/common/portfolio-loader'
+import { SiteFooter } from '@/components/layout/site-footer'
+import { MobileBottomNavigation } from '@/components/layout/mobile-bottom-navigation'
+import { SiteNavbar } from '@/components/layout/site-navbar'
 
 function DismissInitialLoader() {
   useEffect(() => {
-    const loader = document.getElementById("initial-loader");
+    const loader = document.getElementById('initial-loader')
 
     if (!loader) {
-      return;
+      return
     }
 
-    loader.classList.add("is-ready");
-    const timeoutId = window.setTimeout(() => loader.remove(), 260);
+    loader.classList.add('is-ready')
+    const timeoutId = window.setTimeout(() => loader.remove(), 260)
 
-    return () => window.clearTimeout(timeoutId);
-  }, []);
+    return () => window.clearTimeout(timeoutId)
+  }, [])
 
-  return null;
+  return null
 }
 
 function RouteLoadingFallback() {
-  if (document.getElementById("initial-loader")) {
-    return null;
+  if (document.getElementById('initial-loader')) {
+    return null
   }
 
-  return <PortfolioLoader />;
+  return <PortfolioLoader />
 }
 
 export function RootLayout() {
@@ -46,5 +46,5 @@ export function RootLayout() {
         <MobileBottomNavigation />
       </div>
     </>
-  );
+  )
 }

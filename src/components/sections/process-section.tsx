@@ -1,9 +1,9 @@
-import { SectionIndex } from "@/components/common/section-index";
-import { processSteps } from "@/data/home";
-import { useReveal } from "@/hooks/use-reveal";
+import { SectionIndex } from '@/components/common/section-index'
+import { processSteps } from '@/data/home'
+import { useReveal } from '@/hooks/use-reveal'
 
 export function ProcessSection() {
-  const scopeRef = useReveal<HTMLElement>();
+  const scopeRef = useReveal<HTMLElement>()
 
   return (
     <section ref={scopeRef} className="section-shell">
@@ -12,20 +12,17 @@ export function ProcessSection() {
           <div data-reveal>
             <SectionIndex index="04" label="How I work" />
           </div>
-          <h2
-            data-reveal
-            className="type-h2"
-          >
+          <h2 data-reveal className="type-h2">
             I make enterprise workflows clearer
           </h2>
           <p data-reveal className="section-copy max-w-lg">
-            I work frontend-first: clarify the workflow, make states visible,
-            then build a clean interface and refine every interaction for real use.
+            I work frontend-first: clarify the workflow, make states visible, then build a clean
+            interface and refine every interaction for real use.
           </p>
         </div>
 
         <ol>
-          {processSteps.map((step) => (
+          {processSteps.map(step => (
             <li
               key={step.step}
               data-reveal
@@ -38,17 +35,13 @@ export function ProcessSection() {
                 {step.step}
               </span>
               <div className="content-stack-xs pt-1.5">
-                <h3 className="type-h4 sm:text-2xl">
-                  {step.title}
-                </h3>
-                <p className="type-body-sm max-w-2xl">
-                  {step.description}
-                </p>
+                <h3 className="type-h4 sm:text-2xl">{step.title}</h3>
+                <p className="type-body-sm max-w-2xl">{step.description}</p>
               </div>
             </li>
           ))}
         </ol>
       </div>
     </section>
-  );
+  )
 }

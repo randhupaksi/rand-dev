@@ -1,44 +1,44 @@
-import { Eye, Image as ImageIcon } from "lucide-react";
-import { useState, type HTMLAttributes } from "react";
+import { Eye, Image as ImageIcon } from 'lucide-react'
+import { useState, type HTMLAttributes } from 'react'
 
-import { Modal, ModalContent, ModalTitle, ModalTrigger } from "@/components/ui/modal";
-import { cn } from "@/lib/utils";
+import { Modal, ModalContent, ModalTitle, ModalTrigger } from '@/components/ui/modal'
+import { cn } from '@/lib/utils'
 
 type MediaPlaceholderProps = HTMLAttributes<HTMLDivElement> & {
-  label?: string;
-  hint?: string;
-  src?: string;
-  alt?: string;
-  aspect?: "video" | "wide" | "square";
-  cropBottom?: boolean;
-  preview?: boolean;
-  className?: string;
-};
+  label?: string
+  hint?: string
+  src?: string
+  alt?: string
+  aspect?: 'video' | 'wide' | 'square'
+  cropBottom?: boolean
+  preview?: boolean
+  className?: string
+}
 
 const aspectClassMap = {
-  video: "aspect-video",
-  wide: "aspect-16/10",
-  square: "aspect-square",
-} as const;
+  video: 'aspect-video',
+  wide: 'aspect-16/10',
+  square: 'aspect-square',
+} as const
 
 export function MediaPlaceholder({
-  label = "Visual coming soon",
+  label = 'Visual coming soon',
   hint,
   src,
   alt = label,
-  aspect = "wide",
+  aspect = 'wide',
   cropBottom = false,
   preview = false,
   className,
   ...props
 }: MediaPlaceholderProps) {
-  const [isPreviewOpen, setIsPreviewOpen] = useState(false);
+  const [isPreviewOpen, setIsPreviewOpen] = useState(false)
 
   return (
     <div
       {...props}
       className={cn(
-        "relative flex items-center justify-center overflow-hidden rounded-(--card-radius) border border-border bg-card",
+        'relative flex items-center justify-center overflow-hidden rounded-(--card-radius) border border-border bg-card',
         aspectClassMap[aspect],
         className,
       )}
@@ -48,10 +48,7 @@ export function MediaPlaceholder({
           <img
             src={src}
             alt={alt}
-            className={cn(
-              "absolute inset-0 size-full object-cover",
-              cropBottom && "scale-[1.02]",
-            )}
+            className={cn('absolute inset-0 size-full object-cover', cropBottom && 'scale-[1.02]')}
           />
 
           {preview ? (
@@ -68,21 +65,14 @@ export function MediaPlaceholder({
                 closeClassName="border-red-500/70 bg-red-500/10 text-red-400 hover:border-red-400 hover:bg-red-500/20 hover:text-red-300 active:scale-90"
               >
                 <ModalTitle className="sr-only">Preview {label}</ModalTitle>
-                <img
-                  src={src}
-                  alt={alt}
-                  className="max-h-[82vh] w-full object-contain"
-                />
+                <img src={src} alt={alt} className="max-h-[82vh] w-full object-contain" />
               </ModalContent>
             </Modal>
           ) : null}
         </>
       ) : (
         <>
-          <div
-            aria-hidden="true"
-            className="media-placeholder-grid absolute inset-0 opacity-70"
-          />
+          <div aria-hidden="true" className="media-placeholder-grid absolute inset-0 opacity-70" />
           <div
             aria-hidden="true"
             className="absolute left-1/2 top-0 h-32 w-3/4 -translate-x-1/2 bg-primary-surface blur-2xl"
@@ -93,18 +83,12 @@ export function MediaPlaceholder({
               <ImageIcon className="size-4" aria-hidden="true" />
             </span>
             <div className="content-stack-xs items-center">
-              <p className="type-overline">
-                {label}
-              </p>
-              {hint ? (
-                <p className="type-caption max-w-64">
-                  {hint}
-                </p>
-              ) : null}
+              <p className="type-overline">{label}</p>
+              {hint ? <p className="type-caption max-w-64">{hint}</p> : null}
             </div>
           </div>
         </>
       )}
     </div>
-  );
+  )
 }

@@ -4,14 +4,14 @@ Rand Dev is Randhu Paksi Membumi's personal portfolio. It introduces his fronten
 
 ## Routes
 
-| Route | Purpose |
-| --- | --- |
-| `/` | Hero, profile summary, expertise, selected project, process, tools, and contact CTA |
-| `/about` | Working principles, capabilities, profile facts, and experience/journey timeline |
-| `/projects` | Project index and honest draft/placeholder slots |
-| `/projects/:slug` | Project overview, capabilities, technical stack, case study, and gallery |
-| `/contact` | Contact channels, published social profiles, CV link, and contact FAQ; there is no submission form |
-| `*` | Not-found page |
+| Route             | Purpose                                                                                            |
+| ----------------- | -------------------------------------------------------------------------------------------------- |
+| `/`               | Hero, profile summary, expertise, selected project, process, tools, and contact CTA                |
+| `/about`          | Working principles, capabilities, profile facts, and experience/journey timeline                   |
+| `/projects`       | Project index and honest draft/placeholder slots                                                   |
+| `/projects/:slug` | Project overview, capabilities, technical stack, case study, and gallery                           |
+| `/contact`        | Contact channels, published social profiles, CV link, and contact FAQ; there is no submission form |
+| `*`               | Not-found page                                                                                     |
 
 The home page is loaded directly. Other routes are lazy-loaded within the shared root layout. Home navigation anchors are `#home`, `#about`, `#skills`, and `#portfolio`; keep their links synchronized with the section IDs.
 
@@ -25,14 +25,14 @@ Personal and journey content is maintained in `src/data/site.ts`, `src/data/hero
 
 Copy `.env.example` to `.env` when local overrides are needed. These values are optional:
 
-| Variable | Behavior |
-| --- | --- |
-| `VITE_EMAIL` | Publishes an email address and `mailto:` action; otherwise the contact channel remains a placeholder |
-| `VITE_CV_URL` | Overrides the CV link; defaults to the CV PDF shipped in `public/files/` |
-| `VITE_SOCIAL_GITHUB` | Publishes the GitHub profile link |
-| `VITE_SOCIAL_INSTAGRAM` | Overrides the built-in Instagram profile link |
-| `VITE_SOCIAL_LINKEDIN` | Overrides the built-in LinkedIn profile link |
-| `VITE_SOCIAL_DRIBBBLE` | Publishes the Dribbble profile link |
+| Variable                | Behavior                                                                                             |
+| ----------------------- | ---------------------------------------------------------------------------------------------------- |
+| `VITE_EMAIL`            | Publishes an email address and `mailto:` action; otherwise the contact channel remains a placeholder |
+| `VITE_CV_URL`           | Overrides the CV link; defaults to the CV PDF shipped in `public/files/`                             |
+| `VITE_SOCIAL_GITHUB`    | Publishes the GitHub profile link                                                                    |
+| `VITE_SOCIAL_INSTAGRAM` | Overrides the built-in Instagram profile link                                                        |
+| `VITE_SOCIAL_LINKEDIN`  | Overrides the built-in LinkedIn profile link                                                         |
+| `VITE_SOCIAL_DRIBBBLE`  | Publishes the Dribbble profile link                                                                  |
 
 The Contact page is a directory of direct channels, social profiles, and the CV. It does not submit a form or send data to an API. Never put secrets in `VITE_` variables because Vite exposes them to browser code.
 
@@ -78,3 +78,7 @@ npm run preview
 ```
 
 `npm run build` runs TypeScript project checks followed by the Vite production build. `npm run lint` runs Oxlint.
+
+## Code formatting
+
+**npm run format** to format the repository with Prettier. **npm run format:check** checks formatting without changing files and runs as part of the local quality check and CI where configured.
