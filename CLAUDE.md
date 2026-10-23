@@ -1,5 +1,7 @@
 # Rand Dev Portfolio - Claude Code Instructions
 
+> **Canonical guidance:** [AGENTS.md](AGENTS.md) is the maintained source of truth. Supporting references are mapped in [docs/INDEX.md](docs/INDEX.md). Keep this compatibility file aligned with `AGENTS.md`; do not introduce conflicting instructions here.
+
 ## Operational context
 
 Before substantial analysis or implementation, read the active machine's DevBrain runtime (when installed), this file, and the files relevant to the task, including their consumers and shared dependencies. Do not hard-code another device's user profile path.

@@ -2,6 +2,10 @@
 
 Rand Dev is Randhu Paksi Membumi's personal portfolio. It introduces his frontend and product UI work, explains his working approach, presents selected projects, and provides CV, social, and contact links. The portfolio's positioning emphasizes responsive interfaces, enterprise workflows, role-aware screens, and thoughtful interaction.
 
+## Documentation
+
+Contributor and project documentation is mapped in [docs/INDEX.md](docs/INDEX.md). It covers architecture, public-content rules, visual system, and the local/CI delivery workflow.
+
 ## Routes
 
 | Route             | Purpose                                                                                            |

@@ -6,6 +6,8 @@ Before substantial analysis or implementation, read the active machine's DevBrai
 
 The user's latest explicit request overrides preferences in this document. Platform and safety policy remain highest priority.
 
+For detailed architecture, content-publishing, design, and operations guidance, start at [docs/INDEX.md](docs/INDEX.md). This file remains the authoritative operating contract when guidance overlaps.
+
 ## Project identity
 
 `rand-dev` is the personal portfolio of **Randhu Paksi Membumi**, currently positioned in the product as a Frontend Developer with frontend, product UI, and full-stack workflow experience. The portfolio should communicate a combination of:
