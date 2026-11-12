@@ -7,7 +7,7 @@ export default function NotFoundPage() {
     <section className="folio-section not-found">
       <p className="folio-label">404 / A small detour</p>
       <h1>
-        This page took a different <em>turn.</em>
+        This page took a different <em>turn</em>
       </h1>
       <p>The link may have moved. There’s still plenty to explore.</p>
       <Link className="folio-text-link" to="/">

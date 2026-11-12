@@ -14,7 +14,7 @@ export default function AboutPage() {
       <header className="folio-page-intro">
         <p className="folio-label">Profile / Randhu Paksi Membumi</p>
         <h1>
-          Frontend <em>Developer.</em>
+          Frontend <em>Developer</em>
         </h1>
         <div className="about-profile">
           <img src="/images/profile/randhu-no-bg.png" alt="Randhu Paksi Membumi" />
@@ -50,7 +50,7 @@ export default function AboutPage() {
           label="Selected work & metrics"
           title={
             <>
-              Project scope & <em>outcomes.</em>
+              Project scope & <em>outcomes</em>
             </>
           }
         />
@@ -59,6 +59,7 @@ export default function AboutPage() {
             <article key={item.title}>
               <p className="folio-label">/0{index + 1}</p>
               <h3>{item.title}</h3>
+              <p className="highlight-metric">{item.metric}</p>
               <p>{item.description}</p>
             </article>
           ))}
@@ -70,7 +71,7 @@ export default function AboutPage() {
           label="Skills & additional experience"
           title={
             <>
-              Frontend, APIs & <em>UI/UX.</em>
+              Frontend, APIs & <em>UI/UX</em>
             </>
           }
         />
@@ -102,7 +103,7 @@ export default function AboutPage() {
           label="Experience & education"
           title={
             <>
-              Roles & <em>recognition.</em>
+              Roles & <em>recognition</em>
             </>
           }
         />

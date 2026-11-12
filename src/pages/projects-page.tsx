@@ -13,7 +13,7 @@ export default function ProjectsPage() {
           The work / {String(projects.length).padStart(2, '0')} projects
         </p>
         <h1>
-          Selected <em>projects.</em>
+          Selected <em>projects</em>
         </h1>
         <p>
           Work spans a production attendance platform, an independent studio site, an ambient SVG

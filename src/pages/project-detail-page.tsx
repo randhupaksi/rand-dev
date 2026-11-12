@@ -80,7 +80,7 @@ export default function ProjectDetailPage() {
           label="Project details"
           title={
             <>
-              Features & technical <em>scope.</em>
+              Features & technical <em>scope</em>
             </>
           }
         />
@@ -104,7 +104,7 @@ export default function ProjectDetailPage() {
             label="Product features"
             title={
               <>
-                Core <em>capabilities.</em>
+                Core <em>capabilities</em>
               </>
             }
           />
@@ -125,7 +125,7 @@ export default function ProjectDetailPage() {
             label="Implementation"
             title={
               <>
-                Stack & <em>architecture.</em>
+                Stack & <em>architecture</em>
               </>
             }
           />
@@ -149,7 +149,7 @@ export default function ProjectDetailPage() {
             label="Product screenshots"
             title={
               <>
-                Interface <em>gallery.</em>
+                Interface <em>gallery</em>
               </>
             }
           />

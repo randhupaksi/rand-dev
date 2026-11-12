@@ -1,5 +1,6 @@
 export type ProfileHighlight = {
   title: string
+  metric: string
   description: string
 }
 

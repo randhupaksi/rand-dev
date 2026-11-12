@@ -14,7 +14,7 @@ export default function ContactPage() {
       <header className="folio-page-intro contact-intro">
         <p className="folio-label">Contact / Randhu Paksi Membumi</p>
         <h1>
-          Contact <em>Randhu.</em>
+          Contact <em>Randhu</em>
         </h1>
         <p>
           Frontend Developer at Matik Creative Technology. Open to frontend roles, product UI work,
@@ -27,7 +27,7 @@ export default function ContactPage() {
           label="Contact channels"
           title={
             <>
-              Professional <em>profiles.</em>
+              Professional <em>profiles</em>
             </>
           }
         />
@@ -68,7 +68,7 @@ export default function ContactPage() {
           label="Work & technologies"
           title={
             <>
-              Availability & <em>stack.</em>
+              Availability & <em>stack</em>
             </>
           }
         />
