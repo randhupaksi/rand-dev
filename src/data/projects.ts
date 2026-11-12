@@ -1,164 +1,225 @@
-import type { Project } from '@/types/project'
+import type { ProjectSummary } from '@/types/project'
 
-export const projects: Project[] = [
+export const projects: ProjectSummary[] = [
   {
     slug: 'absensi-cn',
     name: 'Citra Negara Attendance System',
-    category: 'Live attendance platform',
+    category: 'School attendance system · in production',
     period: {
       value: 'Live in production · 2026',
       isPlaceholder: false,
     },
     summary:
-      'A production school operations platform used by 2,000+ people at SMK Citra Negara Depok, showing how clean interfaces, role-aware workflows, and reliable product logic work together.',
+      'An attendance platform for SMK Citra Negara Depok, used by more than 2,000 people. Students submit attendance with photo and location evidence; teachers and staff review requests and manage school-wide reporting.',
     thumbnail: {
       src: '/images/project/absensi-cn/hero-overview.png',
-      alt: 'Hero landing page Citra Negara Attendance System',
+      alt: 'Citra Negara Attendance System landing page introducing the school attendance service.',
     },
     stack: ['React', 'TypeScript', 'Vite', 'Tailwind CSS', 'Go', 'MySQL'],
     focusAreas: [
       'Multi-role school workflows',
       'Attendance evidence and review',
-      'Academic operations and reporting',
-    ],
-    capabilities: [
-      {
-        title: 'Attendance with evidence',
-        description:
-          'Photo, location, time windows, and separate morning or class-session records give each attendance event the context it needs.',
-      },
-      {
-        title: 'Role-aware workspaces',
-        description:
-          'Student, teacher, homeroom, BK, and admin work is shaped by assignments and scope instead of one generic dashboard.',
-      },
-      {
-        title: 'Review and follow-up',
-        description:
-          'Corrections keep the original record intact, while requests, unusual attendance, and notifications make the next action clear.',
-      },
-      {
-        title: 'School operations',
-        description:
-          'Academic setup, holidays, session recaps, imports, analytics, and PDF or Excel reports keep daily attendance connected to the wider school workflow.',
-      },
-    ],
-    technicalStack: [
-      {
-        title: 'Frontend application',
-        description:
-          'The Vite single-page app that handles the clean interface, server state, forms, reporting views, and interaction details across role-based workflows.',
-        items: [
-          'React 19',
-          'TypeScript 5.9',
-          'Vite 8',
-          'React Router 7',
-          'Tailwind CSS 4',
-          'TanStack Query 5',
-          'TanStack Table 8',
-          'Axios',
-          'React Hook Form 7',
-          'Zod 4',
-          'Base UI',
-          'Radix Select',
-          'Motion 12',
-          'Recharts 3',
-          'Sonner',
-          'jsPDF + AutoTable',
-          'react-day-picker',
-        ],
-      },
-      {
-        title: 'API, data, and operations',
-        description:
-          'The Go REST API that owns business rules, access control, persistence, private evidence, and the safeguards behind a dependable enterprise workflow.',
-        items: [
-          'Go 1.25',
-          'Gin',
-          'GORM',
-          'MySQL',
-          'JWT (HS256)',
-          'bcrypt',
-          'go-playground/validator',
-          'Excelize',
-          'Cloudinary',
-          'Web Push',
-          'Redis',
-          'Gzip + request tracing',
-          'Rate and admission controls',
-        ],
-      },
+      'School operations and reporting',
     ],
     status: 'verified',
     links: {
       demo: 'https://absensmk.citranegara.online',
       repository: null,
     },
-    caseStudy: [
-      {
-        title: 'An operating workflow, not a single check-in screen',
-        body: 'Citra Negara Attendance System is a production platform for SMK Citra Negara Depok, used by more than 2,000 people. Students, teachers, homeroom teachers, BK staff, and admins each work from the context they need, while one clean system keeps attendance, follow-up, and reporting connected.',
-        isPlaceholder: false,
-      },
-      {
-        title: 'Capturing attendance with useful evidence',
-        body: 'Students check in with a photo and device location. The interface keeps the action direct, while the API considers the attendance window, validates the evidence and location policy, and protects submissions from duplicate retries.',
-        isPlaceholder: false,
-      },
-      {
-        title: 'Roles are shaped by school context',
-        body: 'A teacher can receive subject, homeroom, or BK capabilities through assignments and scope - not a one-size-fits-all dashboard. The result is a more focused UI for sessions, student monitoring, attendance review, counselling notes, and permission or sick submissions.',
-        isPlaceholder: false,
-      },
-      {
-        title: 'Review without losing the original record',
-        body: 'The original check-in time and the review time stay separate. When a status is corrected, the first attendance event remains intact, meaningful changes are kept in history, and students can receive a notification about what changed.',
-        isPlaceholder: false,
-      },
-      {
-        title: 'From daily attendance to school operations',
-        body: 'The platform also covers subject sessions and recaps, manual homeroom attendance, school holidays, academic setup, Excel imports, analytics, and PDF or Excel reporting. It is designed for the chain of work around attendance, not just the first tap of the day.',
-        isPlaceholder: false,
-      },
-      {
-        title: 'Built for an operating product',
-        body: 'The frontend keeps server data in sync with TanStack Query and lazy-loads heavier chart and reporting tools. The Go API handles authentication, role and scope checks, business validation, private uploads, request tracing, and bounded traffic handling so the interface stays useful as the workflow grows.',
-        isPlaceholder: false,
-      },
+  },
+  {
+    slug: 'rand-studio',
+    name: 'RandStudio',
+    category: 'Independent digital studio',
+    period: {
+      value: 'Project timeline not published',
+      isPlaceholder: true,
+    },
+    summary:
+      'The public site for Randhu’s independent digital studio. It explains website and design services, sets expectations around project scope, and turns a browser-only brief into a copyable summary or an email draft when contact is configured.',
+    thumbnail: {
+      src: '/images/project/rand-studio/overview.jpg',
+      alt: 'RandStudio homepage with its studio introduction, project call to action, and website mockup.',
+    },
+    stack: ['React 19', 'TypeScript', 'Vite 8', 'Tailwind CSS 4', 'GSAP', 'Lenis'],
+    focusAreas: ['Service positioning and fit', 'Clear project scope', 'Client-side project brief'],
+    status: 'verified',
+    links: {
+      demo: null,
+      repository: null,
+    },
+  },
+  {
+    slug: 'ranbience',
+    name: 'Ranbience',
+    category: 'Ambient SVG animation collection',
+    period: {
+      value: 'Project timeline not published',
+      isPlaceholder: true,
+    },
+    summary:
+      'A collection of 50 ambient scenes across plants, creatures, weather, water, and light. Visitors tune a live preview, then copy or download the reusable SVG animation source.',
+    thumbnail: {
+      src: '/images/project/ranbience/overview.jpg',
+      alt: 'Ranbience homepage with an ambient wildflower scene and motion preview.',
+    },
+    stack: ['React', 'TypeScript', 'Vite', 'SVG', 'GSAP'],
+    focusAreas: [
+      'Authored animated SVG scenes',
+      'Adjustable motion previews',
+      'Reusable source export',
     ],
-    gallery: [
-      {
-        src: '/images/project/absensi-cn/hero-overview.png',
-        alt: 'Hero landing page Citra Negara Attendance System',
-        label: 'Product overview',
-      },
-      {
-        src: '/images/project/absensi-cn/attendance-flow.png',
-        alt: 'Student attendance flow with evidence and location steps',
-        label: 'Attendance flow',
-      },
-      {
-        src: '/images/project/absensi-cn/student-login.png',
-        alt: 'Student login screen for Citra Negara Attendance System',
-        label: 'Student login',
-      },
-      {
-        src: '/images/project/absensi-cn/student-dashboard-desktop.png',
-        alt: 'Desktop student dashboard for Citra Negara Attendance System',
-        label: 'Student dashboard - desktop',
-      },
+    status: 'verified',
+    links: {
+      demo: 'https://ranbience.my.id',
+      repository: null,
+    },
+  },
+  {
+    slug: 'ranmotion',
+    name: 'RanMotion',
+    category: 'Interactive GSAP learning platform',
+    period: {
+      value: 'Project timeline not published',
+      isPlaceholder: true,
+    },
+    summary:
+      'A bilingual path with 42 lessons across nine sections: two visual introductions without code, followed by 40 guided animation practices with editable examples and live previews.',
+    thumbnail: {
+      src: '/images/project/ranmotion/overview.jpg',
+      alt: 'RanMotion homepage with a GSAP motion study, code sample, and live preview controls.',
+    },
+    stack: ['React 19', 'TypeScript', 'Vite', 'GSAP', 'CodeMirror', 'Zod'],
+    focusAreas: [
+      'Visual learning before code',
+      'Editable animation practice',
+      'Bilingual learning experience',
     ],
-    gallerySlots: 4,
+    status: 'verified',
+    links: {
+      demo: 'https://ranmotion.vercel.app',
+      repository: null,
+    },
+  },
+  {
+    slug: 'rancode-lab',
+    name: 'Rancode Lab',
+    category: 'Bilingual programming curriculum',
+    period: {
+      value: 'Project timeline not published',
+      isPlaceholder: true,
+    },
+    summary:
+      'A bilingual path from logic and web fundamentals through Next.js: 272 core lessons, nine checkpoints, and nine self-reviewed projects. Optional Tailwind CSS and Vibe Coding paths bring the full catalog to 341 lessons.',
+    thumbnail: {
+      src: '/images/project/rancode-lab/overview.jpg',
+      alt: 'Rancode Lab homepage with a coding lesson, editable example, and rendered browser preview.',
+    },
+    stack: ['React 19', 'TypeScript', 'Vite', 'Tailwind CSS 4', 'CodeMirror', 'MDX', 'Zod'],
+    focusAreas: [
+      'Structured frontend curriculum',
+      'Browser-based coding practice',
+      'Learner-owned progress and projects',
+    ],
+    status: 'verified',
+    links: {
+      demo: 'https://rancodelab.vercel.app',
+      repository: null,
+    },
+  },
+  {
+    slug: 'ranledger',
+    name: 'Ranledger',
+    category: 'Local-first personal finance app',
+    period: {
+      value: 'Project timeline not published',
+      isPlaceholder: true,
+    },
+    summary:
+      'An Indonesian finance app that keeps its default ledger in the browser and works offline. It connects wallets and obligations with budgets, recurring plans, CSV reconciliation, reports, and recovery; cloud sync is optional.',
+    thumbnail: {
+      src: '/images/project/ranledger/overview.jpg',
+      alt: 'Ranledger finance overview in a fresh workspace, with local storage and wallet summaries visible.',
+    },
+    stack: [
+      'React 19',
+      'TypeScript',
+      'Vite',
+      'Tailwind CSS 4',
+      'Dexie',
+      'Hono',
+      'PostgreSQL',
+      'Zod',
+      'PWA',
+    ],
+    focusAreas: [
+      'Local-first financial records',
+      'Assets, debts, and cash-flow plans',
+      'Reconciliation and data recovery',
+    ],
+    status: 'verified',
+    links: {
+      demo: 'https://ranledger.vercel.app',
+      repository: null,
+    },
+  },
+  {
+    slug: 'ranfession',
+    name: 'Ranfession',
+    category: 'Interactive digital letter',
+    period: {
+      value: 'Project timeline not published',
+      isPlaceholder: true,
+    },
+    summary:
+      'A digital letter that starts with a single-screen invitation, moves into scroll-led chapters, and keeps its main confession behind the reader’s deliberate Reveal action. Optional ambience is generated locally and starts off.',
+    thumbnail: {
+      src: '/images/project/ranfession/overview.jpg',
+      alt: 'Ranfession opening invitation with an unopened envelope and a Begin action.',
+    },
+    stack: ['React 19', 'TypeScript', 'Vite', 'GSAP', 'ScrollTrigger', 'Zod', 'Web Audio API'],
+    focusAreas: [
+      'Reader-led narrative pacing',
+      'Explicit reveal interaction',
+      'Reduced-motion and optional audio',
+    ],
+    status: 'verified',
+    links: {
+      demo: 'https://ranfession.vercel.app',
+      repository: null,
+    },
+  },
+  {
+    slug: 'rand-signature-template',
+    name: 'Randhu Project Signature',
+    category: 'Reusable React project starter',
+    period: {
+      value: 'Project timeline not published',
+      isPlaceholder: true,
+    },
+    summary:
+      'A reusable starting point for Randhu’s React projects: it establishes source ownership, modular page structure, semantic UI foundations, and a shared quality gate while leaving each product’s identity and domain rules to the derived project.',
+    thumbnail: {
+      src: '/images/project/rand-signature-template/overview.jpg',
+      alt: 'Randhu Project Signature starter page with its first-use checklist.',
+    },
+    stack: ['React', 'TypeScript', 'Vite', 'React Router', 'Tailwind CSS 4', 'Oxlint', 'Prettier'],
+    focusAreas: [
+      'Clear source ownership',
+      'Modular project structure',
+      'Repeatable quality checks',
+    ],
+    status: 'verified',
+    links: {
+      demo: null,
+      repository: null,
+    },
   },
 ]
 
-export function getProjectBySlug(slug: string): Project | undefined {
-  return projects.find(project => project.slug === slug)
-}
-
 export function getAdjacentProjects(slug: string): {
-  previous: Project | null
-  next: Project | null
+  previous: ProjectSummary | null
+  next: ProjectSummary | null
 } {
   const index = projects.findIndex(project => project.slug === slug)
 

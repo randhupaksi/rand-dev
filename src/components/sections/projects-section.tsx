@@ -69,8 +69,8 @@ export function ProjectsSection() {
                 <MediaPlaceholder
                   src={featured.thumbnail?.src}
                   alt={featured.thumbnail?.alt}
-                  label="Project image placeholder"
-                  hint="Add the real screenshots in src/data/projects.ts"
+                  label={featured.thumbnail?.label ?? 'Project image placeholder'}
+                  hint={featured.thumbnail?.hint ?? 'Add the real screenshots in src/data/projects.ts'}
                   aspect="wide"
                   cropBottom
                   className="lg:hidden"
@@ -127,8 +127,8 @@ export function ProjectsSection() {
               <MediaPlaceholder
                 src={featured.thumbnail?.src}
                 alt={featured.thumbnail?.alt}
-                label="Project image placeholder"
-                hint="Add the real screenshots in src/data/projects.ts"
+                label={featured.thumbnail?.label ?? 'Project image placeholder'}
+                hint={featured.thumbnail?.hint ?? 'Add the real screenshots in src/data/projects.ts'}
                 aspect="wide"
                 cropBottom
                 className="hidden lg:flex"
