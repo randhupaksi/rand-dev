@@ -15,11 +15,13 @@ export default function HomePage() {
       <section id="home" className="home-cover">
         <div className="home-cover-copy">
           <p className="folio-label">
-            <span>RANDHU PAKSI MEMBUMI</span>
-            <span>FRONTEND DEVELOPER · MATIK</span>
+            <span>WEB · PRODUCT UI</span>
           </p>
           <h1>
-            Frontend <em>Developer.</em>
+            <span className="home-cover-greeting">Hi, I’m Randhu Paksi Membumi.</span>
+            <span className="home-cover-heading">
+              Creative <em>Frontend Developer</em>
+            </span>
           </h1>
           <div className="home-cover-bottom">
             <p>{editorial.intro}</p>

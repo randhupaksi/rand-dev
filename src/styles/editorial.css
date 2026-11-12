@@ -691,6 +691,16 @@
   }
 }
 @media (max-width: 760px) {
+  .folio-page-intro {
+    margin-top: 0;
+    padding-block: clamp(3rem, 9vw, 4rem) 2.5rem;
+  }
+  .folio-section {
+    padding-block: clamp(3.25rem, 11vw, 4.5rem);
+  }
+  .folio-footer {
+    padding-bottom: calc(1.5rem + env(safe-area-inset-bottom));
+  }
   .folio-navbar {
     min-height: 78px;
   }
@@ -744,6 +754,13 @@
   .folio-round-link {
     width: 48px;
     height: 48px;
+  }
+  .case-links {
+    flex-wrap: wrap;
+    gap: 0.5rem 1.5rem;
+  }
+  .case-links a {
+    min-height: 44px;
   }
   .portrait-print {
     width: min(68%, 270px);
@@ -834,11 +851,24 @@
   .footer-bottom {
     line-height: 1.8;
   }
+  .big-editorial-link {
+    gap: 1rem;
+    font-size: clamp(1.75rem, 8vw, 2.5rem);
+  }
+  .big-editorial-link svg {
+    flex: 0 0 auto;
+  }
+  .case-gallery figcaption {
+    font-size: 0.58rem;
+  }
+  .not-found > a {
+    margin-right: 0.75rem;
+  }
   .folio-app main > div > .section-shell-compact:first-child h1 {
     font-size: clamp(2.5rem, 9vw, 4rem);
   }
 }
-@media (max-width: 520px) {
+@media (max-width: 600px) {
   .footer-top {
     grid-template-columns: minmax(0, 1fr);
     gap: 2.5rem;
