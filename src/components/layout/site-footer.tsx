@@ -1,5 +1,5 @@
 import { ArrowUpRight, BriefcaseBusiness, House, Mail, UserRound } from 'lucide-react'
-import { Link } from 'react-router-dom'
+import { Link, NavLink } from 'react-router-dom'
 import { SocialLinks } from '@/components/common/social-links'
 import { navigationItems } from '@/data/navigation'
 import { contactChannels, siteIdentity } from '@/data/site'
@@ -39,10 +39,10 @@ export function SiteFooter() {
 
               return (
                 <li key={item.to}>
-                  <Link to={item.to}>
+                  <NavLink to={item.to} end={item.to === '/'}>
                     <Icon size={17} aria-hidden="true" />
                     {item.label}
-                  </Link>
+                  </NavLink>
                 </li>
               )
             })}

@@ -94,6 +94,9 @@
   letter-spacing: -0.08em;
   gap: 0.2rem;
 }
+.folio-brand:hover {
+  color: var(--accent);
+}
 .folio-brand svg {
   width: 26px;
   height: 26px;
@@ -121,9 +124,17 @@
 .folio-nav a[aria-current='page'] {
   color: var(--accent);
 }
+.folio-nav a:hover {
+  color: var(--accent);
+}
 .folio-nav .nav-conversation {
   margin-left: 2rem;
-  border-bottom: 1px solid var(--accent);
+}
+.folio-nav .nav-conversation svg {
+  transition: transform 180ms ease;
+}
+.folio-nav .nav-conversation:hover svg {
+  transform: translate(2px, -2px);
 }
 .menu-toggle {
   display: none;
@@ -131,6 +142,20 @@
   background: transparent;
   border: 1px solid var(--border-strong);
   border-radius: 50%;
+  transition:
+    color 180ms ease,
+    background-color 180ms ease,
+    border-color 180ms ease,
+    transform 120ms ease;
+}
+.menu-toggle:hover,
+.menu-toggle[aria-expanded='true'] {
+  border-color: var(--accent);
+  background: var(--surface-subtle);
+  color: var(--accent);
+}
+.menu-toggle:active {
+  transform: scale(0.94);
 }
 .folio-skip {
   position: fixed;
@@ -148,6 +173,24 @@
 .folio-app :focus-visible {
   outline: 2px solid var(--accent);
   outline-offset: 5px;
+}
+.folio-app a[href] {
+  text-decoration: none;
+}
+.folio-app :where(a[href]:not([aria-disabled='true']), button:not(:disabled):not([aria-disabled='true']), summary) {
+  -webkit-tap-highlight-color: transparent;
+  transition:
+    filter 160ms ease,
+    opacity 100ms ease;
+}
+@media (hover: hover) and (pointer: fine) {
+  .folio-app :where(a[href]:not([aria-disabled='true']), button:not(:disabled):not([aria-disabled='true']), summary):hover {
+    filter: brightness(1.04);
+  }
+}
+.folio-app :where(a[href]:not([aria-disabled='true']), button:not(:disabled):not([aria-disabled='true']), summary):active {
+  opacity: 0.86;
+  transition-duration: 80ms;
 }
 .folio-hero {
   padding: 3.5rem var(--folio-gutter) 1.5rem;
@@ -197,10 +240,18 @@
   height: 64px;
   border-radius: 50%;
   flex-shrink: 0;
+  transition:
+    background-color 180ms ease,
+    color 180ms ease,
+    border-color 180ms ease,
+    transform 120ms ease;
 }
 .folio-round-link:hover {
   background: var(--accent);
   color: var(--background);
+}
+.folio-round-link:active {
+  transform: scale(0.94);
 }
 .portrait-print {
   background: var(--paper);
@@ -274,9 +325,12 @@
 }
 .folio-heading {
   display: grid;
-  grid-template-columns: minmax(150px, 0.3fr) minmax(0, 1.7fr);
-  gap: 2rem;
+  grid-template-columns: minmax(0, 1fr);
+  gap: 1.15rem;
   margin-bottom: 3.5rem;
+}
+.folio-heading > div {
+  max-width: 54rem;
 }
 .folio-heading h2,
 .about-editorial h2,
@@ -287,9 +341,10 @@
   font-weight: 500;
 }
 .folio-heading h2 {
-  width: max-content;
+  width: fit-content;
   max-width: 100%;
-  white-space: nowrap;
+  white-space: normal;
+  text-wrap: balance;
 }
 .folio-heading h2 em {
   color: var(--editorial-accent);
@@ -327,6 +382,9 @@
 }
 .work-art:hover > img {
   transform: scale(1.03);
+}
+.work-art:active > img {
+  transform: scale(1.01);
 }
 .work-open {
   position: absolute;
@@ -404,8 +462,12 @@
   align-items: center;
   gap: 1.5rem;
   min-height: 48px;
-  border-bottom: 1px solid currentColor;
   font-size: 0.85rem;
+  transition: color 180ms ease;
+}
+.folio-text-link:hover,
+.big-editorial-link:hover {
+  color: var(--accent);
 }
 .work-grid + .folio-text-link {
   margin-top: 3rem;
@@ -537,6 +599,9 @@
 .footer-brand span {
   color: var(--accent);
 }
+.footer-brand:hover {
+  color: var(--accent);
+}
 .footer-intro > p {
   max-width: 27rem;
   margin-top: 1.2rem;
@@ -602,6 +667,10 @@
 .footer-nav a:hover,
 .footer-focus > a:hover {
   color: var(--foreground);
+}
+.footer-nav a[aria-current='page'] {
+  color: var(--accent);
+  font-weight: 600;
 }
 .footer-nav a svg {
   color: var(--accent);
@@ -679,9 +748,6 @@
   }
   .folio-nav .nav-conversation {
     margin-left: 0;
-  }
-  .folio-heading {
-    grid-template-columns: minmax(130px, 0.3fr) minmax(0, 1.7fr);
   }
   .folio-heading h2 {
     font-size: clamp(2.15rem, 3.7vw, 3.4rem);
@@ -782,7 +848,7 @@
   }
   .folio-heading {
     grid-template-columns: 1fr;
-    gap: 1.5rem;
+    gap: 1.15rem;
     margin-bottom: 2.5rem;
   }
   .folio-heading h2,
@@ -885,7 +951,18 @@
     animation: none !important;
     transition: none !important;
   }
+  .folio-app .menu-toggle:active,
+  .folio-app .folio-round-link:active,
+  .folio-app .folio-nav .nav-conversation:hover svg,
+  .folio-app .editorial-faq summary:active,
+  .folio-app nav[aria-label='Primary mobile navigation'] a:active,
+  .folio-app nav[aria-label='Primary mobile navigation'] a:active svg {
+    transform: none;
+  }
   .work-art:hover > img {
+    transform: none;
+  }
+  .work-art:active > img {
     transform: none;
   }
 }
@@ -923,8 +1000,8 @@
 }
 .principle-grid {
   display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 3rem;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: clamp(1.5rem, 3vw, 3rem);
 }
 .principle-grid article {
   border-top: 1px solid var(--paper-rule);
@@ -933,12 +1010,28 @@
 .principle-grid h3 {
   font-size: 1.6rem;
   letter-spacing: -0.04em;
-  margin: 1.5rem 0 1rem;
+  margin: 1.5rem 0 0.55rem;
+}
+.principle-grid .highlight-metric {
+  margin-bottom: 0.8rem;
+  color: var(--editorial-accent);
+  font: 600 0.65rem/1.6 var(--font-geist-mono);
+  letter-spacing: 0.09em;
+  text-transform: uppercase;
 }
 .principle-grid article > p:last-child {
   font-size: 0.9rem;
   line-height: 1.8;
   color: var(--paper-muted);
+}
+@media (min-width: 761px) and (max-width: 1050px) {
+  .principle-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 2rem;
+  }
+  .principle-grid article:last-child {
+    grid-column: 1 / -1;
+  }
 }
 .skill-list article {
   display: grid;
@@ -1057,6 +1150,13 @@
   cursor: pointer;
   list-style: none;
   font-size: 1.1rem;
+  transition:
+    color 180ms ease,
+    opacity 100ms ease;
+}
+.editorial-faq summary:hover,
+.editorial-faq details[open] summary {
+  color: var(--accent);
 }
 .editorial-faq summary::-webkit-details-marker {
   display: none;

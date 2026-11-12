@@ -17,8 +17,8 @@ export default function HomePage() {
           <p className="folio-label">
             <span>WEB · PRODUCT UI</span>
           </p>
+          <p className="home-cover-greeting">Hi, I’m Randhu Paksi Membumi</p>
           <h1>
-            <span className="home-cover-greeting">Hi, I’m Randhu Paksi Membumi.</span>
             <span className="home-cover-heading">
               Creative <em>Frontend Developer</em>
             </span>
@@ -26,7 +26,9 @@ export default function HomePage() {
           <div className="home-cover-bottom">
             <p>{editorial.intro}</p>
             <a href="#portfolio" className="cover-scroll" aria-label="Explore selected work">
-              <ArrowDownRight aria-hidden="true" />
+              <span className="cover-scroll-icon" aria-hidden="true">
+                <ArrowDownRight />
+              </span>
             </a>
           </div>
         </div>
@@ -66,7 +68,7 @@ export default function HomePage() {
           </p>
           <div>
             <h2>
-              Selected <em>projects.</em>
+              Selected <em>projects</em>
             </h2>
             <p>
               Work across school workflows, an independent studio, ambient SVG motion, learning
@@ -88,12 +90,16 @@ export default function HomePage() {
         </div>
         <div className="manifesto-content">
           <h2>
-            Matik Creative <em>Technology.</em>
+            Frontend <em>Developer</em>
           </h2>
-          <div>
+          <div className="manifesto-details">
+            <div className="manifesto-position">
+              <p>Matik Creative Technology</p>
+              <span>Since January 2026</span>
+            </div>
             <p>
-              Frontend Developer since January 2026. I build web and application interfaces with
-              React, Next.js, TypeScript, and JavaScript.
+              I build web and application interfaces with React, Next.js, TypeScript, and
+              JavaScript.
             </p>
             <Link className="manifesto-link" to="/about">
               Experience & education <ArrowUpRight size={18} aria-hidden="true" />
@@ -132,7 +138,7 @@ export default function HomePage() {
             <span>04</span> TOOLS & TECHNOLOGIES
           </p>
           <h2>
-            Tools I use in <em>projects.</em>
+            Tools I use in <em>projects</em>
           </h2>
         </header>
         <div className="toolkit-grid">
@@ -160,7 +166,7 @@ export default function HomePage() {
             <span>05</span> PROJECT WORKFLOW
           </p>
           <h2>
-            How I <em>work.</em>
+            How I <em>work</em>
           </h2>
         </header>
         <ol className="process-list">
@@ -182,7 +188,7 @@ export default function HomePage() {
         </div>
         <p className="folio-label">06 / AVAILABILITY</p>
         <h2>
-          Contact <em>Randhu.</em>
+          Contact <em>Randhu</em>
         </h2>
         <div className="home-contact-bottom">
           <p>Frontend roles, product UI work, and web application collaboration.</p>
