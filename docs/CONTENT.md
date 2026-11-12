@@ -11,7 +11,8 @@ This portfolio represents a real person and real work. Its credibility depends o
 | Home-section content                                            | `src/data/home.ts`       |
 | About-page material                                             | `src/data/about.ts`      |
 | Navigation labels and targets                                   | `src/data/navigation.ts` |
-| Projects and case studies                                       | `src/data/projects.ts`   |
+| Project summaries                                               | `src/data/projects.ts`   |
+| Capabilities, case studies, and project galleries               | `src/data/project-details.ts` |
 | Content shape                                                   | `src/types/`             |
 
 Use data objects rather than hard-coded JSX for content the owner may revise, publish, hide, or audit later.
@@ -30,7 +31,7 @@ Project case studies should explain a real problem, Randhu’s actual contributi
 
 ## Project records
 
-Project data uses a stable `slug` for `/projects/:slug`. Treat the slug as a public URL contract. Rename it only with an explicit decision to change links.
+Project summaries use a stable `slug` for `/projects/:slug`. Full case-study content is keyed by the same slug in `src/data/project-details.ts`. Treat the slug as a public URL contract. Rename it only with an explicit decision to change links.
 
 Each published project should keep these parts aligned:
 

@@ -1,6 +1,6 @@
 # Design system and interaction
 
-Rand Dev is a personal editorial portfolio with enterprise-level precision. It should communicate thoughtful frontend work, visual judgement, and structured product thinking without becoming a generic dashboard or exaggerating professional experience.
+Rand Dev is a personal editorial portfolio with enterprise-level precision. Its current art direction adapts RandStudio’s ink/paper contrast, serif emphasis, numbered structures, and restrained interaction into a personal journal of work. The portrait print, asymmetrical project collection, and violet manifesto distinguish the portfolio from the studio. It communicates frontend work, visual judgement, and structured product thinking without exaggerating professional experience.
 
 ## Visual character
 
@@ -15,7 +15,7 @@ The foundation is a dark, near-black plum canvas with controlled violet identity
 | Geist Sans / Mono            | Editorial content and compact technical metadata respectively       |
 | Localized gradients and glow | Gentle depth around important composition, never blanket decoration |
 
-`src/styles/design-system.css` owns tokens and shared utilities. Start with its semantic variables and existing primitives before adding new arbitrary color, spacing, or radius values.
+`src/styles/design-system.css` owns tokens and shared utilities, including warm-paper surface and text pairs. `src/styles/editorial.css` owns editorial patterns and responsive route composition. `SectionHeading` provides the recurring indexed section introduction; `WorkCard` presents the same project record consistently on Home and Projects. Content remains in typed data modules. Start with these foundations before adding new arbitrary color, spacing, or radius values.
 
 ## Layout and composition
 

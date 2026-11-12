@@ -21,7 +21,7 @@ The home page is loaded directly. Other routes are lazy-loaded within the shared
 
 ## Current project content
 
-Project content is centralized in `src/data/projects.ts`. The current verified case study is **Citra Negara Attendance System** (`absensi-cn`), described as a production attendance platform for SMK Citra Negara Depok. Its project entry includes the live demo, stack, capabilities, case study, and local screenshots. Repository access is not published in the project data.
+Project summaries used by the home page and footer live in `src/data/projects.ts`; full capabilities, case studies, and gallery content are kept in `src/data/project-details.ts` so they load with the lazy project routes. The featured project is **Citra Negara Attendance System** (`absensi-cn`), a production attendance platform for SMK Citra Negara Depok. Four additional case studies cover RanMotion, Rancode Lab, Ranledger, and Ranfession. Repository access is not published in the project data.
 
 Personal and journey content is maintained in `src/data/site.ts`, `src/data/hero.ts`, `src/data/home.ts`, and `src/data/about.ts`. Keep factual claims, dates, links, and outcomes grounded in information that has been verified. Use the draft/placeholder system for anything that is not ready to publish.
 
