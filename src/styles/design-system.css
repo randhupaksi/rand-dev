@@ -92,6 +92,16 @@
 :root,
 :root[data-theme='purple-enterprise'] {
   color-scheme: dark;
+  --portrait-matte: #b6a3ca;
+  --work-matte: #d0bfa9;
+  --folio-width: 1440px;
+  --folio-gutter: clamp(1.25rem, 5vw, 6rem);
+  --editorial-serif: Georgia, 'Times New Roman', serif;
+  --editorial-accent: #70479d;
+  --paper-rule: #c9c0cf;
+  --paper-muted: #62586a;
+  --paper-ink: #241d2b;
+  --paper: #eee9df;
 
   --primary-50: #f7f5ff;
   --primary-100: #eeeaff;
@@ -124,19 +134,19 @@
   --neutral-800: #241e29;
   --neutral-900: #0f0b14;
 
-  --background: #0f0b14;
-  --foreground: #f5f2ff;
-  --card: #17111f;
-  --card-foreground: #f5f2ff;
+  --background: #17121c;
+  --foreground: #f1ede5;
+  --card: #201a26;
+  --card-foreground: var(--foreground);
   --popover: #15101d;
   --popover-foreground: #f5f2ff;
   --primary: var(--primary-600);
-  --primary-foreground: var(--primary-50);
+  --primary-foreground: #f8f4ec;
   --secondary: #21192b;
   --secondary-foreground: #ede7ff;
   --muted: #191320;
-  --muted-foreground: var(--neutral-300);
-  --accent: var(--primary-400);
+  --muted-foreground: #c3b9ca;
+  --accent: #bb9be8;
   --accent-foreground: var(--primary-50);
   --destructive: #ef6b81;
   --destructive-foreground: #fff7f8;
@@ -144,15 +154,15 @@
   --input: rgb(143 120 196 / 0.24);
   --ring: rgb(155 140 255 / 0.45);
 
-  --surface-1: #12101a;
-  --surface-2: #17111f;
+  --surface-1: #201a26;
+  --surface-2: #282030;
   --surface-3: #21192b;
-  --surface-elevated: #2a2040;
+  --surface-elevated: #292130;
   --overlay: rgb(7 4 12 / 0.72);
-  --brand-soft: #cfc7ff;
-  --brand-muted: #9f90cf;
+  --brand-soft: #ddd0ec;
+  --brand-muted: #b9a9c7;
   --brand-strong: #6f50ed;
-  --highlight: #bfa7ff;
+  --highlight: #d4b9f7;
   --success: #3dd6a0;
   --warning: #f5bf5d;
   --info: #74b7ff;
@@ -173,14 +183,9 @@
   --error-border: rgb(239 107 129 / 0.26);
   --info-surface: rgb(116 183 255 / 0.08);
   --info-border: rgb(116 183 255 / 0.24);
-  --gradient-primary: linear-gradient(
-    135deg,
-    var(--primary-700),
-    var(--primary-700) 60%,
-    var(--primary-800)
-  );
-  --gradient-text: linear-gradient(90deg, var(--primary-100), var(--primary-400), #c24aff);
-  --gradient-surface: linear-gradient(180deg, var(--surface-subtle), transparent);
+  --gradient-primary: linear-gradient(var(--primary-700), var(--primary-700));
+  --gradient-text: linear-gradient(var(--accent), var(--accent));
+  --gradient-surface: none;
   --gradient-panel: linear-gradient(165deg, var(--surface-hover), rgb(8 6 16 / 0.58));
   --hero-glow-primary: radial-gradient(circle, rgb(124 92 250 / 0.18), transparent 68%);
   --hero-glow-secondary: radial-gradient(circle, rgb(194 74 255 / 0.18), transparent 68%);
@@ -242,10 +247,10 @@
   --text-4xl: 2.25rem;
   --text-5xl: 3rem;
   --text-6xl: 3.75rem;
-  --type-display-size: clamp(3rem, 7vw, 5.5rem);
-  --type-h1-size: clamp(2.5rem, 5.2vw, 4.5rem);
-  --type-h2-size: clamp(2rem, 4.4vw, 3.6rem);
-  --type-h3-size: clamp(1.5rem, 2.8vw, 2rem);
+  --type-display-size: clamp(3rem, 5.8vw, 5.3rem);
+  --type-h1-size: clamp(2.8rem, 5vw, 5.1rem);
+  --type-h2-size: clamp(2.25rem, 4.2vw, 4rem);
+  --type-h3-size: clamp(1.45rem, 2.5vw, 2rem);
   --type-h4-size: 1.25rem;
   --type-body-size: 1rem;
   --type-body-sm-size: 0.875rem;
@@ -282,9 +287,9 @@
 
   --shadow-xs: 0 1px 1px rgb(0 0 0 / 0.16);
   --shadow-sm: 0 8px 24px rgb(4 2 10 / 0.2);
-  --shadow-md: 0 16px 42px rgb(4 2 10 / 0.24);
+  --shadow-md: none;
   --shadow-lg: 0 24px 56px rgb(4 2 10 / 0.28);
-  --shadow-card: var(--shadow-sm);
+  --shadow-card: none;
   --shadow-dropdown: 0 24px 56px rgb(4 2 10 / 0.5);
   --shadow-modal: 0 28px 80px rgb(4 2 10 / 0.58);
   --shadow-glow: 0 0 0 1px rgb(155 140 255 / 0.1), 0 18px 44px rgb(124 92 250 / 0.12);
@@ -297,8 +302,8 @@
   --button-height-lg: 3.5rem;
   --input-height: 3rem;
   --badge-height: 2rem;
-  --control-radius: var(--radius-md);
-  --card-radius: var(--radius-xl);
+  --control-radius: 4px;
+  --card-radius: 4px;
   --modal-radius: var(--radius-2xl);
   --section-eyebrow-gap: var(--space-3);
   --section-header-gap: var(--space-5);

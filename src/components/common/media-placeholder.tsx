@@ -46,6 +46,7 @@ export function MediaPlaceholder({
       {src ? (
         <>
           <img
+            loading="lazy"
             src={src}
             alt={alt}
             className={cn('absolute inset-0 size-full object-cover', cropBottom && 'scale-[1.02]')}
@@ -54,16 +55,13 @@ export function MediaPlaceholder({
           {preview ? (
             <Modal open={isPreviewOpen} onOpenChange={setIsPreviewOpen}>
               <ModalTrigger
-                className="ds-icon-control absolute right-3 top-3 z-10 hidden size-10 bg-background/85 text-accent shadow-sm backdrop-blur-sm hover:border-border-strong hover:bg-surface-hover hover:text-highlight active:scale-90 lg:inline-flex"
+                className="ds-icon-control absolute right-3 top-3 z-10 inline-flex size-10 bg-background/85 text-accent shadow-sm backdrop-blur-sm hover:border-border-strong hover:bg-surface-hover hover:text-highlight active:scale-90"
                 aria-label={`Preview ${label}`}
                 title={`Preview ${label}`}
               >
                 <Eye className="size-4" aria-hidden="true" />
               </ModalTrigger>
-              <ModalContent
-                className="max-w-6xl bg-background/95 p-3 sm:p-4"
-                closeClassName="border-red-500/70 bg-red-500/10 text-red-400 hover:border-red-400 hover:bg-red-500/20 hover:text-red-300 active:scale-90"
-              >
+              <ModalContent className="max-w-6xl bg-background/95 p-3 sm:p-4">
                 <ModalTitle className="sr-only">Preview {label}</ModalTitle>
                 <img src={src} alt={alt} className="max-h-[82vh] w-full object-contain" />
               </ModalContent>

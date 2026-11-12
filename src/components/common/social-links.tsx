@@ -60,10 +60,13 @@ const iconMap: Record<SocialKey, (props: BrandIconProps) => ReactNode> = {
 
 type SocialLinksProps = {
   className?: string
+  include?: readonly SocialKey[]
 }
 
-export function SocialLinks({ className }: SocialLinksProps) {
-  const availableLinks = socialLinks.filter(item => item.href)
+export function SocialLinks({ className, include }: SocialLinksProps) {
+  const availableLinks = socialLinks.filter(
+    item => item.href && (!include || include.includes(item.key)),
+  )
 
   if (availableLinks.length === 0) {
     return null

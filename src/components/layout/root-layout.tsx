@@ -3,7 +3,6 @@ import { Outlet } from 'react-router-dom'
 
 import { PortfolioLoader } from '@/components/common/portfolio-loader'
 import { SiteFooter } from '@/components/layout/site-footer'
-import { MobileBottomNavigation } from '@/components/layout/mobile-bottom-navigation'
 import { SiteNavbar } from '@/components/layout/site-navbar'
 
 function DismissInitialLoader() {
@@ -34,16 +33,18 @@ function RouteLoadingFallback() {
 export function RootLayout() {
   return (
     <>
-      <div className="page-shell flex min-h-screen flex-col">
+      <div className="folio-app flex min-h-screen flex-col">
+        <a className="folio-skip" href="#main-content">
+          Skip to content
+        </a>
         <SiteNavbar />
-        <main className="flex-1">
+        <main id="main-content" className="flex-1" tabIndex={-1}>
           <Suspense fallback={<RouteLoadingFallback />}>
             <Outlet />
             <DismissInitialLoader />
           </Suspense>
         </main>
         <SiteFooter />
-        <MobileBottomNavigation />
       </div>
     </>
   )

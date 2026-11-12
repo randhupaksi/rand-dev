@@ -1,6 +1,8 @@
 @import 'tailwindcss';
 @import 'tw-animate-css';
 @import './styles/design-system.css';
+@import './styles/editorial.css';
+@import './styles/home-composition.css';
 
 @font-face {
   font-family: 'Geist Sans';

@@ -17,9 +17,9 @@ export const siteIdentity: SiteIdentity = {
   brandSecond: 'Paksi',
   role: 'Frontend Developer',
   tagline:
-    'Frontend developer focused on clean, interactive enterprise interfaces and the workflows behind them.',
+    'Frontend Developer at Matik Creative Technology, building web interfaces with React, Next.js, and TypeScript.',
   availability: {
-    value: 'Open to enterprise product, frontend, and UI/UX conversations',
+    value: 'Open to frontend roles and product UI or web-app collaboration',
     isPlaceholder: false,
   },
   cvHref: cvUrl || null,
