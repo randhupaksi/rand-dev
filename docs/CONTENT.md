@@ -4,16 +4,16 @@ This portfolio represents a real person and real work. Its credibility depends o
 
 ## Source of truth
 
-| Content                                                         | Primary location         |
-| --------------------------------------------------------------- | ------------------------ |
-| Name, role, availability, CV, social links, and contact channel | `src/data/site.ts`       |
-| Hero message and supporting presentation                        | `src/data/hero.ts`       |
-| Home-section content                                            | `src/data/home.ts`       |
-| About-page material                                             | `src/data/about.ts`      |
-| Navigation labels and targets                                   | `src/data/navigation.ts` |
-| Project summaries                                               | `src/data/projects.ts`   |
+| Content                                                         | Primary location              |
+| --------------------------------------------------------------- | ----------------------------- |
+| Name, role, availability, CV, social links, and contact channel | `src/data/site.ts`            |
+| Hero message and supporting presentation                        | `src/data/hero.ts`            |
+| Home-section content                                            | `src/data/home.ts`            |
+| About-page material                                             | `src/data/about.ts`           |
+| Navigation labels and targets                                   | `src/data/navigation.ts`      |
+| Project summaries                                               | `src/data/projects.ts`        |
 | Capabilities, case studies, and project galleries               | `src/data/project-details.ts` |
-| Content shape                                                   | `src/types/`             |
+| Content shape                                                   | `src/types/`                  |
 
 Use data objects rather than hard-coded JSX for content the owner may revise, publish, hide, or audit later.
 

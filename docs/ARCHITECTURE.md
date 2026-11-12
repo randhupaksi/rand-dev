@@ -61,12 +61,12 @@ data modules + optional VITE_ values
 
 ## Extension guidance
 
-| Change                          | Preferred location                                                                                        |
-| ------------------------------- | --------------------------------------------------------------------------------------------------------- |
+| Change                          | Preferred location                                                                                                                                        |
+| ------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | Add a project case study        | Summary in `src/data/projects.ts`, detail in `src/data/project-details.ts`, contract in `src/types/project.ts`, and assets under `public/images/project/` |
-| Add a home section              | A section component plus the home page and synchronized navigation/anchor data                            |
-| Add a portfolio route           | `src/App.tsx`, a lazy page module, and navigation/data only when the route is public                      |
-| Add reusable interface behavior | Existing `components/common`, `components/ui`, or a focused hook after checking current patterns          |
-| Change visual foundations       | `src/styles/design-system.css`, then consumers                                                            |
+| Add a home section              | A section component plus the home page and synchronized navigation/anchor data                                                                            |
+| Add a portfolio route           | `src/App.tsx`, a lazy page module, and navigation/data only when the route is public                                                                      |
+| Add reusable interface behavior | Existing `components/common`, `components/ui`, or a focused hook after checking current patterns                                                          |
+| Change visual foundations       | `src/styles/design-system.css`, then consumers                                                                                                            |
 
 Avoid duplicating portfolio facts across pages, coupling page layout to environment parsing, or making an interactive-looking placeholder behave like a live action.

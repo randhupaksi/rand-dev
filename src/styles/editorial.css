@@ -177,18 +177,33 @@
 .folio-app a[href] {
   text-decoration: none;
 }
-.folio-app :where(a[href]:not([aria-disabled='true']), button:not(:disabled):not([aria-disabled='true']), summary) {
+.folio-app
+  :where(
+    a[href]:not([aria-disabled='true']),
+    button:not(:disabled):not([aria-disabled='true']),
+    summary
+  ) {
   -webkit-tap-highlight-color: transparent;
   transition:
     filter 160ms ease,
     opacity 100ms ease;
 }
 @media (hover: hover) and (pointer: fine) {
-  .folio-app :where(a[href]:not([aria-disabled='true']), button:not(:disabled):not([aria-disabled='true']), summary):hover {
+  .folio-app
+    :where(
+      a[href]:not([aria-disabled='true']),
+      button:not(:disabled):not([aria-disabled='true']),
+      summary
+    ):hover {
     filter: brightness(1.04);
   }
 }
-.folio-app :where(a[href]:not([aria-disabled='true']), button:not(:disabled):not([aria-disabled='true']), summary):active {
+.folio-app
+  :where(
+    a[href]:not([aria-disabled='true']),
+    button:not(:disabled):not([aria-disabled='true']),
+    summary
+  ):active {
   opacity: 0.86;
   transition-duration: 80ms;
 }
