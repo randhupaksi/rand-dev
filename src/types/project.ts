@@ -24,27 +24,35 @@ export type TechnicalStackGroup = {
   items: string[]
 }
 
-export type Project = {
+export type ProjectSummary = {
   slug: string
   name: string
   category: string
   period: PlaceholderValue
   summary: string
   thumbnail?: {
-    src: string
+    src?: string
     alt: string
+    label?: string
+    hint?: string
   }
   stack: string[]
   focusAreas: string[]
-  capabilities?: ProductCapability[]
-  technicalStack?: TechnicalStackGroup[]
   status: ProjectStatus
   links: ProjectLinks
+}
+
+export type ProjectDetails = {
+  capabilities?: ProductCapability[]
+  technicalStack?: TechnicalStackGroup[]
   caseStudy: CaseStudyBlock[]
   gallery?: {
-    src: string
+    src?: string
     alt: string
     label: string
+    hint?: string
   }[]
   gallerySlots: number
 }
+
+export type Project = ProjectSummary & ProjectDetails

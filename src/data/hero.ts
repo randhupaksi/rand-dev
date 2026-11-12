@@ -6,7 +6,7 @@ export const heroContent: HeroContent = {
   rolePrefix: '',
   roleHighlight: 'Frontend Developer',
   description:
-    'I’m a freelance frontend developer with hands-on experience building clean, interactive interfaces for real-world products. I turn complex workflows into experiences that feel clear, thoughtful, and easy to use.',
+    'I’m a Frontend Developer at Matik Creative Technology, building web interfaces with React, Next.js, TypeScript, and JavaScript.',
   primaryAction: 'See my work',
   secondaryAction: 'Download CV',
 }

@@ -13,7 +13,7 @@ export function ProcessSection() {
             <SectionIndex index="04" label="How I work" />
           </div>
           <h2 data-reveal className="type-h2">
-            I make enterprise workflows clearer
+            How I build product interfaces
           </h2>
           <p data-reveal className="section-copy max-w-lg">
             I work frontend-first: clarify the workflow, make states visible, then build a clean
