@@ -1,4 +1,4 @@
-export type PrincipleItem = {
+export type ProfileHighlight = {
   title: string
   description: string
 }
@@ -7,6 +7,7 @@ export type SkillGroup = {
   title: string
   description: string
   items: string[]
+  isAdditional?: boolean
 }
 
 export type JourneyKind = 'work' | 'award' | 'mentoring' | 'education'

@@ -1,101 +1,92 @@
-import type { FaqItem, JourneyItem, PrincipleItem, SkillGroup } from '@/types/about'
+import type { FaqItem, JourneyItem, ProfileHighlight, SkillGroup } from '@/types/about'
 
-export const principles: PrincipleItem[] = [
+export const profileHighlights: ProfileHighlight[] = [
   {
-    title: 'Start with the workflow',
+    title: 'Citra Negara Attendance System · 2,000+ users',
     description:
-      'Before opening the editor, I map the people, roles, actions, and edge cases that make an enterprise product work.',
+      'Built for SMK Citra Negara Depok and used by more than 2,000 people for school attendance.',
   },
   {
-    title: 'Make every state legible',
+    title: 'Rancode Lab · 341 lessons',
     description:
-      'A clean hierarchy, direct feedback, and clear next steps help people operate complex workflows with confidence.',
+      'A bilingual programming platform with a nine-stage core path and optional Tailwind CSS and Vibe Coding tracks.',
   },
   {
-    title: 'Build beyond the happy path',
+    title: 'RanMotion · 40 GSAP exercises',
     description:
-      'I design and test responsive layouts, loading, empty, error, and feedback states - not just the polished first screen.',
-  },
-  {
-    title: 'Keep the system ready to grow',
-    description:
-      'Clear components, data boundaries, and visual tokens keep a growing product consistent and easier to extend.',
+      'A bilingual browser workshop with editable animation examples and practice across nine sections.',
   },
 ]
 
 export const skillGroups: SkillGroup[] = [
   {
-    title: 'Product UI systems',
-    description: 'The tools I use to turn complex workflows into clean, working interfaces.',
-    items: ['React', 'Next.js', 'TypeScript', 'Vite', 'Tailwind CSS'],
+    title: 'Frontend',
+    description:
+      'Core web technologies used in the attendance platform and browser-based learning projects.',
+    items: ['React', 'Next.js', 'TypeScript', 'JavaScript', 'Vite', 'Tailwind CSS'],
   },
   {
-    title: 'Interface quality',
-    description:
-      'The interaction details that make enterprise software easier to understand and use.',
+    title: 'UI/UX implementation',
+    description: 'Interface skills used to build responsive, accessible product experiences.',
     items: [
       'Responsive design',
+      'Visual hierarchy',
+      'Interaction states',
       'Component architecture',
-      'Design system & token',
-      'Loading & feedback states',
+      'Design tokens',
       'Accessibility',
     ],
   },
   {
-    title: 'Application workflows',
-    description: 'The logic and integration work behind role-aware product interfaces.',
-    items: ['Go', 'REST APIs', 'MySQL', 'Forms & validation', 'Role-aware workflows'],
+    title: 'APIs & data',
+    description: 'Backend and data tools used in selected application projects.',
+    items: ['Go', 'REST APIs', 'MySQL', 'TanStack Query', 'Forms & validation'],
+  },
+  {
+    title: 'IT Club mentoring',
+    description: 'Frontend and UI/UX instruction for members of the SMK Citra Negara IT Club.',
+    items: ['Frontend fundamentals', 'UI/UX', 'Project guidance'],
+    isAdditional: true,
   },
 ]
 
-export const aboutFacts = [
+export const aboutFacts: { label: string; value: string; detail: string; href?: string }[] = [
   {
-    label: 'Currently',
-    value: 'Freelance Full-stack Developer',
-    detail: 'Matik Creative Technology',
+    label: 'Current role',
+    value: 'Frontend Developer',
+    detail: 'Matik Creative Technology · Jan 2026–Present',
   },
   {
-    label: 'Live product',
-    value: 'Citra Negara Attendance System',
-    detail: 'Live in production · 2,000+ users',
-    href: 'https://absensmk.citranegara.online',
+    label: 'Education',
+    value: 'Software Engineering (PPLG)',
+    detail: 'SMK Citra Negara Depok · 2024–2027',
   },
   {
-    label: 'Working with',
-    value: 'React · Next.js · TypeScript · Vite',
-    detail: 'Enterprise UI, APIs, and product workflows',
+    label: 'Recognition',
+    value: 'Student of the Year',
+    detail: 'Citra Negara Awards 2026 · May 2026',
   },
 ]
 
 export const journeyItems: JourneyItem[] = [
   {
-    period: 'Jan - May 2026',
-    title: 'Frontend Developer Trainee',
+    period: 'Jan 2026–Present',
+    title: 'Frontend Developer',
     organization: 'Matik Creative Technology',
     organizationHref: 'https://www.matik.id/',
     description:
-      'Completed a hands-on frontend placement at Matik Creative Technology, building responsive interfaces with Next.js, React, TypeScript, and JavaScript.',
-    kind: 'work',
-  },
-  {
-    period: 'May 2026 - Now',
-    title: 'Freelance Full-stack Developer',
-    organization: 'Matik Creative Technology',
-    organizationHref: 'https://www.matik.id/',
-    description:
-      'Building web apps and APIs with React, Next.js, TypeScript, and Go, with a focus on clean interfaces and product flows people use every day.',
+      'Developing web and application interfaces with Next.js, React, TypeScript, and JavaScript, applying responsive design and UI/UX principles.',
     kind: 'work',
   },
   {
     period: 'May 2026',
     title: 'Student of The Year',
     organization: 'Citra Negara Awards 2026 · SMK Citra Negara Depok',
-    description:
-      'Recognized as the best student of the year through the Citra Negara Awards 2026 at SMK Citra Negara Depok.',
+    description: 'Recognized through the Citra Negara Awards 2026.',
     kind: 'award',
     evidence: {
       label: 'View LinkedIn post',
-      href: 'https://www.linkedin.com/posts/randhu-paksi-membumi_still-cant-believe-this-really-grateful-activity-7459593873065947136-eX6t/?utm_source=share&utm_medium=member_desktop&rcm=ACoAAGX_10YBeAhqfExZeWRFykGkkAs68GRDn-E',
+      href: 'https://www.linkedin.com/posts/randhu-paksi-membumi_still-cant-believe-this-really-grateful-activity-7459593873065947136-eX6t',
     },
   },
   {
@@ -110,27 +101,28 @@ export const journeyItems: JourneyItem[] = [
       href: 'https://www.instagram.com/p/DcxmlwZBPpP/?stkn=OTdqZDNudjMxZnZn',
     },
   },
+  {
+    period: '2024–2027',
+    title: 'Software Engineering (PPLG)',
+    organization: 'SMK Citra Negara Depok',
+    description: 'Vocational study in software and application development.',
+    kind: 'education',
+  },
 ]
 
 export const contactFaq: FaqItem[] = [
   {
-    question: 'What can I help you build?',
-    answer:
-      'I help build enterprise web products where the challenge goes beyond a landing page: role-aware dashboards, multi-step forms, reporting, follow-up flows, and interfaces connected to real APIs.',
+    question: 'What work are you open to?',
+    answer: 'Frontend roles, product UI implementation, and web application collaboration.',
   },
   {
-    question: 'How do I turn a rough brief into a usable product?',
+    question: 'Which technologies do you use?',
     answer:
-      'I begin with the people, roles, decisions, and failure points - not the components. From there, I shape a clear flow, build a clean interface, and refine every state around it.',
+      'React, Next.js, TypeScript, JavaScript, Vite, and Tailwind CSS. Selected projects also use Go, REST APIs, and MySQL.',
   },
   {
-    question: 'Where do I contribute most technically?',
+    question: 'Where can I review your work?',
     answer:
-      'My strongest work sits in React, Next.js, TypeScript, Vite, Tailwind CSS, and component architecture. I connect the interface to Go services, REST APIs, and MySQL data when the product needs a deeper system.',
-  },
-  {
-    question: 'What helps me get useful quickly?',
-    answer:
-      'A short outline of what you are building, who needs to use it, which workflow is difficult, and any timing you have in mind gives me enough context to start with a focused conversation.',
+      'The Projects page covers the school attendance platform, programming learning tools, personal finance app, and interactive letter.',
   },
 ]

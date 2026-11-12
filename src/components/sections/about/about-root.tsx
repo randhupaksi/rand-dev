@@ -20,7 +20,7 @@ export function AboutRoot({ profile }: AboutRootProps) {
             A little about me
           </p>
           <div data-reveal className="content-stack-sm max-w-3xl">
-            <h2 className="type-h2">I make complex enterprise workflows feel easier to use</h2>
+            <h2 className="type-h2">Frontend interfaces for real products</h2>
             <p className="type-body">{profile.summary}</p>
           </div>
           <p
