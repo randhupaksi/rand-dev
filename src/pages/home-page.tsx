@@ -15,7 +15,7 @@ export default function HomePage() {
       <section id="home" className="home-cover">
         <div className="home-cover-copy">
           <p className="folio-label">
-            <span>WEB · PRODUCT UI</span>
+            <span>PRODUCT-MINDED FRONTEND</span>
           </p>
           <p className="home-cover-greeting">Hi, I’m Randhu Paksi Membumi</p>
           <h1>
@@ -39,15 +39,15 @@ export default function HomePage() {
                 R
               </span>
               <img
-                src="/images/profile/randhu-no-bg.png"
+                src="/images/profile/randhu-no-bg-clean.png"
                 alt="Randhu Paksi Membumi"
                 fetchPriority="high"
               />
-              <span className="cover-portrait-side">FRONTEND · UI/UX · PPLG</span>
+              <span className="cover-portrait-side">FRONTEND · PRODUCT UI · SYSTEMS</span>
             </div>
             <figcaption>
-              <span>Web / applications</span>
-              <span>Product UI / interaction</span>
+              <span>School software</span>
+              <span>Learning tools</span>
             </figcaption>
           </figure>
           <SocialLinks
@@ -56,8 +56,8 @@ export default function HomePage() {
           />
         </div>
         <div className="cover-baseline">
-          <span>React / Next.js / TypeScript</span>
-          <span>Product UI / School software / Learning tools</span>
+          <span>React / Next.js / Vite / TypeScript</span>
+          <span>Interfaces / Product flows / Web motion</span>
         </div>
       </section>
 

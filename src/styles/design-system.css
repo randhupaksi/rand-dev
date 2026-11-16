@@ -362,16 +362,6 @@
   }
 }
 
-@keyframes portfolio-loader-progress {
-  from {
-    transform: translateX(-12%);
-  }
-
-  to {
-    transform: translateX(160%);
-  }
-}
-
 @layer base {
   * {
     @apply border-border outline-ring/50;
@@ -931,10 +921,6 @@
     .faq-option {
       transition: none;
     }
-
-    .portfolio-loader-progress {
-      animation-duration: 2.4s;
-    }
   }
 
   .media-placeholder-grid {
@@ -946,32 +932,6 @@
 
   .hero-glow-primary {
     background: var(--hero-glow-primary);
-  }
-
-  .portfolio-loader-progress {
-    animation: portfolio-loader-progress 1.2s var(--ease-standard) infinite;
-  }
-
-  .portfolio-loader-shell {
-    position: relative;
-    isolation: isolate;
-    overflow: hidden;
-    background: var(--background);
-  }
-
-  .portfolio-loader-shell::before {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    z-index: 0;
-    width: min(34rem, 92vw);
-    height: 18rem;
-    border-radius: 999px;
-    background: radial-gradient(circle, rgb(124 92 250 / 0.2), transparent 68%);
-    content: '';
-    filter: blur(10px);
-    pointer-events: none;
-    transform: translate(-50%, -50%);
   }
 
   .hero-glow-secondary {

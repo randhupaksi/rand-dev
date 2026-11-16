@@ -2,22 +2,21 @@ import type { FaqItem, JourneyItem, ProfileHighlight, SkillGroup } from '@/types
 
 export const profileHighlights: ProfileHighlight[] = [
   {
-    title: 'Citra Negara Attendance System',
-    metric: '2,000+ users',
-    description:
-      'Built for SMK Citra Negara Depok and used by more than 2,000 people for school attendance.',
+    projectSlug: 'ranbience',
+    fact: '50 ambient SVG scenes',
+    description: 'An ambient scene library with adjustable previews and reusable SVG exports.',
   },
   {
-    title: 'Rancode Lab',
-    metric: '341 lessons',
+    projectSlug: 'ranledger',
+    fact: 'Local-first · works offline',
     description:
-      'A bilingual programming platform with a nine-stage core path and optional Tailwind CSS and Vibe Coding tracks.',
+      'A personal finance app for wallets, budgets, recurring plans, CSV reconciliation, and reports, with optional cloud sync.',
   },
   {
-    title: 'RanMotion',
-    metric: '40 GSAP exercises',
+    projectSlug: 'ranmotion',
+    fact: '42 lessons · 40 GSAP practices',
     description:
-      'A bilingual browser workshop with editable animation examples and practice across nine sections.',
+      'A bilingual GSAP workshop with visual lessons, editable animation practice, and live previews.',
   },
 ]
 

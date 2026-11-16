@@ -7,22 +7,24 @@ export function PortfolioLoader({ fullScreen = false }: PortfolioLoaderProps) {
     <div
       role="status"
       aria-live="polite"
+      aria-atomic="true"
       aria-label="Preparing Randhu Paksi Membumi's portfolio"
-      className={`portfolio-loader-shell flex items-center justify-center px-6 ${fullScreen ? 'min-h-screen' : 'min-h-[55vh]'}`}
+      className={`portfolio-loader-shell ${fullScreen ? 'portfolio-loader-shell--screen' : 'portfolio-loader-shell--route'}`}
     >
-      <div className="relative z-10 flex w-full max-w-xs flex-col items-center text-center">
-        <p className="type-overline">Randhu Paksi Membumi</p>
-        <p className="mt-4 text-lg font-semibold tracking-tight text-foreground">
-          ENTERPRISE INTERFACES · CLEAN SYSTEMS · INTERACTIVE FLOWS the portfolio
+      <div className="portfolio-loader-frame">
+        <p className="portfolio-loader-eyebrow">Randhu Paksi Membumi</p>
+        <p className="portfolio-loader-title">
+          Preparing the <span>portfolio</span>
         </p>
-        <p className="mt-1 text-sm text-muted-foreground">
-          Loading selected work and product stories.
-        </p>
-        <div
-          className="mt-5 h-1.5 w-full overflow-hidden rounded-full bg-primary-surface"
-          aria-hidden="true"
-        >
-          <span className="portfolio-loader-progress block h-full w-[42%] rounded-full bg-primary" />
+        <p className="portfolio-loader-description">Loading selected work and product stories.</p>
+        <div className="portfolio-loader-progress">
+          <div className="portfolio-loader-progress-labels" aria-hidden="true">
+            <span>Setting the page</span>
+            <span>Please wait</span>
+          </div>
+          <div className="portfolio-loader-track" aria-hidden="true">
+            <span className="portfolio-loader-progress-indicator"></span>
+          </div>
         </div>
       </div>
     </div>

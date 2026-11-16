@@ -97,7 +97,7 @@ export const projects: ProjectSummary[] = [
     ],
     status: 'verified',
     links: {
-      demo: 'https://ranmotion.vercel.app',
+      demo: 'https://ranmotion.my.id',
       repository: null,
     },
   },
@@ -129,7 +129,7 @@ export const projects: ProjectSummary[] = [
   },
   {
     slug: 'ranledger',
-    name: 'Ranledger',
+    name: 'RanLedger',
     category: 'Local-first personal finance app',
     period: {
       value: 'Project timeline not published',
@@ -139,7 +139,7 @@ export const projects: ProjectSummary[] = [
       'An Indonesian finance app that keeps its default ledger in the browser and works offline. It connects wallets and obligations with budgets, recurring plans, CSV reconciliation, reports, and recovery; cloud sync is optional.',
     thumbnail: {
       src: '/images/project/ranledger/overview.jpg',
-      alt: 'Ranledger finance overview in a fresh workspace, with local storage and wallet summaries visible.',
+      alt: 'RanLedger finance overview in a fresh workspace, with local storage and wallet summaries visible.',
     },
     stack: [
       'React 19',

@@ -1,0 +1,149 @@
+.portfolio-loader-shell {
+  position: relative;
+  isolation: isolate;
+  display: grid;
+  min-height: clamp(26rem, 58svh, 42rem);
+  place-items: center;
+  overflow: hidden;
+  padding: clamp(1.5rem, 5vw, 3rem) clamp(1.25rem, 5vw, 2rem);
+  background: var(--background, #17121c);
+  color: var(--foreground, #f1ede5);
+  font-family: var(--font-geist-sans, system-ui, sans-serif);
+}
+
+.portfolio-loader-shell--screen {
+  min-height: 100vh;
+  min-height: 100svh;
+  width: 100%;
+}
+
+.portfolio-loader-shell--route {
+  min-height: clamp(26rem, 58svh, 42rem);
+}
+
+.portfolio-loader-frame {
+  width: min(100%, 30rem);
+  padding-block: clamp(1.75rem, 4vw, 2.5rem);
+  text-align: center;
+}
+
+.portfolio-loader-eyebrow,
+.portfolio-loader-progress-labels {
+  font-family: var(--font-geist-mono, ui-monospace, monospace);
+  text-transform: uppercase;
+}
+
+.portfolio-loader-eyebrow {
+  margin: 0;
+  color: var(--accent, #bb9be8);
+  font-size: 0.6875rem;
+  font-weight: 600;
+  letter-spacing: 0.16em;
+  line-height: 1.5;
+}
+
+.portfolio-loader-title {
+  margin: 1.25rem 0 0;
+  color: var(--foreground, #f1ede5);
+  font-size: clamp(1.75rem, 4vw, 2.25rem);
+  font-weight: 600;
+  letter-spacing: -0.055em;
+  line-height: 1.12;
+  text-wrap: balance;
+}
+
+.portfolio-loader-title span {
+  color: var(--accent, #bb9be8);
+  font-family: var(--editorial-serif, Georgia, serif);
+  font-style: italic;
+  font-weight: 400;
+  letter-spacing: -0.045em;
+}
+
+.portfolio-loader-description {
+  max-width: 26rem;
+  margin: 0.625rem auto 0;
+  color: var(--muted-foreground, #c3b9ca);
+  font-size: 0.9375rem;
+  line-height: 1.65;
+}
+
+.portfolio-loader-progress {
+  width: min(100%, 22rem);
+  margin: 2rem auto 0;
+}
+
+.portfolio-loader-progress-labels {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 0.5rem 1rem;
+  color: var(--brand-muted, #b9a9c7);
+  font-size: 0.625rem;
+  letter-spacing: 0.12em;
+  line-height: 1.5;
+}
+
+.portfolio-loader-progress-labels span:last-child {
+  color: var(--accent, #bb9be8);
+}
+
+.portfolio-loader-track {
+  position: relative;
+  height: 0.25rem;
+  margin-top: 0.75rem;
+  overflow: hidden;
+  background: var(--primary-surface, rgb(124 92 250 / 0.12));
+}
+
+.portfolio-loader-progress-indicator {
+  position: absolute;
+  inset: 0 auto 0 0;
+  width: 34%;
+  background: var(--accent, #bb9be8);
+  animation: portfolio-loader-sweep 1.35s var(--ease-standard, cubic-bezier(0.22, 1, 0.36, 1))
+    infinite;
+}
+
+@keyframes portfolio-loader-sweep {
+  from {
+    transform: translateX(-115%);
+  }
+
+  to {
+    transform: translateX(330%);
+  }
+}
+
+@media (max-width: 480px) {
+  .portfolio-loader-frame {
+    padding-block: 1.75rem;
+  }
+
+  .portfolio-loader-title {
+    font-size: clamp(1.625rem, 8vw, 2rem);
+  }
+
+  .portfolio-loader-description {
+    max-width: 21rem;
+    font-size: 0.875rem;
+  }
+
+  .portfolio-loader-progress {
+    margin-top: 1.75rem;
+  }
+}
+
+@media (max-width: 359px) {
+  .portfolio-loader-title {
+    font-size: 1.5rem;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .portfolio-loader-progress-indicator {
+    inset-inline-start: 42%;
+    width: 16%;
+    animation: none;
+  }
+}

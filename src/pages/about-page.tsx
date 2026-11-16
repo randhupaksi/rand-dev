@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom'
 import { SectionHeading } from '@/components/ui/section-heading'
 import { aboutFacts, journeyItems, profileHighlights, skillGroups } from '@/data/about'
 import { editorial } from '@/data/editorial'
+import { projects } from '@/data/projects'
 import { usePageMeta } from '@/hooks/use-page-meta'
 export default function AboutPage() {
   const primarySkillGroups = skillGroups.filter(group => !group.isAdditional)
@@ -17,7 +18,9 @@ export default function AboutPage() {
           Frontend <em>Developer</em>
         </h1>
         <div className="about-profile">
-          <img src="/images/profile/randhu-no-bg.png" alt="Randhu Paksi Membumi" />
+          <div className="about-profile-portrait">
+            <img src="/images/profile/randhu-no-bg-clean.png" alt="Randhu Paksi Membumi" />
+          </div>
           <div>
             <p>{editorial.aboutIntro}</p>
             <dl>
@@ -47,22 +50,41 @@ export default function AboutPage() {
       <section className="folio-section paper-field">
         <SectionHeading
           index="01"
-          label="Selected work & metrics"
+          label="Selected work"
           title={
             <>
-              Project scope & <em>outcomes</em>
+              Projects in <em>context</em>
             </>
           }
         />
         <div className="principle-grid">
-          {profileHighlights.map((item, index) => (
-            <article key={item.title}>
-              <p className="folio-label">/0{index + 1}</p>
-              <h3>{item.title}</h3>
-              <p className="highlight-metric">{item.metric}</p>
-              <p>{item.description}</p>
-            </article>
-          ))}
+          {profileHighlights.map((item, index) => {
+            const project = projects.find(({ slug }) => slug === item.projectSlug)
+
+            if (!project) {
+              return null
+            }
+
+            return (
+              <article key={project.slug}>
+                <p className="folio-label">/0{index + 1}</p>
+                <h3>{project.name}</h3>
+                <p className="highlight-fact">{item.fact}</p>
+                <p className="highlight-description">{item.description}</p>
+                {project.links.demo ? (
+                  <a
+                    className="highlight-project-link"
+                    href={project.links.demo}
+                    target="_blank"
+                    rel="noreferrer"
+                  >
+                    <span>Open {project.name}</span>
+                    <ArrowUpRight size={16} aria-hidden="true" />
+                  </a>
+                ) : null}
+              </article>
+            )
+          })}
         </div>
       </section>
       <section className="folio-section">
@@ -142,10 +164,19 @@ export default function AboutPage() {
           ))}
         </ol>
       </section>
-      <section className="folio-section">
-        <p className="folio-label">Project details</p>
-        <Link to="/projects" className="big-editorial-link">
-          View selected projects <ArrowUpRight aria-hidden="true" />
+      <section className="about-project-cta" aria-labelledby="about-project-cta-title">
+        <div className="about-project-cta-copy">
+          <p className="folio-label">
+            <span>04</span>
+            Project index
+          </p>
+          <h2 id="about-project-cta-title">
+            The work beyond the <em>highlights</em>
+          </h2>
+          <p>Browse project details, implementation choices, and product context.</p>
+        </div>
+        <Link to="/projects" className="about-project-cta-link">
+          View all projects <ArrowUpRight size={18} aria-hidden="true" />
         </Link>
       </section>
     </div>

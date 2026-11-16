@@ -18,6 +18,7 @@
 .home-cover-copy {
   position: relative;
   z-index: 2;
+  transform: translateY(-1.95rem);
 }
 .home-cover-copy > .folio-label {
   color: var(--brand-muted);
@@ -757,6 +758,9 @@
     grid-template-columns: minmax(0, 1fr);
     gap: 2rem;
     min-height: 0;
+  }
+  .home-cover-copy {
+    transform: none;
   }
   .home-cover-copy h1 {
     font-size: clamp(2.3rem, 4.2vw, 3.5rem);

@@ -22,7 +22,7 @@ export function HeroVisual() {
           <div className="hero-portrait-surface absolute inset-[3%] rounded-full" />
           <div className="hero-portrait-inner absolute inset-[9%] overflow-hidden rounded-full border">
             <img
-              src="/images/profile/randhu-no-bg-dark.png"
+              src="/images/profile/randhu-no-bg-clean.png"
               alt="Portrait of Randhu Paksi Membumi"
               className="absolute inset-0 h-full w-full scale-[1.08] object-contain object-bottom sm:scale-[1.14] lg:scale-[1.19]"
             />

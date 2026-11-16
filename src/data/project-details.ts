@@ -344,7 +344,7 @@ const detailsBySlug: Partial<Record<string, ProjectDetails>> = {
     caseStudy: [
       {
         title: 'Data ownership & offline use',
-        body: 'Ranledger is an Indonesian personal finance app that stores the default ledger in the current browser and supports offline use. Accounts and cloud sync are optional; creating an account does not automatically upload a local ledger.',
+        body: 'RanLedger is an Indonesian personal finance app that stores the default ledger in the current browser and supports offline use. Accounts and cloud sync are optional; creating an account does not automatically upload a local ledger.',
         isPlaceholder: false,
       },
       {
@@ -371,17 +371,17 @@ const detailsBySlug: Partial<Record<string, ProjectDetails>> = {
     gallery: [
       {
         src: '/images/project/ranledger/overview.jpg',
-        alt: 'Ranledger dashboard in a fresh workspace, with local storage and a zero-balance summary.',
+        alt: 'RanLedger dashboard in a fresh workspace, with local storage and a zero-balance summary.',
         label: 'Finance overview',
       },
       {
         src: '/images/project/ranledger/wallets.jpg',
-        alt: 'Ranledger wallet page showing local accounts and the combined balance.',
+        alt: 'RanLedger wallet page showing local accounts and the combined balance.',
         label: 'Wallets and transfers',
       },
       {
         src: '/images/project/ranledger/reports.jpg',
-        alt: 'Ranledger financial report page with period, asset, obligation, and cash-flow summaries.',
+        alt: 'RanLedger financial report page with period, asset, obligation, and cash-flow summaries.',
         label: 'Financial reports',
       },
     ],
