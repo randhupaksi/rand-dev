@@ -115,7 +115,15 @@ export const projects: ProjectSummary[] = [
       src: '/images/project/rancode-lab/overview.jpg',
       alt: 'Rancode Lab homepage with a coding lesson, editable example, and rendered browser preview.',
     },
-    stack: ['React 19', 'TypeScript', 'Vite', 'Tailwind CSS 4', 'CodeMirror', 'MDX', 'Zod'],
+    stack: [
+      'React 19',
+      'TypeScript',
+      'Vite',
+      'React Router 7',
+      'Tailwind CSS 4',
+      'CodeMirror 6',
+      'Zod',
+    ],
     focusAreas: [
       'Structured frontend curriculum',
       'Browser-based coding practice',

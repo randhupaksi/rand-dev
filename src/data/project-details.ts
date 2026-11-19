@@ -27,45 +27,60 @@ const detailsBySlug: Partial<Record<string, ProjectDetails>> = {
     ],
     technicalStack: [
       {
-        title: 'Frontend application',
+        title: 'Frontend routes & feature boundaries',
         description:
-          'The Vite single-page app that handles the clean interface, server state, forms, reporting views, and interaction details across role-based workflows.',
+          'React Router composes lazy-loaded pages, role redirects, and route-level recovery. Shared authentication, query, theme, and notification providers sit above role-specific page groups; feature services keep API calls out of the views.',
         items: [
           'React 19',
           'TypeScript 5.9',
           'Vite 8',
           'React Router 7',
           'Tailwind CSS 4',
-          'TanStack Query 5',
-          'TanStack Table 8',
-          'Axios',
-          'React Hook Form 7',
-          'Zod 4',
-          'Base UI',
-          'Radix Select',
-          'Motion 12',
-          'Recharts 3',
-          'Sonner',
-          'jsPDF + AutoTable',
-          'react-day-picker',
+          'Base UI + Radix Select',
+          'Motion + Sonner',
+          'Shared app providers',
+          'Feature-based pages and services',
         ],
       },
       {
-        title: 'API, data, and operations',
+        title: 'API state, forms & reporting',
         description:
-          'The Go REST API that owns business rules, access control, persistence, private evidence, and the safeguards behind a dependable enterprise workflow.',
+          'A shared Axios client handles transport while TanStack Query owns remote state and targeted mutation invalidation. React Hook Form and Zod validate submissions; table, chart, and PDF tools present roster and reporting data.',
         items: [
-          'Go 1.25',
+          'Axios service client',
+          'TanStack Query 5',
+          'React Hook Form 7',
+          'Zod 4',
+          'TanStack Table 8',
+          'Recharts 3',
+          'jsPDF + AutoTable',
+        ],
+      },
+      {
+        title: 'Go API & authorization layers',
+        description:
+          'Gin routes pass through middleware into domain modules. Handlers validate HTTP input; services own school rules and role scope; GORM persists the result in MySQL. Protected requests recheck the current role and session version against the database.',
+        items: [
+          'Go 1.26.8',
           'Gin',
+          'Handlers, services, and domain modules',
           'GORM',
           'MySQL',
-          'JWT (HS256)',
+          'JWT session checks',
           'bcrypt',
           'go-playground/validator',
-          'Excelize',
-          'Cloudinary',
-          'Web Push',
+        ],
+      },
+      {
+        title: 'Files, live support & operations',
+        description:
+          'Redis shares login gates, throttles, and support events across API instances. Attendance evidence uses private local storage or Cloudinary; authenticated SSE refreshes support tickets, Web Push sends notifications, and request tracing plus bounded rate controls protect API traffic.',
+        items: [
           'Redis',
+          'Private uploads / Cloudinary',
+          'Authenticated SSE',
+          'Web Push',
+          'Excelize',
           'Gzip + request tracing',
           'Rate and admission controls',
         ],
@@ -119,8 +134,33 @@ const detailsBySlug: Partial<Record<string, ProjectDetails>> = {
         alt: 'Citra Negara student sign-in screen with empty NIS and password fields.',
         label: 'Student login',
       },
+      {
+        src: '/images/project/absensi-cn/staff-login.jpg',
+        alt: 'Citra Negara staff portal sign-in for homeroom, subject teachers, and counselling staff.',
+        label: 'Staff portal',
+      },
+      {
+        src: '/images/project/absensi-cn/student-help-ticket.jpg',
+        alt: 'Student account support form with identity and issue details for an administrator review.',
+        label: 'Student account support',
+      },
+      {
+        src: '/images/project/absensi-cn/staff-help-ticket.jpg',
+        alt: 'Staff account support form with a username field and issue details for an administrator review.',
+        label: 'Staff account support',
+      },
+      {
+        src: '/images/project/absensi-cn/ticket-status-search.jpg',
+        alt: 'Support ticket lookup using the access code saved when the ticket was created.',
+        label: 'Ticket follow-up',
+      },
+      {
+        src: '/images/project/absensi-cn/attendance-feature-map.jpg',
+        alt: 'Attendance feature overview with photo check-in, validation, monitoring, recaps, live history, and connected data.',
+        label: 'Attendance workflow',
+      },
     ],
-    gallerySlots: 3,
+    gallerySlots: 8,
   },
   ranmotion: {
     capabilities: [
@@ -147,16 +187,41 @@ const detailsBySlug: Partial<Record<string, ProjectDetails>> = {
     ],
     technicalStack: [
       {
-        title: 'Learning interface',
+        title: 'App shell & learning routes',
         description:
-          'A responsive React application presents the bilingual curriculum, lesson routes, playground, challenge board, reference, and learner progress.',
-        items: ['React 19', 'TypeScript', 'Vite', 'React Router', 'Tailwind CSS 4'],
+          'React Router separates the home, lesson, playground, challenge, progress, and reference experiences. Shared layout and providers supply bilingual copy and preferences; the editor and lab runtime load only on routes that need them.',
+        items: [
+          'React 19',
+          'TypeScript',
+          'Vite',
+          'React Router 7',
+          'Tailwind CSS 4',
+          'Route-level code splitting',
+        ],
       },
       {
-        title: 'Animation practice lab',
+        title: 'Curriculum & learner state',
         description:
-          'CodeMirror edits examples that run in a constrained preview frame. The frame loads locally bundled GSAP and reports validated animation diagnostics back to the app.',
-        items: ['CodeMirror 6', 'GSAP', 'Sandboxed iframe', 'Zod', 'Browser storage'],
+          'Typed lesson data drives the bilingual curriculum, examples, and challenge checks. Zod validates saved progress and settings in localStorage; when browser storage is unavailable, the app keeps the session usable with in-memory progress.',
+        items: [
+          'Typed curriculum and examples',
+          'Zod schemas',
+          'localStorage progress and drafts',
+          'In-memory storage fallback',
+          'Reduced-motion preference',
+        ],
+      },
+      {
+        title: 'Isolated GSAP practice lab',
+        description:
+          'CodeMirror edits focused JavaScript examples inside an opaque-origin iframe. Locally bundled GSAP plugins run the preview; a per-frame message token and Zod report schema return bounded diagnostics without exposing the app DOM or browser storage.',
+        items: [
+          'CodeMirror 6',
+          'GSAP + ScrollTrigger + MotionPath',
+          'Sandboxed iframe + CSP',
+          'Validated postMessage protocol',
+          'Runtime diagnostics and challenges',
+        ],
       },
     ],
     caseStudy: [
@@ -202,8 +267,33 @@ const detailsBySlug: Partial<Record<string, ProjectDetails>> = {
         alt: 'RanMotion introductory lesson with a guided explanation and lesson navigation.',
         label: 'Guided lesson',
       },
+      {
+        src: '/images/project/ranmotion/playground.jpg',
+        alt: 'RanMotion playground with a JavaScript editor beside a sandboxed live GSAP preview.',
+        label: 'Live motion playground',
+      },
+      {
+        src: '/images/project/ranmotion/challenge-board.jpg',
+        alt: 'RanMotion challenge board with practice progress, module filters, and a selected animation task.',
+        label: 'Animation challenges',
+      },
+      {
+        src: '/images/project/ranmotion/learner-progress.jpg',
+        alt: 'RanMotion progress view connecting lesson completion, challenge practice, and a suggested next step.',
+        label: 'Learner progress',
+      },
+      {
+        src: '/images/project/ranmotion/quick-reference.jpg',
+        alt: 'RanMotion searchable reference with concise animation concepts and links to guided lessons.',
+        label: 'Quick reference',
+      },
+      {
+        src: '/images/project/ranmotion/timeline-lesson.jpg',
+        alt: 'RanMotion timeline lesson with a learning outline, lesson objective, and guided explanation.',
+        label: 'Timeline lesson',
+      },
     ],
-    gallerySlots: 3,
+    gallerySlots: 8,
   },
   'rancode-lab': {
     capabilities: [
@@ -235,21 +325,40 @@ const detailsBySlug: Partial<Record<string, ProjectDetails>> = {
     ],
     technicalStack: [
       {
-        title: 'Curriculum and application',
+        title: 'Typed curriculum & route assembly',
         description:
-          'The Vite React app keeps authored lesson material separate from generated runtime data, localizes learning content, and lazy-loads heavier route tools.',
-        items: ['React 19', 'TypeScript', 'Vite', 'React Router', 'MDX', 'Tailwind CSS 4'],
+          'Course content is authored as TypeScript modules across foundation, framework, and expansion paths. A build-time generator creates runtime navigation data; React Router composes lesson, course, and project routes around that catalog.',
+        items: [
+          'React 19',
+          'TypeScript',
+          'Vite',
+          'React Router 7',
+          'Generated course catalog',
+          'Tailwind CSS 4',
+        ],
       },
       {
-        title: 'Interactive learning tools',
+        title: 'Browser labs & code execution',
         description:
-          'CodeMirror editors, a browser TypeScript checker, workers, and sandboxed previews let each lesson use an appropriate local practice surface.',
+          'Each practice surface uses a bounded runtime: JavaScript and web previews run in isolated frames, TypeScript checks in a Web Worker, and the Tailwind lab compiles utilities separately. The Next.js capstone simulates routes and data states instead of starting a Next.js server.',
         items: [
           'CodeMirror 6',
-          'TypeScript browser compiler',
-          'Web Workers',
-          'Sandboxed iframe',
+          'TypeScript browser compiler in a worker',
+          'Sandboxed HTML / CSS / React previews',
+          'Tailwind compiler worker',
           'Zod',
+        ],
+      },
+      {
+        title: 'Progress, search & project work',
+        description:
+          'Progress, drafts, checkpoint results, and language preference are validated and stored in the learner’s browser. Search indexes the local catalog, filters remain linkable in the URL, and project labs provide downloadable work plus self-review criteria without a learner account or cloud service.',
+        items: [
+          'Zod-validated browser storage',
+          'MiniSearch',
+          'URL-backed filters',
+          'Downloadable project artifacts',
+          'No application backend',
         ],
       },
     ],
@@ -292,12 +401,37 @@ const detailsBySlug: Partial<Record<string, ProjectDetails>> = {
         label: 'Frontend curriculum',
       },
       {
+        src: '/images/project/rancode-lab/logic-learning-path.jpg',
+        alt: 'Logic and Problem Solving learning path with guided concepts, stages, and progress details.',
+        label: 'Logic learning path',
+      },
+      {
+        src: '/images/project/rancode-lab/concept-library.jpg',
+        alt: 'Rancode Lab concept explorer with searchable topics and a guided concept explanation.',
+        label: 'Concept explorer',
+      },
+      {
         src: '/images/project/rancode-lab/lab.jpg',
         alt: 'Rancode Lab browser playground with a coding example, instructions, and run control.',
         label: 'Browser coding lab',
       },
+      {
+        src: '/images/project/rancode-lab/challenge-board.jpg',
+        alt: 'Rancode Lab challenge board with a challenge list, progress, and a selected coding prompt.',
+        label: 'Challenge board',
+      },
+      {
+        src: '/images/project/rancode-lab/stage-projects.jpg',
+        alt: 'Rancode Lab project index with self-reviewed projects across the learning stages.',
+        label: 'Stage projects',
+      },
+      {
+        src: '/images/project/rancode-lab/quick-reference.jpg',
+        alt: 'Rancode Lab quick reference with searchable programming examples and topic filters.',
+        label: 'Quick reference',
+      },
     ],
-    gallerySlots: 3,
+    gallerySlots: 8,
   },
   ranledger: {
     capabilities: [
@@ -329,16 +463,53 @@ const detailsBySlug: Partial<Record<string, ProjectDetails>> = {
     ],
     technicalStack: [
       {
-        title: 'Offline-capable application',
+        title: 'Application shell & feature routes',
         description:
-          'The React client stores the local ledger in IndexedDB and prepares the production app for offline use. Feature routes and heavier Excel tooling load as needed.',
-        items: ['React 19', 'TypeScript', 'Vite', 'Tailwind CSS 4', 'Dexie / IndexedDB', 'PWA'],
+          'The React SPA composes dashboard, wallets, transactions, budgets, planning, calendar, reports, reconciliation, backup, and settings as feature-owned screens. Shared providers expose ledger and cloud state; route and heavier workbook code load on demand.',
+        items: [
+          'React 19',
+          'TypeScript',
+          'Vite',
+          'React Router 8',
+          'Tailwind CSS 4',
+          'Feature-oriented routes',
+        ],
       },
       {
-        title: 'Optional cloud service and data tools',
+        title: 'Local ledger domain & persistence',
         description:
-          'When cloud is configured and chosen, a Hono API uses PostgreSQL; PGlite supports local development. Zod validates data while SheetJS supports workbook import and export.',
-        items: ['Hono', 'PostgreSQL', 'PGlite for local development', 'Zod', 'SheetJS'],
+          'Finance rules are kept in domain modules for ledger math, planning, forecasting, validation, and sync. Dexie stores records in IndexedDB and exposes live queries; multi-record imports and restores use transactions so invalid or partial writes can be rolled back.',
+        items: [
+          'Dexie + IndexedDB',
+          'Dexie React hooks',
+          'Zod ledger schemas',
+          'Domain-owned calculations',
+          'Transactional restore and import',
+        ],
+      },
+      {
+        title: 'Offline use & file workflows',
+        description:
+          'A Vite PWA service worker prepares the application shell for offline use. CSV parsing runs in a worker; SheetJS handles workbook import and export, while JSON and encrypted .rledger backups share a validation and restore pipeline.',
+        items: [
+          'vite-plugin-pwa + Workbox',
+          'CSV Web Worker',
+          'SheetJS',
+          'Web Crypto AES-GCM backup',
+          'Lazy-loaded reporting tools',
+        ],
+      },
+      {
+        title: 'Optional cloud sync service',
+        description:
+          'The ledger remains usable without an account or server. When a user opts into cloud spaces, a Hono API syncs queued local changes with PostgreSQL, tracks access roles, and surfaces conflicts for review; PGlite supplies the local development database.',
+        items: [
+          'Hono API + Node adapter',
+          'PostgreSQL',
+          'PGlite for local development',
+          'Persistent sync queue',
+          'Conflict-aware merge',
+        ],
       },
     ],
     caseStudy: [
@@ -384,8 +555,33 @@ const detailsBySlug: Partial<Record<string, ProjectDetails>> = {
         alt: 'RanLedger financial report page with period, asset, obligation, and cash-flow summaries.',
         label: 'Financial reports',
       },
+      {
+        src: '/images/project/ranledger/transactions.jpg',
+        alt: 'RanLedger transaction workspace with search, filters, totals, and a clear first-entry prompt.',
+        label: 'Transactions',
+      },
+      {
+        src: '/images/project/ranledger/budget-overview.jpg',
+        alt: 'RanLedger monthly budget view with period and wallet filters and a setup prompt.',
+        label: 'Monthly budgets',
+      },
+      {
+        src: '/images/project/ranledger/cashflow-calendar.jpg',
+        alt: 'RanLedger 30-day cash-flow projection showing asset balance and scheduled events.',
+        label: 'Cash-flow projection',
+      },
+      {
+        src: '/images/project/ranledger/recurring-schedule.jpg',
+        alt: 'RanLedger recurring transaction planner with active and paused schedules and reminder guidance.',
+        label: 'Recurring schedules',
+      },
+      {
+        src: '/images/project/ranledger/backup-restore.jpg',
+        alt: 'RanLedger backup workspace with encrypted, JSON, and Excel options for local financial data.',
+        label: 'Backup and restore',
+      },
     ],
-    gallerySlots: 3,
+    gallerySlots: 8,
   },
   ranfession: {
     capabilities: [
@@ -412,16 +608,33 @@ const detailsBySlug: Partial<Record<string, ProjectDetails>> = {
     ],
     technicalStack: [
       {
-        title: 'Story interface',
+        title: 'Typed story model & reader state',
         description:
-          'A static React application renders the configurable story and keeps the reading flow in the browser without a router-backed service or account system.',
-        items: ['React 19', 'TypeScript', 'Vite'],
+          'The story is authored as ordered, typed scene data and parsed by a Zod discriminated union before rendering. App state controls only the opening and confession reveal; chapter navigation uses browser anchors rather than a router.',
+        items: [
+          'React 19',
+          'TypeScript',
+          'Vite',
+          'Zod scene validation',
+          'React state + browser hash',
+        ],
       },
       {
-        title: 'Motion and content safeguards',
+        title: 'Scroll choreography & accessibility',
         description:
-          'GSAP and ScrollTrigger support chapter entrances, Zod validates scene configuration, and Web Audio API creates optional ambient sound locally.',
-        items: ['GSAP', 'ScrollTrigger', 'Zod', 'Web Audio API', 'Reduced motion'],
+          'A dedicated motion hook owns GSAP timelines and ScrollTrigger lifecycle for chapter entrances and reveal moments. A system-aware reduced-motion hook and CSS fallback keep the letter readable without animation.',
+        items: ['GSAP', 'ScrollTrigger', 'Reduced-motion hook', 'Scoped animation cleanup'],
+      },
+      {
+        title: 'Audio & browser-only boundaries',
+        description:
+          'Optional ambience is synthesized with Web Audio only after the reader enables it. The theme preference is the only persisted product setting; story progress is in-memory, with no account, API, database, analytics, or cross-device sync.',
+        items: [
+          'Web Audio API',
+          'User-controlled audio',
+          'localStorage for theme only',
+          'No backend or persistent story state',
+        ],
       },
     ],
     caseStudy: [
@@ -457,8 +670,43 @@ const detailsBySlug: Partial<Record<string, ProjectDetails>> = {
         alt: 'Ranfession opening invitation screen',
         label: 'Opening invitation',
       },
+      {
+        src: '/images/project/ranfession/story-opening.jpg',
+        alt: 'Ranfession opening chapter introducing the letter in a split editorial reading layout.',
+        label: 'Letter opening',
+      },
+      {
+        src: '/images/project/ranfession/chapter-03.jpg',
+        alt: 'Ranfession chapter presenting expandable prompts about personal interests and attention.',
+        label: 'Personal details',
+      },
+      {
+        src: '/images/project/ranfession/chapter-04.jpg',
+        alt: 'Ranfession chapter inviting the reader to share their perspective in a quiet centered composition.',
+        label: 'Reader perspective',
+      },
+      {
+        src: '/images/project/ranfession/chapter-05.jpg',
+        alt: 'Ranfession chapter shifting the letter from curiosity toward a more thoughtful connection.',
+        label: 'A change of tone',
+      },
+      {
+        src: '/images/project/ranfession/chapter-06.jpg',
+        alt: 'Ranfession chapter using three expandable everyday scenarios to shape a possible shared future.',
+        label: 'Everyday possibilities',
+      },
+      {
+        src: '/images/project/ranfession/chapter-07.jpg',
+        alt: 'Ranfession keepsake-style letter page with a reflective chapter and warm paper surface.',
+        label: 'A page worth keeping',
+      },
+      {
+        src: '/images/project/ranfession/light-reading-mode.jpg',
+        alt: 'Ranfession reading experience in its alternate light theme with the same chapter layout.',
+        label: 'Light reading mode',
+      },
     ],
-    gallerySlots: 1,
+    gallerySlots: 8,
   },
   ranbience: {
     capabilities: [
@@ -485,21 +733,40 @@ const detailsBySlug: Partial<Record<string, ProjectDetails>> = {
     ],
     technicalStack: [
       {
-        title: 'Catalog and scene rendering',
+        title: 'Route shell & scene catalog',
         description:
-          'A static React app renders authored SVG scenes, filterable collections, and route-level previews. Scene metadata and rendered output use a shared schema and generator.',
-        items: ['React', 'TypeScript', 'Vite', 'SVG', 'GSAP'],
+          'React Router composes the home, filterable library, 3D collection, scene detail, and guide routes. Zod-backed catalog metadata keeps scene descriptions, filters, and renderer registration aligned while all page modules remain statically hosted and route-loaded.',
+        items: [
+          'React 19 + TypeScript',
+          'Vite',
+          'React Router 7',
+          'Zod catalog schema',
+          'URL-backed collection filters',
+        ],
       },
       {
-        title: 'Preview, controls, and export',
+        title: 'Shared SVG renderer & motion lifecycle',
         description:
-          'Preview stages mount near the viewport, pause when hidden, and expose validated playback and parameter controls. Code viewing and formatting load only when needed.',
+          'Scene templates share drawing helpers, metadata, and a generator used by both live previews and exported source. GSAP powers playback; preview stages mount near the viewport and pause offscreen or when the document is hidden, with reduced-motion fallbacks.',
         items: [
-          'GSAP 3',
-          'Three.js collection',
-          'Zod',
-          'CodeMirror',
-          'Clipboard and download APIs',
+          'Authored SVG scenes',
+          'GSAP 3.15',
+          'Shared preview / export generator',
+          'IntersectionObserver lifecycle',
+          'Reduced-motion rendering',
+        ],
+      },
+      {
+        title: '3D studies, sandbox & source export',
+        description:
+          'The separate spatial collection uses Three.js for interactive 3D studies. Live scene previews run inside opaque-origin sandboxed frames with a generated CSP and token-checked, Zod-validated messages; the read-only CodeMirror viewer and formatter worker load only when requested.',
+        items: [
+          'Three.js',
+          'Sandboxed iframe + CSP',
+          'Validated postMessage protocol',
+          'CodeMirror 6',
+          'Web Worker formatting',
+          'Clipboard + download APIs',
         ],
       },
     ],
@@ -542,12 +809,32 @@ const detailsBySlug: Partial<Record<string, ProjectDetails>> = {
         label: 'Adjustable SVG scene',
       },
       {
+        src: '/images/project/ranbience/firefly-pocket.jpg',
+        alt: 'Ranbience A Pocket of Fireflies scene page with a live animated firefly field and motion controls.',
+        label: 'A Pocket of Fireflies',
+      },
+      {
+        src: '/images/project/ranbience/rain-on-glass.jpg',
+        alt: 'Ranbience Rain on Glass detail page with an animated rain scene and adjustable motion controls.',
+        label: 'Rain on Glass',
+      },
+      {
+        src: '/images/project/ranbience/moonlit-shore.jpg',
+        alt: 'Ranbience Moonlit Shore scene page showing a moonlit water animation and preview controls.',
+        label: 'Moonlit Shore',
+      },
+      {
         src: '/images/project/ranbience/spatial.jpg',
         alt: 'Ranbience 3D collection with interactive scene cards and category filters.',
         label: '3D scene collection',
       },
+      {
+        src: '/images/project/ranbience/midnight-meadow-3d.jpg',
+        alt: 'Ranbience Midnight Meadow in the 3D collection with interactive flowers and fireflies.',
+        label: 'Midnight Meadow · 3D',
+      },
     ],
-    gallerySlots: 4,
+    gallerySlots: 8,
   },
   'rand-studio': {
     capabilities: [
@@ -569,16 +856,41 @@ const detailsBySlug: Partial<Record<string, ProjectDetails>> = {
     ],
     technicalStack: [
       {
-        title: 'Studio site and service pages',
+        title: 'Routes & shared page composition',
         description:
-          'A React SPA composes the studio home page, service index and details, founder profile, FAQs, and brief flow from centralized data and shared sections.',
-        items: ['React 19', 'TypeScript', 'Vite 8', 'React Router', 'Tailwind CSS 4'],
+          'React Router maps the studio home, service index and detail pages, founder profile, FAQs, and project brief. Route components compose focused sections from centralized typed data, with shared layout, navigation, and UI modules above them.',
+        items: [
+          'React 19',
+          'TypeScript',
+          'Vite 8',
+          'React Router 7',
+          'Tailwind CSS 4',
+          'Shared layout and section components',
+        ],
       },
       {
-        title: 'Motion and page behavior',
+        title: 'Design system & page behavior',
         description:
-          'GSAP supports reveal behavior while Lenis handles smooth scrolling. The brief remains client-side and creates a copy or email-draft handoff only after the visitor chooses it.',
-        items: ['GSAP', 'Lenis', 'Lucide React'],
+          'Semantic CSS tokens and shared controls define the site’s visual system. A scoped GSAP/ScrollTrigger hook handles reveal motion, Lenis coordinates smooth scrolling, and Base UI with Radix Select supplies focused accessible primitives.',
+        items: [
+          'Tailwind CSS 4 + CSS tokens',
+          'Base UI + Radix Select',
+          'GSAP + ScrollTrigger',
+          'Lenis',
+          'Lucide React',
+        ],
+      },
+      {
+        title: 'Client-side project brief',
+        description:
+          'The brief is controlled by local React state and never posts to an application API. After review, the visitor can copy a formatted summary or open a prefilled email draft when VITE_CONTACT_EMAIL is configured; neither action sends automatically.',
+        items: [
+          'React local state',
+          'Clipboard API',
+          'mailto handoff',
+          'VITE_CONTACT_EMAIL',
+          'No server submission',
+        ],
       },
     ],
     caseStudy: [
@@ -637,16 +949,29 @@ const detailsBySlug: Partial<Record<string, ProjectDetails>> = {
     ],
     technicalStack: [
       {
-        title: 'Starter application',
+        title: 'Starter runtime & source ownership',
         description:
-          'A lightweight React SPA provides the shared shell, sample home page, a setup checklist, semantic tokens, and a not-found route.',
-        items: ['React', 'TypeScript', 'Vite', 'React Router', 'Tailwind CSS 4'],
+          'The starter mounts a small React SPA with route registration, a shared shell, home setup checklist, and not-found route. Its source areas separate app wiring, pages, reusable layout/UI, optional features, and semantic styling without shipping a sample product backend.',
+        items: [
+          'React 19',
+          'TypeScript',
+          'Vite',
+          'React Router 7',
+          'Tailwind CSS 4',
+          'Semantic CSS tokens',
+        ],
       },
       {
-        title: 'Repository workflow',
+        title: 'Documentation & quality workflow',
         description:
-          'Local instructions, source-area guides, project recipes, and CI support setup. The starter does not include a backend, account, database, or product test runner.',
-        items: ['Oxlint', 'Prettier', 'TypeScript', 'Node test runner', 'GitHub Actions'],
+          'Area-level READMEs and project recipes guide extension only where a real owner exists. The quality command checks formatting, documentation links, lint, TypeScript, a focused Node test for repository tooling, and a production build; it does not test a derived product’s behavior.',
+        items: [
+          'Oxlint',
+          'Prettier',
+          'TypeScript build checks',
+          'Node.js test runner for docs tooling',
+          'GitHub Actions CI',
+        ],
       },
     ],
     caseStudy: [

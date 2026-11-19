@@ -6,7 +6,7 @@ export function WorkIndex({ projects }: { projects: ProjectSummary[] }) {
   return (
     <ol className="work-index-list">
       {projects.map((project, index) => (
-        <li key={project.slug}>
+        <li key={project.slug} className={project.thumbnail?.src ? 'has-image' : undefined}>
           <span className="work-index-number">{String(index + 1).padStart(2, '0')}</span>
           <div className="work-index-title">
             <span className="folio-label">{project.category}</span>
@@ -16,6 +16,11 @@ export function WorkIndex({ projects }: { projects: ProjectSummary[] }) {
           </div>
           <p>{project.summary}</p>
           <span className="work-index-stack">{project.stack.slice(0, 3).join(' / ')}</span>
+          {project.thumbnail?.src && (
+            <figure className="work-index-image">
+              <img src={project.thumbnail.src} alt={project.thumbnail.alt} loading="lazy" />
+            </figure>
+          )}
           <Link
             className="work-index-open"
             to={`/projects/${project.slug}`}
