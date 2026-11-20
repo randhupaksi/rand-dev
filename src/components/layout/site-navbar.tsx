@@ -22,8 +22,8 @@ export function SiteNavbar() {
   }, [open])
   return (
     <header className="folio-navbar">
-      <Link to="/" className="folio-brand" aria-label="Randhu home">
-        randhu
+      <Link to="/" className="folio-brand" aria-label="RandhuPaksi home">
+        RandhuPaksi
         <Asterisk aria-hidden="true" />
       </Link>
       <button
@@ -41,12 +41,18 @@ export function SiteNavbar() {
         className={open ? 'folio-nav is-open' : 'folio-nav'}
         aria-label="Main navigation"
       >
-        {navigationItems.map((item, index) => (
-          <NavLink key={item.to} to={item.to} end={item.to === '/'} onClick={() => setOpen(false)}>
-            <sup>0{index + 1}</sup>
-            {item.label}
-          </NavLink>
-        ))}
+        <div className="folio-nav-links">
+          {navigationItems.map(item => (
+            <NavLink
+              key={item.to}
+              to={item.to}
+              end={item.to === '/'}
+              onClick={() => setOpen(false)}
+            >
+              {item.label}
+            </NavLink>
+          ))}
+        </div>
         <Link to="/contact" className="nav-conversation" onClick={() => setOpen(false)}>
           Let’s talk <ArrowUpRight size={16} aria-hidden="true" />
         </Link>

@@ -664,7 +664,7 @@
 }
 .home-contact {
   position: relative;
-  padding: clamp(5rem, 9vw, 9rem) var(--folio-gutter);
+  padding: clamp(4rem, 7vw, 6.5rem) var(--folio-gutter) clamp(4rem, 6vw, 5.5rem);
   background: var(--accent);
   color: var(--background);
 }
@@ -678,8 +678,8 @@
   z-index: 1;
   width: max-content;
   max-width: 100%;
-  margin: 2rem 0 3rem;
-  font-size: clamp(2.35rem, 4.5vw, 4.2rem);
+  margin: clamp(1.5rem, 2.6vw, 2.25rem) 0 2.25rem;
+  font-size: clamp(3rem, 5.6vw, 5rem);
   line-height: 0.96;
   letter-spacing: -0.08em;
   font-weight: 500;
@@ -692,21 +692,23 @@
 .home-contact-bottom {
   position: relative;
   z-index: 1;
-  display: flex;
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
   justify-content: space-between;
-  align-items: flex-end;
-  gap: 2rem;
+  align-items: center;
+  gap: clamp(2rem, 6vw, 7rem);
   padding-top: 1.5rem;
 }
 .home-contact-bottom > p {
-  max-width: 24rem;
-  font-size: 0.87rem;
-  line-height: 1.8;
+  max-width: 28rem;
+  font-size: 0.95rem;
+  line-height: 1.7;
 }
 .home-contact-bottom > div {
   display: flex;
   align-items: center;
-  gap: 1.5rem;
+  justify-content: flex-end;
+  gap: 0.75rem;
   flex-wrap: wrap;
 }
 .contact-primary,
@@ -715,8 +717,9 @@
   align-items: center;
   justify-content: space-between;
   gap: 1rem;
-  min-height: 48px;
-  padding-inline: 1rem;
+  min-width: 11.25rem;
+  min-height: 52px;
+  padding-inline: 1.1rem;
   border: 1px solid transparent;
   border-radius: 2px;
   font-size: 0.8rem;
@@ -1121,26 +1124,42 @@
     font-size: 0.73rem;
   }
   .home-contact {
-    padding-block: 4.5rem;
+    padding-block: 3.75rem 4rem;
+  }
+  .home-contact .contact-orbit {
+    display: none;
   }
   .home-contact h2 {
     width: 100%;
     min-width: 0;
-    font-size: clamp(3rem, 10vw, 4.1rem);
-    margin: 2rem 0;
+    font-size: clamp(2.65rem, 9vw, 4rem);
+    margin: 1.5rem 0 1.75rem;
     white-space: normal;
     text-wrap: balance;
   }
   .home-contact-bottom {
-    align-items: flex-start;
-    flex-direction: column;
-    gap: 1.25rem;
+    grid-template-columns: minmax(0, 1fr);
+    align-items: start;
+    gap: 1.5rem;
+    padding-top: 1.25rem;
   }
   .home-contact-bottom > p {
-    font-size: 0.8rem;
+    max-width: 32rem;
+    font-size: 0.9rem;
   }
   .home-contact-bottom > div {
-    gap: 1rem;
+    width: 100%;
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 0.75rem;
+  }
+  .contact-primary,
+  .contact-secondary {
+    min-width: 0;
+    min-height: 48px;
+    width: 100%;
+    padding-inline: 0.8rem;
+    gap: 0.6rem;
   }
 }
 @media (max-width: 380px) {

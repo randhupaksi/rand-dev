@@ -13,6 +13,7 @@ export function RootLayout() {
           Skip to content
         </a>
         <SiteNavbar />
+        <div className="folio-navbar-spacer" aria-hidden="true" />
         <main id="main-content" className="flex-1" tabIndex={-1}>
           <Suspense fallback={<PageSkeleton />}>
             <Outlet />
