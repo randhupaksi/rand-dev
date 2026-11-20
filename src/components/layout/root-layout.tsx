@@ -1,34 +1,9 @@
-import { Suspense, useEffect } from 'react'
+import { Suspense } from 'react'
 import { Outlet } from 'react-router-dom'
 
-import { PortfolioLoader } from '@/components/common/portfolio-loader'
+import { PageSkeleton } from '@/components/common/page-skeleton'
 import { SiteFooter } from '@/components/layout/site-footer'
 import { SiteNavbar } from '@/components/layout/site-navbar'
-
-function DismissInitialLoader() {
-  useEffect(() => {
-    const loader = document.getElementById('initial-loader')
-
-    if (!loader) {
-      return
-    }
-
-    loader.classList.add('is-ready')
-    const timeoutId = window.setTimeout(() => loader.remove(), 260)
-
-    return () => window.clearTimeout(timeoutId)
-  }, [])
-
-  return null
-}
-
-function RouteLoadingFallback() {
-  if (document.getElementById('initial-loader')) {
-    return null
-  }
-
-  return <PortfolioLoader />
-}
 
 export function RootLayout() {
   return (
@@ -39,9 +14,8 @@ export function RootLayout() {
         </a>
         <SiteNavbar />
         <main id="main-content" className="flex-1" tabIndex={-1}>
-          <Suspense fallback={<RouteLoadingFallback />}>
+          <Suspense fallback={<PageSkeleton />}>
             <Outlet />
-            <DismissInitialLoader />
           </Suspense>
         </main>
         <SiteFooter />

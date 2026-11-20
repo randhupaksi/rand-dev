@@ -1,0 +1,854 @@
+.page-skeleton {
+  width: 100%;
+  color: var(--foreground);
+}
+
+.page-skeleton-art {
+  width: 100%;
+}
+
+.page-skeleton-shape {
+  display: block;
+  min-width: 0;
+  overflow: hidden;
+  border-radius: 2px;
+  background-color: color-mix(in srgb, currentColor 8%, transparent);
+  background-image: linear-gradient(
+    105deg,
+    transparent 18%,
+    color-mix(in srgb, currentColor 7%, transparent) 42%,
+    color-mix(in srgb, currentColor 12%, transparent) 50%,
+    color-mix(in srgb, currentColor 7%, transparent) 58%,
+    transparent 82%
+  );
+  background-size: 220% 100%;
+  animation: page-skeleton-shimmer 1.8s ease-in-out infinite;
+}
+
+.page-skeleton-eyebrow {
+  width: clamp(6rem, 13vw, 9rem);
+  height: 0.55rem;
+}
+
+.page-skeleton-greeting {
+  width: min(23rem, 78%);
+  height: 1.2rem;
+  margin-top: clamp(2rem, 5vw, 3.5rem);
+}
+
+.page-skeleton-title-lines {
+  display: flex;
+  width: min(100%, 54rem);
+  flex-direction: column;
+  gap: 0.38rem;
+}
+
+.page-skeleton-title {
+  width: 78%;
+  height: clamp(2.15rem, 5.8vw, 4.5rem);
+}
+
+.page-skeleton-title--wide {
+  width: 96%;
+}
+
+.page-skeleton-title--short {
+  width: 52%;
+}
+
+.page-skeleton-title--manifesto {
+  width: 72%;
+}
+
+.page-skeleton-title--manifesto-short {
+  width: 48%;
+}
+
+.page-skeleton-title--contact {
+  width: 70%;
+}
+
+.page-skeleton-title--contact-short {
+  width: 42%;
+}
+
+.page-skeleton-section-title {
+  width: min(21rem, 88%);
+  height: clamp(1.75rem, 4vw, 2.6rem);
+}
+
+.page-skeleton-lines {
+  display: flex;
+  width: min(100%, 42rem);
+  flex-direction: column;
+  gap: 0.65rem;
+  margin-top: 0.9rem;
+}
+
+.page-skeleton-line {
+  height: 0.68rem;
+}
+
+.page-skeleton-line--full {
+  width: 100%;
+}
+
+.page-skeleton-line--wide {
+  width: 88%;
+}
+
+.page-skeleton-line--short {
+  width: 68%;
+}
+
+.page-skeleton-section-heading {
+  display: flex;
+  flex-direction: column;
+  gap: 1.1rem;
+  margin-bottom: clamp(2rem, 4vw, 3rem);
+}
+
+.page-skeleton-section-heading .page-skeleton-title-lines {
+  max-width: 48rem;
+}
+
+.page-skeleton-heading-copy {
+  margin-top: 0;
+}
+
+.page-skeleton-subheading {
+  width: min(19rem, 82%);
+  height: 1.35rem;
+}
+
+.page-skeleton-tagline {
+  width: min(22rem, 88%);
+  height: 0.58rem;
+  margin-top: 1rem;
+}
+
+.page-skeleton-number {
+  width: 1.45rem;
+  height: 0.7rem;
+}
+
+.page-skeleton-action,
+.page-skeleton-link-copy {
+  width: 9rem;
+  height: 0.75rem;
+}
+
+.page-skeleton-action--short {
+  width: 6.5rem;
+}
+
+.page-skeleton-media {
+  width: 100%;
+  aspect-ratio: 16 / 10;
+  border: 1px solid color-mix(in srgb, currentColor 14%, transparent);
+  background-color: color-mix(in srgb, currentColor 5%, transparent);
+}
+
+.page-skeleton-arrow {
+  width: 3.375rem;
+  height: 3.375rem;
+  flex: 0 0 auto;
+  border: 1px solid color-mix(in srgb, currentColor 18%, transparent);
+  background-color: transparent;
+}
+
+.page-skeleton-arrow--small {
+  width: 2rem;
+  height: 2rem;
+}
+
+.page-skeleton-button {
+  width: 9rem;
+  height: 3.2rem;
+  border: 1px solid color-mix(in srgb, currentColor 20%, transparent);
+  background-color: color-mix(in srgb, currentColor 8%, transparent);
+}
+
+.page-skeleton-button--secondary {
+  width: 8rem;
+  background-color: transparent;
+}
+
+/* Home: the skeleton follows the portrait-led hero and each real section below it. */
+.page-skeleton-home-cover {
+  grid-template-columns: minmax(0, 1.1fr) minmax(17rem, 0.65fr);
+}
+
+.page-skeleton-home-copy {
+  align-self: center;
+}
+
+.page-skeleton-home-title {
+  display: flex;
+  width: min(100%, 58rem);
+  flex-direction: column;
+  gap: 0.4rem;
+  margin-top: 0.8rem;
+}
+
+.page-skeleton-home-title .page-skeleton-title:first-child {
+  width: 56%;
+}
+
+.page-skeleton-home-title .page-skeleton-title:last-child {
+  width: 96%;
+}
+
+.page-skeleton-home-bottom {
+  align-items: center;
+}
+
+.page-skeleton-home-bottom .page-skeleton-lines {
+  max-width: 32rem;
+}
+
+.page-skeleton-home-profile {
+  width: min(100%, 25rem);
+  justify-self: center;
+}
+
+.page-skeleton-home-profile .home-cover-portrait {
+  width: 100%;
+}
+
+.page-skeleton-portrait {
+  position: relative;
+  display: flex;
+  min-height: 27rem;
+  align-items: flex-end;
+  justify-content: center;
+  overflow: hidden;
+  background: var(--hero-portrait-surface, var(--paper));
+}
+
+.page-skeleton-monogram {
+  position: absolute;
+  top: -0.09em;
+  left: 0.04em;
+  color: color-mix(in srgb, var(--foreground) 72%, transparent);
+  font-family: var(--editorial-serif);
+  font-size: clamp(5rem, 14vw, 10rem);
+  line-height: 1;
+}
+
+.page-skeleton-person {
+  position: relative;
+  display: flex;
+  width: min(68%, 15rem);
+  height: 78%;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-end;
+}
+
+.page-skeleton-person-head {
+  z-index: 1;
+  width: 30%;
+  aspect-ratio: 0.82;
+  border-radius: 48% 48% 44% 44%;
+  background: color-mix(in srgb, var(--paper-ink) 13%, transparent);
+}
+
+.page-skeleton-person-body {
+  width: 100%;
+  height: 68%;
+  margin-top: -0.2rem;
+  border-radius: 42% 42% 0 0;
+  background: color-mix(in srgb, var(--paper-ink) 13%, transparent);
+}
+
+.page-skeleton-portrait-side {
+  position: absolute;
+  top: 38%;
+  right: 1.3rem;
+  width: 0.45rem;
+  height: 7rem;
+}
+
+.home-cover-portrait figcaption {
+  min-height: 3rem;
+}
+
+.page-skeleton-caption {
+  width: 7rem;
+  height: 0.55rem;
+}
+
+.page-skeleton-caption--short {
+  width: 6rem;
+}
+
+.page-skeleton-socials {
+  display: flex;
+  justify-content: center;
+  gap: 0.75rem;
+  margin-top: 1rem;
+}
+
+.page-skeleton-social {
+  width: 3.75rem;
+  height: 3.75rem;
+  border: 1px solid color-mix(in srgb, currentColor 18%, transparent);
+  border-radius: 50%;
+}
+
+.page-skeleton-baseline-copy {
+  width: 13rem;
+  height: 0.55rem;
+}
+
+.page-skeleton-baseline-copy--short {
+  width: 15rem;
+}
+
+.page-skeleton-home-work {
+  color: var(--paper-ink);
+}
+
+.page-skeleton-home-work .home-work-heading > div {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.page-skeleton-project-list li {
+  min-width: 0;
+}
+
+.page-skeleton-project-list .work-index-number {
+  padding-top: 0.15rem;
+}
+
+.page-skeleton-project-list .work-index-title {
+  min-width: 0;
+}
+
+.page-skeleton-project-list .work-index-image {
+  border-color: var(--paper-rule);
+  background: color-mix(in srgb, var(--paper) 92%, var(--paper-ink));
+}
+
+.page-skeleton-project-list .work-index-image .page-skeleton-media {
+  border: 0;
+  background-color: color-mix(in srgb, var(--paper-ink) 5%, transparent);
+}
+
+.page-skeleton-project-title {
+  width: min(20rem, 82%);
+  height: 1.2rem;
+}
+
+.page-skeleton-project-list li > .page-skeleton-summary {
+  margin: 0;
+}
+
+.page-skeleton-project-list li > .page-skeleton-summary .page-skeleton-lines {
+  margin-top: 0;
+}
+
+.page-skeleton-stack {
+  width: 100%;
+  height: 0.55rem;
+}
+
+.page-skeleton-open {
+  width: 2.75rem;
+  height: 2.75rem;
+  border: 1px solid color-mix(in srgb, currentColor 20%, transparent);
+  background-color: transparent;
+}
+
+.page-skeleton-index-link {
+  display: flex;
+  width: fit-content;
+  align-items: center;
+  gap: 1rem;
+  margin-top: 1.8rem;
+}
+
+.page-skeleton-manifesto .manifesto-content {
+  width: 100%;
+}
+
+.page-skeleton-title--manifesto {
+  width: min(48rem, 78%);
+}
+
+.page-skeleton-title--manifesto-short {
+  width: min(25rem, 42%);
+}
+
+.page-skeleton-manifesto-mark {
+  width: 2rem;
+  height: 2rem;
+  border-radius: 50%;
+}
+
+.page-skeleton-manifesto .manifesto-details > .page-skeleton-lines {
+  max-width: 33rem;
+}
+
+.page-skeleton-capabilities .capability-heading {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.page-skeleton-capabilities .capability-list article > div .page-skeleton-lines {
+  margin-top: 0;
+}
+
+.page-skeleton-capabilities .capability-list article > div > .page-skeleton-tagline {
+  display: block;
+}
+
+.page-skeleton-toolkit header,
+.page-skeleton-process .process-heading {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.page-skeleton-toolkit .toolkit-grid article {
+  min-width: 0;
+}
+
+.page-skeleton-toolkit .toolkit-grid .page-skeleton-lines {
+  max-width: 20rem;
+}
+
+.page-skeleton-process .process-list li > div {
+  min-width: 0;
+}
+
+.page-skeleton-process-marker {
+  width: 2.75rem;
+  height: 2.75rem;
+  border: 1px solid color-mix(in srgb, currentColor 24%, transparent);
+  border-radius: 50%;
+  background-color: transparent;
+}
+
+.page-skeleton-home-contact .page-skeleton-title-lines {
+  margin-top: 1.6rem;
+}
+
+.page-skeleton-title--contact {
+  width: min(38rem, 75%);
+}
+
+.page-skeleton-title--contact-short {
+  width: min(23rem, 46%);
+}
+
+.page-skeleton-contact-mark {
+  width: clamp(7rem, 18vw, 14rem);
+  height: clamp(7rem, 18vw, 14rem);
+  border-radius: 50%;
+  background-color: color-mix(in srgb, currentColor 7%, transparent);
+}
+
+.page-skeleton-home-contact .home-contact-bottom > .page-skeleton-lines {
+  max-width: 27rem;
+}
+
+.page-skeleton-contact-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+
+/* Project index: one real thumbnail, metadata, summary and action per row. */
+.page-skeleton-projects .folio-page-intro {
+  background: var(--background);
+  color: var(--foreground);
+}
+
+.page-skeleton-page-title {
+  margin-block: 2rem;
+}
+
+.page-skeleton-page-title .page-skeleton-title:first-child {
+  width: 60%;
+}
+
+.page-skeleton-page-title .page-skeleton-title:last-child {
+  width: 34%;
+}
+
+.page-skeleton-intro-copy {
+  max-width: 42rem;
+  margin-top: 0;
+}
+
+/* About: portrait and facts, work highlights, skills, journey, then the index CTA. */
+.page-skeleton-about-portrait {
+  position: relative;
+  align-items: flex-end;
+  justify-content: center;
+}
+
+.page-skeleton-about-portrait .page-skeleton-person {
+  width: min(74%, 19rem);
+  height: 72%;
+}
+
+.page-skeleton-about-portrait .page-skeleton-person-head,
+.page-skeleton-about-portrait .page-skeleton-person-body {
+  background: color-mix(in srgb, var(--foreground) 11%, transparent);
+}
+
+.page-skeleton-about .about-profile dl > div {
+  display: flex;
+  flex-direction: column;
+  gap: 0.65rem;
+}
+
+.page-skeleton-highlight-grid article {
+  min-width: 0;
+}
+
+.page-skeleton-highlight-grid article > .page-skeleton-subheading {
+  margin-top: 1.25rem;
+}
+
+.page-skeleton-highlight-grid .page-skeleton-action {
+  margin-top: 1rem;
+}
+
+.page-skeleton-additional-skill {
+  display: grid;
+  grid-template-columns: 1fr 1.5fr;
+  gap: 3rem;
+  margin-top: 1rem;
+  padding: 1.5rem 0;
+  border-top: 1px solid var(--border-subtle);
+}
+
+.page-skeleton-about .journey-list li > .page-skeleton-eyebrow {
+  margin-top: 0.25rem;
+}
+
+.page-skeleton-about .journey-list li > div {
+  min-width: 0;
+}
+
+.page-skeleton-about .journey-list li > div:last-child .page-skeleton-action {
+  margin-top: 1rem;
+}
+
+.page-skeleton-about-cta {
+  color: var(--foreground);
+}
+
+.page-skeleton-about-cta .page-skeleton-title-lines {
+  margin-top: 1.2rem;
+}
+
+/* Project case study: overview, scope, capability, architecture, gallery and next work. */
+.page-skeleton-back-link {
+  width: 6rem;
+  height: 0.65rem;
+}
+
+.page-skeleton-case-category {
+  width: min(18rem, 80%);
+  margin-top: clamp(1.5rem, 3vw, 2.25rem);
+}
+
+.page-skeleton-case-title {
+  margin-block: 1.5rem;
+}
+
+.page-skeleton-case-title .page-skeleton-title:first-child {
+  width: 83%;
+}
+
+.page-skeleton-case-title .page-skeleton-title:last-child {
+  width: 58%;
+}
+
+.page-skeleton-case-links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem 2rem;
+  margin-top: 1.25rem;
+}
+
+.page-skeleton-detail .case-hero-cover {
+  min-width: 0;
+}
+
+.page-skeleton-detail .case-hero-cover .page-skeleton-media {
+  display: block;
+}
+
+.page-skeleton-detail .page-skeleton-section-heading {
+  max-width: 54rem;
+}
+
+.page-skeleton-detail .case-narrative .page-skeleton-case-row > .page-skeleton-subheading,
+.page-skeleton-detail .case-narrative .page-skeleton-case-row > .page-skeleton-lines {
+  grid-column: 2;
+}
+
+.page-skeleton-detail .technical-stack-list article > div {
+  min-width: 0;
+}
+
+.page-skeleton-chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.45rem;
+  margin-top: 1rem;
+}
+
+.page-skeleton-chip {
+  width: 4.8rem;
+  height: 1.65rem;
+  border: 1px solid color-mix(in srgb, currentColor 16%, transparent);
+  border-radius: 999px;
+}
+
+.page-skeleton-detail .case-gallery figure {
+  min-width: 0;
+}
+
+.page-skeleton-gallery-index {
+  width: 1.3rem;
+  height: 0.55rem;
+}
+
+.page-skeleton-gallery-caption {
+  width: min(12rem, 58%);
+  height: 0.55rem;
+}
+
+.page-skeleton-detail .project-recommendations-heading {
+  width: 100%;
+}
+
+.page-skeleton-detail .project-recommendation-card {
+  min-width: 0;
+  overflow: hidden;
+}
+
+.page-skeleton-detail .project-recommendation-copy {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  padding: 1rem;
+}
+
+/* Contact and not-found routes. */
+.page-skeleton-contact .page-skeleton-intro-copy {
+  max-width: 38rem;
+}
+
+.page-skeleton-contact-list {
+  border-top: 1px solid var(--paper-rule);
+}
+
+.page-skeleton-contact-row {
+  display: grid;
+  min-height: 6.25rem;
+  grid-template-columns: 0.6fr 1.8fr auto;
+  align-items: center;
+  gap: 2rem;
+  border-bottom: 1px solid var(--paper-rule);
+}
+
+.page-skeleton-contact-value {
+  width: min(28rem, 100%);
+  height: clamp(1.15rem, 3vw, 2rem);
+}
+
+.page-skeleton-faq-row {
+  display: grid;
+  min-height: 5rem;
+  grid-template-columns: 2rem minmax(0, 1fr) auto;
+  align-items: center;
+  gap: 1rem;
+  border-top: 1px solid var(--border-subtle);
+}
+
+.page-skeleton-faq-sign {
+  width: 1rem;
+  height: 1rem;
+}
+
+.page-skeleton-not-found {
+  display: flex;
+  min-height: 34rem;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
+  gap: 1.2rem;
+}
+
+.page-skeleton-not-found-title {
+  width: min(100%, 52rem);
+  margin-top: 0.75rem;
+}
+
+.page-skeleton-not-found .page-skeleton-lines {
+  max-width: 28rem;
+  margin-top: 0;
+}
+
+.page-skeleton-not-found-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem 2rem;
+  margin-top: 0.75rem;
+}
+
+@keyframes page-skeleton-shimmer {
+  from {
+    background-position: 100% 0;
+  }
+
+  to {
+    background-position: -120% 0;
+  }
+}
+
+@media (max-width: 760px) {
+  .page-skeleton-home-cover {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .page-skeleton-home-copy {
+    order: 1;
+  }
+
+  .page-skeleton-home-profile {
+    order: 2;
+    width: min(78%, 18rem);
+    justify-self: center;
+  }
+
+  .page-skeleton-portrait {
+    min-height: auto;
+    aspect-ratio: 0.8;
+  }
+
+  .page-skeleton-home-bottom {
+    align-items: flex-end;
+  }
+
+  .page-skeleton-home-bottom .page-skeleton-lines {
+    flex: 1;
+    min-width: 0;
+  }
+
+  .page-skeleton-title {
+    height: clamp(2rem, 8vw, 3.3rem);
+  }
+
+  .page-skeleton-title--manifesto {
+    width: 92%;
+  }
+
+  .page-skeleton-title--manifesto-short {
+    width: 68%;
+  }
+
+  .page-skeleton-manifesto .manifesto-details {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .page-skeleton-toolkit .toolkit-grid {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .page-skeleton-process .process-list {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .page-skeleton-about .folio-page-intro {
+    padding-top: 3rem;
+  }
+
+  .page-skeleton-about .about-profile {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 2rem;
+  }
+
+  .page-skeleton-about-portrait {
+    height: auto;
+    aspect-ratio: 0.92;
+  }
+
+  .page-skeleton-about .skill-list article,
+  .page-skeleton-additional-skill {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 1rem;
+  }
+
+  .page-skeleton-about .journey-list li {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 0.85rem;
+  }
+
+  .page-skeleton-detail .case-hero {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .page-skeleton-contact-row {
+    min-height: 5.6rem;
+    grid-template-columns: minmax(0, 1fr) auto;
+    gap: 0.5rem;
+    padding-block: 1.25rem;
+  }
+
+  .page-skeleton-contact-row > .page-skeleton-eyebrow {
+    grid-column: 1 / -1;
+  }
+
+  .page-skeleton-contact-value {
+    width: min(100%, 18rem);
+  }
+}
+
+@media (max-width: 900px) {
+  .page-skeleton-project-list li > .page-skeleton-summary {
+    grid-column: 2 / 4;
+    grid-row: 3;
+  }
+}
+
+@media (max-width: 560px) {
+  .page-skeleton-home-title .page-skeleton-title:first-child {
+    width: 56%;
+  }
+
+  .page-skeleton-home-title .page-skeleton-title:last-child {
+    width: 100%;
+  }
+
+  .page-skeleton-home-contact .home-contact-bottom {
+    align-items: flex-start;
+    flex-direction: column;
+  }
+
+  .page-skeleton-contact-actions {
+    width: 100%;
+  }
+
+  .page-skeleton-contact-actions .page-skeleton-button {
+    flex: 1 1 8rem;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .page-skeleton-shape {
+    animation: none;
+    background-image: none;
+  }
+}

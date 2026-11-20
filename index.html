@@ -17,69 +17,8 @@
       content="Portfolio of Randhu Paksi Membumi, a Frontend Developer at Matik Creative Technology building responsive websites and apps with React, Next.js, and TypeScript."
     />
     <meta property="og:locale" content="id_ID" />
-    <link rel="stylesheet" href="/src/styles/portfolio-loader.css" />
-    <style>
-      #initial-loader {
-        position: fixed;
-        inset: 0;
-        z-index: 9999;
-        box-sizing: border-box;
-        display: grid;
-        place-items: center;
-        padding: clamp(1.5rem, 5vw, 3rem) clamp(1.25rem, 5vw, 2rem);
-        background: var(--background, #17121c);
-        color: var(--foreground, #f1ede5);
-        opacity: 1;
-        visibility: visible;
-        transition:
-          opacity 220ms ease,
-          visibility 220ms ease;
-      }
-
-      #initial-loader .portfolio-loader-frame {
-        box-sizing: border-box;
-        width: min(100%, 30rem);
-        padding-block: clamp(1.75rem, 4vw, 2.5rem);
-        text-align: center;
-      }
-
-      #initial-loader.is-ready {
-        opacity: 0;
-        visibility: hidden;
-        pointer-events: none;
-      }
-
-      @media (prefers-reduced-motion: reduce) {
-        #initial-loader {
-          transition-duration: 1ms;
-        }
-      }
-    </style>
   </head>
   <body class="min-h-full bg-background text-foreground font-sans">
-    <div
-      id="initial-loader"
-      role="status"
-      aria-live="polite"
-      aria-atomic="true"
-      aria-label="Preparing Randhu Paksi Membumi's portfolio"
-      class="portfolio-loader-shell portfolio-loader-shell--screen"
-    >
-      <div class="portfolio-loader-frame">
-        <p class="portfolio-loader-eyebrow">Randhu Paksi Membumi</p>
-        <p class="portfolio-loader-title">Preparing the <span>portfolio</span></p>
-        <p class="portfolio-loader-description">Loading selected work and product stories.</p>
-        <div class="portfolio-loader-progress">
-          <div class="portfolio-loader-progress-labels" aria-hidden="true">
-            <span>Setting the page</span>
-            <span>Please wait</span>
-          </div>
-          <div class="portfolio-loader-track" aria-hidden="true">
-            <span class="portfolio-loader-progress-indicator"></span>
-          </div>
-        </div>
-      </div>
-    </div>
     <div id="root"></div>
     <script type="module" src="/src/main.tsx"></script>
   </body>
