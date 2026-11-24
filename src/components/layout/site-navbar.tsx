@@ -2,7 +2,6 @@ import { useEffect, useRef, useState } from 'react'
 import { ArrowUpRight, Menu, X } from 'lucide-react'
 import { Link, NavLink, useLocation } from 'react-router-dom'
 
-import { FaviconMark } from '@/components/common/favicon-mark'
 import { navigationItems } from '@/data/navigation'
 export function SiteNavbar() {
   const [open, setOpen] = useState(false)
@@ -26,7 +25,6 @@ export function SiteNavbar() {
     <header className="folio-navbar">
       <Link to="/" className="folio-brand" aria-label="RandhuPaksi home">
         RandhuPaksi
-        <FaviconMark className="folio-brand-mark" />
       </Link>
       <button
         ref={toggleRef}

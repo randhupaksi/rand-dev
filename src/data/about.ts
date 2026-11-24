@@ -1,4 +1,4 @@
-import type { FaqItem, JourneyItem, ProfileHighlight, SkillGroup } from '@/types/about'
+import type { FaqGroup, JourneyItem, ProfileHighlight, SkillGroup } from '@/types/about'
 
 export const profileHighlights: ProfileHighlight[] = [
   {
@@ -112,19 +112,75 @@ export const journeyItems: JourneyItem[] = [
   },
 ]
 
-export const contactFaq: FaqItem[] = [
+export const contactFaqGroups: FaqGroup[] = [
   {
-    question: 'What work are you open to?',
-    answer: 'Frontend roles, product UI implementation, and web application collaboration.',
+    title: 'Working together',
+    eyebrow: 'FRONTEND · PRODUCT UI · MENTORING',
+    description: 'Role fit, current product work, and the teaching I do on the side.',
+    items: [
+      {
+        question: 'What kind of work am I open to?',
+        answer: 'Frontend roles, product UI implementation, and web application collaboration.',
+      },
+      {
+        question: 'What do I build at Matik Creative Technology?',
+        answer:
+          'I build responsive web and application interfaces with React, Next.js, TypeScript, and JavaScript.',
+      },
+      {
+        question: 'Do I also mentor other developers?',
+        answer:
+          'Yes. Mentoring is a side skill: I support IT Club members with frontend fundamentals, UI/UX, and project guidance.',
+      },
+    ],
   },
   {
-    question: 'Which technologies do you use?',
-    answer:
-      'React, Next.js, TypeScript, JavaScript, Vite, and Tailwind CSS. Selected projects also use Go, REST APIs, and MySQL.',
+    title: 'How I build',
+    eyebrow: 'WORKFLOW · API · QUALITY CHECKS',
+    description: 'The steps and technical choices behind the interfaces I make.',
+    items: [
+      {
+        question: 'How do I move from a brief to an interface?',
+        answer:
+          'I map user roles, decisions, and required actions to the screens and states a product needs, then build reusable, responsive UI.',
+      },
+      {
+        question: 'What do I check before an interface is ready?',
+        answer:
+          'I review responsive behavior, validation, loading and error feedback, permissions, and keyboard interaction.',
+      },
+      {
+        question: 'Can I work with APIs and backend data?',
+        answer:
+          'Yes. I connect forms and interface states to REST APIs, and work with Go services and MySQL when a project includes backend scope.',
+      },
+      {
+        question: 'Which technologies show up in my work?',
+        answer:
+          'React, Next.js, TypeScript, JavaScript, Vite, and Tailwind CSS. Selected projects also use Go, MySQL, GSAP, SVG, CodeMirror, Dexie, and PostgreSQL.',
+      },
+    ],
   },
   {
-    question: 'Where can I review your work?',
-    answer:
-      'The Projects page covers the school attendance platform, programming learning tools, personal finance app, and interactive letter.',
+    title: 'Selected work',
+    eyebrow: 'PROJECTS · CASE STUDIES · DEMOS',
+    description: 'A useful route through the products, project details, and live demos.',
+    items: [
+      {
+        question: 'What kinds of products have I built?',
+        answer:
+          'My work spans a production school attendance platform, a 50-scene animated SVG collection, bilingual learning tools, a local-first finance app, and an interactive digital letter.',
+      },
+      {
+        question: 'What does the Citra Negara Attendance System handle?',
+        answer:
+          'Students submit attendance with photo and location evidence; teachers and staff review requests and manage school-wide reporting. The production platform is used by more than 2,000 people.',
+      },
+      {
+        question: 'Can I try the projects online?',
+        answer:
+          'Live demos are available for the Attendance System, Ranbience, RanMotion, Rancode Lab, RanLedger, and Ranfession. The other project pages include their available screenshots and implementation details.',
+      },
+    ],
   },
 ]

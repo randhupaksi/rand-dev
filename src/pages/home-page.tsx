@@ -41,11 +41,16 @@ export default function HomePage() {
               <span className="cover-portrait-marker" aria-hidden="true">
                 R
               </span>
-              <img
-                src="/images/profile/randhu-no-bg-clean.png"
-                alt="Randhu Paksi Membumi"
-                fetchPriority="high"
-              />
+              <picture className="cover-portrait-picture">
+                <source srcSet="/images/profile/randhu-no-bg-clean.avif" type="image/avif" />
+                <img
+                  src="/images/profile/randhu-no-bg-clean.png"
+                  alt="Randhu Paksi Membumi"
+                  loading="eager"
+                  fetchPriority="high"
+                  decoding="async"
+                />
+              </picture>
               <span className="cover-portrait-side">FRONTEND · PRODUCT UI · SYSTEMS</span>
             </div>
             <figcaption>

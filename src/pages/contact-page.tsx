@@ -2,7 +2,7 @@ import { useState } from 'react'
 import { ArrowUpRight, ChevronDown } from 'lucide-react'
 
 import { FaviconMark } from '@/components/common/favicon-mark'
-import { contactFaq } from '@/data/about'
+import { contactFaqGroups } from '@/data/about'
 import { contactChannels, siteIdentity, socialLinks } from '@/data/site'
 import { usePageMeta } from '@/hooks/use-page-meta'
 import { SectionHeading } from '@/components/ui/section-heading'
@@ -13,6 +13,8 @@ export default function ContactPage() {
   )
   const channels = contactChannels.filter(channel => channel.href)
   const [openFaq, setOpenFaq] = useState<number | null>(null)
+  const faqCount = contactFaqGroups.reduce((total, group) => total + group.items.length, 0)
+  let faqIndex = 0
   return (
     <div className="editorial-page">
       <header className="folio-page-intro contact-intro">
@@ -67,48 +69,86 @@ export default function ContactPage() {
           </p>
         )}
       </section>
-      <section className="folio-section">
-        <SectionHeading
-          index="02"
-          label="Work & technologies"
-          title={
-            <>
-              Availability & <em>stack</em>
-            </>
-          }
-        />
-        <div className="editorial-faq">
-          {contactFaq.map((faq, index) => (
-            <div key={faq.question} className="faq-item" data-open={openFaq === index}>
-              <h3 className="faq-heading">
-                <button
-                  id={`availability-faq-trigger-${index + 1}`}
-                  className="faq-trigger"
-                  type="button"
-                  aria-expanded={openFaq === index}
-                  aria-controls={`availability-faq-answer-${index + 1}`}
-                  onClick={() => setOpenFaq(current => (current === index ? null : index))}
-                >
-                  <span className="folio-label">0{index + 1}</span>
-                  <span className="faq-question">{faq.question}</span>
-                  <span className="faq-sign" aria-hidden="true">
-                    <ChevronDown />
-                  </span>
-                </button>
-              </h3>
-              <div
-                id={`availability-faq-answer-${index + 1}`}
-                className="faq-answer"
-                role="region"
-                aria-labelledby={`availability-faq-trigger-${index + 1}`}
-                aria-hidden={openFaq !== index}
-                inert={openFaq !== index}
-              >
-                <div className="faq-answer-inner">
-                  <p>{faq.answer}</p>
-                </div>
+      <section className="folio-section contact-faq-section">
+        <div className="contact-faq-topline">
+          <SectionHeading
+            index="02"
+            label="Work & technologies"
+            title={
+              <>
+                Availability & <em>stack</em>
+              </>
+            }
+          >
+            Ten useful answers about the work I take on, how I build, and where to explore my work.
+          </SectionHeading>
+          <div
+            className="contact-faq-count"
+            aria-label={`${faqCount} answers across ${contactFaqGroups.length} topics`}
+          >
+            <strong>{String(faqCount).padStart(2, '0')}</strong>
+            <span className="folio-label">
+              answers
+              <br />
+              {String(contactFaqGroups.length).padStart(2, '0')} topics
+            </span>
+          </div>
+        </div>
+        <div className="contact-faq-groups">
+          {contactFaqGroups.map((group, groupIndex) => (
+            <section
+              key={group.title}
+              className="contact-faq-group"
+              aria-labelledby={`contact-faq-group-${groupIndex + 1}`}
+            >
+              <header className="contact-faq-group-heading">
+                <p className="folio-label">
+                  {String(groupIndex + 1).padStart(2, '0')} / {group.eyebrow}
+                </p>
+                <h3 id={`contact-faq-group-${groupIndex + 1}`}>{group.title}</h3>
+                <p>{group.description}</p>
+              </header>
+              <div className="editorial-faq">
+                {group.items.map(faq => {
+                  const index = faqIndex++
+                  const itemNumber = String(index + 1).padStart(2, '0')
+                  const isOpen = openFaq === index
+
+                  return (
+                    <div key={faq.question} className="faq-item" data-open={isOpen}>
+                      <h4 className="faq-heading">
+                        <button
+                          id={`contact-faq-trigger-${itemNumber}`}
+                          className="faq-trigger"
+                          type="button"
+                          aria-expanded={isOpen}
+                          aria-controls={`contact-faq-answer-${itemNumber}`}
+                          onClick={() => setOpenFaq(current => (current === index ? null : index))}
+                        >
+                          <span className="folio-label">{itemNumber}</span>
+                          <span className="faq-question">{faq.question}</span>
+                          <span className="faq-sign" aria-hidden="true">
+                            <ChevronDown />
+                          </span>
+                        </button>
+                      </h4>
+                      <div
+                        id={`contact-faq-answer-${itemNumber}`}
+                        className="faq-answer"
+                        role="region"
+                        aria-labelledby={`contact-faq-trigger-${itemNumber}`}
+                        aria-hidden={!isOpen}
+                        inert={!isOpen}
+                      >
+                        <div className="faq-answer-inner">
+                          <p>{faq.answer}</p>
+                        </div>
+                      </div>
+                    </div>
+                  )
+                })}
               </div>
-            </div>
+            </section>
           ))}
         </div>
       </section>

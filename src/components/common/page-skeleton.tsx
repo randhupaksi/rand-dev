@@ -491,13 +491,27 @@ function ContactSkeleton() {
         </div>
       </section>
       <section className="folio-section">
-        <SectionHeading />
-        <div className="editorial-faq page-skeleton-faq">
-          {Array.from({ length: 3 }, (_, index) => (
-            <div key={index} className="page-skeleton-faq-row">
-              <Shape className="page-skeleton-number" />
-              <Shape className="page-skeleton-subheading" />
-              <Shape className="page-skeleton-faq-sign" />
+        <div className="contact-faq-topline page-skeleton-contact-faq-topline">
+          <SectionHeading description />
+          <Shape className="page-skeleton-faq-count" />
+        </div>
+        <div className="contact-faq-groups page-skeleton-contact-faq-groups">
+          {[3, 4, 3].map((itemCount, groupIndex) => (
+            <div key={groupIndex} className="contact-faq-group page-skeleton-contact-faq-group">
+              <div className="contact-faq-group-heading">
+                <Shape className="page-skeleton-eyebrow" />
+                <Shape className="page-skeleton-subheading" />
+                <Lines count={2} />
+              </div>
+              <div className="editorial-faq page-skeleton-faq">
+                {Array.from({ length: itemCount }, (_, index) => (
+                  <div key={index} className="faq-item page-skeleton-faq-row">
+                    <Shape className="page-skeleton-number" />
+                    <Shape className="page-skeleton-subheading" />
+                    <Shape className="page-skeleton-faq-sign" />
+                  </div>
+                ))}
+              </div>
             </div>
           ))}
         </div>

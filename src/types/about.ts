@@ -30,3 +30,10 @@ export type FaqItem = {
   question: string
   answer: string
 }
+
+export type FaqGroup = {
+  title: string
+  eyebrow: string
+  description: string
+  items: FaqItem[]
+}

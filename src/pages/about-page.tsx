@@ -19,7 +19,16 @@ export default function AboutPage() {
         </h1>
         <div className="about-profile">
           <div className="about-profile-portrait">
-            <img src="/images/profile/randhu-no-bg-clean.png" alt="Randhu Paksi Membumi" />
+            <picture>
+              <source srcSet="/images/profile/randhu-no-bg-clean.avif" type="image/avif" />
+              <img
+                src="/images/profile/randhu-no-bg-clean.png"
+                alt="Randhu Paksi Membumi"
+                fetchPriority="high"
+                loading="eager"
+                decoding="async"
+              />
+            </picture>
           </div>
           <div>
             <p>{editorial.aboutIntro}</p>

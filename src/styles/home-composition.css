@@ -126,7 +126,12 @@
   aspect-ratio: 4/5;
   overflow: hidden;
 }
-.cover-portrait-image > img {
+.cover-portrait-picture {
+  position: absolute;
+  inset: 0;
+  display: block;
+}
+.cover-portrait-picture > img {
   position: absolute;
   inset: 0;
   width: 100%;

@@ -2,6 +2,21 @@ import { FaviconMark } from '@/components/common/favicon-mark'
 import { WorkIndex } from '@/components/common/work-index'
 import { projects } from '@/data/projects'
 import { usePageMeta } from '@/hooks/use-page-meta'
+
+const projectIndexOrder = [
+  'absensi-cn',
+  'ranbience',
+  'ranmotion',
+  'ranledger',
+  'rand-studio',
+  'ranfession',
+] as const
+
+const featuredProjects = projectIndexOrder.flatMap(slug => {
+  const project = projects.find(item => item.slug === slug)
+  return project ? [project] : []
+})
+
 export default function ProjectsPage() {
   usePageMeta(
     'Selected projects — Randhu Paksi Membumi',
@@ -12,7 +27,7 @@ export default function ProjectsPage() {
       <header className="folio-page-intro">
         <FaviconMark className="folio-intro-brand-mark" />
         <p className="folio-label">
-          The work / {String(projects.length).padStart(2, '0')} projects
+          The work / {String(featuredProjects.length).padStart(2, '0')} projects
         </p>
         <h1>
           Selected <em>projects</em>
@@ -24,7 +39,7 @@ export default function ProjectsPage() {
         </p>
       </header>
       <section className="folio-section project-work">
-        <WorkIndex projects={projects} />
+        <WorkIndex projects={featuredProjects} />
       </section>
     </div>
   )
