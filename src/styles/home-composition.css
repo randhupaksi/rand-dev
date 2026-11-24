@@ -15,6 +15,15 @@
   color: var(--foreground);
   overflow: visible;
 }
+.home-cover-brand-mark {
+  position: absolute;
+  top: clamp(1.25rem, 3vw, 2.5rem);
+  right: var(--folio-gutter);
+  z-index: 3;
+  width: clamp(2.75rem, 4vw, 3.5rem);
+  height: auto;
+  border-radius: 25%;
+}
 .home-cover-copy {
   position: relative;
   z-index: 2;
@@ -374,12 +383,12 @@
   font: 600 0.62rem var(--font-geist-mono);
   letter-spacing: 0.12em;
 }
-.manifesto-index > svg {
+.manifesto-index > .manifesto-brand-mark {
+  display: block;
+  flex: 0 0 auto;
   width: clamp(2.75rem, 4vw, 4rem);
   height: auto;
-  stroke-width: 0.75;
-  transform: rotate(12deg);
-  color: #d1b7f0;
+  border-radius: 25%;
 }
 .manifesto-content h2 {
   width: fit-content;
@@ -678,7 +687,7 @@
   z-index: 1;
   width: max-content;
   max-width: 100%;
-  margin: clamp(1.5rem, 2.6vw, 2.25rem) 0 2.25rem;
+  margin: clamp(1rem, 1.8vw, 1.5rem) 0 1.25rem;
   font-size: clamp(3rem, 5.6vw, 5rem);
   line-height: 0.96;
   letter-spacing: -0.08em;
@@ -697,12 +706,12 @@
   justify-content: space-between;
   align-items: center;
   gap: clamp(2rem, 6vw, 7rem);
-  padding-top: 1.5rem;
+  padding-top: 0.5rem;
 }
 .home-contact-bottom > p {
   max-width: 28rem;
   font-size: 0.95rem;
-  line-height: 1.7;
+  line-height: 1.65;
 }
 .home-contact-bottom > div {
   display: flex;
@@ -765,16 +774,16 @@
 .contact-orbit {
   position: absolute;
   z-index: 0;
-  right: 7%;
-  top: 8%;
-  opacity: 0.12;
+  right: 6%;
+  top: 2%;
+  opacity: 0.18;
   pointer-events: none;
 }
-.contact-orbit svg {
-  width: clamp(10rem, 25vw, 23rem);
+.contact-orbit-mark {
+  display: block;
+  width: clamp(7rem, 12vw, 10rem);
   height: auto;
-  stroke-width: 0.6;
-  transform: rotate(10deg);
+  border-radius: 25%;
 }
 @media (max-width: 1100px) {
   .home-cover {
@@ -863,6 +872,10 @@
     min-height: 0;
     padding-top: 3.5rem;
     padding-bottom: 1.5rem;
+  }
+  .home-cover-brand-mark {
+    top: 1rem;
+    width: 2.5rem;
   }
   .home-cover-copy > .folio-label {
     gap: 0.5rem 1rem;
@@ -999,7 +1012,7 @@
     align-items: center;
     min-height: 0;
   }
-  .manifesto-index > svg {
+  .manifesto-index > .manifesto-brand-mark {
     width: 50px;
   }
   .manifesto-content > .manifesto-details {
@@ -1133,7 +1146,7 @@
     width: 100%;
     min-width: 0;
     font-size: clamp(2.65rem, 9vw, 4rem);
-    margin: 1.5rem 0 1.75rem;
+    margin: 1.25rem 0 1rem;
     white-space: normal;
     text-wrap: balance;
   }
@@ -1141,7 +1154,7 @@
     grid-template-columns: minmax(0, 1fr);
     align-items: start;
     gap: 1.5rem;
-    padding-top: 1.25rem;
+    padding-top: 0.25rem;
   }
   .home-contact-bottom > p {
     max-width: 32rem;

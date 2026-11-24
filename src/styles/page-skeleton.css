@@ -179,6 +179,16 @@
   grid-template-columns: minmax(0, 1.1fr) minmax(17rem, 0.65fr);
 }
 
+.page-skeleton-home-brand-mark {
+  position: absolute;
+  top: clamp(1.25rem, 3vw, 2.5rem);
+  right: var(--folio-gutter);
+  z-index: 3;
+  width: clamp(2.75rem, 4vw, 3.5rem);
+  aspect-ratio: 1;
+  border-radius: 25%;
+}
+
 .page-skeleton-home-copy {
   align-self: center;
 }
@@ -469,6 +479,15 @@
   color: var(--foreground);
 }
 
+.page-skeleton-intro-brand-mark {
+  position: absolute;
+  top: clamp(1.5rem, 4vw, 3.25rem);
+  right: var(--folio-gutter);
+  width: clamp(3rem, 4.5vw, 4rem);
+  aspect-ratio: 1;
+  border-radius: 25%;
+}
+
 .page-skeleton-page-title {
   margin-block: 2rem;
 }
@@ -683,17 +702,37 @@
 }
 
 .page-skeleton-not-found {
-  display: flex;
-  min-height: 34rem;
-  flex-direction: column;
-  align-items: flex-start;
-  justify-content: center;
-  gap: 1.2rem;
+  min-height: 65vh;
+}
+
+.page-skeleton-not-found-mark {
+  color: var(--brand-muted);
+}
+
+.page-skeleton-not-found-mark-label,
+.page-skeleton-not-found-caption {
+  width: 7rem;
+  height: 0.55rem;
+}
+
+.page-skeleton-not-found-code {
+  width: 82%;
+  height: clamp(7rem, 13vw, 11rem);
+  margin-block: auto;
+}
+
+.page-skeleton-not-found-brand-mark {
+  position: absolute;
+  top: 18%;
+  right: 8%;
+  width: clamp(4rem, 7vw, 6rem);
+  aspect-ratio: 1;
+  border-radius: 25%;
 }
 
 .page-skeleton-not-found-title {
-  width: min(100%, 52rem);
-  margin-top: 0.75rem;
+  width: min(100%, 36rem);
+  margin: 1.25rem 0 1rem;
 }
 
 .page-skeleton-not-found .page-skeleton-lines {
@@ -704,8 +743,14 @@
 .page-skeleton-not-found-actions {
   display: flex;
   flex-wrap: wrap;
-  gap: 1rem 2rem;
-  margin-top: 0.75rem;
+  gap: 0.75rem;
+  margin-top: 2rem;
+}
+
+.page-skeleton-not-found-actions .page-skeleton-action {
+  width: 10rem;
+  height: 3.1rem;
+  border-radius: 999px;
 }
 
 @keyframes page-skeleton-shimmer {

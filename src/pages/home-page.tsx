@@ -1,5 +1,7 @@
-import { ArrowDownRight, ArrowUpRight, Asterisk } from 'lucide-react'
+import { ArrowDownRight, ArrowUpRight } from 'lucide-react'
 import { Link } from 'react-router-dom'
+
+import { FaviconMark } from '@/components/common/favicon-mark'
 import { SocialLinks } from '@/components/common/social-links'
 import { WorkIndex } from '@/components/common/work-index'
 import { editorial } from '@/data/editorial'
@@ -13,6 +15,7 @@ export default function HomePage() {
   return (
     <div className="creative-home">
       <section id="home" className="home-cover">
+        <FaviconMark className="home-cover-brand-mark" />
         <div className="home-cover-copy">
           <p className="folio-label">
             <span>PRODUCT-MINDED FRONTEND</span>
@@ -86,7 +89,7 @@ export default function HomePage() {
       <section id="about" className="home-manifesto">
         <div className="manifesto-index">
           <span>02 / CURRENT ROLE</span>
-          <Asterisk aria-hidden="true" />
+          <FaviconMark className="manifesto-brand-mark" />
         </div>
         <div className="manifesto-content">
           <h2>
@@ -184,7 +187,7 @@ export default function HomePage() {
 
       <section className="home-contact">
         <div className="contact-orbit" aria-hidden="true">
-          <Asterisk />
+          <FaviconMark className="contact-orbit-mark" />
         </div>
         <p className="folio-label">06 / AVAILABILITY</p>
         <h2>

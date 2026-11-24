@@ -93,7 +93,7 @@ export default function AboutPage() {
           label="Skills & additional experience"
           title={
             <>
-              Frontend, APIs & <em>UI/UX</em>
+              Frontend, API & <em>UI/UX</em>
             </>
           }
         />
