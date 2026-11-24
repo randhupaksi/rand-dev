@@ -42,6 +42,7 @@ function HomeSkeleton() {
   return (
     <div className="page-skeleton-home">
       <section className="home-cover page-skeleton-home-cover">
+        <Shape className="page-skeleton-home-brand-mark" />
         <div className="home-cover-copy page-skeleton-home-copy">
           <Shape className="page-skeleton-eyebrow" />
           <Shape className="page-skeleton-greeting" />
@@ -242,6 +243,7 @@ function ProjectsSkeleton() {
   return (
     <div className="project-index page-skeleton-projects">
       <header className="folio-page-intro">
+        <Shape className="page-skeleton-intro-brand-mark" />
         <Shape className="page-skeleton-eyebrow" />
         <div className="page-skeleton-title-lines page-skeleton-page-title">
           <Shape className="page-skeleton-title" />
@@ -468,6 +470,7 @@ function ContactSkeleton() {
   return (
     <div className="editorial-page page-skeleton-contact">
       <header className="folio-page-intro contact-intro">
+        <Shape className="page-skeleton-intro-brand-mark" />
         <Shape className="page-skeleton-eyebrow" />
         <div className="page-skeleton-title-lines page-skeleton-page-title">
           <Shape className="page-skeleton-title" />
@@ -506,16 +509,25 @@ function ContactSkeleton() {
 function NotFoundSkeleton() {
   return (
     <section className="folio-section not-found page-skeleton-not-found">
-      <Shape className="page-skeleton-eyebrow" />
-      <div className="page-skeleton-title-lines page-skeleton-not-found-title">
-        <Shape className="page-skeleton-title" />
-        <Shape className="page-skeleton-title page-skeleton-title--short" />
-      </div>
-      <Lines count={2} />
-      <div className="page-skeleton-not-found-actions">
-        <Shape className="page-skeleton-action" />
-        <Shape className="page-skeleton-action" />
-      </div>
+      <article className="not-found-panel page-skeleton-not-found-panel">
+        <div className="not-found-mark page-skeleton-not-found-mark">
+          <Shape className="page-skeleton-not-found-mark-label" />
+          <Shape className="page-skeleton-not-found-code" />
+          <Shape className="page-skeleton-not-found-brand-mark" />
+          <Shape className="page-skeleton-not-found-caption" />
+        </div>
+        <div className="not-found-copy page-skeleton-not-found-copy">
+          <Shape className="page-skeleton-eyebrow" />
+          <div className="page-skeleton-title-lines page-skeleton-not-found-title">
+            <Shape className="page-skeleton-title" />
+            <Shape className="page-skeleton-title page-skeleton-title--short" />
+          </div>
+          <Lines count={2} />
+          <div className="page-skeleton-not-found-actions">
+            <Shape className="page-skeleton-action" />
+          </div>
+        </div>
+      </article>
     </section>
   )
 }

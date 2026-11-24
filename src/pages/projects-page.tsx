@@ -1,3 +1,4 @@
+import { FaviconMark } from '@/components/common/favicon-mark'
 import { WorkIndex } from '@/components/common/work-index'
 import { projects } from '@/data/projects'
 import { usePageMeta } from '@/hooks/use-page-meta'
@@ -9,6 +10,7 @@ export default function ProjectsPage() {
   return (
     <div className="project-index">
       <header className="folio-page-intro">
+        <FaviconMark className="folio-intro-brand-mark" />
         <p className="folio-label">
           The work / {String(projects.length).padStart(2, '0')} projects
         </p>
